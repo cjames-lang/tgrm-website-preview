@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grief Recovery for Military, Veterans &amp; First Responders — The Grief Recovery Method®</title>
+<meta name="description" content="A veteran-created, evidence-based grief recovery program. GI Bill approved. Helping active duty, veterans, first responders, and their families deal with the invisible wounds since 1984.">
+<style>
+/* ========================================
+   CSS RESET & BASE
+   ======================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'Segoe UI', Arial, Helvetica, sans-serif; color: #2d3748; line-height: 1.6; background: #fff; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; font-family: inherit; }
+
+/* ========================================
+   BRAND TOKENS
+   ======================================== */
+:root {
+  --orange: #e07525;
+  --orange-dark: #c4621a;
+  --orange-light: #f5a623;
+  --teal: #427e88;
+  --teal-dark: #356a73;
+  --teal-light: #7895a3;
+  --teal-pale: #e8f2f4;
+  --warm-bg: #faf8f5;
+  --warm-bg-alt: #f5f0eb;
+  --text-primary: #2d3748;
+  --text-secondary: #5a6577;
+  --text-light: #8896a8;
+  --white: #ffffff;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+  --shadow-md: 0 4px 14px rgba(0,0,0,.1);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,.12);
+  --shadow-xl: 0 20px 50px rgba(0,0,0,.15);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --transition: .25s ease;
+  --olive: #4a5a3a;
+  --olive-dark: #3a4a2a;
+  --olive-pale: #e8ede3;
+  --navy: #1b2a4a;
+  --navy-dark: #0f1c36;
+}
+
+/* ========================================
+   UTILITY BAR
+   ======================================== */
+.utility-bar {
+  background: var(--teal-dark); color: rgba(255,255,255,.9); font-size: .8rem; padding: 6px 0;
+}
+.utility-bar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.utility-bar a { color: rgba(255,255,255,.9); }
+.utility-bar a:hover { color: #fff; }
+.utility-left { display: flex; gap: 18px; align-items: center; }
+.utility-right { display: flex; gap: 16px; align-items: center; }
+
+/* ========================================
+   HEADER / NAV
+   ======================================== */
+.header {
+  background: #fff; border-bottom: 1px solid rgba(0,0,0,.06);
+  position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow-sm);
+}
+.header .container { display: flex; align-items: center; justify-content: space-between; padding-top: 10px; padding-bottom: 10px; }
+.logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.logo-icon {
+  width: 44px; height: 44px;
+  background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 700; font-size: 1.1rem;
+}
+.logo-text { line-height: 1.15; }
+.logo-text .brand { font-weight: 700; font-size: 1.05rem; color: var(--teal-dark); }
+.logo-text .tagline { font-size: .68rem; color: var(--text-light); letter-spacing: .3px; }
+.main-nav { display: flex; align-items: center; gap: 0; }
+.nav-item { position: relative; }
+.nav-item > a, .nav-item > button {
+  display: flex; align-items: center; gap: 4px;
+  padding: 8px 14px; font-size: .88rem; font-weight: 500;
+  color: var(--text-primary); background: none; border-radius: var(--radius-sm); transition: var(--transition);
+}
+.nav-item > a:hover, .nav-item > button:hover { color: var(--orange); background: rgba(224,117,37,.05); }
+.nav-caret { font-size: .6rem; opacity: .5; transition: transform .2s; }
+.mega-menu {
+  display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+  background: #fff; border-radius: var(--radius-md); box-shadow: var(--shadow-xl);
+  padding: 24px; min-width: 580px; z-index: 999; border: 1px solid rgba(0,0,0,.06);
+}
+.mega-menu.mega-wide { min-width: 720px; }
+.nav-item:hover .mega-menu { display: block; }
+.mega-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.mega-cols.three-col { grid-template-columns: 1fr 1fr 1fr; }
+.mega-col-title { font-size: .72rem; text-transform: uppercase; letter-spacing: 1px; color: var(--teal); font-weight: 700; margin-bottom: 10px; }
+.mega-link { display: block; padding: 7px 10px; border-radius: var(--radius-sm); transition: var(--transition); }
+.mega-link:hover { background: var(--teal-pale); }
+.mega-link .ml-title { font-size: .88rem; font-weight: 600; color: var(--text-primary); }
+.mega-link .ml-desc { font-size: .76rem; color: var(--text-light); margin-top: 2px; }
+.nav-cta-group { display: flex; align-items: center; gap: 10px; margin-left: 10px; }
+.btn-outline-sm {
+  padding: 7px 16px; font-size: .82rem; font-weight: 600; border-radius: 50px;
+  border: 2px solid var(--teal); color: var(--teal); background: transparent; transition: var(--transition);
+}
+.btn-outline-sm:hover { background: var(--teal); color: #fff; }
+.btn-primary-sm {
+  padding: 8px 18px; font-size: .82rem; font-weight: 600; border-radius: 50px;
+  background: linear-gradient(135deg, var(--orange), var(--orange-dark)); color: #fff; transition: var(--transition);
+}
+.btn-primary-sm:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(224,117,37,.3); }
+
+/* ========================================
+   SHARED
+   ======================================== */
+.container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+.section-label {
+  font-size: .72rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;
+  color: var(--orange); margin-bottom: 10px;
+}
+.fade-in { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+.btn-primary {
+  display: inline-block; padding: 15px 34px; font-size: .95rem; font-weight: 600; border-radius: 50px;
+  background: linear-gradient(135deg, var(--orange), var(--orange-dark)); color: #fff; transition: var(--transition); text-align: center;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(224,117,37,.35); }
+.btn-secondary {
+  display: inline-block; padding: 14px 32px; font-size: .95rem; font-weight: 600; border-radius: 50px;
+  border: 2px solid var(--teal); color: var(--teal); background: transparent; transition: var(--transition); text-align: center;
+}
+.btn-secondary:hover { background: var(--teal); color: #fff; }
+.btn-white {
+  display: inline-block; padding: 14px 32px; font-size: .95rem; font-weight: 600; border-radius: 50px;
+  background: #fff; color: var(--teal-dark); transition: var(--transition); text-align: center;
+}
+.btn-white:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+
+/* ========================================
+   HERO — Military / Dark Theme
+   ======================================== */
+.mil-hero {
+  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 40%, #2a3d5a 100%);
+  color: #fff; padding: 80px 0 60px; position: relative; overflow: hidden;
+}
+.mil-hero::before {
+  content: ''; position: absolute; top: -30%; right: -10%; width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(224,117,37,.12) 0%, transparent 70%); border-radius: 50%;
+}
+.mil-hero::after {
+  content: ''; position: absolute; bottom: -20%; left: -10%; width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(66,126,136,.1) 0%, transparent 70%); border-radius: 50%;
+}
+.mil-hero .container { position: relative; z-index: 2; }
+.mil-hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 48px; align-items: center; }
+.mil-hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
+  padding: 6px 16px; border-radius: 50px; font-size: .78rem; font-weight: 600;
+  letter-spacing: .5px; text-transform: uppercase; margin-bottom: 20px; color: rgba(255,255,255,.9);
+}
+.mil-hero h1 { font-size: 2.4rem; font-weight: 800; line-height: 1.15; margin-bottom: 18px; }
+.mil-hero h1 span { color: var(--orange-light); }
+.mil-hero-sub { font-size: 1.05rem; line-height: 1.7; color: rgba(255,255,255,.8); margin-bottom: 24px; max-width: 560px; }
+.mil-audience-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.mil-tag {
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
+  padding: 6px 16px; border-radius: 50px; font-size: .8rem; font-weight: 500; color: rgba(255,255,255,.85);
+}
+.mil-hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 32px; }
+.mil-hero-trust {
+  display: flex; gap: 28px; flex-wrap: wrap;
+  padding-top: 24px; border-top: 1px solid rgba(255,255,255,.12);
+}
+.mil-trust-item { text-align: center; }
+.mil-trust-num { font-size: 1.4rem; font-weight: 800; color: var(--orange-light); }
+.mil-trust-label { font-size: .72rem; color: rgba(255,255,255,.55); text-transform: uppercase; letter-spacing: .5px; }
+
+/* Hero Right — Quote Card */
+.mil-quote-card {
+  background: #fff; border-radius: var(--radius-lg); padding: 32px;
+  box-shadow: var(--shadow-xl); color: var(--text-primary); position: relative;
+}
+.mil-quote-card::before {
+  content: '\201C'; position: absolute; top: 16px; left: 24px;
+  font-size: 4rem; color: var(--orange); opacity: .15; font-family: Georgia, serif; line-height: 1;
+}
+.mil-quote-card blockquote {
+  font-size: .92rem; font-style: italic; color: var(--text-secondary); line-height: 1.7;
+  margin-bottom: 20px; padding-top: 16px;
+}
+.mil-quote-author { display: flex; align-items: center; gap: 12px; }
+.mil-quote-avatar {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: linear-gradient(135deg, #e8ede3, rgba(74,90,58,.2));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; font-weight: 700; color: var(--olive-dark);
+}
+.mil-quote-name { font-weight: 700; font-size: .9rem; }
+.mil-quote-role { font-size: .78rem; color: var(--text-light); }
+.mil-quote-card .cta-row {
+  margin-top: 20px; padding-top: 18px; border-top: 1px solid #eef1f5;
+  display: flex; gap: 10px; flex-wrap: wrap;
+}
+
+/* ========================================
+   ARE YOU SECTION
+   ======================================== */
+.areyou-section { padding: 72px 0; background: var(--warm-bg); }
+.areyou-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.areyou-content h2 { font-size: 2rem; font-weight: 800; color: var(--teal-dark); margin-bottom: 16px; line-height: 1.2; }
+.areyou-list { list-style: none; display: grid; gap: 10px; }
+.areyou-list li {
+  display: flex; gap: 12px; align-items: flex-start; font-size: .93rem; color: var(--text-secondary);
+}
+.areyou-list li::before {
+  content: ''; flex-shrink: 0; width: 22px; height: 22px; margin-top: 2px;
+  background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center;
+}
+.areyou-list li::before { content: '\2713'; color: #fff; font-size: .72rem; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
+.areyou-right h3 { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; }
+.areyou-right p { color: var(--text-secondary); margin-bottom: 16px; }
+.areyou-highlight {
+  background: #fff; border-left: 4px solid var(--orange); border-radius: var(--radius-sm);
+  padding: 20px 24px; margin: 20px 0;
+}
+.areyou-highlight h4 { font-size: 1rem; font-weight: 700; color: var(--orange-dark); margin-bottom: 6px; }
+.areyou-highlight p { font-size: .9rem; color: var(--text-secondary); margin: 0; }
+
+/* ========================================
+   INVISIBLE WOUNDS
+   ======================================== */
+.wounds-section { padding: 72px 0; background: #fff; }
+.wounds-section h2 { font-size: 2rem; font-weight: 800; color: var(--text-primary); text-align: center; margin-bottom: 12px; }
+.wounds-section .section-sub { text-align: center; max-width: 700px; margin: 0 auto 40px; color: var(--text-secondary); font-size: .95rem; }
+.wounds-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.wound-card {
+  background: var(--warm-bg); border-radius: var(--radius-md); padding: 20px 22px;
+  border: 1px solid #e8ecf0; transition: var(--transition);
+}
+.wound-card:hover { border-color: var(--teal); box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+.wound-card .wc-icon { font-size: 1.4rem; margin-bottom: 8px; }
+.wound-card h4 { font-size: .92rem; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+.wound-card p { font-size: .82rem; color: var(--text-secondary); }
+
+/* ========================================
+   QUOTE BANNER
+   ======================================== */
+.quote-banner {
+  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+  color: #fff; padding: 64px 0; text-align: center;
+}
+.quote-banner blockquote {
+  font-size: 1.6rem; font-weight: 700; line-height: 1.4; max-width: 800px; margin: 0 auto 18px;
+  color: rgba(255,255,255,.95);
+}
+.quote-banner cite { font-style: normal; font-size: .9rem; color: var(--orange-light); font-weight: 600; }
+
+/* ========================================
+   GI BILL SECTION
+   ======================================== */
+.gibill-section { padding: 72px 0; background: var(--warm-bg); }
+.gibill-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.gibill-content h2 { font-size: 1.8rem; font-weight: 800; color: var(--teal-dark); margin-bottom: 12px; line-height: 1.2; }
+.gibill-content p { color: var(--text-secondary); margin-bottom: 14px; font-size: .95rem; }
+.gibill-card {
+  background: #fff; border-radius: var(--radius-lg); padding: 32px;
+  border: 2px solid var(--teal); box-shadow: var(--shadow-md); text-align: center;
+}
+.gibill-card .gibill-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--teal-pale); padding: 8px 20px; border-radius: 50px;
+  font-size: .82rem; font-weight: 700; color: var(--teal-dark); margin-bottom: 16px;
+}
+.gibill-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
+.gibill-card p { font-size: .88rem; color: var(--text-secondary); margin-bottom: 16px; }
+.gibill-chapters { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 14px; }
+.gibill-chap {
+  background: var(--teal-pale); padding: 8px 16px; border-radius: var(--radius-sm);
+  font-size: .82rem; font-weight: 600; color: var(--teal-dark);
+}
+
+/* ========================================
+   VALUES SECTION
+   ======================================== */
+.values-section { padding: 72px 0; background: #fff; }
+.values-section h2 { font-size: 2rem; font-weight: 800; text-align: center; color: var(--text-primary); margin-bottom: 12px; }
+.values-section .section-sub { text-align: center; max-width: 650px; margin: 0 auto 40px; color: var(--text-secondary); }
+.values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.value-card {
+  background: var(--warm-bg); border-radius: var(--radius-md); padding: 24px 20px;
+  text-align: center; border: 1px solid #e8ecf0; transition: var(--transition);
+}
+.value-card:hover { border-color: var(--teal); box-shadow: var(--shadow-sm); }
+.value-card .vc-icon {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal-pale), rgba(66,126,136,.15));
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 12px; font-size: 1.3rem;
+}
+.value-card h4 { font-size: .88rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+.value-card p { font-size: .8rem; color: var(--text-secondary); }
+
+/* ========================================
+   AUDIENCE SECTION — Who Is This For
+   ======================================== */
+.audience-section { padding: 72px 0; background: var(--warm-bg); }
+.audience-section h2 { font-size: 2rem; font-weight: 800; text-align: center; color: var(--text-primary); margin-bottom: 40px; }
+.audience-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.aud-card {
+  background: #fff; border-radius: var(--radius-md); padding: 28px 22px;
+  border: 1px solid #e8ecf0; transition: var(--transition); text-align: center;
+}
+.aud-card:hover { border-color: var(--teal); box-shadow: var(--shadow-sm); transform: translateY(-3px); }
+.aud-card .aud-icon { font-size: 2rem; margin-bottom: 10px; }
+.aud-card h4 { font-size: .95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+.aud-card p { font-size: .82rem; color: var(--text-secondary); }
+
+/* ========================================
+   TESTIMONIALS
+   ======================================== */
+.test-section { padding: 72px 0; background: #fff; }
+.test-section h2 { font-size: 2rem; font-weight: 800; text-align: center; margin-bottom: 12px; }
+.test-section .section-sub { text-align: center; max-width: 600px; margin: 0 auto 40px; color: var(--text-secondary); }
+.test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.test-card {
+  background: var(--warm-bg); border-radius: var(--radius-md); padding: 28px 24px;
+  border: 1px solid #e8ecf0; position: relative;
+}
+.test-card::before {
+  content: '\201C'; position: absolute; top: 14px; left: 20px;
+  font-size: 3rem; color: var(--orange); opacity: .12; font-family: Georgia, serif; line-height: 1;
+}
+.test-card blockquote { font-size: .88rem; font-style: italic; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px; padding-top: 12px; }
+.test-card .tc-author { font-weight: 700; font-size: .85rem; color: var(--text-primary); }
+.test-card .tc-role { font-size: .76rem; color: var(--text-light); }
+
+/* ========================================
+   PRICING
+   ======================================== */
+.pricing-section { padding: 72px 0; background: var(--warm-bg); }
+.pricing-section h2 { font-size: 2rem; font-weight: 800; text-align: center; margin-bottom: 12px; }
+.pricing-section .section-sub { text-align: center; max-width: 650px; margin: 0 auto 40px; color: var(--text-secondary); }
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.price-card {
+  background: #fff; border-radius: var(--radius-lg); padding: 32px 24px;
+  border: 2px solid #e8ecf0; transition: var(--transition); position: relative; text-align: center;
+}
+.price-card.featured { border-color: var(--teal); box-shadow: var(--shadow-lg); }
+.price-card .pc-badge {
+  position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+  background: var(--teal); color: #fff; padding: 5px 18px; border-radius: 50px;
+  font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; white-space: nowrap;
+}
+.price-card h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; margin-top: 12px; }
+.price-card .pc-price { font-size: 2.2rem; font-weight: 800; color: var(--teal-dark); margin: 12px 0 4px; }
+.price-card .pc-sub { font-size: .8rem; color: var(--text-light); margin-bottom: 16px; }
+.price-card .pc-features { text-align: left; margin-bottom: 20px; list-style: none; display: grid; gap: 8px; }
+.price-card .pc-features li { font-size: .84rem; color: var(--text-secondary); display: flex; gap: 8px; align-items: flex-start; }
+.price-card .pc-features li span { color: var(--teal); font-weight: 700; flex-shrink: 0; }
+.pc-note { font-size: .78rem; color: var(--text-light); margin-top: 12px; font-style: italic; }
+
+/* ========================================
+   FAQ
+   ======================================== */
+.faq-section { padding: 72px 0; background: #fff; }
+.faq-section h2 { font-size: 2rem; font-weight: 800; text-align: center; margin-bottom: 40px; }
+.faq-list { max-width: 780px; margin: 0 auto; display: grid; gap: 12px; }
+.faq-item { background: var(--warm-bg); border-radius: var(--radius-md); padding: 20px 24px; border: 1px solid #e8ecf0; cursor: pointer; transition: var(--transition); }
+.faq-item:hover { border-color: var(--teal); }
+.faq-q { font-weight: 700; font-size: .95rem; display: flex; justify-content: space-between; align-items: center; }
+.faq-q span { font-size: .8rem; color: var(--teal); transition: transform .3s; }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .4s ease, margin .3s ease; font-size: .9rem; color: var(--text-secondary); line-height: 1.7; }
+.faq-item.open .faq-a { max-height: 400px; margin-top: 12px; }
+.faq-item.open .faq-q span { transform: rotate(180deg); }
+
+/* ========================================
+   BOTTOM CTA
+   ======================================== */
+.bottom-cta {
+  padding: 72px 0; text-align: center;
+  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%); color: #fff;
+}
+.bottom-cta h2 { font-size: 2rem; font-weight: 800; margin-bottom: 14px; }
+.bottom-cta p { max-width: 580px; margin: 0 auto 28px; color: rgba(255,255,255,.8); }
+.bottom-cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.footer { background: var(--teal-dark); color: rgba(255,255,255,.75); padding: 48px 0 0; font-size: .85rem; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 36px; padding-bottom: 36px; }
+.footer-brand p { margin-top: 10px; font-size: .82rem; color: rgba(255,255,255,.55); }
+.footer h5 { color: #fff; font-size: .82rem; text-transform: uppercase; letter-spacing: .8px; margin-bottom: 12px; }
+.footer-links { list-style: none; display: grid; gap: 6px; }
+.footer-links a { color: rgba(255,255,255,.65); transition: var(--transition); }
+.footer-links a:hover { color: #fff; }
+.crisis-bar {
+  background: rgba(0,0,0,.15); padding: 14px 24px; border-radius: var(--radius-md);
+  text-align: center; margin-bottom: 24px; font-size: .82rem; color: rgba(255,255,255,.7);
+}
+.crisis-bar strong { color: rgba(255,255,255,.7); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.1); padding: 18px 0; text-align: center;
+  font-size: .76rem; color: rgba(255,255,255,.4); display: flex; flex-direction: column; gap: 6px;
+}
+</style>
+</head>
+<body>
+
+<div class="utility-bar">
+  <div class="container">
+    <div class="utility-left">
+      <a href="tel:8003347606">&#128222; 800-334-7606</a>
+      <span>|</span>
+      <a href="#">&#127760; English</a>
+      <a href="#">Espa&ntilde;ol</a>
+      <a href="#">UK</a>
+      <a href="#">Canada</a>
+    </div>
+    <div class="utility-right">
+      <a href="TGRM_Handbook.html">&#128214; The Grief Recovery Handbook</a>
+      <a href="TGRM_Podcast.html">&#127897;&#65039; Podcast</a>
+      <a href="#">Specialist Login</a>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= HEADER / NAV ======================= -->
+<header class="header">
+  <div class="container">
+    <a href="TGRM_Homepage_V2.html" class="logo">
+      <div class="logo-icon">GR</div>
+      <div class="logo-text">
+        <div class="brand">The Grief Recovery Method<sup style="font-size:.55rem">&reg;</sup></div>
+        <div class="tagline">Evidence-Based Grief Recovery Since 1984</div>
+      </div>
+    </a>
+    <nav class="main-nav">
+      <div class="nav-item">
+        <button>I Need Help <span class="nav-caret">&#9660;</span></button>
+        <div class="mega-menu">
+          <div class="mega-cols">
+            <div>
+              <div class="mega-col-title">Find Support</div>
+              <a href="TGRM_Directory.html" class="mega-link"><div class="ml-title">&#128270; Find a Specialist Near You</div><div class="ml-desc">Search 3,000+ certified professionals</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">&#127891; Start the $49 Online Course</div><div class="ml-desc">Self-paced grief recovery</div></a>
+              <a href="TGRM_Join_Recovery_Group.html" class="mega-link"><div class="ml-title">&#129309; Join the Free Community</div><div class="ml-desc">Connect with others who understand</div></a>
+              <a href="TGRM_Handbook.html" class="mega-link"><div class="ml-title">&#128218; Get the Handbook</div><div class="ml-desc">The Grief Recovery Handbook</div></a>
+            </div>
+            <div>
+              <div class="mega-col-title">Explore by Loss Type</div>
+              <a href="#" class="mega-link"><div class="ml-title">Death of a Loved One</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">Divorce &amp; Relationship Loss</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">Pet Loss</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">Health, Career &amp; Life Changes</div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button>Get Certified <span class="nav-caret">&#9660;</span></button>
+        <div class="mega-menu mega-wide">
+          <div class="mega-cols three-col">
+            <div>
+              <div class="mega-col-title">Training Programs</div>
+              <a href="TGRM_Certification.html" class="mega-link"><div class="ml-title">Foundational Certification</div><div class="ml-desc">4-day live Zoom &mdash; $2,495</div></a>
+              <a href="TGRM_Certification.html" class="mega-link"><div class="ml-title">Advanced Certification</div><div class="ml-desc">Foundational + 18hrs &mdash; $3,995</div></a>
+              <a href="TGRM_Certification.html" class="mega-link"><div class="ml-title">In-Person Premium</div><div class="ml-desc">Small group intensive &mdash; $4,995</div></a>
+              <a href="TGRM_Private_Certification.html" class="mega-link"><div class="ml-title">&#127970; Private / Org Training</div><div class="ml-desc">Custom on-site or online for 12&ndash;20 staff</div></a>
+            </div>
+            <div>
+              <div class="mega-col-title">For Your Profession</div>
+              <a href="TGRM_For_Therapists.html" class="mega-link"><div class="ml-title">For Therapists &amp; Counselors</div><div class="ml-desc">Add evidence-based tools</div></a>
+              <a href="TGRM_Coaches_Certification.html" class="mega-link"><div class="ml-title">For Coaches &amp; Life Coaches</div><div class="ml-desc">The missing piece in your practice</div></a>
+              <a href="TGRM_Military_Certification.html" class="mega-link" style="background:rgba(224,117,37,.06); border-left:3px solid var(--orange);"><div class="ml-title" style="color:var(--orange-dark);">&#127894;&#65039; Military, Veterans &amp; First Responders</div><div class="ml-desc">GI Bill approved &mdash; veteran-created program</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">For Career Changers</div><div class="ml-desc">No special degree required</div></a>
+            </div>
+            <div>
+              <div class="mega-col-title">Resources</div>
+              <a href="TGRM_Training_Calendar.html" class="mega-link"><div class="ml-title">Training Calendar</div><div class="ml-desc">Upcoming dates &amp; availability</div></a>
+              <a href="TGRM_Certification.html#faq" class="mega-link"><div class="ml-title">Certification FAQ</div><div class="ml-desc">Common questions answered</div></a>
+              <a href="TGRM_Certification.html#pricing" class="mega-link"><div class="ml-title">3-Pay Installment Plans</div><div class="ml-desc">Flexible monthly payments</div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button>About <span class="nav-caret">&#9660;</span></button>
+        <div class="mega-menu">
+          <div class="mega-cols">
+            <div>
+              <div class="mega-col-title">The Method</div>
+              <a href="#" class="mega-link"><div class="ml-title">How The Method Works</div><div class="ml-desc">Action-based grief recovery explained</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">The Research</div><div class="ml-desc">Kent State University validation</div></a>
+              <a href="TGRM_About_Us.html" class="mega-link"><div class="ml-title">40+ Years of Impact</div></a>
+            </div>
+            <div>
+              <div class="mega-col-title">Our Team</div>
+              <a href="#" class="mega-link"><div class="ml-title">John W. James, Founder</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">Our Trainers</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">Leadership</div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button>Learn <span class="nav-caret">&#9660;</span></button>
+        <div class="mega-menu mega-wide">
+          <div class="mega-cols three-col">
+            <div>
+              <div class="mega-col-title">Content</div>
+              <a href="TGRM_Blog.html" class="mega-link"><div class="ml-title">Blog</div></a>
+              <a href="TGRM_Podcast.html" class="mega-link"><div class="ml-title">Podcast</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">YouTube</div></a>
+            </div>
+            <div>
+              <div class="mega-col-title">Popular Topics</div>
+              <a href="#" class="mega-link"><div class="ml-title">Myths About Grief</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">Grief at Work</div></a>
+            </div>
+            <div>
+              <div class="mega-col-title">Books</div>
+              <a href="TGRM_Handbook.html" class="mega-link"><div class="ml-title">The Grief Recovery Handbook</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">When Children Grieve</div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-cta-group">
+      <a href="TGRM_Directory.html" class="btn-outline-sm">Find Help</a>
+      <a href="TGRM_Certification.html" class="btn-primary-sm">Get Certified &rarr;</a>
+    </div>
+  </div>
+</header>
+
+<!-- ======================= HERO ======================= -->
+<section class="mil-hero">
+  <div class="container">
+    <div class="mil-hero-grid">
+      <div>
+        <div class="mil-hero-badge">&#127894;&#65039; Veteran-Created &amp; GI Bill Approved</div>
+        <h1>The <span>Invisible Wounds</span> Finally Have a Mission-Ready Solution</h1>
+        <p class="mil-hero-sub">The Grief Recovery Method was created by a combat veteran and has been helping active duty, veterans, first responders, and their families for over 40 years. This is not therapy. This is an action-based, peer-to-peer, evidence-based program.</p>
+        <div class="mil-audience-tags">
+          <span class="mil-tag">Active Duty</span>
+          <span class="mil-tag">Guard &amp; Reserves</span>
+          <span class="mil-tag">Veterans</span>
+          <span class="mil-tag">First Responders</span>
+          <span class="mil-tag">Military Families</span>
+          <span class="mil-tag">VA Employees</span>
+        </div>
+        <div class="mil-hero-ctas">
+          <a href="TGRM_Certification.html" class="btn-primary">View Training Dates &rarr;</a>
+          <a href="tel:8003347606" class="btn-white">&#128222; Schedule a Call</a>
+        </div>
+        <div class="mil-hero-trust">
+          <div class="mil-trust-item"><div class="mil-trust-num">40+</div><div class="mil-trust-label">Years</div></div>
+          <div class="mil-trust-item"><div class="mil-trust-num">1,000s</div><div class="mil-trust-label">Military Trained</div></div>
+          <div class="mil-trust-item"><div class="mil-trust-num">GI Bill</div><div class="mil-trust-label">Approved</div></div>
+          <div class="mil-trust-item"><div class="mil-trust-num">Kent State</div><div class="mil-trust-label">Evidence-Based</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="mil-quote-card fade-in">
+          <blockquote>Veterans have never lacked the courage to deal with the invisible wounds. What has been missing is truly helpful information and the actions that actually work.</blockquote>
+          <div class="mil-quote-author">
+            <div class="mil-quote-avatar">EO</div>
+            <div>
+              <div class="mil-quote-name">Ed Owens</div>
+              <div class="mil-quote-role">Combat Veteran &amp; TGRM Trainer</div>
+            </div>
+          </div>
+          <div class="cta-row">
+            <a href="TGRM_Certification.html" class="btn-primary" style="padding:10px 24px; font-size:.85rem;">Get Certified &rarr;</a>
+            <a href="#gibill" class="btn-secondary" style="padding:9px 22px; font-size:.85rem;">GI Bill Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= ARE YOU... ======================= -->
+<section class="areyou-section">
+  <div class="container">
+    <div class="section-label">Is This For You?</div>
+    <div class="areyou-grid">
+      <div>
+        <h2>Are you&hellip;</h2>
+        <ul class="areyou-list">
+          <li>A spouse, child, parent, or other family member of someone who served our country?</li>
+          <li>Someone who served in the military at any point in your life?</li>
+          <li>Active Duty, Guard, or Reserves?</li>
+          <li>A combat veteran?</li>
+          <li>A civilian contractor or civil service who has worked with the military?</li>
+          <li>Employed by the Veterans Administration?</li>
+          <li>Associated with any public or private veteran-focused organizations?</li>
+          <li>A first responder &mdash; law enforcement, fire, EMS, dispatch?</li>
+          <li>Involved with your local veteran community centers?</li>
+        </ul>
+      </div>
+      <div class="areyou-right">
+        <h3>Do you want to be trained to deal with the invisible wounds no one wants to talk about?</h3>
+        <p>And do you want to teach these skills to others?</p>
+        <div class="areyou-highlight">
+          <h4>This is a mission &mdash; not a diagnosis</h4>
+          <p>The Grief Recovery Method is an action-based educational program. You will work peer to peer. This is not therapy and counseling. You are not broken and do not need to be fixed.</p>
+        </div>
+        <a href="TGRM_Certification.html" class="btn-primary">Start Your Mission &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= INVISIBLE WOUNDS ======================= -->
+<section class="wounds-section">
+  <div class="container">
+    <div class="section-label">The Invisible Wounds</div>
+    <h2>What exactly are the invisible wounds we all carry?</h2>
+    <p class="section-sub">Grief isn't just about death. For military members, veterans, and first responders, grief shows up in ways most programs never address.</p>
+    <div class="wounds-grid">
+      <div class="wound-card fade-in">
+        <div class="wc-icon">&#128148;</div>
+        <h4>Death of a Comrade</h4>
+        <p>The feelings we carry after someone we know has died &mdash; in combat, by suicide, or at home.</p>
+      </div>
+      <div class="wound-card fade-in">
+        <div class="wc-icon">&#128148;</div>
+        <h4>Divorce &amp; Relationship Loss</h4>
+        <p>The death of a relationship, no matter how long it lasted.</p>
+      </div>
+      <div class="wound-card fade-in">
+        <div class="wc-icon">&#127942;</div>
+        <h4>End of Military Career</h4>
+        <p>Due to separation, retirement, or disability &mdash; the loss of identity, purpose, and community.</p>
+      </div>
+      <div class="wound-card fade-in">
+        <div class="wc-icon">&#128107;</div>
+        <h4>Estrangement</h4>
+        <p>Broken relationships with family, friends, or others that accumulated during service.</p>
+      </div>
+      <div class="wound-card fade-in">
+        <div class="wc-icon">&#128274;</div>
+        <h4>Loss of Trust</h4>
+        <p>Around leadership, values, or the institutions you served.</p>
+      </div>
+      <div class="wound-card fade-in">
+        <div class="wc-icon">&#128566;</div>
+        <h4>Shame Around Service</h4>
+        <p>The things you did, saw, or experienced that you carry in silence.</p>
+      </div>
+      <div class="wound-card fade-in">
+        <div class="wc-icon">&#128100;</div>
+        <h4>Transitioning to Civilian Life</h4>
+        <p>The profound adjustment of leaving military life behind.</p>
+      </div>
+      <div class="wound-card fade-in">
+        <div class="wc-icon">&#128546;</div>
+        <h4>Survivor's Guilt</h4>
+        <p>The weight of coming home when others did not.</p>
+      </div>
+      <div class="wound-card fade-in">
+        <div class="wc-icon">&#128591;</div>
+        <h4>Comrades Lost to Suicide</h4>
+        <p>The grief compounded by the way they died and the questions that remain.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= QUOTE BANNER ======================= -->
+<section class="quote-banner">
+  <div class="container">
+    <blockquote>&ldquo;Veterans have never lacked the courage to deal with the invisible wounds. What has been missing is truly helpful information and the actions that actually work.&rdquo;</blockquote>
+    <cite>&mdash; Ed Owens, Combat Veteran &amp; Grief Recovery Method Trainer</cite>
+  </div>
+</section>
+
+<!-- ======================= GI BILL ======================= -->
+<section class="gibill-section" id="gibill">
+  <div class="container">
+    <div class="section-label">GI Bill Approved</div>
+    <div class="gibill-grid">
+      <div class="gibill-content">
+        <h2>Fully Reimbursable Through the GI Bill</h2>
+        <p>Both the 4-Day Grief Recovery Method Foundational Certification Training and the Online Capabilities Training have been approved for <strong>full reimbursement</strong> through the GI Bill.</p>
+        <p>This means you can receive the same world-class training that thousands of grief recovery specialists use &mdash; at no out-of-pocket cost with your education benefits.</p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:20px;">
+          <a href="#" class="btn-primary" style="font-size:.88rem; padding:12px 26px;">How to Use Your GI Bill &rarr;</a>
+          <a href="#" class="btn-secondary" style="font-size:.88rem; padding:11px 24px;">Learn About Benefits</a>
+        </div>
+      </div>
+      <div>
+        <div class="gibill-card fade-in">
+          <div class="gibill-badge">&#127894;&#65039; VA Education Approved</div>
+          <h3>Approved GI Bill Chapters</h3>
+          <p>Full tuition reimbursement available through the following chapters and programs:</p>
+          <div class="gibill-chapters">
+            <span class="gibill-chap">Chapter 28</span>
+            <span class="gibill-chap">Chapter 30</span>
+            <span class="gibill-chap">Chapter 33</span>
+            <span class="gibill-chap">Voc Rehab Ch. 31</span>
+          </div>
+          <p style="margin-top:16px; font-size:.82rem; color:var(--text-light);">Also approved for Association of Professional Chaplains continuing education credit.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= VALUES WE SHARE ======================= -->
+<section class="values-section">
+  <div class="container">
+    <div class="section-label">Our Shared Values</div>
+    <h2>Values We Share with You</h2>
+    <p class="section-sub">The Grief Recovery Method was built by a veteran, for veterans &mdash; with principles that mirror the values you already live by.</p>
+    <div class="values-grid">
+      <div class="value-card fade-in">
+        <div class="vc-icon">&#127894;&#65039;</div>
+        <h4>Veteran Created</h4>
+        <p>Built by a combat veteran who understood the invisible wounds firsthand.</p>
+      </div>
+      <div class="value-card fade-in">
+        <div class="vc-icon">&#128736;&#65039;</div>
+        <h4>Mission Focused</h4>
+        <p>An action-based educational program &mdash; not open-ended talk therapy.</p>
+      </div>
+      <div class="value-card fade-in">
+        <div class="vc-icon">&#128274;</div>
+        <h4>Absolute Confidentiality</h4>
+        <p>What's shared in this method stays in this method. Period.</p>
+      </div>
+      <div class="value-card fade-in">
+        <div class="vc-icon">&#129309;</div>
+        <h4>Peer to Peer</h4>
+        <p>You'll work alongside others who understand &mdash; no power imbalance, no judgment.</p>
+      </div>
+      <div class="value-card fade-in">
+        <div class="vc-icon">&#10060;</div>
+        <h4>Not Therapy</h4>
+        <p>This is not counseling. You are not broken and do not need to be fixed.</p>
+      </div>
+      <div class="value-card fade-in">
+        <div class="vc-icon">&#128170;</div>
+        <h4>You're Not Broken</h4>
+        <p>We don't diagnose. We equip you with real tools for real grief.</p>
+      </div>
+      <div class="value-card fade-in">
+        <div class="vc-icon">&#128218;</div>
+        <h4>Evidence-Based</h4>
+        <p>Validated by Kent State University research. This isn't theory &mdash; it works.</p>
+      </div>
+      <div class="value-card fade-in">
+        <div class="vc-icon">&#128336;</div>
+        <h4>40+ Years Serving</h4>
+        <p>We've been helping veterans and their families since 1984.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= WHO IS THIS FOR ======================= -->
+<section class="audience-section">
+  <div class="container">
+    <div class="section-label">Who This Training Serves</div>
+    <h2>Built for Those Who Serve &mdash; and Those Who Support Them</h2>
+    <div class="audience-grid">
+      <div class="aud-card fade-in">
+        <div class="aud-icon">&#127894;&#65039;</div>
+        <h4>Active Duty &amp; Veterans</h4>
+        <p>All branches, all eras. Whether you served in combat or not, you carry invisible wounds that deserve real tools.</p>
+      </div>
+      <div class="aud-card fade-in">
+        <div class="aud-icon">&#128110;</div>
+        <h4>First Responders</h4>
+        <p>Law enforcement, firefighters, EMS, 911 dispatchers &mdash; the people who run toward emergencies carry grief too.</p>
+      </div>
+      <div class="aud-card fade-in">
+        <div class="aud-icon">&#128106;</div>
+        <h4>Military Families</h4>
+        <p>Spouses, children, parents, and siblings who carry the weight of their loved one's service alongside their own losses.</p>
+      </div>
+      <div class="aud-card fade-in">
+        <div class="aud-icon">&#127891;</div>
+        <h4>VA &amp; Military Chaplains</h4>
+        <p>Gain structured, evidence-based tools to guide service members through the grief that traditional chaplaincy training doesn't address.</p>
+      </div>
+      <div class="aud-card fade-in">
+        <div class="aud-icon">&#128188;</div>
+        <h4>VA Counselors &amp; Social Workers</h4>
+        <p>Add the most effective grief-specific tools to your practice &mdash; tools your graduate program never taught you.</p>
+      </div>
+      <div class="aud-card fade-in">
+        <div class="aud-icon">&#128153;</div>
+        <h4>Veteran Service Organizations</h4>
+        <p>VFW posts, American Legion, Team Red White &amp; Blue, and other organizations committed to veteran wellbeing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= TESTIMONIALS ======================= -->
+<section class="test-section">
+  <div class="container">
+    <div class="section-label">From Those Who Serve</div>
+    <h2>Thousands Trained. Here's What They Say.</h2>
+    <p class="section-sub">We have trained thousands of active service members, veterans, and their families.</p>
+    <div class="test-grid">
+      <div class="test-card fade-in">
+        <blockquote>I came to enhance my knowledge of grief recovery to support my work. I left with a burden in my heart to bring the Grief Recovery Method to our wounded, ill, and injured military families who struggle constantly with grief and loss, yet are given no resources or effective support channels to deal with it.</blockquote>
+        <div class="tc-author">Military Family Advocate</div>
+        <div class="tc-role">Trained by Laura Jack</div>
+      </div>
+      <div class="test-card fade-in">
+        <blockquote>I loved this program. I am active duty military with PTSD caused by MST. This was the first program I have had the privilege to pay out of pocket and found so much peace and completeness for recovery in my journey. I am more confident in my purpose to help others.</blockquote>
+        <div class="tc-author">Active Duty Service Member</div>
+        <div class="tc-role">Combat Veteran</div>
+      </div>
+      <div class="test-card fade-in">
+        <blockquote>Personally, the Certification Training changed my life and how I see life, others and the present moments. Professionally, the Certification Training is critical to our Military Non Profit's Mission. We cannot exist another moment in time without the essential Recovery Method Programs.</blockquote>
+        <div class="tc-author">Military Nonprofit Leader</div>
+        <div class="tc-role">Organizational Certification</div>
+      </div>
+      <div class="test-card fade-in">
+        <blockquote>The Grief Recovery Method offers counselors a tool to help walk people through their grief. Grieving people will often need more than being able to discuss their feelings and experience and request to physically do something. I believe that this will be a powerful tool during my chaplaincy care of veterans and their families.</blockquote>
+        <div class="tc-author">Military Chaplain</div>
+        <div class="tc-role">VA Chaplaincy Program</div>
+      </div>
+      <div class="test-card fade-in">
+        <blockquote>As a practicing counselor who has attended countless trainings in over twenty years, this training, without question, is the VERY best I have ever attended. Ed Owens was outstanding, in every sense of the word. This training changed my life and work.</blockquote>
+        <div class="tc-author">Licensed Counselor</div>
+        <div class="tc-role">Trained by Ed Owens</div>
+      </div>
+      <div class="test-card fade-in">
+        <blockquote>I enjoyed the training and believe it will be helpful to Veterans with whom I work in addressing their grief. It was a wonderful experience, learning how we can assist other grievers through their grieving process.</blockquote>
+        <div class="tc-author">Veterans Affairs Counselor</div>
+        <div class="tc-role">VA Grief Support</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= VIDEO TESTIMONIALS (Reference) ======================= -->
+<section style="padding:56px 0; background:var(--warm-bg);">
+  <div class="container" style="text-align:center;">
+    <div class="section-label">Video Testimonials</div>
+    <h2 style="font-size:1.8rem; font-weight:800; margin-bottom:12px;">Hear Their Stories</h2>
+    <p style="color:var(--text-secondary); max-width:600px; margin:0 auto 36px;">Watch full-length testimonials from service members, veterans, and professionals who have experienced the Grief Recovery Method firsthand.</p>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
+      <div style="background:#fff; border-radius:var(--radius-md); padding:20px; border:1px solid #e8ecf0; text-align:center;">
+        <div style="background:var(--navy); border-radius:var(--radius-sm); height:140px; display:flex; align-items:center; justify-content:center; margin-bottom:12px; color:rgba(255,255,255,.5); font-size:2.5rem;">&#9654;&#65039;</div>
+        <h4 style="font-size:.88rem; font-weight:700;">Ed Owens</h4>
+        <p style="font-size:.78rem; color:var(--text-light);">How GRM Addresses Veteran Suicide</p>
+      </div>
+      <div style="background:#fff; border-radius:var(--radius-md); padding:20px; border:1px solid #e8ecf0; text-align:center;">
+        <div style="background:var(--navy); border-radius:var(--radius-sm); height:140px; display:flex; align-items:center; justify-content:center; margin-bottom:12px; color:rgba(255,255,255,.5); font-size:2.5rem;">&#9654;&#65039;</div>
+        <h4 style="font-size:.88rem; font-weight:700;">Johnny Martin</h4>
+        <p style="font-size:.78rem; color:var(--text-light);">GRM Impact at the University of Health &amp; Performance</p>
+      </div>
+      <div style="background:#fff; border-radius:var(--radius-md); padding:20px; border:1px solid #e8ecf0; text-align:center;">
+        <div style="background:var(--navy); border-radius:var(--radius-sm); height:140px; display:flex; align-items:center; justify-content:center; margin-bottom:12px; color:rgba(255,255,255,.5); font-size:2.5rem;">&#9654;&#65039;</div>
+        <h4 style="font-size:.88rem; font-weight:700;">Thera Storm</h4>
+        <p style="font-size:.78rem; color:var(--text-light);">The GRM is a Mission-Based Program</p>
+      </div>
+      <div style="background:#fff; border-radius:var(--radius-md); padding:20px; border:1px solid #e8ecf0; text-align:center;">
+        <div style="background:var(--navy); border-radius:var(--radius-sm); height:140px; display:flex; align-items:center; justify-content:center; margin-bottom:12px; color:rgba(255,255,255,.5); font-size:2.5rem;">&#9654;&#65039;</div>
+        <h4 style="font-size:.88rem; font-weight:700;">Rachelle Jones</h4>
+        <p style="font-size:.78rem; color:var(--text-light);">Addressing Suicide for Veterans &amp; Dependents</p>
+      </div>
+      <div style="background:#fff; border-radius:var(--radius-md); padding:20px; border:1px solid #e8ecf0; text-align:center;">
+        <div style="background:var(--navy); border-radius:var(--radius-sm); height:140px; display:flex; align-items:center; justify-content:center; margin-bottom:12px; color:rgba(255,255,255,.5); font-size:2.5rem;">&#9654;&#65039;</div>
+        <h4 style="font-size:.88rem; font-weight:700;">Jeromy Wells</h4>
+        <p style="font-size:.78rem; color:var(--text-light);">Testament to GRM for Suicide Prevention</p>
+      </div>
+      <div style="background:#fff; border-radius:var(--radius-md); padding:20px; border:1px solid #e8ecf0; text-align:center;">
+        <div style="background:var(--navy); border-radius:var(--radius-sm); height:140px; display:flex; align-items:center; justify-content:center; margin-bottom:12px; color:rgba(255,255,255,.5); font-size:2.5rem;">&#9654;&#65039;</div>
+        <h4 style="font-size:.88rem; font-weight:700;">Elisa Marquis</h4>
+        <p style="font-size:.78rem; color:var(--text-light);">Client Story</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PRICING ======================= -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+    <div class="section-label">Training Options</div>
+    <h2>Get Certified &mdash; GI Bill Covers It All</h2>
+    <p class="section-sub">All training levels are approved for full GI Bill reimbursement. Choose the path that fits your mission.</p>
+    <div class="pricing-grid">
+      <div class="price-card fade-in">
+        <h4>Foundational Certification</h4>
+        <div class="pc-price">$2,495</div>
+        <div class="pc-sub">GI Bill: $0 out of pocket</div>
+        <ul class="pc-features">
+          <li><span>&#10003;</span> 4-day live Zoom training (32 hours)</li>
+          <li><span>&#10003;</span> Complete your own grief recovery</li>
+          <li><span>&#10003;</span> Certified Grief Recovery Specialist&reg; credential</li>
+          <li><span>&#10003;</span> Lead 8-week &amp; 2-day programs</li>
+          <li><span>&#10003;</span> Listing on griefrecoverymethod.com</li>
+          <li><span>&#10003;</span> Lifetime support &amp; community</li>
+        </ul>
+        <a href="TGRM_Certification.html" class="btn-secondary" style="width:100%; font-size:.88rem; padding:11px 0;">View Dates &rarr;</a>
+      </div>
+      <div class="price-card featured fade-in">
+        <div class="pc-badge">&#127894;&#65039; Best for Military</div>
+        <h4>Advanced Certification</h4>
+        <div class="pc-price">$3,995</div>
+        <div class="pc-sub">GI Bill: $0 out of pocket</div>
+        <ul class="pc-features">
+          <li><span>&#10003;</span> Everything in Foundational</li>
+          <li><span>&#10003;</span> + 18 additional hours</li>
+          <li><span>&#10003;</span> Lead 1-on-1 programs</li>
+          <li><span>&#10003;</span> Pet Loss Specialist credential</li>
+          <li><span>&#10003;</span> Helping Children with Loss</li>
+          <li><span>&#10003;</span> Ongoing Advanced training</li>
+        </ul>
+        <a href="TGRM_Certification.html" class="btn-primary" style="width:100%; font-size:.88rem; padding:12px 0;">Get Certified &rarr;</a>
+        <p class="pc-note">Most popular with veteran service organizations</p>
+      </div>
+      <div class="price-card fade-in">
+        <h4>In-Person Premium</h4>
+        <div class="pc-price">$4,995</div>
+        <div class="pc-sub">GI Bill: $0 out of pocket</div>
+        <ul class="pc-features">
+          <li><span>&#10003;</span> Everything in Advanced</li>
+          <li><span>&#10003;</span> Small group (max 20)</li>
+          <li><span>&#10003;</span> In-person intensive training</li>
+          <li><span>&#10003;</span> Real-time coaching &amp; feedback</li>
+          <li><span>&#10003;</span> Deep peer relationships</li>
+          <li><span>&#10003;</span> Travel to training location</li>
+        </ul>
+        <a href="TGRM_Certification.html" class="btn-secondary" style="width:100%; font-size:.88rem; padding:11px 0;">View Locations &rarr;</a>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:24px; font-size:.88rem; color:var(--text-secondary);">Need to train your entire team? <a href="TGRM_Private_Certification.html" style="color:var(--teal); font-weight:600;">Request a private training for your organization &rarr;</a></p>
+  </div>
+</section>
+
+<!-- ======================= FAQ ======================= -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="section-label">Common Questions</div>
+    <h2>Questions from Service Members &amp; First Responders</h2>
+    <div class="faq-list">
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">How exactly does the GI Bill cover this training? <span>&#9660;</span></div>
+        <div class="faq-a">Both the Foundational Certification and the Online Capabilities Training are approved for full reimbursement through the GI Bill Chapter 28, 30, or 33 and Vocational Rehabilitation Chapter 31. This means the training can be 100% covered by your education benefits with $0 out of pocket.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Is this therapy or counseling? <span>&#9660;</span></div>
+        <div class="faq-a">No. The Grief Recovery Method is an educational program, not psychotherapy. It's action-based and peer-to-peer. You are not treated as a patient. You are equipped with real tools to deal with grief in a structured, confidential environment. Think of it as a mission &mdash; not a diagnosis.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">I'm not a counselor. Can I still get certified? <span>&#9660;</span></div>
+        <div class="faq-a">Absolutely. No degree or prior counseling experience is required. Many of our most effective military specialists are veterans, military spouses, chaplains, first responders, and community leaders &mdash; people whose own experience with grief ignited a passion to help others.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Will I have to share my personal experiences? <span>&#9660;</span></div>
+        <div class="faq-a">During the 4-day training, you will complete your own grief recovery work as part of the learning process. This is done in a small, confidential group setting. You control what you share &mdash; there is no requirement to disclose anything specific. The process is designed to be safe, structured, and respectful.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Can I use this in my VA work or military unit? <span>&#9660;</span></div>
+        <div class="faq-a">Yes. Once certified, you can lead 8-week programs, 2-day intensives, and 1-on-1 sessions (with Advanced certification). Many certified specialists work within VA facilities, military family support programs, veteran service organizations, and first responder peer support teams.</div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Is this available for first responders too? <span>&#9660;</span></div>
+        <div class="faq-a">Yes. While the GI Bill benefit is specific to military service, the training itself is open to everyone &mdash; including law enforcement, firefighters, EMS, 911 dispatchers, and other first responders. Many first responder organizations host private certifications for their teams. <a href="TGRM_Private_Certification.html" style="color:var(--teal); font-weight:600;">Learn about private training &rarr;</a></div>
+      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">What makes this different from other veteran grief programs? <span>&#9660;</span></div>
+        <div class="faq-a">Most veteran grief programs focus on coping, support groups, or talk therapy. The Grief Recovery Method is the only evidence-based program (validated by Kent State University) that provides a structured, action-based process to actually complete the grief &mdash; not just manage it. It was created by a combat veteran who understood that service members need tools and missions, not diagnoses.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= BOTTOM CTA ======================= -->
+<section class="bottom-cta">
+  <div class="container">
+    <h2>Ready to Serve Those Who Served?</h2>
+    <p>Join thousands of military-connected grief recovery specialists. GI Bill approved. Veteran-created. Evidence-based.</p>
+    <div class="bottom-cta-buttons">
+      <a href="TGRM_Certification.html" class="btn-primary">View Training Dates &rarr;</a>
+      <a href="tel:8003347606" class="btn-white">&#128222; Call 800-334-7606</a>
+    </div>
+    <p style="margin-top:20px; font-size:.82rem; color:rgba(255,255,255,.5);">Speak with a veteran advisor who understands your situation.</p>
+  </div>
+</section>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="font-weight:700; font-size:1.05rem; color:#fff;">The Grief Recovery Method&reg;</div>
+        <p>The only evidence-based grief recovery program in the world. Helping people move from pain to peace since 1984.</p>
+        <div style="margin-top:16px; display:flex; gap:12px;">
+          <a href="#" style="opacity:.6; font-size:1.2rem;">&#128216;</a>
+          <a href="#" style="opacity:.6; font-size:1.2rem;">&#128248;</a>
+          <a href="#" style="opacity:.6; font-size:1.2rem;">&#9654;&#65039;</a>
+          <a href="#" style="opacity:.6; font-size:1.2rem;">&#128279;</a>
+        </div>
+      </div>
+      <div>
+        <h5>For Grievers</h5>
+        <ul class="footer-links">
+          <li><a href="TGRM_Directory.html">Find a Specialist</a></li>
+          <li><a href="#">$49 Online Course</a></li>
+          <li><a href="TGRM_Join_Recovery_Group.html">Join the Community</a></li>
+          <li><a href="TGRM_Handbook.html">The Handbook</a></li>
+          <li><a href="#">Types of Loss</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>For Professionals</h5>
+        <ul class="footer-links">
+          <li><a href="TGRM_Certification.html">Certification Programs</a></li>
+          <li><a href="TGRM_Training_Calendar.html">Training Calendar</a></li>
+          <li><a href="TGRM_Private_Certification.html">Private / Org Training</a></li>
+          <li><a href="TGRM_Coaches_Certification.html">For Coaches</a></li>
+          <li><a href="TGRM_Military_Certification.html" style="color:var(--orange-light);">Military &amp; Veterans</a></li>
+          <li><a href="TGRM_For_Therapists.html">For Therapists</a></li>
+          <li><a href="#">Specialist Login</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul class="footer-links">
+          <li><a href="#">About The Method</a></li>
+          <li><a href="TGRM_About_Us.html">Our Team</a></li>
+          <li><a href="#">The Research</a></li>
+          <li><a href="TGRM_Blog.html">Blog</a></li>
+          <li><a href="TGRM_Podcast.html">Podcast</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="crisis-bar">
+      <strong>If you or someone you know is in crisis:</strong><br>
+      988 Suicide &amp; Crisis Lifeline: Call or text <strong>988</strong> &middot;
+      Veterans Crisis Line: <strong>1-800-273-8255</strong> (Press 1) &middot;
+      Crisis Text Line: Text <strong>HOME</strong> to <strong>741741</strong>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 The Grief Recovery Institute&reg;. All rights reserved. | <a href="#">Privacy</a> &middot; <a href="#">Terms</a></div>
+      <div>The Grief Recovery Method&reg; &middot; Certified Grief Recovery Specialist&reg; &middot; Grief&#10084;Recovery&reg;</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ======================= JAVASCRIPT ======================= -->
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const t = document.querySelector(this.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
+</body>
+</html>

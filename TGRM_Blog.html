@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — The Grief Recovery Method® | Articles on Grief, Recovery &amp; Growth</title>
+<meta name="description" content="Evidence-based articles on grief recovery, loss, and healing. Expert guides on coping with death, divorce, pet loss, and 40+ types of grief. New posts weekly.">
+<link rel="canonical" href="https://www.griefrecoverymethod.com/blog">
+
+<!-- ===== STRUCTURED DATA: Organization + BreadcrumbList + Blog Schema ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "The Grief Recovery Method Blog",
+  "description": "Evidence-based articles on grief recovery, loss, and healing from the world's only evidence-based grief recovery program.",
+  "url": "https://www.griefrecoverymethod.com/blog",
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Grief Recovery Institute",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.griefrecoverymethod.com/logo.png"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.griefrecoverymethod.com" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.griefrecoverymethod.com/blog" }
+  ]
+}
+</script>
+
+<style>
+/* ========================================
+   RESET & BASE
+   ======================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'Segoe UI', Arial, Helvetica, sans-serif; color: #2d3748; line-height: 1.7; background: #fff; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; font-family: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ========================================
+   BRAND TOKENS
+   ======================================== */
+:root {
+  --orange: #e07525;
+  --orange-dark: #c4621a;
+  --orange-light: #f5a623;
+  --teal: #427e88;
+  --teal-dark: #356a73;
+  --teal-light: #7895a3;
+  --teal-pale: #e8f2f4;
+  --warm-bg: #faf8f5;
+  --warm-bg-alt: #f5f0eb;
+  --text-primary: #2d3748;
+  --text-secondary: #5a6577;
+  --text-light: #8896a8;
+  --white: #ffffff;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+  --shadow-md: 0 4px 14px rgba(0,0,0,.1);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,.12);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --transition: .25s ease;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+.container-wide { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* ========================================
+   UTILITY BAR
+   ======================================== */
+.utility-bar {
+  background: var(--teal-dark); color: rgba(255,255,255,.9);
+  font-size: .8rem; padding: 6px 0;
+}
+.utility-bar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.utility-bar a { color: rgba(255,255,255,.9); }
+.utility-bar a:hover { color: #fff; }
+.utility-left { display: flex; gap: 18px; align-items: center; }
+.utility-right { display: flex; gap: 16px; align-items: center; }
+
+/* ========================================
+   HEADER
+   ======================================== */
+.header {
+  background: #fff; border-bottom: 1px solid rgba(0,0,0,.06);
+  position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow-sm);
+}
+.header .container {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 10px; padding-bottom: 10px;
+}
+.logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.logo-icon {
+  width: 44px; height: 44px;
+  background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 700; font-size: 1.1rem;
+}
+.logo-text { line-height: 1.15; }
+.logo-text .brand { font-weight: 700; font-size: 1.05rem; color: var(--teal-dark); }
+.logo-text .sub { font-size: .72rem; color: var(--text-secondary); }
+.inner-nav { display: flex; gap: 24px; align-items: center; }
+.inner-nav a { font-size: .92rem; color: var(--text-secondary); transition: color var(--transition); }
+.inner-nav a:hover { color: var(--teal); }
+.inner-nav a.active { color: var(--teal-dark); font-weight: 600; }
+.nav-cta-group { display: flex; gap: 10px; align-items: center; }
+.btn-outline-sm {
+  padding: 8px 18px; border-radius: var(--radius-sm); font-size: .88rem; font-weight: 600;
+  border: 1.5px solid var(--teal); color: var(--teal); transition: all var(--transition);
+}
+.btn-outline-sm:hover { background: var(--teal); color: #fff; }
+.btn-primary-sm {
+  padding: 8px 18px; border-radius: var(--radius-sm); font-size: .88rem; font-weight: 600;
+  background: var(--orange); color: #fff; transition: all var(--transition);
+}
+.btn-primary-sm:hover { background: var(--orange-dark); }
+
+/* ========================================
+   BREADCRUMB
+   ======================================== */
+.breadcrumb { background: var(--warm-bg); padding: 12px 0; font-size: .85rem; color: var(--text-light); }
+.breadcrumb a { color: var(--teal); }
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ========================================
+   BLOG HERO
+   ======================================== */
+.blog-hero {
+  background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 60%, #4a8c97 100%);
+  color: #fff; padding: 52px 0 40px; position: relative; overflow: hidden;
+}
+.blog-hero::before {
+  content: ''; position: absolute; top: -40%; right: -15%; width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(255,255,255,.05) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.blog-hero h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 10px; }
+.blog-hero p { font-size: 1.05rem; opacity: .88; max-width: 600px; line-height: 1.6; margin-bottom: 24px; }
+
+/* Search bar */
+.blog-search {
+  display: flex; max-width: 520px; background: rgba(255,255,255,.15);
+  border-radius: var(--radius-sm); overflow: hidden; border: 1px solid rgba(255,255,255,.2);
+  backdrop-filter: blur(4px);
+}
+.blog-search input {
+  flex: 1; padding: 14px 18px; border: none; background: transparent;
+  color: #fff; font-size: .95rem; outline: none;
+}
+.blog-search input::placeholder { color: rgba(255,255,255,.6); }
+.blog-search button {
+  padding: 14px 22px; background: var(--orange); color: #fff;
+  font-weight: 600; font-size: .9rem; transition: background var(--transition);
+}
+.blog-search button:hover { background: var(--orange-dark); }
+
+/* ========================================
+   CATEGORY NAV — Topic Clusters
+   ======================================== */
+.category-nav {
+  background: #fff; border-bottom: 1px solid rgba(0,0,0,.06);
+  position: sticky; top: 60px; z-index: 900; box-shadow: 0 2px 8px rgba(0,0,0,.04);
+}
+.category-nav .container {
+  display: flex; align-items: center; gap: 6px;
+  padding-top: 0; padding-bottom: 0; overflow-x: auto; -webkit-overflow-scrolling: touch;
+}
+.cat-pill {
+  display: inline-block; padding: 12px 18px; font-size: .85rem; font-weight: 600;
+  color: var(--text-secondary); white-space: nowrap; border-bottom: 3px solid transparent;
+  transition: all var(--transition); cursor: pointer;
+}
+.cat-pill:hover { color: var(--teal); }
+.cat-pill.active { color: var(--teal-dark); border-bottom-color: var(--orange); }
+
+/* ========================================
+   FEATURED / PILLAR CONTENT
+   ======================================== */
+.featured-section { padding: 48px 0 40px; background: var(--warm-bg); }
+.featured-label {
+  font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+  color: var(--orange); margin-bottom: 20px;
+}
+.featured-grid {
+  display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px;
+}
+.featured-main {
+  background: #fff; border-radius: var(--radius-lg); overflow: hidden;
+  box-shadow: var(--shadow-md); transition: all var(--transition); display: flex; flex-direction: column;
+}
+.featured-main:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.featured-thumb {
+  height: 260px; display: flex; align-items: center; justify-content: center;
+  font-size: 3.5rem; position: relative;
+}
+.featured-thumb .pillar-badge {
+  position: absolute; top: 16px; left: 16px; background: var(--orange); color: #fff;
+  font-size: .72rem; font-weight: 700; padding: 4px 12px; border-radius: 100px;
+  text-transform: uppercase; letter-spacing: .5px;
+}
+.featured-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+.featured-body .cat-tag { font-size: .72rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; color: var(--teal); margin-bottom: 8px; }
+.featured-body h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 10px; line-height: 1.3; }
+.featured-body p { font-size: .95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px; flex: 1; }
+.author-line { display: flex; align-items: center; gap: 10px; font-size: .82rem; color: var(--text-light); }
+.author-avatar {
+  width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center;
+  justify-content: center; font-size: .75rem; font-weight: 700; color: #fff;
+}
+.author-line strong { color: var(--text-primary); font-weight: 600; }
+.read-more { font-size: .88rem; font-weight: 600; color: var(--teal); margin-top: 12px; }
+
+.featured-sidebar { display: flex; flex-direction: column; gap: 16px; }
+.featured-side-card {
+  background: #fff; border-radius: var(--radius-md); overflow: hidden;
+  box-shadow: var(--shadow-sm); display: flex; gap: 16px; padding: 16px;
+  transition: all var(--transition); flex: 1; align-items: flex-start;
+}
+.featured-side-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.side-thumb {
+  width: 80px; height: 80px; border-radius: var(--radius-sm); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 2rem;
+}
+.side-body { flex: 1; }
+.side-body .cat-tag { font-size: .68rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; color: var(--orange); margin-bottom: 4px; }
+.side-body h4 { font-size: .92rem; font-weight: 700; line-height: 1.35; margin-bottom: 4px; }
+.side-body .meta { font-size: .75rem; color: var(--text-light); }
+
+/* ========================================
+   TOPIC CLUSTER SECTIONS
+   ======================================== */
+.cluster-section { padding: 56px 0; }
+.cluster-section:nth-child(even) { background: var(--warm-bg); }
+.cluster-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 28px; flex-wrap: wrap; gap: 12px; }
+.cluster-header h2 { font-size: 1.5rem; font-weight: 800; }
+.cluster-header .see-all { font-size: .88rem; font-weight: 600; color: var(--teal); }
+
+.post-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.post-card {
+  background: #fff; border-radius: var(--radius-md); overflow: hidden;
+  box-shadow: var(--shadow-sm); transition: all var(--transition); display: block;
+}
+.post-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.post-thumb {
+  height: 170px; display: flex; align-items: center; justify-content: center;
+  font-size: 2.5rem; position: relative;
+}
+.post-body { padding: 20px; }
+.post-body .cat-tag { font-size: .68rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; color: var(--orange); margin-bottom: 6px; }
+.post-body h4 { font-size: 1rem; font-weight: 700; line-height: 1.35; margin-bottom: 8px; }
+.post-body p { font-size: .85rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 12px; }
+.post-meta { display: flex; justify-content: space-between; align-items: center; font-size: .78rem; color: var(--text-light); }
+.post-meta .read-time { display: flex; align-items: center; gap: 4px; }
+
+/* ========================================
+   PILLAR CONTENT CALLOUT
+   ======================================== */
+.pillar-callout {
+  background: linear-gradient(135deg, var(--teal-dark), var(--teal)); color: #fff;
+  border-radius: var(--radius-lg); padding: 48px; margin: 48px 0;
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center;
+}
+.pillar-callout h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; }
+.pillar-callout p { opacity: .9; line-height: 1.7; margin-bottom: 20px; }
+.pillar-callout .btn-white {
+  display: inline-block; padding: 14px 28px; background: #fff; color: var(--teal-dark);
+  border-radius: var(--radius-sm); font-weight: 700; transition: all var(--transition);
+}
+.pillar-callout .btn-white:hover { background: var(--warm-bg); }
+.pillar-list { list-style: none; }
+.pillar-list li {
+  background: rgba(255,255,255,.1); border-radius: var(--radius-sm); padding: 14px 18px;
+  margin-bottom: 10px; display: flex; gap: 12px; align-items: flex-start;
+  border: 1px solid rgba(255,255,255,.12); backdrop-filter: blur(4px);
+}
+.pillar-list li strong { display: block; font-size: .92rem; }
+.pillar-list li span { font-size: .82rem; opacity: .8; }
+.pillar-check { color: var(--orange-light); font-weight: 700; font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+
+/* ========================================
+   NEWSLETTER + AUTHORS
+   ======================================== */
+.newsletter-authors { padding: 56px 0; background: var(--warm-bg); }
+.na-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+
+/* Newsletter */
+.newsletter-card {
+  background: #fff; border-radius: var(--radius-lg); padding: 36px;
+  box-shadow: var(--shadow-sm); border: 1px solid rgba(0,0,0,.05);
+}
+.newsletter-card h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 8px; }
+.newsletter-card p { font-size: .92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px; }
+.newsletter-form { display: flex; gap: 10px; }
+.newsletter-form input {
+  flex: 1; padding: 12px 16px; border: 1.5px solid #dde1e8; border-radius: var(--radius-sm);
+  font-size: .9rem; outline: none; transition: border var(--transition);
+}
+.newsletter-form input:focus { border-color: var(--teal); }
+.newsletter-form button {
+  padding: 12px 24px; background: var(--orange); color: #fff; font-weight: 600;
+  border-radius: var(--radius-sm); font-size: .9rem; transition: background var(--transition);
+}
+.newsletter-form button:hover { background: var(--orange-dark); }
+.newsletter-fine { font-size: .75rem; color: var(--text-light); margin-top: 10px; }
+
+/* Authors / E-E-A-T */
+.authors-card {
+  background: #fff; border-radius: var(--radius-lg); padding: 36px;
+  box-shadow: var(--shadow-sm); border: 1px solid rgba(0,0,0,.05);
+}
+.authors-card h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 16px; }
+.author-item { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 18px; }
+.author-item:last-child { margin-bottom: 0; }
+.author-img {
+  width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; color: #fff; font-size: .85rem;
+}
+.author-info h4 { font-size: .92rem; font-weight: 700; margin-bottom: 2px; }
+.author-info p { font-size: .8rem; color: var(--text-secondary); line-height: 1.5; }
+.author-info .credentials { font-size: .72rem; color: var(--teal); font-weight: 600; }
+
+/* ========================================
+   PODCAST TIE-IN
+   ======================================== */
+.podcast-section { padding: 48px 0; background: #fff; }
+.podcast-banner {
+  background: linear-gradient(135deg, #2d3748, #1a202c); color: #fff;
+  border-radius: var(--radius-lg); padding: 36px 40px; display: flex;
+  align-items: center; gap: 28px;
+}
+.podcast-icon { font-size: 3rem; flex-shrink: 0; }
+.podcast-text h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 6px; }
+.podcast-text p { font-size: .92rem; opacity: .8; line-height: 1.5; }
+.podcast-links { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+.podcast-links a {
+  padding: 8px 16px; border: 1px solid rgba(255,255,255,.3); border-radius: var(--radius-sm);
+  font-size: .82rem; font-weight: 600; color: #fff; transition: all var(--transition);
+}
+.podcast-links a:hover { background: rgba(255,255,255,.1); }
+
+/* ========================================
+   FOOTER
+   ======================================== */
+footer {
+  background: var(--teal-dark); color: rgba(255,255,255,.85); padding: 60px 0 0;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px;
+  margin-bottom: 40px;
+}
+.footer-brand p { font-size: .88rem; line-height: 1.6; margin-top: 10px; opacity: .7; }
+footer h5 { font-weight: 700; margin-bottom: 12px; color: #fff; font-size: .9rem; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 8px; }
+.footer-links a { font-size: .85rem; opacity: .7; transition: opacity var(--transition); }
+.footer-links a:hover { opacity: 1; }
+.crisis-bar {
+  background: rgba(0,0,0,.15); text-align: center; padding: 16px 20px;
+  font-size: .82rem; line-height: 1.6; border-radius: var(--radius-sm); margin-bottom: 24px;
+}
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.1); padding: 20px 0;
+  display: flex; justify-content: space-between; font-size: .78rem; opacity: .6; flex-wrap: wrap; gap: 8px;
+}
+.footer-bottom a { color: rgba(255,255,255,.8); }
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 900px) {
+  .featured-grid { grid-template-columns: 1fr; }
+  .post-grid { grid-template-columns: 1fr 1fr; }
+  .pillar-callout { grid-template-columns: 1fr; padding: 32px; }
+  .na-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .inner-nav { display: none; }
+  .podcast-banner { flex-direction: column; text-align: center; }
+}
+@media (max-width: 600px) {
+  .blog-hero { padding: 36px 0 28px; }
+  .blog-hero h1 { font-size: 1.6rem; }
+  .post-grid { grid-template-columns: 1fr; }
+  .category-nav { top: 56px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .utility-bar { display: none; }
+  .newsletter-form { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- ======================= UTILITY BAR ======================= -->
+<div class="utility-bar">
+  <div class="container">
+    <div class="utility-left">
+      <a href="tel:18009939999">&#9742; 1-800-993-9999</a>
+      <span>|</span>
+      <a href="#">English &#9662;</a>
+    </div>
+    <div class="utility-right">
+      <a href="#">Specialist Login</a>
+      <a href="#">Contact Us</a>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= HEADER ======================= -->
+<header class="header">
+  <div class="container">
+    <a href="TGRM_Homepage_V2.html" class="logo">
+      <div class="logo-icon">GR</div>
+      <div class="logo-text">
+        <div class="brand">The Grief Recovery Method&reg;</div>
+        <div class="sub">Grief Recovery Institute&reg;</div>
+      </div>
+    </a>
+    <nav class="inner-nav">
+      <a href="TGRM_Homepage_V2.html">Home</a>
+      <a href="TGRM_Directory.html">Find a Specialist</a>
+      <a href="TGRM_Certification.html">Certification</a>
+      <a href="#">About</a>
+      <a href="TGRM_Blog.html" class="active">Blog</a>
+    </nav>
+    <div class="nav-cta-group">
+      <a href="TGRM_Directory.html" class="btn-outline-sm">Find a Specialist</a>
+      <a href="TGRM_Certification.html" class="btn-primary-sm">Get Certified</a>
+    </div>
+  </div>
+</header>
+
+<!-- ======================= BREADCRUMB ======================= -->
+<div class="breadcrumb">
+  <div class="container">
+    <a href="TGRM_Homepage_V2.html">Home</a> &nbsp;&rsaquo;&nbsp;
+    <strong>Blog</strong>
+  </div>
+</div>
+
+<!-- ======================= BLOG HERO ======================= -->
+<section class="blog-hero">
+  <div class="container">
+    <h1>Grief Recovery Blog</h1>
+    <p>Evidence-based articles on grief, loss, and healing &mdash; from the team behind the world&rsquo;s only evidence-based grief recovery program. New posts weekly.</p>
+    <div class="blog-search">
+      <input type="text" placeholder="Search articles (e.g., &quot;grief after divorce&quot;, &quot;pet loss&quot;)&hellip;" aria-label="Search blog articles">
+      <button>Search</button>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CATEGORY NAV (Topic Clusters) ======================= -->
+<nav class="category-nav" aria-label="Blog categories">
+  <div class="container">
+    <span class="cat-pill active" data-cat="all">All Posts</span>
+    <span class="cat-pill" data-cat="grief-after-death">Grief After Death</span>
+    <span class="cat-pill" data-cat="grief-after-divorce">Grief After Divorce</span>
+    <span class="cat-pill" data-cat="pet-loss">Pet Loss</span>
+    <span class="cat-pill" data-cat="children-grief">Children &amp; Grief</span>
+    <span class="cat-pill" data-cat="holiday-grief">Holiday Grief</span>
+    <span class="cat-pill" data-cat="myths">Myths &amp; Misconceptions</span>
+    <span class="cat-pill" data-cat="professional">For Professionals</span>
+    <span class="cat-pill" data-cat="podcast">Podcast Episodes</span>
+  </div>
+</nav>
+
+<!-- ======================= FEATURED / PILLAR CONTENT ======================= -->
+<section class="featured-section">
+  <div class="container">
+    <div class="featured-label">&#9733; Featured &amp; Pillar Guides</div>
+    <div class="featured-grid">
+
+      <!-- Main featured (pillar article) -->
+      <a href="TGRM_Blog_Post.html" class="featured-main fade-in">
+        <div class="featured-thumb" style="background: linear-gradient(135deg, var(--teal-pale), #d4e8ec);">
+          <span class="pillar-badge">Pillar Guide</span>
+          &#128218;
+        </div>
+        <div class="featured-body">
+          <div class="cat-tag">Grief Education</div>
+          <h3>The Complete Guide to Grief Recovery: What Actually Works (and What Doesn&rsquo;t)</h3>
+          <p>A comprehensive, evidence-based guide to understanding grief, debunking common myths, and finding real steps toward recovery. Covers 40+ types of loss, the problem with the &ldquo;5 stages,&rdquo; and what the research actually shows about healing.</p>
+          <div class="author-line">
+            <div class="author-avatar" style="background:var(--teal);">AH</div>
+            <div><strong>Allison James Henry</strong> &middot; Feb 28, 2026 &middot; 18 min read</div>
+          </div>
+          <span class="read-more">Read the full guide &rarr;</span>
+        </div>
+      </a>
+
+      <!-- Sidebar featured posts -->
+      <div class="featured-sidebar">
+        <a href="#" class="featured-side-card fade-in">
+          <div class="side-thumb" style="background:var(--warm-bg-alt);">&#128148;</div>
+          <div class="side-body">
+            <div class="cat-tag">Grief After Divorce</div>
+            <h4>Grief After Divorce: Why It Hurts Like Death (and What to Do About It)</h4>
+            <div class="meta">Allison James Henry &middot; 12 min read</div>
+          </div>
+        </a>
+        <a href="#" class="featured-side-card fade-in">
+          <div class="side-thumb" style="background:var(--teal-pale);">&#128166;</div>
+          <div class="side-body">
+            <div class="cat-tag">Myths</div>
+            <h4>Grief vs. Depression: What&rsquo;s the Difference and Why It Matters</h4>
+            <div class="meta">Dr. Sarah Mitchell, LCSW &middot; 10 min read</div>
+          </div>
+        </a>
+        <a href="#" class="featured-side-card fade-in">
+          <div class="side-thumb" style="background:rgba(224,117,37,.08);">&#128038;</div>
+          <div class="side-body">
+            <div class="cat-tag">Grief After Death</div>
+            <h4>Grief After Losing a Parent as an Adult: A Guide You Deserve</h4>
+            <div class="meta">Allison James Henry &middot; 14 min read</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CLUSTER 1: Grief After Death ======================= -->
+<section class="cluster-section">
+  <div class="container">
+    <div class="cluster-header">
+      <h2>&#128338; Grief After Death</h2>
+      <a href="#" class="see-all">See all articles &rarr;</a>
+    </div>
+    <div class="post-grid">
+      <a href="#" class="post-card fade-in">
+        <div class="post-thumb" style="background:var(--teal-pale);">&#127774;</div>
+        <div class="post-body">
+          <div class="cat-tag">Pillar Guide</div>
+          <h4>How Long Does Grief Last? What the Research Actually Shows</h4>
+          <p>The myth of a grief timeline causes real harm. Here&rsquo;s what evidence-based research says about the duration of grief &mdash; and why &ldquo;getting over it&rdquo; is the wrong frame.</p>
+          <div class="post-meta">
+            <span>Allison James Henry</span>
+            <span class="read-time">&#128337; 11 min</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="post-card fade-in">
+        <div class="post-thumb" style="background:var(--warm-bg-alt);">&#128150;</div>
+        <div class="post-body">
+          <div class="cat-tag">Grief After Death</div>
+          <h4>Anticipatory Grief: When Loss Begins Before Death</h4>
+          <p>The grief that starts when someone receives a terminal diagnosis is real, isolating, and rarely discussed. Understanding anticipatory grief can change how you experience those final months.</p>
+          <div class="post-meta">
+            <span>Dr. Sarah Mitchell, LCSW</span>
+            <span class="read-time">&#128337; 9 min</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="post-card fade-in">
+        <div class="post-thumb" style="background:rgba(224,117,37,.08);">&#128587;</div>
+        <div class="post-body">
+          <div class="cat-tag">Grief After Death</div>
+          <h4>What Not to Say to Someone Who Is Grieving (and What to Say Instead)</h4>
+          <p>Well-meaning phrases like &ldquo;they&rsquo;re in a better place&rdquo; can cause more pain. An evidence-based guide to showing up for someone in grief.</p>
+          <div class="post-meta">
+            <span>Allison James Henry</span>
+            <span class="read-time">&#128337; 8 min</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PILLAR CONTENT CALLOUT ======================= -->
+<div class="container">
+  <div class="pillar-callout fade-in">
+    <div>
+      <h2>High-Impact Pillar Guides</h2>
+      <p>Comprehensive, deeply researched articles targeting the exact questions people search for most. Each guide is 2,000+ words, internally linked across the archive, and designed to rank.</p>
+      <a href="#" class="btn-white">Browse All Guides &rarr;</a>
+    </div>
+    <ul class="pillar-list">
+      <li>
+        <span class="pillar-check">&#10003;</span>
+        <div><strong>&ldquo;5 Stages of Grief&rdquo; &mdash; Why They&rsquo;re Misleading</strong><span>2,400 words &middot; Targets &ldquo;stages of grief&rdquo; (74K monthly searches)</span></div>
+      </li>
+      <li>
+        <span class="pillar-check">&#10003;</span>
+        <div><strong>Complicated Grief vs. Normal Grief: When to Seek Help</strong><span>1,800 words &middot; Targets &ldquo;complicated grief&rdquo; (12K monthly searches)</span></div>
+      </li>
+      <li>
+        <span class="pillar-check">&#10003;</span>
+        <div><strong>How to Help a Grieving Child: An Age-by-Age Guide</strong><span>2,200 words &middot; Targets &ldquo;grieving child&rdquo; (8K monthly searches)</span></div>
+      </li>
+      <li>
+        <span class="pillar-check">&#10003;</span>
+        <div><strong>Is Grief Counseling Worth It? What the Evidence Says</strong><span>1,600 words &middot; Targets &ldquo;grief counseling&rdquo; (18K monthly searches)</span></div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ======================= CLUSTER 2: Life Transitions & Loss ======================= -->
+<section class="cluster-section" style="background:var(--warm-bg);">
+  <div class="container">
+    <div class="cluster-header">
+      <h2>&#128260; Life Transitions &amp; Loss</h2>
+      <a href="#" class="see-all">See all articles &rarr;</a>
+    </div>
+    <div class="post-grid">
+      <a href="#" class="post-card fade-in">
+        <div class="post-thumb" style="background:var(--teal-pale);">&#128148;</div>
+        <div class="post-body">
+          <div class="cat-tag">Grief After Divorce</div>
+          <h4>Stages of Grief After Divorce: A Better Framework</h4>
+          <p>The traditional &ldquo;stages&rdquo; don&rsquo;t capture what divorce grief actually feels like. An action-based approach to processing the end of a marriage.</p>
+          <div class="post-meta">
+            <span>Allison James Henry</span>
+            <span class="read-time">&#128337; 10 min</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="post-card fade-in">
+        <div class="post-thumb" style="background:rgba(224,117,37,.08);">&#129657;</div>
+        <div class="post-body">
+          <div class="cat-tag">Health &amp; Loss</div>
+          <h4>Grieving a Diagnosis: When Your Health Changes Everything</h4>
+          <p>A chronic illness diagnosis is a loss &mdash; of the future you expected, of your identity, of control. Here&rsquo;s how to process it.</p>
+          <div class="post-meta">
+            <span>Dr. James Mitchell</span>
+            <span class="read-time">&#128337; 9 min</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="post-card fade-in">
+        <div class="post-thumb" style="background:var(--teal-pale);">&#128118;</div>
+        <div class="post-body">
+          <div class="cat-tag">Ambiguous Loss</div>
+          <h4>When Infertility Breaks Your Heart: Grieving the Family You Imagined</h4>
+          <p>Infertility grief is disenfranchised &mdash; rarely acknowledged by society. But the loss of a dream is still a loss that deserves recovery.</p>
+          <div class="post-meta">
+            <span>Allison James Henry</span>
+            <span class="read-time">&#128337; 11 min</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CLUSTER 3: Myths & Misconceptions ======================= -->
+<section class="cluster-section">
+  <div class="container">
+    <div class="cluster-header">
+      <h2>&#128161; Myths &amp; Misconceptions</h2>
+      <a href="#" class="see-all">See all articles &rarr;</a>
+    </div>
+    <div class="post-grid">
+      <a href="#" class="post-card fade-in">
+        <div class="post-thumb" style="background:rgba(224,117,37,.08);">&#10060;</div>
+        <div class="post-body">
+          <div class="cat-tag">Pillar Guide</div>
+          <h4>The &ldquo;5 Stages of Grief&rdquo;: Why They&rsquo;re Misleading and What Actually Helps</h4>
+          <p>K&uuml;bler-Ross herself said the stages were never meant for grievers. Here&rsquo;s what 45+ years of evidence-based grief recovery has shown works instead.</p>
+          <div class="post-meta">
+            <span>Allison James Henry</span>
+            <span class="read-time">&#128337; 15 min</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="post-card fade-in">
+        <div class="post-thumb" style="background:var(--teal-pale);">&#128172;</div>
+        <div class="post-body">
+          <div class="cat-tag">Myths</div>
+          <h4>6 Things People Say About Grief That Aren&rsquo;t True</h4>
+          <p>&ldquo;Time heals all wounds&rdquo; and other well-meaning advice that actually makes grief harder. We unpack the most common myths.</p>
+          <div class="post-meta">
+            <span>Allison James Henry</span>
+            <span class="read-time">&#128337; 7 min</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="post-card fade-in">
+        <div class="post-thumb" style="background:var(--warm-bg-alt);">&#128221;</div>
+        <div class="post-body">
+          <div class="cat-tag">Myths</div>
+          <h4>Grief Journal Prompts That Actually Help (Not Just &ldquo;Write About Your Feelings&rdquo;)</h4>
+          <p>Journaling can be powerful &mdash; but only with the right prompts. Action-based grief journal exercises rooted in the Grief Recovery Method.</p>
+          <div class="post-meta">
+            <span>Allison James Henry</span>
+            <span class="read-time">&#128337; 8 min</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CLUSTER 4: For Professionals ======================= -->
+<section class="cluster-section" style="background:var(--warm-bg);">
+  <div class="container">
+    <div class="cluster-header">
+      <h2>&#127891; For Professionals</h2>
+      <a href="#" class="see-all">See all articles &rarr;</a>
+    </div>
+    <div class="post-grid">
+      <a href="#" class="post-card fade-in">
+        <div class="post-thumb" style="background:var(--teal-pale);">&#129657;</div>
+        <div class="post-body">
+          <div class="cat-tag">Certification</div>
+          <h4>Why Your Therapist Wasn&rsquo;t Trained in Grief Recovery</h4>
+          <p>Most mental health professionals receive near-zero hours of grief-specific training. Here&rsquo;s why that matters for you and your clients.</p>
+          <div class="post-meta">
+            <span>Allison James Henry</span>
+            <span class="read-time">&#128337; 9 min</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="post-card fade-in">
+        <div class="post-thumb" style="background:rgba(224,117,37,.08);">&#127919;</div>
+        <div class="post-body">
+          <div class="cat-tag">Practice Building</div>
+          <h4>From Therapist to Certified Grief Recovery Specialist: One Counselor&rsquo;s Story</h4>
+          <p>How one licensed counselor transformed her practice, added a new revenue stream, and found the clinical framework she&rsquo;d been missing.</p>
+          <div class="post-meta">
+            <span>Guest: Lisa R., LCSW</span>
+            <span class="read-time">&#128337; 10 min</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="post-card fade-in">
+        <div class="post-thumb" style="background:var(--teal-pale);">&#128200;</div>
+        <div class="post-body">
+          <div class="cat-tag">Pillar Guide</div>
+          <h4>Is Grief Counseling Worth It? What the Evidence Says</h4>
+          <p>For clients (and therapists) wondering if grief-specific support makes a difference &mdash; here&rsquo;s what the research shows.</p>
+          <div class="post-meta">
+            <span>Allison James Henry</span>
+            <span class="read-time">&#128337; 12 min</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= NEWSLETTER + AUTHORS ======================= -->
+<section class="newsletter-authors">
+  <div class="container">
+    <div class="na-grid">
+
+      <!-- Newsletter signup -->
+      <div class="newsletter-card fade-in">
+        <h3>&#128232; Weekly Grief Recovery Insights</h3>
+        <p>Evidence-based articles, recovery tools, and community stories delivered to your inbox every Tuesday. Join 12,000+ subscribers.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Your email address" aria-label="Email for newsletter">
+          <button>Subscribe</button>
+        </div>
+        <p class="newsletter-fine">No spam. Unsubscribe anytime. We respect your inbox the way we respect your grief.</p>
+      </div>
+
+      <!-- Authors / E-E-A-T -->
+      <div class="authors-card fade-in">
+        <h3>&#9997;&#65039; Our Contributors</h3>
+        <div class="author-item">
+          <div class="author-img" style="background:var(--teal);">AH</div>
+          <div class="author-info">
+            <h4>Allison James Henry</h4>
+            <div class="credentials">Certified Grief Recovery Specialist &bull; Senior Content Director</div>
+            <p>Leads the blog with a focus on translating 45+ years of evidence-based grief recovery into accessible, compassionate content.</p>
+          </div>
+        </div>
+        <div class="author-item">
+          <div class="author-img" style="background:var(--orange);">SM</div>
+          <div class="author-info">
+            <h4>Dr. Sarah Mitchell, LCSW</h4>
+            <div class="credentials">Licensed Clinical Social Worker &bull; Advanced GRM Specialist</div>
+            <p>Clinical perspectives on grief, mental health integration, and the intersection of therapy and grief recovery.</p>
+          </div>
+        </div>
+        <div class="author-item">
+          <div class="author-img" style="background:#5a6577;">GC</div>
+          <div class="author-info">
+            <h4>Guest Contributors</h4>
+            <div class="credentials">Certified Specialists &bull; Therapists &bull; Grievers</div>
+            <p>Firsthand stories and expert insights from our global community of 10,000+ certified specialists.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PODCAST TIE-IN ======================= -->
+<section class="podcast-section">
+  <div class="container">
+    <div class="podcast-banner fade-in">
+      <div class="podcast-icon">&#127911;</div>
+      <div class="podcast-text">
+        <h3>Grief Recovery Podcast</h3>
+        <p>Deep conversations about grief, loss, and recovery. Every episode has a companion blog post with show notes, key takeaways, and resources.</p>
+        <div class="podcast-links">
+          <a href="https://podcasts.apple.com/us/podcast/feel-free-again-with-cole-james/id1644030ECO" target="_blank">&#127911; Apple Podcasts</a>
+          <a href="https://open.spotify.com/show/feel-free-again" target="_blank">&#127911; Spotify</a>
+          <a href="https://cjames4.podbean.com/" target="_blank">&#127911; Podbean</a>
+          <a href="TGRM_Podcast.html">Browse All Episodes &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FOOTER ======================= -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="font-weight:700; font-size:1.05rem; color:#fff;">The Grief Recovery Method&reg;</div>
+        <p>The only evidence-based grief recovery program in the world. Helping people move from pain to peace since 1984.</p>
+        <div style="margin-top:16px; display:flex; gap:12px;">
+          <a href="#" style="opacity:.6; font-size:1.2rem;">&#128216;</a>
+          <a href="#" style="opacity:.6; font-size:1.2rem;">&#128248;</a>
+          <a href="#" style="opacity:.6; font-size:1.2rem;">&#9654;&#65039;</a>
+          <a href="#" style="opacity:.6; font-size:1.2rem;">&#128279;</a>
+        </div>
+      </div>
+      <div>
+        <h5>For Grievers</h5>
+        <ul class="footer-links">
+          <li><a href="TGRM_Directory.html">Find a Specialist</a></li>
+          <li><a href="TGRM_Homepage_V2.html#quiz">Grief Type Quiz</a></li>
+          <li><a href="#">$49 Online Course</a></li>
+          <li><a href="#">Join the Community</a></li>
+          <li><a href="#">The Handbook</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>For Professionals</h5>
+        <ul class="footer-links">
+          <li><a href="TGRM_Certification.html">Certification Programs</a></li>
+          <li><a href="TGRM_For_Therapists.html">For Therapists</a></li>
+          <li><a href="#">Training Calendar</a></li>
+          <li><a href="TGRM_Coaches_Certification.html">For Coaches</a></li>
+          <li><a href="TGRM_Military_Certification.html">Military &amp; Veterans</a></li>
+          <li><a href="#">Specialist Login</a></li>
+          <li><a href="#">Specialist Resource Center</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul class="footer-links">
+          <li><a href="#">About The Method</a></li>
+          <li><a href="#">Our Team</a></li>
+          <li><a href="#">The Research</a></li>
+          <li><a href="TGRM_Blog.html">Blog</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="crisis-bar">
+      <strong>If you or someone you know is in crisis:</strong><br>
+      988 Suicide &amp; Crisis Lifeline: Call or text <strong>988</strong> &middot;
+      Veterans Crisis Line: <strong>1-800-273-8255</strong> (Press 1) &middot;
+      Crisis Text Line: Text <strong>HOME</strong> to <strong>741741</strong>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 The Grief Recovery Institute&reg;. All rights reserved. | <a href="#">Privacy</a> &middot; <a href="#">Terms</a></div>
+      <div>The Grief Recovery Method&reg; &middot; Certified Grief Recovery Specialist&reg; &middot; Grief&#10084;Recovery&reg;</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Category filter (prototype interaction)
+document.querySelectorAll('.cat-pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    document.querySelectorAll('.cat-pill.active').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    // In production: filter posts by data-cat attribute
+  });
+});
+
+// Fade-in on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — The Grief Recovery Method® Certification</title>
+<style>
+/* ========================================
+   RESET & BASE
+   ======================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'Segoe UI', Arial, Helvetica, sans-serif; color: #2d3748; line-height: 1.7; background: #f7f5f2; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; font-family: inherit; }
+
+/* ========================================
+   BRAND TOKENS
+   ======================================== */
+:root {
+  --orange: #e07525;
+  --orange-dark: #c4621a;
+  --orange-light: #f5a623;
+  --teal: #427e88;
+  --teal-dark: #356a73;
+  --teal-light: #7895a3;
+  --teal-pale: #e8f2f4;
+  --warm-bg: #faf8f5;
+  --warm-bg-alt: #f5f0eb;
+  --text-primary: #2d3748;
+  --text-secondary: #5a6577;
+  --text-light: #8896a8;
+  --white: #ffffff;
+  --green: #38a169;
+  --green-light: #f0fff4;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+  --shadow-md: 0 4px 14px rgba(0,0,0,.1);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,.12);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --transition: .25s ease;
+}
+
+/* ========================================
+   CHECKOUT PROGRESS BAR
+   ======================================== */
+.checkout-header {
+  background: var(--white);
+  border-bottom: 1px solid #e8e4df;
+  padding: 16px 20px;
+  position: sticky; top: 0; z-index: 100;
+}
+.checkout-header-inner {
+  max-width: 1000px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.checkout-logo {
+  font-size: 1rem; font-weight: 700; color: var(--teal-dark);
+  display: flex; align-items: center; gap: 10px;
+}
+.checkout-logo img { height: 32px; }
+.checkout-logo .logo-mark {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 800; font-size: .8rem;
+}
+
+.progress-steps {
+  display: flex; align-items: center; gap: 0;
+}
+.progress-step {
+  display: flex; align-items: center; gap: 8px;
+  font-size: .82rem; font-weight: 600; color: var(--text-light);
+  position: relative;
+}
+.progress-step.active { color: var(--teal); }
+.progress-step.completed { color: var(--green); }
+.step-num {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .75rem; font-weight: 700; border: 2px solid var(--text-light);
+  background: var(--white); flex-shrink: 0;
+}
+.progress-step.active .step-num { border-color: var(--teal); background: var(--teal); color: #fff; }
+.progress-step.completed .step-num { border-color: var(--green); background: var(--green); color: #fff; }
+.progress-connector {
+  width: 48px; height: 2px; background: #e2ddd8; margin: 0 8px;
+}
+.progress-connector.completed { background: var(--green); }
+
+.secure-badge {
+  display: flex; align-items: center; gap: 6px;
+  font-size: .78rem; color: var(--text-light);
+}
+.lock-icon { font-size: .9rem; }
+
+/* ========================================
+   MAIN LAYOUT (STEP 1: SELECT PRODUCT)
+   ======================================== */
+.checkout-main {
+  max-width: 1000px; margin: 0 auto; padding: 36px 20px 80px;
+}
+
+/* Step 1 */
+.step-section { display: none; }
+.step-section.active { display: block; }
+
+.step-title {
+  font-size: 1.5rem; font-weight: 700; text-align: center; margin-bottom: 6px;
+}
+.step-subtitle {
+  text-align: center; color: var(--text-secondary); margin-bottom: 32px; font-size: .95rem;
+}
+
+/* Product selector cards */
+.product-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  margin-bottom: 32px;
+}
+.product-card {
+  background: var(--white); border-radius: var(--radius-lg);
+  padding: 28px 22px; text-align: center;
+  border: 2px solid transparent; cursor: pointer;
+  transition: all .2s ease; position: relative;
+}
+.product-card:hover { box-shadow: var(--shadow-md); border-color: #d0ccc7; }
+.product-card.selected { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(66,126,136,.15), var(--shadow-md); }
+.product-card.featured { border-color: var(--orange); }
+.product-card.featured.selected { border-color: var(--teal); }
+.product-badge {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--orange); color: #fff; padding: 3px 16px; border-radius: 20px;
+  font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .5px;
+}
+.product-tier {
+  font-size: .72rem; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--teal); font-weight: 700; margin-bottom: 4px;
+}
+.product-name { font-size: 1.05rem; font-weight: 700; margin-bottom: 12px; }
+.product-price { font-size: 2.2rem; font-weight: 700; color: var(--text-primary); }
+.product-install { font-size: .8rem; color: var(--text-light); margin-top: 2px; }
+.product-features {
+  list-style: none; text-align: left; margin: 18px 0 0; padding-top: 16px;
+  border-top: 1px solid #f0ece7;
+}
+.product-features li {
+  font-size: .82rem; color: var(--text-secondary); padding: 5px 0;
+  display: flex; align-items: flex-start; gap: 6px;
+}
+.product-features .ck { color: var(--teal); font-weight: 700; flex-shrink: 0; }
+.product-features .st { color: var(--orange); flex-shrink: 0; }
+
+/* Selection radio indicator */
+.product-card::after {
+  content: ''; position: absolute; top: 14px; right: 14px;
+  width: 22px; height: 22px; border-radius: 50%;
+  border: 2px solid #d0ccc7; transition: all .2s;
+}
+.product-card.selected::after {
+  border-color: var(--teal); background: var(--teal);
+  box-shadow: inset 0 0 0 4px #fff;
+}
+
+/* Session date picker */
+.session-picker {
+  background: var(--white); border-radius: var(--radius-lg);
+  padding: 28px; margin-bottom: 28px;
+}
+.session-picker h3 {
+  font-size: 1.05rem; font-weight: 700; margin-bottom: 4px;
+}
+.session-picker .sub {
+  font-size: .85rem; color: var(--text-secondary); margin-bottom: 18px;
+}
+.session-list { display: flex; flex-direction: column; gap: 10px; }
+.session-option {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 18px; border: 2px solid #ece8e3; border-radius: var(--radius-md);
+  cursor: pointer; transition: all .2s;
+}
+.session-option:hover { border-color: #c8c3bc; }
+.session-option.selected { border-color: var(--teal); background: rgba(66,126,136,.03); }
+.session-radio {
+  width: 20px; height: 20px; border-radius: 50%;
+  border: 2px solid #c8c3bc; flex-shrink: 0; transition: all .2s;
+  position: relative;
+}
+.session-option.selected .session-radio {
+  border-color: var(--teal); background: var(--teal);
+  box-shadow: inset 0 0 0 3px #fff;
+}
+.session-info { flex: 1; }
+.session-date { font-weight: 700; font-size: .92rem; }
+.session-meta { font-size: .8rem; color: var(--text-light); }
+.session-tag {
+  font-size: .7rem; font-weight: 600; padding: 3px 10px; border-radius: 20px;
+}
+.tag-online { background: var(--teal-pale); color: var(--teal-dark); }
+.tag-person { background: #fef3e2; color: #b45309; }
+.spots-left { font-size: .72rem; color: #c53030; font-weight: 600; }
+
+/* Payment option */
+.payment-toggle {
+  background: var(--white); border-radius: var(--radius-lg);
+  padding: 28px; margin-bottom: 28px;
+}
+.payment-toggle h3 {
+  font-size: 1.05rem; font-weight: 700; margin-bottom: 4px;
+}
+.payment-toggle .sub { font-size: .85rem; color: var(--text-secondary); margin-bottom: 18px; }
+.payment-options { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.pay-option {
+  padding: 20px; border: 2px solid #ece8e3; border-radius: var(--radius-md);
+  cursor: pointer; transition: all .2s; position: relative;
+}
+.pay-option:hover { border-color: #c8c3bc; }
+.pay-option.selected { border-color: var(--teal); background: rgba(66,126,136,.03); }
+.pay-option::before {
+  content: ''; position: absolute; top: 14px; right: 14px;
+  width: 18px; height: 18px; border-radius: 50%;
+  border: 2px solid #c8c3bc; transition: all .2s;
+}
+.pay-option.selected::before {
+  border-color: var(--teal); background: var(--teal);
+  box-shadow: inset 0 0 0 3px #fff;
+}
+.pay-label { font-weight: 700; font-size: .95rem; margin-bottom: 2px; }
+.pay-detail { font-size: .82rem; color: var(--text-secondary); }
+.pay-save {
+  display: inline-block; margin-top: 6px;
+  font-size: .72rem; font-weight: 600; padding: 2px 10px;
+  background: var(--green-light); color: var(--green); border-radius: 12px;
+}
+
+/* Order summary sidebar */
+.checkout-layout {
+  display: grid; grid-template-columns: 1fr 340px; gap: 28px;
+  align-items: start;
+}
+.checkout-sidebar {
+  position: sticky; top: 80px;
+}
+.order-summary {
+  background: var(--white); border-radius: var(--radius-lg);
+  padding: 28px; border: 1px solid #ece8e3;
+}
+.order-summary h3 {
+  font-size: 1rem; font-weight: 700; margin-bottom: 18px;
+  padding-bottom: 14px; border-bottom: 1px solid #f0ece7;
+}
+.order-line {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  padding: 10px 0; font-size: .88rem;
+}
+.order-line .label { color: var(--text-secondary); flex: 1; }
+.order-line .value { font-weight: 600; text-align: right; }
+.order-line.total {
+  border-top: 2px solid var(--text-primary); margin-top: 10px; padding-top: 14px;
+  font-size: 1.05rem; font-weight: 700;
+}
+.order-line.total .value { color: var(--teal-dark); font-size: 1.15rem; }
+.order-line.installment-note {
+  font-size: .8rem; color: var(--text-light); border: none; padding-top: 2px;
+}
+
+.btn-checkout {
+  display: block; width: 100%; padding: 16px; margin-top: 20px;
+  background: var(--orange); color: #fff; font-weight: 700; font-size: 1rem;
+  border-radius: var(--radius-sm); text-align: center;
+  transition: all .2s; letter-spacing: .3px;
+}
+.btn-checkout:hover { background: var(--orange-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(224,117,37,.35); }
+.btn-checkout:active { transform: translateY(0); }
+
+.checkout-trust {
+  text-align: center; margin-top: 16px; font-size: .78rem; color: var(--text-light);
+  display: flex; flex-direction: column; gap: 6px; align-items: center;
+}
+.trust-icons { display: flex; gap: 12px; align-items: center; justify-content: center; margin-top: 4px; }
+.trust-icon {
+  width: 40px; height: 26px; background: #f0ece7; border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .6rem; font-weight: 700; color: var(--text-light);
+}
+
+.guarantee-box {
+  background: var(--green-light); border-radius: var(--radius-md);
+  padding: 16px; margin-top: 16px; text-align: center;
+}
+.guarantee-box .shield { font-size: 1.5rem; margin-bottom: 4px; }
+.guarantee-box strong { font-size: .82rem; color: var(--green); display: block; }
+.guarantee-box p { font-size: .78rem; color: var(--text-secondary); margin-top: 2px; }
+
+/* ========================================
+   STEP 2: STRIPE CHECKOUT (SIMULATED)
+   ======================================== */
+.stripe-checkout-wrapper {
+  max-width: 540px; margin: 0 auto;
+}
+.stripe-domain-bar {
+  background: #2d3748; color: #a0aec0; padding: 10px 18px;
+  border-radius: 10px 10px 0 0; font-size: .78rem;
+  display: flex; align-items: center; gap: 8px;
+}
+.domain-lock { color: var(--green); }
+.domain-url { color: #e2e8f0; }
+.stripe-checkout-sim {
+  background: #fff; border-radius: 0 0 12px 12px; overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,.15);
+}
+.stripe-left {
+  background: linear-gradient(180deg, var(--teal-dark) 0%, #2c5d66 100%);
+  color: #fff; padding: 36px 32px;
+}
+.stripe-company { font-size: .82rem; opacity: .7; margin-bottom: 4px; letter-spacing: .5px; }
+.stripe-product-name { font-size: 1.2rem; font-weight: 700; margin-bottom: 2px; }
+.stripe-amount { font-size: 2.4rem; font-weight: 700; margin-bottom: 4px; }
+.stripe-interval { font-size: .85rem; opacity: .7; }
+.stripe-line-items {
+  margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.15);
+}
+.stripe-line {
+  display: flex; justify-content: space-between; padding: 8px 0;
+  font-size: .88rem; opacity: .85;
+}
+.stripe-line.subtotal { opacity: 1; font-weight: 600; border-top: 1px solid rgba(255,255,255,.15); padding-top: 14px; margin-top: 6px; }
+
+.stripe-right { padding: 32px; }
+.stripe-form-group { margin-bottom: 20px; }
+.stripe-label {
+  display: block; font-size: .82rem; font-weight: 600;
+  color: #1a202c; margin-bottom: 6px;
+}
+.stripe-input {
+  width: 100%; padding: 12px 14px; border: 1px solid #d1d5db;
+  border-radius: 8px; font-size: .92rem; background: #fff;
+  transition: border-color .2s;
+}
+.stripe-input:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px rgba(66,126,136,.1); }
+.stripe-input::placeholder { color: #a0aec0; }
+.stripe-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.card-input-mock {
+  border: 1px solid #d1d5db; border-radius: 8px; padding: 12px 14px;
+  display: flex; align-items: center; gap: 10px; background: #fff;
+}
+.card-number-field { flex: 1; font-size: .92rem; color: #a0aec0; }
+.card-icons { display: flex; gap: 4px; }
+.card-icon {
+  width: 32px; height: 20px; border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .55rem; font-weight: 700; color: #fff;
+}
+.cc-visa { background: #1a1f71; }
+.cc-mc { background: #eb001b; }
+.cc-amex { background: #006fcf; }
+.cc-disc { background: #ff6000; }
+
+.btn-stripe-pay {
+  display: block; width: 100%; padding: 14px;
+  background: var(--teal-dark); color: #fff;
+  font-weight: 700; font-size: 1rem; border-radius: 8px;
+  text-align: center; transition: all .2s; margin-top: 8px;
+}
+.btn-stripe-pay:hover { background: #2a535b; }
+
+.stripe-powered {
+  text-align: center; margin-top: 16px; font-size: .75rem; color: #a0aec0;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.stripe-powered .stripe-logo { font-weight: 800; color: #635bff; }
+
+/* ========================================
+   STEP 3: SUCCESS / CONFIRMATION
+   ======================================== */
+.success-page { text-align: center; max-width: 640px; margin: 0 auto; }
+.success-icon {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: var(--green); color: #fff; font-size: 2.4rem;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 24px; animation: successPop .5s ease;
+}
+@keyframes successPop {
+  0% { transform: scale(0); } 50% { transform: scale(1.15); } 100% { transform: scale(1); }
+}
+.success-page h2 { font-size: 1.7rem; font-weight: 700; margin-bottom: 8px; color: var(--text-primary); }
+.success-page .success-sub { font-size: 1rem; color: var(--text-secondary); margin-bottom: 32px; }
+
+.confirm-card {
+  background: var(--white); border-radius: var(--radius-lg); padding: 28px;
+  text-align: left; margin-bottom: 20px; border: 1px solid #ece8e3;
+}
+.confirm-card h3 { font-size: .95rem; font-weight: 700; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid #f0ece7; }
+.confirm-row {
+  display: flex; justify-content: space-between; padding: 8px 0;
+  font-size: .88rem;
+}
+.confirm-row .cl { color: var(--text-light); }
+.confirm-row .cv { font-weight: 600; }
+.confirm-row.total { border-top: 2px solid var(--text-primary); margin-top: 8px; padding-top: 12px; font-weight: 700; }
+
+.next-steps-card {
+  background: var(--teal-pale); border-radius: var(--radius-lg); padding: 28px;
+  text-align: left; margin-bottom: 20px;
+}
+.next-steps-card h3 { font-size: .95rem; font-weight: 700; color: var(--teal-dark); margin-bottom: 14px; }
+.next-step-item {
+  display: flex; gap: 12px; padding: 10px 0;
+  border-bottom: 1px solid rgba(66,126,136,.1);
+}
+.next-step-item:last-child { border-bottom: none; }
+.ns-num {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--teal); color: #fff; font-size: .75rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  margin-top: 2px;
+}
+.ns-text strong { display: block; font-size: .88rem; margin-bottom: 1px; }
+.ns-text span { font-size: .82rem; color: var(--text-secondary); }
+
+.success-actions {
+  display: flex; gap: 14px; justify-content: center; margin-top: 24px;
+}
+.btn-success-primary {
+  padding: 14px 28px; background: var(--teal); color: #fff;
+  font-weight: 700; border-radius: var(--radius-sm); transition: all .2s;
+}
+.btn-success-primary:hover { background: var(--teal-dark); }
+.btn-success-secondary {
+  padding: 14px 28px; background: var(--white); color: var(--teal);
+  font-weight: 700; border-radius: var(--radius-sm); border: 2px solid var(--teal);
+  transition: all .2s;
+}
+.btn-success-secondary:hover { background: var(--teal); color: #fff; }
+
+/* ========================================
+   BACK LINK
+   ======================================== */
+.back-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: .85rem; color: var(--text-light); margin-bottom: 20px;
+  transition: color .2s;
+}
+.back-link:hover { color: var(--teal); }
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 900px) {
+  .checkout-layout { grid-template-columns: 1fr; }
+  .checkout-sidebar { position: static; }
+  .product-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto 32px; }
+  .progress-steps { display: none; }
+}
+@media (max-width: 600px) {
+  .payment-options { grid-template-columns: 1fr; }
+  .stripe-row { grid-template-columns: 1fr; }
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+.fade-in { opacity: 0; transform: translateY(12px); transition: all .4s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- ======================= CHECKOUT HEADER ======================= -->
+<header class="checkout-header">
+  <div class="checkout-header-inner">
+    <a href="TGRM_Homepage_V2.html" class="checkout-logo">
+      <div class="logo-mark">GRM</div>
+      <span>Grief Recovery Method<sup style="font-size:.55rem;">®</sup></span>
+    </a>
+
+    <div class="progress-steps">
+      <div class="progress-step completed" id="prog-1">
+        <div class="step-num">&#10003;</div>
+        <span>Select Program</span>
+      </div>
+      <div class="progress-connector completed" id="conn-1"></div>
+      <div class="progress-step active" id="prog-2">
+        <div class="step-num">2</div>
+        <span>Secure Checkout</span>
+      </div>
+      <div class="progress-connector" id="conn-2"></div>
+      <div class="progress-step" id="prog-3">
+        <div class="step-num">3</div>
+        <span>Confirmation</span>
+      </div>
+    </div>
+
+    <div class="secure-badge">
+      <span class="lock-icon">&#128274;</span> SSL Secured
+    </div>
+  </div>
+</header>
+
+<!-- ======================= STEP 1: SELECT PRODUCT ======================= -->
+<main class="checkout-main">
+<div class="step-section active" id="step-1">
+  <a href="TGRM_Certification.html" class="back-link">&larr; Back to Certification Details</a>
+
+  <h2 class="step-title fade-in">Choose Your Certification Program</h2>
+  <p class="step-subtitle fade-in">Select your program, training date, and payment preference.</p>
+
+  <div class="checkout-layout">
+    <div class="checkout-form-area">
+
+      <!-- Product Cards -->
+      <div class="product-grid">
+        <div class="product-card fade-in" data-product="foundation" data-price="2495" data-install="865" onclick="selectProduct(this)">
+          <div class="product-tier">Foundation</div>
+          <div class="product-name">Foundational Certification</div>
+          <div class="product-price">$2,495</div>
+          <div class="product-install">or 3 &times; $865/mo</div>
+          <ul class="product-features">
+            <li><span class="ck">&#10003;</span> 32-hour live Zoom training</li>
+            <li><span class="ck">&#10003;</span> 5 GRM program lesson plans</li>
+            <li><span class="ck">&#10003;</span> All 5 GRM books included</li>
+            <li><span class="ck">&#10003;</span> Directory listing &amp; microsite</li>
+            <li><span class="ck">&#10003;</span> 1-year unlimited support</li>
+          </ul>
+        </div>
+
+        <div class="product-card featured selected fade-in" data-product="advanced" data-price="3995" data-install="1365" onclick="selectProduct(this)">
+          <div class="product-badge">Most Popular</div>
+          <div class="product-tier">Advanced</div>
+          <div class="product-name">Advanced Certification</div>
+          <div class="product-price">$3,995</div>
+          <div class="product-install">or 3 &times; $1,365/mo</div>
+          <ul class="product-features">
+            <li><span class="st">&#9733;</span> Everything in Foundational, plus:</li>
+            <li><span class="ck">&#10003;</span> 18hrs advanced video training</li>
+            <li><span class="ck">&#10003;</span> 10&ndash;11 total lesson plans</li>
+            <li><span class="ck">&#10003;</span> 150 marketing videos</li>
+            <li><span class="ck">&#10003;</span> Children, pet loss &amp; groups</li>
+          </ul>
+        </div>
+
+        <div class="product-card fade-in" data-product="intensive" data-price="4995" data-install="1698" onclick="selectProduct(this)">
+          <div class="product-tier">Premium</div>
+          <div class="product-name">In-Person Advanced</div>
+          <div class="product-price">$4,995</div>
+          <div class="product-install">or 3 &times; $1,698/mo</div>
+          <ul class="product-features">
+            <li><span class="st">&#9733;</span> Everything in Advanced, plus:</li>
+            <li><span class="ck">&#10003;</span> 32-hour in-person intensive</li>
+            <li><span class="ck">&#10003;</span> Small group coaching</li>
+            <li><span class="ck">&#10003;</span> Taught by Cole &amp; Sandi</li>
+            <li><span class="ck">&#10003;</span> Peer networking experience</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Session Picker -->
+      <div class="session-picker fade-in">
+        <h3>&#128197; Select Your Training Date</h3>
+        <div class="sub">All online sessions run Tuesday&ndash;Friday, 9am&ndash;5pm CST</div>
+        <div class="session-list">
+          <div class="session-option selected" onclick="selectSession(this)">
+            <div class="session-radio"></div>
+            <div class="session-info">
+              <div class="session-date">April 14 &ndash; 17, 2026</div>
+              <div class="session-meta">Foundational Certification &middot; Live Zoom</div>
+            </div>
+            <span class="session-tag tag-online">Online</span>
+          </div>
+          <div class="session-option" onclick="selectSession(this)">
+            <div class="session-radio"></div>
+            <div class="session-info">
+              <div class="session-date">May 5 &ndash; 8, 2026</div>
+              <div class="session-meta">Foundational Certification &middot; Live Zoom</div>
+            </div>
+            <span class="session-tag tag-online">Online</span>
+          </div>
+          <div class="session-option" onclick="selectSession(this)">
+            <div class="session-radio"></div>
+            <div class="session-info">
+              <div class="session-date">May 19 &ndash; 22, 2026</div>
+              <div class="session-meta">Advanced In-Person Intensive &middot; Nashville, TN</div>
+            </div>
+            <span class="session-tag tag-person">In-Person</span>
+            <span class="spots-left">3 spots left</span>
+          </div>
+          <div class="session-option" onclick="selectSession(this)">
+            <div class="session-radio"></div>
+            <div class="session-info">
+              <div class="session-date">June 9 &ndash; 12, 2026</div>
+              <div class="session-meta">Foundational Certification &middot; Live Zoom</div>
+            </div>
+            <span class="session-tag tag-online">Online</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Toggle -->
+      <div class="payment-toggle fade-in">
+        <h3>&#128179; Choose Payment Option</h3>
+        <div class="sub">0% interest, no credit check on installment plans</div>
+        <div class="payment-options">
+          <div class="pay-option selected" data-method="full" onclick="selectPayment(this)">
+            <div class="pay-label">Pay in Full</div>
+            <div class="pay-detail" id="full-price-display">$3,995 &mdash; one-time payment</div>
+            <div class="pay-save">Save $100</div>
+          </div>
+          <div class="pay-option" data-method="installment" onclick="selectPayment(this)">
+            <div class="pay-label">3-Pay Installment</div>
+            <div class="pay-detail" id="install-price-display">$1,365/mo &times; 3 months</div>
+            <div class="pay-detail" style="font-size:.75rem;color:var(--text-light);margin-top:4px;" id="install-total-display">Total: $4,095</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar: Order Summary -->
+    <div class="checkout-sidebar">
+      <div class="order-summary fade-in">
+        <h3>Order Summary</h3>
+        <div class="order-line">
+          <span class="label" id="summary-product">Advanced Certification</span>
+          <span class="value" id="summary-price">$3,995</span>
+        </div>
+        <div class="order-line">
+          <span class="label" id="summary-session">Session: Apr 14&ndash;17</span>
+          <span class="value" style="color:var(--teal);font-size:.82rem;">Online</span>
+        </div>
+        <div class="order-line" id="summary-savings" style="color:var(--green);">
+          <span class="label">Pay-in-full discount</span>
+          <span class="value">-$100</span>
+        </div>
+        <div class="order-line total">
+          <span class="label">Total</span>
+          <span class="value" id="summary-total">$3,995</span>
+        </div>
+        <div class="order-line installment-note" id="installment-note" style="display:none;">
+          <span class="label">Billed as 3 monthly payments</span>
+        </div>
+
+        <button class="btn-checkout" onclick="goToStep(2)">
+          Proceed to Secure Checkout &rarr;
+        </button>
+
+        <div class="checkout-trust">
+          <span>&#128274; 256-bit SSL encryption &middot; PCI DSS Level 1</span>
+          <div class="trust-icons">
+            <div class="trust-icon" style="background:#1a1f71;color:#fff;">VISA</div>
+            <div class="trust-icon" style="background:#eb001b;color:#fff;">MC</div>
+            <div class="trust-icon" style="background:#006fcf;color:#fff;">AMEX</div>
+            <div class="trust-icon" style="background:#ff6000;color:#fff;">DISC</div>
+          </div>
+        </div>
+
+        <div class="guarantee-box">
+          <div class="shield">&#128737;&#65039;</div>
+          <strong>100% Satisfaction Guarantee</strong>
+          <p>If you're not completely satisfied after day one, we'll refund your full investment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= STEP 2: STRIPE CHECKOUT (SIMULATED) ======================= -->
+<div class="step-section" id="step-2">
+  <a href="#" class="back-link" onclick="goToStep(1);return false;">&larr; Back to selection</a>
+
+  <h2 class="step-title fade-in">Complete Your Purchase</h2>
+  <p class="step-subtitle fade-in">You're being redirected to our secure payment portal.</p>
+
+  <div class="stripe-checkout-wrapper fade-in">
+    <!-- Simulated browser bar -->
+    <div class="stripe-domain-bar">
+      <span class="domain-lock">&#128274;</span>
+      <span class="domain-url">https://<strong style="color:#fff;">pay.griefrecoverymethod.com</strong>/checkout/s/live_...</span>
+    </div>
+
+    <div class="stripe-checkout-sim">
+      <!-- Left: order info -->
+      <div class="stripe-left">
+        <div class="stripe-company">THE GRIEF RECOVERY METHOD&reg;</div>
+        <div class="stripe-product-name" id="stripe-product">Advanced Certification</div>
+        <div class="stripe-amount" id="stripe-amount">$3,995.00</div>
+        <div class="stripe-interval" id="stripe-interval">One-time payment</div>
+
+        <div class="stripe-line-items">
+          <div class="stripe-line">
+            <span id="stripe-line-product">Advanced Certification Training</span>
+            <span id="stripe-line-price">$3,995.00</span>
+          </div>
+          <div class="stripe-line">
+            <span>Training session: Apr 14&ndash;17, 2026</span>
+            <span>Included</span>
+          </div>
+          <div class="stripe-line">
+            <span>All course materials &amp; books</span>
+            <span>Included</span>
+          </div>
+          <div class="stripe-line">
+            <span>Directory listing (1 year)</span>
+            <span>Included</span>
+          </div>
+          <div class="stripe-line subtotal">
+            <span>Total due today</span>
+            <span id="stripe-total">$3,995.00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: payment form -->
+      <div class="stripe-right">
+        <div class="stripe-form-group">
+          <label class="stripe-label">Email</label>
+          <input type="email" class="stripe-input" placeholder="you@example.com">
+        </div>
+
+        <div class="stripe-form-group">
+          <label class="stripe-label">Card information</label>
+          <div class="card-input-mock">
+            <span class="card-number-field">1234 1234 1234 1234</span>
+            <div class="card-icons">
+              <div class="card-icon cc-visa">VISA</div>
+              <div class="card-icon cc-mc">MC</div>
+              <div class="card-icon cc-amex">AMEX</div>
+              <div class="card-icon cc-disc">DISC</div>
+            </div>
+          </div>
+          <div class="stripe-row" style="margin-top:8px;">
+            <input type="text" class="stripe-input" placeholder="MM / YY">
+            <input type="text" class="stripe-input" placeholder="CVC">
+          </div>
+        </div>
+
+        <div class="stripe-form-group">
+          <label class="stripe-label">Name on card</label>
+          <input type="text" class="stripe-input" placeholder="Full name on card">
+        </div>
+
+        <div class="stripe-form-group">
+          <label class="stripe-label">Country or region</label>
+          <input type="text" class="stripe-input" placeholder="United States" value="United States" style="color:var(--text-primary);">
+        </div>
+
+        <div class="stripe-form-group">
+          <label class="stripe-label">ZIP</label>
+          <input type="text" class="stripe-input" placeholder="12345">
+        </div>
+
+        <button class="btn-stripe-pay" onclick="goToStep(3)">
+          Pay <span id="btn-pay-amount">$3,995.00</span>
+        </button>
+
+        <div class="stripe-powered">
+          Powered by <span class="stripe-logo">stripe</span> &middot; <a href="#" style="color:#a0aec0;text-decoration:underline;">Terms</a> &middot; <a href="#" style="color:#a0aec0;text-decoration:underline;">Privacy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= STEP 3: SUCCESS ======================= -->
+<div class="step-section" id="step-3">
+
+  <div class="success-page">
+    <div class="success-icon">&#10003;</div>
+    <h2 class="fade-in">You're In! Welcome to the GRM Family.</h2>
+    <p class="success-sub fade-in">Your enrollment is confirmed. Check your email for everything you need.</p>
+
+    <div class="confirm-card fade-in">
+      <h3>&#128203; Order Confirmation</h3>
+      <div class="confirm-row">
+        <span class="cl">Order Number</span>
+        <span class="cv">#GRM-2026-04892</span>
+      </div>
+      <div class="confirm-row">
+        <span class="cl">Program</span>
+        <span class="cv" id="confirm-product">Advanced Certification</span>
+      </div>
+      <div class="confirm-row">
+        <span class="cl">Training Date</span>
+        <span class="cv">April 14 &ndash; 17, 2026</span>
+      </div>
+      <div class="confirm-row">
+        <span class="cl">Format</span>
+        <span class="cv">Live Zoom &middot; 9am&ndash;5pm CST</span>
+      </div>
+      <div class="confirm-row">
+        <span class="cl">Payment Method</span>
+        <span class="cv">Visa ending in 4242</span>
+      </div>
+      <div class="confirm-row total">
+        <span class="cl">Total Charged</span>
+        <span class="cv" style="color:var(--teal);" id="confirm-total">$3,995.00</span>
+      </div>
+      <div style="text-align:center;margin-top:12px;font-size:.78rem;color:var(--text-light);">
+        A receipt has been emailed to you@example.com
+      </div>
+    </div>
+
+    <div class="next-steps-card fade-in">
+      <h3>&#127891; What Happens Next</h3>
+      <div class="next-step-item">
+        <div class="ns-num">1</div>
+        <div class="ns-text">
+          <strong>Check Your Inbox (within 5 min)</strong>
+          <span>Welcome email with your enrollment details, Zoom link, and pre-training checklist.</span>
+        </div>
+      </div>
+      <div class="next-step-item">
+        <div class="ns-num">2</div>
+        <div class="ns-text">
+          <strong>Orientation Call (1 week before)</strong>
+          <span>1-hour kick-off session to meet your trainer, cohort, and walk through the curriculum.</span>
+        </div>
+      </div>
+      <div class="next-step-item">
+        <div class="ns-num">3</div>
+        <div class="ns-text">
+          <strong>Materials Ship (5&ndash;7 days)</strong>
+          <span>Your complete GRM book set and course materials will arrive before training starts.</span>
+        </div>
+      </div>
+      <div class="next-step-item">
+        <div class="ns-num">4</div>
+        <div class="ns-text">
+          <strong>Training Day!</strong>
+          <span>Join live on April 14 at 9am CST. Bring your enthusiasm &mdash; we'll handle the rest.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="success-actions fade-in">
+      <a href="TGRM_Homepage_V2.html" class="btn-success-primary">Return to Homepage</a>
+      <a href="TGRM_Directory.html" class="btn-success-secondary">Browse the Specialist Directory</a>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- ======================= JAVASCRIPT ======================= -->
+<script>
+// State
+let currentStep = 1;
+let selectedProduct = 'advanced';
+let selectedPayment = 'full';
+
+const products = {
+  foundation: { name: 'Foundational Certification', price: 2495, install: 865, installTotal: 2595 },
+  advanced:   { name: 'Advanced Certification',     price: 3995, install: 1365, installTotal: 4095 },
+  intensive:  { name: 'In-Person Advanced',         price: 4995, install: 1698, installTotal: 5095 }
+};
+
+function selectProduct(el) {
+  document.querySelectorAll('.product-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedProduct = el.dataset.product;
+  updateSummary();
+}
+
+function selectSession(el) {
+  document.querySelectorAll('.session-option').forEach(s => s.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+function selectPayment(el) {
+  document.querySelectorAll('.pay-option').forEach(p => p.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedPayment = el.dataset.method;
+  updateSummary();
+}
+
+function updateSummary() {
+  const p = products[selectedProduct];
+  const isFull = selectedPayment === 'full';
+
+  // Update payment option displays
+  document.getElementById('full-price-display').textContent = `$${p.price.toLocaleString()} — one-time payment`;
+  document.getElementById('install-price-display').textContent = `$${p.install.toLocaleString()}/mo × 3 months`;
+  document.getElementById('install-total-display').textContent = `Total: $${p.installTotal.toLocaleString()}`;
+
+  // Update order summary
+  document.getElementById('summary-product').textContent = p.name;
+  document.getElementById('summary-price').textContent = isFull ? `$${p.price.toLocaleString()}` : `$${p.install.toLocaleString()}/mo`;
+
+  const savings = document.getElementById('summary-savings');
+  const installNote = document.getElementById('installment-note');
+
+  if (isFull) {
+    savings.style.display = 'flex';
+    installNote.style.display = 'none';
+    document.getElementById('summary-total').textContent = `$${p.price.toLocaleString()}`;
+  } else {
+    savings.style.display = 'none';
+    installNote.style.display = 'flex';
+    document.getElementById('summary-total').textContent = `$${p.install.toLocaleString()}/mo`;
+  }
+}
+
+function goToStep(step) {
+  currentStep = step;
+  const p = products[selectedProduct];
+  const isFull = selectedPayment === 'full';
+
+  // Hide all steps
+  document.querySelectorAll('.step-section').forEach(s => s.classList.remove('active'));
+  document.getElementById('step-' + step).classList.add('active');
+
+  // Update progress bar
+  for (let i = 1; i <= 3; i++) {
+    const progEl = document.getElementById('prog-' + i);
+    const connEl = document.getElementById('conn-' + (i-1));
+    progEl.classList.remove('active', 'completed');
+    if (i < step) { progEl.classList.add('completed'); }
+    else if (i === step) { progEl.classList.add('active'); }
+    if (connEl) { connEl.classList.toggle('completed', i < step); }
+  }
+
+  // Update Stripe checkout step
+  if (step === 2) {
+    const amt = isFull ? p.price : p.install;
+    const amtStr = '$' + amt.toLocaleString() + '.00';
+    document.getElementById('stripe-product').textContent = p.name;
+    document.getElementById('stripe-amount').textContent = amtStr;
+    document.getElementById('stripe-interval').textContent = isFull ? 'One-time payment' : 'First of 3 monthly payments';
+    document.getElementById('stripe-line-product').textContent = p.name + ' Training';
+    document.getElementById('stripe-line-price').textContent = amtStr;
+    document.getElementById('stripe-total').textContent = amtStr;
+    document.getElementById('btn-pay-amount').textContent = amtStr;
+  }
+
+  // Update confirmation step
+  if (step === 3) {
+    const total = isFull ? p.price : p.install;
+    document.getElementById('confirm-product').textContent = p.name;
+    document.getElementById('confirm-total').textContent = '$' + total.toLocaleString() + '.00';
+  }
+
+  // Trigger fade-ins
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(() => {
+    document.querySelectorAll('#step-' + step + ' .fade-in').forEach(el => el.classList.add('visible'));
+  }, 100);
+}
+
+// Initial fade-ins
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

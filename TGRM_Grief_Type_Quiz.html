@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Type of Griever Are You? | The Grief Recovery Method&reg;</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --orange: #E07525;
+    --orange-light: #FEF3E2;
+    --orange-dark: #C5621A;
+    --teal: #427E88;
+    --teal-light: #EBF5F7;
+    --teal-dark: #356670;
+    --light-teal: #7895A3;
+    --dark: #1A2332;
+    --dark-soft: #2D3748;
+    --text: #1F2937;
+    --text-light: #6B7280;
+    --bg: #FAFBFC;
+    --card: #FFFFFF;
+    --border: #E5E7EB;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    background: var(--dark);
+    padding: 14px 0;
+    border-bottom: 3px solid var(--orange);
+  }
+  .site-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.3px;
+  }
+  .logo span { color: var(--orange); }
+  .header-cta {
+    color: var(--light-teal);
+    font-size: 12px;
+    text-decoration: none;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    text-align: center;
+    padding: 48px 0 32px;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--teal-light);
+    color: var(--teal);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.2;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+  .hero h1 em {
+    color: var(--orange);
+    font-style: normal;
+  }
+  .hero p {
+    font-size: 16px;
+    color: var(--text-light);
+    max-width: 520px;
+    margin: 0 auto 24px;
+    line-height: 1.7;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 20px;
+  }
+  .hero-stat {
+    text-align: center;
+  }
+  .hero-stat .num {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--teal);
+  }
+  .hero-stat .label {
+    font-size: 10px;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+  }
+
+  /* ===== PROGRESS BAR ===== */
+  .progress-wrap {
+    padding: 20px 0 12px;
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+  }
+  .progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: var(--text-light);
+  }
+  .progress-info .current { font-weight: 600; color: var(--teal); }
+  .progress-bar {
+    height: 6px;
+    background: var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--teal), var(--orange));
+    border-radius: 6px;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* ===== QUIZ CARD ===== */
+  .quiz-section { padding: 24px 0 60px; }
+
+  .question-card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 36px 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
+    animation: fadeInUp 0.4s ease;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .q-number {
+    display: inline-block;
+    background: var(--teal);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    border-radius: 50%;
+    margin-bottom: 14px;
+  }
+
+  .question-card h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 6px;
+    line-height: 1.35;
+  }
+
+  .q-context {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  .answers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .answer-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 16px 20px;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    background: white;
+    font-size: 14px;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    line-height: 1.5;
+  }
+  .answer-btn:hover {
+    border-color: var(--teal);
+    background: var(--teal-light);
+    transform: translateX(4px);
+  }
+  .answer-btn.selected {
+    border-color: var(--orange);
+    background: var(--orange-light);
+    font-weight: 500;
+  }
+
+  /* ===== EMAIL CAPTURE ===== */
+  .email-card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 40px 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
+    text-align: center;
+    animation: fadeInUp 0.4s ease;
+  }
+  .email-card h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+  .email-card p {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 24px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .email-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+  .email-form input {
+    padding: 14px 16px;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .email-form input:focus {
+    border-color: var(--teal);
+  }
+  .email-submit {
+    padding: 14px 24px;
+    background: var(--orange);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: inherit;
+  }
+  .email-submit:hover { background: var(--orange-dark); }
+  .email-privacy {
+    font-size: 11px;
+    color: var(--text-light);
+    margin-top: 8px;
+  }
+
+  /* ===== RESULTS ===== */
+  .results-card {
+    background: var(--card);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
+    animation: fadeInUp 0.5s ease;
+  }
+
+  .result-hero {
+    padding: 40px 32px 32px;
+    text-align: center;
+    position: relative;
+  }
+  .result-hero.silent { background: linear-gradient(135deg, #1A2332 0%, #2D3748 100%); }
+  .result-hero.busy { background: linear-gradient(135deg, #E07525 0%, #C5621A 100%); }
+  .result-hero.intellectual { background: linear-gradient(135deg, #427E88 0%, #356670 100%); }
+  .result-hero.delayed { background: linear-gradient(135deg, #7895A3 0%, #5A7585 100%); }
+  .result-hero.compounding { background: linear-gradient(135deg, #1A2332 0%, #427E88 100%); }
+
+  .result-icon {
+    width: 64px;
+    height: 64px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 28px;
+  }
+  .result-hero h2 {
+    color: white;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .result-hero .subtitle {
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+    max-width: 440px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .result-body {
+    padding: 32px;
+  }
+
+  .result-section {
+    margin-bottom: 28px;
+  }
+  .result-section h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--teal);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .result-section h3::before {
+    content: '';
+    width: 3px;
+    height: 16px;
+    background: var(--orange);
+    border-radius: 2px;
+  }
+  .result-section p, .result-section li {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .result-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  .result-section li {
+    padding: 6px 0 6px 20px;
+    position: relative;
+  }
+  .result-section li::before {
+    content: '\2713';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-weight: 700;
+  }
+
+  .myth-callout {
+    background: var(--orange-light);
+    border-left: 3px solid var(--orange);
+    padding: 16px 20px;
+    border-radius: 0 10px 10px 0;
+    margin: 16px 0;
+  }
+  .myth-callout .myth-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .myth-callout p {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .research-badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--teal-light);
+    border: 1px solid var(--teal);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 20px 0;
+  }
+  .research-badge .icon {
+    width: 36px;
+    height: 36px;
+    background: var(--teal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .research-badge .text {
+    font-size: 12px;
+    color: var(--teal-dark);
+    line-height: 1.5;
+  }
+  .research-badge .text strong { color: var(--dark); }
+
+  .result-cta {
+    background: var(--dark);
+    padding: 28px 32px;
+    text-align: center;
+  }
+  .result-cta h3 {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  .result-cta p {
+    color: var(--light-teal);
+    font-size: 13px;
+    margin-bottom: 18px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .cta-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    font-family: inherit;
+  }
+  .cta-btn.primary {
+    background: var(--orange);
+    color: white;
+  }
+  .cta-btn.primary:hover { background: var(--orange-dark); }
+  .cta-btn.secondary {
+    background: transparent;
+    color: white;
+    border: 1.5px solid rgba(255,255,255,0.3);
+  }
+  .cta-btn.secondary:hover { border-color: white; }
+
+  /* ===== SHARE ROW ===== */
+  .share-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+  }
+  .share-row span {
+    font-size: 12px;
+    color: var(--text-light);
+  }
+  .share-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+    color: var(--text-light);
+  }
+  .share-btn:hover {
+    border-color: var(--teal);
+    color: var(--teal);
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    padding: 32px 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    margin-top: 48px;
+  }
+  .site-footer p {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-bottom: 4px;
+  }
+  .site-footer a {
+    color: var(--teal);
+    text-decoration: none;
+  }
+
+  .hidden { display: none !important; }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 24px; }
+    .question-card, .email-card { padding: 24px 20px; }
+    .result-body { padding: 24px 20px; }
+    .hero-stats { gap: 20px; }
+    .cta-buttons { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <div class="logo">The Grief Recovery <span>Method</span>&reg;</div>
+    <a href="#" class="header-cta">griefrecoverymethod.com</a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<div id="heroSection" class="hero container">
+  <div class="hero-badge">Free 2-Minute Assessment</div>
+  <h1>What Type of <em>Griever</em> Are You?</h1>
+  <p>Everyone grieves differently, and most of us were never taught how. This brief assessment will help you understand your unique grief pattern and show you a clear path forward.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="num">1M+</div>
+      <div class="label">Grievers Helped</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">40+</div>
+      <div class="label">Years of Research</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">2,137</div>
+      <div class="label">5-Star Reviews</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PROGRESS ===== -->
+<div id="progressWrap" class="progress-wrap container hidden">
+  <div class="progress-info">
+    <span class="current" id="progressLabel">Question 1 of 10</span>
+    <span id="progressPct">10%</span>
+  </div>
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill" style="width: 10%"></div>
+  </div>
+</div>
+
+<!-- ===== QUIZ ===== -->
+<div class="quiz-section container">
+  <div id="quizContent"></div>
+</div>
+
+<footer class="site-footer container">
+  <p>The Grief Recovery Method&reg; &mdash; The only evidence-based grief recovery program in the world.</p>
+  <p>Validated by <a href="#">Kent State University</a> peer-reviewed research &middot; 800-334-7606</p>
+</footer>
+
+<script>
+// ============================================================
+// QUIZ DATA
+// ============================================================
+// Profiles: S = Silent, B = Busy, I = Intellectual, D = Delayed, C = Compounding
+const questions = [
+  {
+    q: "When someone asks how you're doing after a loss, you usually\u2026",
+    context: "There's no wrong answer. Just pick the one that feels most true.",
+    answers: [
+      { text: "Say \"I'm fine\" and change the subject", scores: { S: 3, B: 1 } },
+      { text: "Give a brief update, then steer the conversation elsewhere", scores: { B: 2, I: 1 } },
+      { text: "Share what you've been reading or learning about grief", scores: { I: 3 } },
+      { text: "Feel caught off guard \u2014 it's been a while, and you thought you'd moved on", scores: { D: 3 } },
+      { text: "Don't even know where to start \u2014 there's so much going on", scores: { C: 3 } }
+    ]
+  },
+  {
+    q: "Which of these sounds most like you right now?",
+    context: "Think about the past few weeks, not just today.",
+    answers: [
+      { text: "I keep my grief private. People don't really see what I'm going through.", scores: { S: 3 } },
+      { text: "I've been staying really busy. If I stop, I'll feel too much.", scores: { B: 3 } },
+      { text: "I've done a lot of research on grief. I understand it \u2014 but I still feel stuck.", scores: { I: 3 } },
+      { text: "My loss was a while ago, but something still doesn't feel right.", scores: { D: 3 } },
+      { text: "I feel like I'm carrying more than one loss, and the weight is building.", scores: { C: 3 } }
+    ]
+  },
+  {
+    q: "When grief hits you unexpectedly, your first instinct is to\u2026",
+    context: "We all have default responses. This helps us understand yours.",
+    answers: [
+      { text: "Push it down. Now isn't the time.", scores: { S: 3 } },
+      { text: "Find something productive to do \u2014 work, exercise, clean, organize", scores: { B: 3 } },
+      { text: "Try to understand why it's happening right now", scores: { I: 3 } },
+      { text: "Feel confused \u2014 I thought I'd dealt with this already", scores: { D: 3 } },
+      { text: "Feel overwhelmed, like it connects to other losses too", scores: { C: 3 } }
+    ]
+  },
+  {
+    q: "How many significant losses or life changes have you experienced? (Include all types \u2014 not just death.)",
+    context: "Loss includes death, divorce, job changes, health issues, moving, estrangement, financial loss, loss of a dream, pet loss, and more.",
+    answers: [
+      { text: "1\u20132 significant losses", scores: { S: 1, B: 1, I: 1, D: 1 } },
+      { text: "3\u20134 losses that still affect me", scores: { C: 1, D: 1 } },
+      { text: "5 or more \u2014 honestly, I've lost count", scores: { C: 3 } },
+      { text: "I never really thought of some of my experiences as losses before", scores: { D: 2, I: 1 } }
+    ]
+  },
+  {
+    q: "When you think about your most significant loss, which statement feels most true?",
+    context: "Go with the one that resonates in your gut, not your head.",
+    answers: [
+      { text: "There are things I wish I had said \u2014 or hadn't said", scores: { S: 2, D: 2 } },
+      { text: "I feel like I should be further along by now", scores: { B: 2, D: 2 } },
+      { text: "I understand what happened, but I can't seem to feel at peace with it", scores: { I: 3 } },
+      { text: "Honestly, I try not to think about it", scores: { S: 2, B: 1 } },
+      { text: "It's tangled up with other losses and I can't separate them", scores: { C: 3 } }
+    ]
+  },
+  {
+    q: "Which piece of advice have you heard most often?",
+    context: "Most grief advice comes from a good place, but not all of it helps.",
+    answers: [
+      { text: "\"Be strong\" or \"Stay strong for the family\"", scores: { S: 3 } },
+      { text: "\"Stay busy\" or \"Keep yourself occupied\"", scores: { B: 3 } },
+      { text: "\"Time heals all wounds\" or \"Give it time\"", scores: { D: 3, I: 1 } },
+      { text: "\"You need to let go and move on\"", scores: { I: 1, D: 2, C: 1 } },
+      { text: "\"You should see someone about this\" (but nothing specific)", scores: { C: 2, S: 1 } }
+    ]
+  },
+  {
+    q: "How do you typically process difficult emotions?",
+    context: "No judgment. Everyone develops their own ways of coping.",
+    answers: [
+      { text: "I don't, really. I've gotten good at keeping things compartmentalized.", scores: { S: 3 } },
+      { text: "I channel my energy into work, projects, fitness, or helping others", scores: { B: 3 } },
+      { text: "I read, research, journal, or try to make sense of things intellectually", scores: { I: 3 } },
+      { text: "I distract myself with food, TV, social media, or other habits", scores: { D: 2, B: 1 } },
+      { text: "I feel like I process one thing but then another loss surfaces", scores: { C: 3 } }
+    ]
+  },
+  {
+    q: "If you're honest with yourself, what's the hardest part right now?",
+    context: "Take a breath. It's okay if this question brings something up.",
+    answers: [
+      { text: "Nobody really knows how much I'm hurting", scores: { S: 3 } },
+      { text: "I can't slow down because I'm afraid of what I'll feel if I do", scores: { B: 3 } },
+      { text: "I know what's wrong but I don't know how to fix it", scores: { I: 3 } },
+      { text: "I thought I was over this, but something keeps pulling me back", scores: { D: 3 } },
+      { text: "There are so many losses stacked up that I don't know where to start", scores: { C: 3 } }
+    ]
+  },
+  {
+    q: "What would feel most helpful to you right now?",
+    context: "This helps us point you in the right direction.",
+    answers: [
+      { text: "A safe space where I can actually be honest about what I'm feeling", scores: { S: 3 } },
+      { text: "Permission to pause \u2014 and a clear plan for what to do next", scores: { B: 3 } },
+      { text: "Something that moves me from understanding grief to actually healing", scores: { I: 3 } },
+      { text: "Help revisiting something I thought I'd put behind me", scores: { D: 3 } },
+      { text: "A way to untangle all the different losses I'm carrying", scores: { C: 3 } }
+    ]
+  },
+  {
+    q: "What brought you here today?",
+    context: "This is the last question. Whatever brought you here is valid.",
+    answers: [
+      { text: "A recent loss that I'm struggling with", scores: { S: 1, B: 1 } },
+      { text: "A loss from a while ago that I never fully dealt with", scores: { D: 3 } },
+      { text: "I'm a professional who wants to better help grieving clients", scores: { I: 2 } },
+      { text: "I feel stuck and nothing I've tried has worked", scores: { I: 2, C: 1, D: 1 } },
+      { text: "Someone I trust recommended this", scores: { S: 1, B: 1, I: 1, D: 1, C: 1 } }
+    ]
+  }
+];
+
+// ============================================================
+// RESULT PROFILES
+// ============================================================
+const profiles = {
+  S: {
+    name: "The Silent Griever",
+    icon: "\uD83E\uDE76",
+    cssClass: "silent",
+    subtitle: "You carry your grief quietly. On the outside, you look like you're handling things. On the inside, there's a world of unspoken pain.",
+    whatItMeans: "Silent Grievers are often the people everyone else thinks are \"doing great.\" You've learned to keep your feelings inside \u2014 maybe because you were told to be strong, or because you didn't want to burden others, or because you simply never had a safe place to let it out. In the Grief Recovery Method\u00AE, we call this \"Academy Award Recovery\" \u2014 the performance of being fine when you're not. <strong>FINE = Feelings Inside Not Expressed.</strong>",
+    mythTitle: "Grief Myth You Probably Believe",
+    mythName: "\"Be strong\" / \"Grieve alone\"",
+    mythText: "You were likely taught that strength means not showing pain. That grieving is something to do privately, or not at all. But decades of research shows the opposite: unspoken grief doesn't go away. It accumulates. The Grief Recovery Method\u00AE calls these \"things you wish were different, better, or more\" \u2014 and they need to be given voice to be resolved.",
+    signs: [
+      "You say \"I'm fine\" even when you're not",
+      "People around you don't know the depth of what you're carrying",
+      "You've learned to compartmentalize emotions to get through the day",
+      "You may have physical symptoms (headaches, fatigue, tension) that relate to suppressed grief",
+      "You feel lonely in your grief, even around people who care"
+    ],
+    pathForward: "Your path to recovery starts with finding a safe space to be honest \u2014 not about what happened, but about how it made you feel. The Grief Recovery Method\u00AE uses specific, structured action tools (not endless talking) to help you complete what's been left unsaid. Many Silent Grievers find that the process of \"giving voice\" to their unfinished emotional business is the most profound experience of their lives."
+  },
+  B: {
+    name: "The Busy Griever",
+    icon: "\u26A1",
+    cssClass: "busy",
+    subtitle: "You've been running \u2014 from task to task, project to project \u2014 because slowing down means feeling. And feeling means facing something you're not sure how to handle.",
+    whatItMeans: "Busy Grievers cope by doing. You channel pain into productivity \u2014 work, exercise, organizing, helping others, or any activity that keeps your mind occupied. In the Grief Recovery Method\u00AE, these are called <strong>Short-Term Energy-Relieving Behaviors (STERBs)</strong>. They're not bad in themselves, but they don't resolve grief. They delay it. And grief is infinitely patient \u2014 it waits.",
+    mythTitle: "Grief Myth You Probably Believe",
+    mythName: "\"Keep busy\" / \"Stay occupied\"",
+    mythText: "After a loss, people are often told to \"stay busy\" or \"throw yourself into work.\" This feels productive in the moment, but it's actually one of the most common grief myths. Busyness doesn't process grief \u2014 it parks it. The Grief Recovery Method\u00AE has identified that real recovery requires specific actions, not just activity. There's a difference between being busy and taking the right action.",
+    signs: [
+      "You feel like you can't slow down or stop",
+      "You've taken on more work, responsibilities, or projects since your loss",
+      "People compliment how \"well you're handling things\"",
+      "When you do stop, you feel a wave of emotion that scares you",
+      "You may use exercise, alcohol, food, or social media to take the edge off"
+    ],
+    pathForward: "Your path forward isn't about stopping \u2014 it's about redirecting your energy toward the right actions. The Grief Recovery Method\u00AE is action-based (not discussion-based), which is actually perfect for Busy Grievers. You'll use specific, structured tools \u2014 the Loss History Graph, recovery components, and completion exercises \u2014 to complete what busyness has been covering up. Think of it this way: you've been running on a treadmill. We help you actually move forward."
+  },
+  I: {
+    name: "The Intellectual Griever",
+    icon: "\uD83E\uDDE0",
+    cssClass: "intellectual",
+    subtitle: "You understand grief. You've read the books, learned the stages, done the research. But understanding hasn't led to healing \u2014 and you know something is still missing.",
+    whatItMeans: "Intellectual Grievers process loss through their mind. You've probably read about the \"stages of grief,\" understood the psychology, maybe even studied it professionally. But here's what the Grief Recovery Method\u00AE has found after 40+ years: <strong>grief is not an intellectual problem. It's an emotional one.</strong> You can't think your way through it. Recovery requires moving from your head to your heart.",
+    mythTitle: "Grief Myth You Probably Believe",
+    mythName: "\"Time heals all wounds\" / \"Understanding leads to healing\"",
+    mythText: "The belief that understanding grief intellectually will resolve it is one of the most persistent myths we see. Knowledge is valuable, but it's not the same as recovery. Most therapy for grief is discussion-based \u2014 talking about what happened. The Grief Recovery Method\u00AE is fundamentally different: it's action-based, using specific tools to help you complete what's emotionally unfinished. Not what you think about it \u2014 what you feel about it.",
+    signs: [
+      "You've read books, articles, or podcasts about grief",
+      "You can explain your loss clearly but still feel unsettled",
+      "Therapy has helped you understand your grief but hasn't fully resolved it",
+      "You sometimes feel frustrated that knowledge hasn't led to peace",
+      "You tend to analyze your emotions rather than feel them"
+    ],
+    pathForward: "Here's the good news: your intellectual understanding is an asset, not a barrier. The Grief Recovery Method\u00AE was built on evidence-based research (validated by Kent State University), which means it will satisfy your analytical mind while taking you somewhere analysis alone can't go. The method's tools \u2014 particularly the Completion Letter and Recovery Components \u2014 are designed to move you from head to heart. This is the missing piece."
+  },
+  D: {
+    name: "The Delayed Griever",
+    icon: "\u23F3",
+    cssClass: "delayed",
+    subtitle: "Your loss may have happened months, years, or even decades ago. You thought you were past it. But something keeps pulling you back \u2014 and you can't figure out why.",
+    whatItMeans: "Delayed Grievers carry unfinished emotional business from past losses. You may have \"moved on\" by every external measure \u2014 new relationship, new job, new city \u2014 but emotionally, something was never completed. In the Grief Recovery Method\u00AE, we say these are the <strong>\"things you wish were different, better, or more\"</strong> about a relationship or experience. They don't have an expiration date. Grief doesn't care how long it's been.",
+    mythTitle: "Grief Myth You Probably Believe",
+    mythName: "\"Time heals all wounds\"",
+    mythText: "This may be the most damaging grief myth of all. Time alone doesn't heal \u2014 action within time does. If time healed, then every person who experienced loss 5, 10, or 20 years ago would be fully recovered. They're not. The Grief Recovery Method\u00AE has found that grief that isn't actively completed continues to affect your relationships, your health, your work, and your capacity for joy \u2014 indefinitely.",
+    signs: [
+      "Your loss happened a while ago, but certain triggers still bring it back",
+      "You've told yourself \"I should be over this by now\"",
+      "Anniversary dates, songs, places, or smells unexpectedly bring up old feelings",
+      "New losses seem to hit harder than they \"should\"",
+      "You may have never had a structured process for dealing with the original loss"
+    ],
+    pathForward: "It is never too late to recover from a loss. The Grief Recovery Method\u00AE has helped people complete grief from losses that happened 40+ years ago. The method doesn't ask you to relive your loss \u2014 it gives you structured action tools to finally say the things that were left unsaid, forgive what needs forgiving (our definition: giving up the hope of a different or better yesterday), and become emotionally complete. Most Delayed Grievers feel a remarkable shift after working through the method \u2014 a lightness they forgot was possible."
+  },
+  C: {
+    name: "The Compounding Griever",
+    icon: "\uD83C\uDF0A",
+    cssClass: "compounding",
+    subtitle: "You're not just carrying one loss \u2014 you're carrying many. Each new loss adds to the weight of the ones before it, and the load has become almost too heavy to bear.",
+    whatItMeans: "Compounding Grievers have experienced multiple losses that stack on top of each other. In the Grief Recovery Method\u00AE, we describe this as <strong>carrying a backpack full of unresolved losses</strong>. Each loss you haven't fully completed adds weight. A new loss doesn't just hurt on its own \u2014 it reactivates the grief from every incomplete loss before it. This is why you might feel overwhelmed in a way that seems disproportionate to what just happened.",
+    mythTitle: "Grief Myth You Probably Believe",
+    mythName: "\"Replace the loss\" / \"Just give it time\"",
+    mythText: "Compounding Grievers often hear advice that minimizes the cumulative nature of their pain. \"Get a new pet.\" \"You'll find someone else.\" \"Stay positive.\" These replacement strategies ignore a fundamental truth: each loss is unique and each requires its own completion. You can't heal five losses by resolving one. The Grief Recovery Method\u00AE uses the Loss History Graph to map every significant loss and provides a structured path through each one.",
+    signs: [
+      "You've experienced multiple significant losses (death, divorce, health, career, etc.)",
+      "New losses seem to bring up old grief",
+      "You feel overwhelmed by the sheer volume of what you're carrying",
+      "You've been told you're \"too sensitive\" or \"not over it yet\"",
+      "You may not have realized that some experiences (moves, job changes, health issues) were also losses"
+    ],
+    pathForward: "The most important thing to know: you don't have to process every loss at once. The Grief Recovery Method\u00AE starts with the Loss History Graph, which maps every significant loss since childhood. Then, the method helps you work through them one at a time, starting with the one that carries the most emotional weight. Many Compounding Grievers say this was the first time anyone acknowledged the full scope of what they've been carrying. You're not \"too much\" \u2014 you've just been carrying too much, alone, for too long."
+  }
+};
+
+// ============================================================
+// QUIZ ENGINE
+// ============================================================
+let currentQ = -1; // -1 = start screen
+let scores = { S: 0, B: 0, I: 0, D: 0, C: 0 };
+let answers = [];
+
+const content = document.getElementById('quizContent');
+const progressWrap = document.getElementById('progressWrap');
+const progressLabel = document.getElementById('progressLabel');
+const progressPct = document.getElementById('progressPct');
+const progressFill = document.getElementById('progressFill');
+const heroSection = document.getElementById('heroSection');
+
+function startQuiz() {
+  heroSection.classList.add('hidden');
+  currentQ = 0;
+  showQuestion();
+}
+
+function showQuestion() {
+  progressWrap.classList.remove('hidden');
+  const pct = Math.round(((currentQ + 1) / questions.length) * 100);
+  progressLabel.textContent = `Question ${currentQ + 1} of ${questions.length}`;
+  progressPct.textContent = `${pct}%`;
+  progressFill.style.width = `${pct}%`;
+
+  const q = questions[currentQ];
+  let html = `<div class="question-card">
+    <div class="q-number">${currentQ + 1}</div>
+    <h2>${q.q}</h2>
+    <p class="q-context">${q.context}</p>
+    <div class="answers">`;
+
+  q.answers.forEach((a, i) => {
+    html += `<button class="answer-btn" onclick="selectAnswer(${i})">${a.text}</button>`;
+  });
+
+  html += `</div></div>`;
+  content.innerHTML = html;
+  content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function selectAnswer(idx) {
+  const q = questions[currentQ];
+  const a = q.answers[idx];
+  answers.push(idx);
+
+  // Add scores
+  for (let key in a.scores) {
+    scores[key] = (scores[key] || 0) + a.scores[key];
+  }
+
+  // Highlight selected
+  const btns = document.querySelectorAll('.answer-btn');
+  btns.forEach(b => b.classList.remove('selected'));
+  btns[idx].classList.add('selected');
+
+  // Next question after brief delay
+  setTimeout(() => {
+    currentQ++;
+    if (currentQ < questions.length) {
+      showQuestion();
+    } else {
+      showEmailCapture();
+    }
+  }, 350);
+}
+
+function showEmailCapture() {
+  progressWrap.classList.add('hidden');
+
+  content.innerHTML = `<div class="email-card">
+    <h2>Your results are ready.</h2>
+    <p>Enter your name and email to see your personalized grief profile, including specific insights and a recommended path forward.</p>
+    <div class="email-form">
+      <input type="text" id="nameInput" placeholder="Your first name" required>
+      <input type="email" id="emailInput" placeholder="Your email address" required>
+      <button class="email-submit" onclick="submitEmail()">See My Results</button>
+    </div>
+    <p class="email-privacy">We respect your privacy. No spam, ever. Unsubscribe anytime.</p>
+  </div>`;
+  content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function submitEmail() {
+  const name = document.getElementById('nameInput').value.trim();
+  const email = document.getElementById('emailInput').value.trim();
+
+  if (!name || !email || !email.includes('@')) {
+    alert('Please enter your name and a valid email address.');
+    return;
+  }
+
+  // In production, this sends to GHL webhook
+  console.log('LEAD CAPTURED:', { name, email, scores, answers, profile: getProfile() });
+
+  showResults(name);
+}
+
+function getProfile() {
+  let max = 0;
+  let result = 'S';
+  for (let key in scores) {
+    if (scores[key] > max) {
+      max = scores[key];
+      result = key;
+    }
+  }
+  return result;
+}
+
+function getSecondaryProfile() {
+  const primary = getProfile();
+  let max = 0;
+  let result = null;
+  for (let key in scores) {
+    if (key !== primary && scores[key] > max) {
+      max = scores[key];
+      result = key;
+    }
+  }
+  return max > 5 ? result : null;
+}
+
+function showResults(name) {
+  const profileKey = getProfile();
+  const p = profiles[profileKey];
+  const secondary = getSecondaryProfile();
+
+  let secondaryNote = '';
+  if (secondary) {
+    secondaryNote = `<p style="margin-top:12px;padding:12px 16px;background:rgba(255,255,255,0.08);border-radius:8px;font-size:13px;color:rgba(255,255,255,0.75);">You also show traits of <strong style="color:white;">The ${profiles[secondary].name.replace('The ','')}</strong>. This is normal \u2014 grief patterns often overlap, especially when carrying multiple losses.</p>`;
+  }
+
+  let html = `<div class="results-card">
+    <div class="result-hero ${p.cssClass}">
+      <div class="result-icon">${p.icon}</div>
+      <h2>${name}, you're ${p.name}.</h2>
+      <p class="subtitle">${p.subtitle}</p>
+      ${secondaryNote}
+    </div>
+    <div class="result-body">
+      <div class="result-section">
+        <h3>What This Means</h3>
+        <p>${p.whatItMeans}</p>
+      </div>
+
+      <div class="myth-callout">
+        <div class="myth-label">${p.mythTitle}</div>
+        <p><strong>${p.mythName}</strong></p>
+        <p style="margin-top:8px">${p.mythText}</p>
+      </div>
+
+      <div class="result-section">
+        <h3>Signs You Might Recognize</h3>
+        <ul>`;
+
+  p.signs.forEach(s => {
+    html += `<li>${s}</li>`;
+  });
+
+  html += `</ul>
+      </div>
+
+      <div class="research-badge">
+        <div class="icon">\uD83C\uDF93</div>
+        <div class="text"><strong>Evidence-Based:</strong> The Grief Recovery Method\u00AE is the only grief recovery program in the world validated by peer-reviewed research from Kent State University. This isn't opinion \u2014 it's science.</div>
+      </div>
+
+      <div class="result-section">
+        <h3>Your Path Forward</h3>
+        <p>${p.pathForward}</p>
+      </div>
+    </div>
+
+    <div class="result-cta">
+      <h3>Ready to Take the Next Step?</h3>
+      <p>You don't have to carry this alone. Here are two ways to start your recovery journey today.</p>
+      <div class="cta-buttons">
+        <a class="cta-btn primary" href="#">Join the Free Community</a>
+        <a class="cta-btn secondary" href="#">Explore Grief Recovery Foundations ($49)</a>
+      </div>
+    </div>
+
+    <div class="share-row">
+      <span>Share this quiz:</span>
+      <button class="share-btn" title="Facebook">\uD83D\uDCF1</button>
+      <button class="share-btn" title="Email">\u2709\uFE0F</button>
+      <button class="share-btn" title="Copy link">\uD83D\uDD17</button>
+    </div>
+  </div>`;
+
+  content.innerHTML = html;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ============================================================
+// START BUTTON (on hero)
+// ============================================================
+(function addStartButton() {
+  const hero = document.getElementById('heroSection');
+  const btn = document.createElement('button');
+  btn.className = 'email-submit';
+  btn.style.cssText = 'margin-top: 28px; padding: 16px 40px; font-size: 16px; border-radius: 12px;';
+  btn.textContent = 'Take the Free Assessment \u2192';
+  btn.onclick = startQuiz;
+  hero.appendChild(btn);
+})();
+</script>
+</body>
+</html>

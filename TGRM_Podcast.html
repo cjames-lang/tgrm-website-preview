@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feel Free Again Podcast — The Grief Recovery Method®</title>
+<meta name="description" content="Listen to the Feel Free Again podcast with Cole James. Inspiring stories and helpful information about grief recovery so you can feel free again.">
+<style>
+/* ========================================
+   CSS RESET & BASE
+   ======================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'Segoe UI', Arial, Helvetica, sans-serif; color: #2d3748; line-height: 1.6; background: #fff; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; font-family: inherit; }
+
+/* ========================================
+   BRAND TOKENS
+   ======================================== */
+:root {
+  --orange: #e07525;
+  --orange-dark: #c4621a;
+  --orange-light: #f5a623;
+  --teal: #427e88;
+  --teal-dark: #356a73;
+  --teal-light: #7895a3;
+  --teal-pale: #e8f2f4;
+  --warm-bg: #faf8f5;
+  --warm-bg-alt: #f5f0eb;
+  --text-primary: #2d3748;
+  --text-secondary: #5a6577;
+  --text-light: #8896a8;
+  --white: #ffffff;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+  --shadow-md: 0 4px 14px rgba(0,0,0,.1);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,.12);
+  --shadow-xl: 0 20px 50px rgba(0,0,0,.15);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --transition: .25s ease;
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* ========================================
+   UTILITY BAR
+   ======================================== */
+.utility-bar {
+  background: var(--teal-dark); color: rgba(255,255,255,.9);
+  font-size: .8rem; padding: 6px 0;
+}
+.utility-bar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.utility-bar a { color: rgba(255,255,255,.9); }
+.utility-bar a:hover { color: #fff; }
+.utility-left { display: flex; gap: 18px; align-items: center; }
+.utility-right { display: flex; gap: 16px; align-items: center; }
+
+/* ========================================
+   HEADER / NAV
+   ======================================== */
+.header {
+  background: #fff; border-bottom: 1px solid rgba(0,0,0,.06);
+  position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow-sm);
+}
+.header .container {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 10px; padding-bottom: 10px;
+}
+.logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.logo-icon {
+  width: 44px; height: 44px;
+  background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 700; font-size: 1.1rem;
+}
+.logo-text { line-height: 1.15; }
+.logo-text .brand { font-weight: 700; font-size: 1.05rem; color: var(--teal-dark); }
+.logo-text .tagline { font-size: .68rem; color: var(--text-light); letter-spacing: .3px; }
+.main-nav { display: flex; align-items: center; gap: 0; }
+.nav-item { position: relative; }
+.nav-item > a, .nav-item > button {
+  display: flex; align-items: center; gap: 4px;
+  padding: 8px 14px; font-size: .88rem; font-weight: 500;
+  color: var(--text-primary); background: none; border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+.nav-item > a:hover, .nav-item > button:hover { color: var(--orange); background: rgba(224,117,37,.05); }
+.nav-caret { font-size: .6rem; opacity: .5; }
+.mega-menu {
+  display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+  background: #fff; border-radius: var(--radius-md); box-shadow: var(--shadow-xl);
+  padding: 24px; min-width: 580px; z-index: 999; border: 1px solid rgba(0,0,0,.06);
+}
+.mega-menu.mega-wide { min-width: 720px; }
+.nav-item:hover .mega-menu { display: block; }
+.mega-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.mega-cols.three-col { grid-template-columns: 1fr 1fr 1fr; }
+.mega-col-title { font-size: .72rem; text-transform: uppercase; letter-spacing: 1px; color: var(--teal); font-weight: 700; margin-bottom: 10px; }
+.mega-link { display: block; padding: 7px 10px; border-radius: var(--radius-sm); transition: var(--transition); }
+.mega-link:hover { background: var(--teal-pale); }
+.mega-link .ml-title { font-size: .88rem; font-weight: 600; color: var(--text-primary); }
+.mega-link .ml-desc { font-size: .76rem; color: var(--text-light); margin-top: 2px; }
+.nav-cta-group { display: flex; align-items: center; gap: 10px; margin-left: 10px; }
+.btn-outline-sm {
+  padding: 7px 16px; font-size: .82rem; font-weight: 600; border-radius: 50px;
+  border: 2px solid var(--teal); color: var(--teal); background: transparent; transition: var(--transition);
+}
+.btn-outline-sm:hover { background: var(--teal); color: #fff; }
+.btn-primary-sm {
+  padding: 8px 20px; font-size: .82rem; font-weight: 600; border-radius: 50px;
+  background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+  color: #fff; transition: var(--transition);
+}
+.btn-primary-sm:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.mobile-toggle { display: none; background: none; font-size: 1.5rem; color: var(--text-primary); }
+
+/* ========================================
+   PODCAST HERO
+   ======================================== */
+.podcast-hero {
+  background: linear-gradient(160deg, #0f1a1e 0%, #1a2a30 40%, #1e3a3e 100%);
+  color: #fff; padding: 80px 0 70px; position: relative; overflow: hidden;
+}
+.podcast-hero::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(66,126,136,.2) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 30%, rgba(224,117,37,.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-layout {
+  display: grid; grid-template-columns: 320px 1fr; gap: 50px; align-items: center;
+  position: relative;
+}
+.hero-artwork {
+  width: 320px; height: 320px; border-radius: var(--radius-xl);
+  overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,.4);
+  position: relative;
+  background: linear-gradient(135deg, #1a3a3e 0%, #0f2a2e 50%, #1a2a30 100%);
+  display: flex; align-items: center; justify-content: center; flex-direction: column;
+}
+.artwork-title {
+  font-size: 2.2rem; font-weight: 900; text-transform: uppercase;
+  line-height: 1.1; text-align: center; padding: 30px;
+  background: linear-gradient(135deg, #5bb8c4, #3a9aa6);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.artwork-subtitle {
+  font-size: .8rem; text-transform: uppercase; letter-spacing: 3px;
+  opacity: .6; margin-top: 8px;
+}
+.hero-info { position: relative; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.08); padding: 6px 16px; border-radius: 20px;
+  font-size: .75rem; font-weight: 600; letter-spacing: 1px;
+  text-transform: uppercase; margin-bottom: 20px;
+  border: 1px solid rgba(255,255,255,.1);
+}
+.hero-badge .badge-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: #4caf50;
+  animation: pulse-dot 2s ease infinite;
+}
+@keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: .4; } }
+.hero-info h1 { font-size: 2.6rem; font-weight: 800; line-height: 1.15; margin-bottom: 8px; }
+.hero-info h1 em { font-style: normal; color: var(--orange-light); }
+.hero-host { font-size: 1.1rem; opacity: .7; margin-bottom: 18px; }
+.hero-desc {
+  font-size: 1.05rem; opacity: .85; line-height: 1.7; max-width: 550px;
+  margin-bottom: 28px;
+}
+.listen-on { margin-bottom: 24px; }
+.listen-label { font-size: .72rem; text-transform: uppercase; letter-spacing: 2px; opacity: .5; margin-bottom: 12px; font-weight: 700; }
+.platform-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+.platform-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 18px; border-radius: 50px;
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
+  color: #fff; font-size: .82rem; font-weight: 600;
+  transition: var(--transition);
+}
+.platform-btn:hover { background: rgba(255,255,255,.15); transform: translateY(-2px); }
+.platform-btn .p-icon { font-size: 1.2rem; }
+.hero-stats { display: flex; gap: 30px; }
+.hero-stat-item {}
+.hero-stat-num { font-size: 1.6rem; font-weight: 800; color: var(--orange-light); }
+.hero-stat-label { font-size: .75rem; opacity: .6; }
+
+/* ========================================
+   FEATURED EPISODE
+   ======================================== */
+.featured-section {
+  padding: 70px 0;
+  background: var(--warm-bg);
+}
+.section-eyebrow {
+  font-size: .72rem; text-transform: uppercase; letter-spacing: 2px;
+  color: var(--orange); font-weight: 700; margin-bottom: 10px;
+}
+.section-title {
+  font-size: 2rem; font-weight: 800; color: var(--text-primary);
+  margin-bottom: 16px; line-height: 1.2;
+}
+.featured-card {
+  display: grid; grid-template-columns: 280px 1fr; gap: 36px; align-items: center;
+  background: #fff; border-radius: var(--radius-lg); padding: 32px;
+  box-shadow: var(--shadow-md); border: 1px solid rgba(0,0,0,.05);
+  margin-top: 30px;
+}
+.featured-art {
+  width: 280px; height: 280px; border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #1a3a3e, #0f2a2e);
+  display: flex; align-items: center; justify-content: center; flex-direction: column;
+  color: #fff; position: relative; overflow: hidden;
+}
+.featured-art .fa-title {
+  font-size: 1.5rem; font-weight: 900; text-transform: uppercase;
+  text-align: center; padding: 20px;
+  background: linear-gradient(135deg, #5bb8c4, #3a9aa6);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.featured-play {
+  position: absolute; bottom: 16px; right: 16px;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--orange); display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; color: #fff; cursor: pointer;
+  box-shadow: 0 4px 16px rgba(224,117,37,.4);
+  transition: var(--transition);
+}
+.featured-play:hover { transform: scale(1.1); }
+.featured-content {}
+.featured-ep-badge {
+  display: inline-block; background: var(--teal-pale); color: var(--teal-dark);
+  font-size: .7rem; font-weight: 700; padding: 4px 12px; border-radius: 12px;
+  margin-bottom: 12px; text-transform: uppercase; letter-spacing: .5px;
+}
+.featured-content h3 { font-size: 1.4rem; font-weight: 700; line-height: 1.35; margin-bottom: 12px; color: var(--text-primary); }
+.featured-content .ep-meta {
+  display: flex; gap: 16px; font-size: .8rem; color: var(--text-light); margin-bottom: 14px;
+}
+.featured-content .ep-desc { font-size: .92rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 20px; }
+.featured-player {
+  background: var(--warm-bg); border-radius: var(--radius-md); padding: 16px 20px;
+  display: flex; align-items: center; gap: 16px;
+}
+.fp-play {
+  width: 44px; height: 44px; border-radius: 50%; background: var(--orange);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 1rem; flex-shrink: 0; cursor: pointer;
+  transition: var(--transition);
+}
+.fp-play:hover { background: var(--orange-dark); }
+.fp-track { flex: 1; }
+.fp-bar {
+  width: 100%; height: 6px; background: #e0d8cf; border-radius: 3px;
+  position: relative; cursor: pointer;
+}
+.fp-progress {
+  width: 35%; height: 100%; background: var(--orange); border-radius: 3px;
+  position: relative;
+}
+.fp-progress::after {
+  content: ''; position: absolute; right: -6px; top: -3px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--orange); border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,.2);
+}
+.fp-times { display: flex; justify-content: space-between; margin-top: 6px; font-size: .72rem; color: var(--text-light); }
+
+/* ========================================
+   EPISODES LIST
+   ======================================== */
+.episodes-section {
+  padding: 70px 0;
+}
+.episodes-header {
+  display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px;
+}
+.episodes-header .section-title { margin-bottom: 0; }
+.ep-filter-row {
+  display: flex; gap: 8px;
+}
+.ep-filter {
+  padding: 7px 16px; font-size: .8rem; font-weight: 600; border-radius: 50px;
+  background: var(--warm-bg); color: var(--text-secondary); border: 1px solid transparent;
+  transition: var(--transition); cursor: pointer;
+}
+.ep-filter.active, .ep-filter:hover { background: var(--teal-pale); color: var(--teal-dark); border-color: var(--teal); }
+
+.episode-list { display: flex; flex-direction: column; gap: 0; }
+.episode-item {
+  display: grid; grid-template-columns: 48px 1fr auto; gap: 20px; align-items: center;
+  padding: 22px 0; border-bottom: 1px solid rgba(0,0,0,.06);
+  transition: var(--transition);
+}
+.episode-item:hover { background: var(--warm-bg); margin: 0 -16px; padding-left: 16px; padding-right: 16px; border-radius: var(--radius-sm); }
+.ep-play {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 1rem; cursor: pointer; flex-shrink: 0;
+  transition: var(--transition);
+}
+.ep-play:hover { transform: scale(1.1); box-shadow: 0 4px 12px rgba(224,117,37,.3); }
+.ep-info {}
+.ep-info .ep-number {
+  font-size: .7rem; font-weight: 700; color: var(--teal); text-transform: uppercase;
+  letter-spacing: .5px; margin-bottom: 4px;
+}
+.ep-info h4 { font-size: 1rem; font-weight: 700; line-height: 1.4; margin-bottom: 4px; color: var(--text-primary); }
+.ep-info .ep-snippet { font-size: .82rem; color: var(--text-secondary); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.ep-meta-right {
+  text-align: right; flex-shrink: 0; min-width: 100px;
+}
+.ep-meta-right .ep-date { font-size: .78rem; color: var(--text-light); margin-bottom: 4px; }
+.ep-meta-right .ep-duration { font-size: .75rem; color: var(--text-light); display: flex; align-items: center; gap: 4px; justify-content: flex-end; }
+.load-more-row { text-align: center; margin-top: 40px; }
+.btn-load {
+  padding: 14px 36px; font-size: .9rem; font-weight: 600; border-radius: 50px;
+  background: transparent; color: var(--teal); border: 2px solid var(--teal);
+  transition: var(--transition);
+}
+.btn-load:hover { background: var(--teal); color: #fff; }
+
+/* ========================================
+   ABOUT THE HOST
+   ======================================== */
+.host-section {
+  padding: 70px 0;
+  background: var(--warm-bg);
+}
+.host-card {
+  display: grid; grid-template-columns: 260px 1fr; gap: 40px; align-items: center;
+  background: #fff; border-radius: var(--radius-lg); padding: 40px;
+  box-shadow: var(--shadow-sm);
+}
+.host-photo {
+  width: 260px; height: 300px; border-radius: var(--radius-md); overflow: hidden;
+  background: linear-gradient(135deg, var(--teal-pale), #d5e6ea);
+  display: flex; align-items: center; justify-content: center;
+}
+.host-photo .hp-initial {
+  font-size: 3.5rem; font-weight: 700; color: var(--teal-dark); opacity: .3;
+}
+.host-content {}
+.host-content .section-eyebrow { margin-bottom: 8px; }
+.host-content h3 { font-size: 1.8rem; font-weight: 800; margin-bottom: 4px; color: var(--text-primary); }
+.host-content .host-title { font-size: .88rem; color: var(--teal); font-weight: 600; margin-bottom: 16px; }
+.host-content p { font-size: .95rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 14px; }
+.host-links { display: flex; gap: 12px; margin-top: 20px; }
+.btn-teal {
+  padding: 12px 28px; font-size: .88rem; font-weight: 600; border-radius: 50px;
+  background: var(--teal); color: #fff; transition: var(--transition);
+  display: inline-block;
+}
+.btn-teal:hover { background: var(--teal-dark); transform: translateY(-1px); }
+.btn-outline-teal {
+  padding: 12px 28px; font-size: .88rem; font-weight: 600; border-radius: 50px;
+  border: 2px solid var(--teal); color: var(--teal); background: transparent;
+  transition: var(--transition); display: inline-block;
+}
+.btn-outline-teal:hover { background: var(--teal); color: #fff; }
+
+/* ========================================
+   SUBSCRIBE CTA
+   ======================================== */
+.subscribe-cta {
+  padding: 70px 0;
+  background: linear-gradient(135deg, #0f1a1e, #1a2a30, #1e3a3e);
+  color: #fff; text-align: center;
+}
+.subscribe-cta h2 { font-size: 2rem; font-weight: 800; margin-bottom: 12px; }
+.subscribe-cta p { font-size: 1.05rem; opacity: .8; margin-bottom: 30px; max-width: 520px; margin-left: auto; margin-right: auto; }
+.subscribe-platforms { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.sub-plat {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 24px; border-radius: var(--radius-md);
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+  color: #fff; font-size: .9rem; font-weight: 600;
+  transition: var(--transition);
+}
+.sub-plat:hover { background: rgba(255,255,255,.12); transform: translateY(-2px); }
+.sub-plat .sp-icon { font-size: 1.4rem; }
+
+/* ========================================
+   NEWSLETTER
+   ======================================== */
+.newsletter-section {
+  padding: 60px 0;
+  background: var(--warm-bg);
+}
+.newsletter-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+  max-width: 900px; margin: 0 auto;
+}
+.nl-content h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 8px; }
+.nl-content p { font-size: .9rem; color: var(--text-secondary); }
+.nl-form { display: flex; gap: 10px; }
+.nl-form input {
+  flex: 1; padding: 14px 20px; border: 2px solid #e0d8cf;
+  border-radius: 50px; font-size: .9rem; outline: none;
+  transition: var(--transition);
+}
+.nl-form input:focus { border-color: var(--teal); }
+.nl-form button {
+  padding: 14px 28px; border-radius: 50px; font-size: .88rem; font-weight: 600;
+  background: var(--orange); color: #fff; transition: var(--transition);
+}
+.nl-form button:hover { background: var(--orange-dark); }
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.footer { background: #1a2a30; color: rgba(255,255,255,.8); padding: 60px 0 0; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; }
+.footer-brand p { font-size: .84rem; line-height: 1.6; opacity: .7; margin-top: 12px; }
+.footer h5 { color: #fff; font-size: .82rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 8px; }
+.footer-links a { font-size: .84rem; opacity: .65; transition: var(--transition); }
+.footer-links a:hover { opacity: 1; color: var(--orange); }
+.crisis-bar {
+  margin-top: 30px; padding: 16px 0; border-top: 1px solid rgba(255,255,255,.08);
+  text-align: center; font-size: .78rem; opacity: .55; line-height: 1.7;
+}
+.crisis-bar strong { color: rgba(255,255,255,.8); }
+.footer-bottom {
+  margin-top: 16px; padding: 20px 0; border-top: 1px solid rgba(255,255,255,.1);
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+  font-size: .76rem; opacity: .5;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 1024px) {
+  .main-nav { display: none; }
+  .mobile-toggle { display: block; }
+  .nav-cta-group { margin-left: auto; }
+}
+@media (max-width: 768px) {
+  .hero-layout { grid-template-columns: 1fr; text-align: center; }
+  .hero-artwork { width: 240px; height: 240px; margin: 0 auto; }
+  .hero-desc { margin-left: auto; margin-right: auto; }
+  .platform-buttons { justify-content: center; }
+  .hero-stats { justify-content: center; }
+  .podcast-hero h1 { font-size: 1.85rem; }
+  .featured-card { grid-template-columns: 1fr; }
+  .featured-art { width: 100%; height: 240px; }
+  .episode-item { grid-template-columns: 44px 1fr; }
+  .ep-meta-right { display: none; }
+  .host-card { grid-template-columns: 1fr; text-align: center; }
+  .host-photo { width: 180px; height: 200px; margin: 0 auto; }
+  .host-links { justify-content: center; }
+  .subscribe-platforms { flex-direction: column; align-items: center; }
+  .newsletter-inner { grid-template-columns: 1fr; text-align: center; }
+  .nl-form { flex-direction: column; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .utility-bar { display: none; }
+  .episodes-header { flex-direction: column; gap: 16px; align-items: flex-start; }
+}
+@media (max-width: 480px) {
+  .podcast-hero { padding: 50px 0 40px; }
+  .podcast-hero h1 { font-size: 1.55rem; }
+  .hero-artwork { width: 200px; height: 200px; }
+  .nav-cta-group .btn-outline-sm { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ======================= UTILITY BAR ======================= -->
+<div class="utility-bar">
+  <div class="container">
+    <div class="utility-left">
+      <a href="tel:8003347606">&#128222; 800-334-7606</a>
+      <span>|</span>
+      <a href="#">&#127760; English</a>
+      <a href="#">Espa&ntilde;ol</a>
+      <a href="#">UK</a>
+      <a href="#">Canada</a>
+    </div>
+    <div class="utility-right">
+      <a href="TGRM_Handbook.html">&#128214; The Grief Recovery Handbook</a>
+      <a href="TGRM_Podcast.html">&#127897;&#65039; Podcast</a>
+      <a href="#">Specialist Login</a>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= HEADER / NAV ======================= -->
+<header class="header">
+  <div class="container">
+    <a href="TGRM_Homepage_V2.html" class="logo">
+      <div class="logo-icon">GR</div>
+      <div class="logo-text">
+        <div class="brand">The Grief Recovery Method<sup style="font-size:.55rem">&reg;</sup></div>
+        <div class="tagline">Evidence-Based Grief Recovery Since 1984</div>
+      </div>
+    </a>
+    <nav class="main-nav">
+      <div class="nav-item">
+        <button>I Need Help <span class="nav-caret">&#9660;</span></button>
+        <div class="mega-menu">
+          <div class="mega-cols">
+            <div>
+              <div class="mega-col-title">Find Support</div>
+              <a href="TGRM_Directory.html" class="mega-link"><div class="ml-title">&#128270; Find a Specialist</div><div class="ml-desc">Search 3,000+ certified professionals</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">&#127891; $49 Online Course</div><div class="ml-desc">Self-paced grief recovery</div></a>
+              <a href="TGRM_Grief_Type_Quiz.html" class="mega-link"><div class="ml-title">&#128300; Grief Type Quiz</div><div class="ml-desc">Free 2-minute assessment</div></a>
+            </div>
+            <div>
+              <div class="mega-col-title">Explore by Loss Type</div>
+              <a href="#" class="mega-link"><div class="ml-title">Death of a Loved One</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">Divorce &amp; Relationship Loss</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">Pet Loss</div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button>Get Certified <span class="nav-caret">&#9660;</span></button>
+        <div class="mega-menu mega-wide">
+          <div class="mega-cols three-col">
+            <div>
+              <div class="mega-col-title">Training Programs</div>
+              <a href="TGRM_Certification.html" class="mega-link"><div class="ml-title">Foundational Certification</div><div class="ml-desc">4-day live Zoom &mdash; $2,495</div></a>
+              <a href="TGRM_Certification.html" class="mega-link"><div class="ml-title">Advanced Certification</div><div class="ml-desc">Foundational + advanced &mdash; $3,995</div></a>
+              <a href="TGRM_Certification.html" class="mega-link"><div class="ml-title">In-Person Premium</div><div class="ml-desc">Small group intensive &mdash; $4,995</div></a>
+            </div>
+            <div>
+              <div class="mega-col-title">Why Get Certified?</div>
+              <a href="TGRM_For_Therapists.html" class="mega-link"><div class="ml-title">For Therapists &amp; Counselors</div></a>
+              <a href="TGRM_Coaches_Certification.html" class="mega-link"><div class="ml-title">For Coaches &amp; Life Coaches</div><div class="ml-desc">The missing piece in your practice</div></a>
+              <a href="TGRM_Military_Certification.html" class="mega-link"><div class="ml-title">&#127894;&#65039; Military, Veterans &amp; First Responders</div><div class="ml-desc">GI Bill approved &mdash; veteran-created</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">For Career Changers</div></a>
+            </div>
+            <div>
+              <div class="mega-col-title">Resources</div>
+              <a href="TGRM_Training_Calendar.html" class="mega-link"><div class="ml-title">Training Calendar</div></a>
+              <a href="TGRM_Certification.html#faq" class="mega-link"><div class="ml-title">Certification FAQ</div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a href="TGRM_Blog.html">Blog</a></div>
+      <div class="nav-item"><a href="TGRM_Podcast.html" style="color:var(--orange); font-weight:600;">Podcast</a></div>
+      <div class="nav-item"><a href="TGRM_About_Us.html">About</a></div>
+    </nav>
+    <div class="nav-cta-group">
+      <a href="TGRM_Directory.html" class="btn-outline-sm">Find Help</a>
+      <a href="TGRM_Certification.html" class="btn-primary-sm">Get Certified &rarr;</a>
+    </div>
+    <button class="mobile-toggle">&#9776;</button>
+  </div>
+</header>
+
+<!-- ======================= PODCAST HERO ======================= -->
+<section class="podcast-hero">
+  <div class="container">
+    <div class="hero-layout">
+      <div class="hero-artwork">
+        <div class="artwork-title">Feel Free Again</div>
+        <div class="artwork-subtitle">Podcast</div>
+      </div>
+      <div class="hero-info">
+        <div class="hero-badge"><span class="badge-dot"></span> New Episodes Biweekly</div>
+        <h1><em>Feel Free Again</em> with Cole James</h1>
+        <div class="hero-host">Hosted by Cole James &mdash; President, The Grief Recovery Institute</div>
+        <p class="hero-desc">Emotional pain from the past can rob us of choice in our lives, prevent us from living the life we always wanted, and ultimately feel like a prison. This podcast was created to share inspiring stories and helpful information so you can feel free again.</p>
+
+        <div class="listen-on">
+          <div class="listen-label">Listen On</div>
+          <div class="platform-buttons">
+            <a href="#" class="platform-btn"><span class="p-icon">&#127911;</span> Apple Podcasts</a>
+            <a href="#" class="platform-btn"><span class="p-icon">&#127925;</span> Spotify</a>
+            <a href="#" class="platform-btn"><span class="p-icon">&#127926;</span> Amazon Music</a>
+            <a href="#" class="platform-btn"><span class="p-icon">&#10084;&#65039;</span> iHeartRadio</a>
+            <a href="https://cjames4.podbean.com/" class="platform-btn" target="_blank"><span class="p-icon">&#127897;&#65039;</span> Podbean</a>
+          </div>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat-item">
+            <div class="hero-stat-num">46+</div>
+            <div class="hero-stat-label">Episodes</div>
+          </div>
+          <div class="hero-stat-item">
+            <div class="hero-stat-num">1hr</div>
+            <div class="hero-stat-label">Avg. Length</div>
+          </div>
+          <div class="hero-stat-item">
+            <div class="hero-stat-num">&#11088; 5.0</div>
+            <div class="hero-stat-label">Avg. Rating</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FEATURED EPISODE ======================= -->
+<section class="featured-section">
+  <div class="container">
+    <div class="section-eyebrow">Latest Episode</div>
+    <h2 class="section-title">Now Playing</h2>
+
+    <div class="featured-card">
+      <div class="featured-art">
+        <div class="fa-title">Feel Free Again</div>
+        <div class="featured-play">&#9654;</div>
+      </div>
+      <div class="featured-content">
+        <div class="featured-ep-badge">Episode 046</div>
+        <h3>Overcoming Emotional Roadblocks from 18 Years of Unresolved Grief feat. Rhys Kiaaina</h3>
+        <div class="ep-meta">
+          <span>&#128197; Feb 23, 2026</span>
+          <span>&#9202; ~60 min</span>
+          <span>&#128229; 119 downloads</span>
+        </div>
+        <p class="ep-desc">Rhys Kiaaina, a grief recovery specialist, shares his profound personal journey with the Grief Recovery Method. He opens up about unresolved grief from the loss of his grandmother, a church split that impacted his community, and how the grief recovery process helped him find healing after 18 years of emotional turmoil.</p>
+
+        <div class="featured-player">
+          <div class="fp-play">&#9654;</div>
+          <div class="fp-track">
+            <div class="fp-bar"><div class="fp-progress"></div></div>
+            <div class="fp-times"><span>21:14</span><span>1:02:38</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= ALL EPISODES ======================= -->
+<section class="episodes-section">
+  <div class="container">
+    <div class="episodes-header">
+      <div>
+        <div class="section-eyebrow">Browse</div>
+        <h2 class="section-title">All Episodes</h2>
+      </div>
+      <div class="ep-filter-row">
+        <button class="ep-filter active">All</button>
+        <button class="ep-filter">Guest Interviews</button>
+        <button class="ep-filter">Solo Episodes</button>
+        <button class="ep-filter">Most Popular</button>
+      </div>
+    </div>
+
+    <div class="episode-list">
+
+      <div class="episode-item">
+        <div class="ep-play">&#9654;</div>
+        <div class="ep-info">
+          <div class="ep-number">Episode 045</div>
+          <h4>Rethinking Family Estrangement: Why Cutting Off Family Isn&rsquo;t Always Healing (And When It Might Be)</h4>
+          <div class="ep-snippet">A deeply honest conversation with grief recovery specialist Victoria Volk about family estrangement &mdash; why it happens, when it may be necessary, and when it may actually cause more harm than healing.</div>
+        </div>
+        <div class="ep-meta-right">
+          <div class="ep-date">Feb 9, 2026</div>
+          <div class="ep-duration">&#128347; ~55 min</div>
+        </div>
+      </div>
+
+      <div class="episode-item">
+        <div class="ep-play">&#9654;</div>
+        <div class="ep-info">
+          <div class="ep-number">Episode 044</div>
+          <h4>Men &amp; Grief Recovery: The Real Reason Men Avoid Grief (And The Tool That Changes Everything)</h4>
+          <div class="ep-snippet">Healing coach Jorge Ruiz discusses why men often avoid emotional healing, why &ldquo;I&rsquo;m fine&rdquo; becomes a lifestyle, and how unprocessed loss anchors your identity to your past. Plus Jorge&rsquo;s FOCUS framework.</div>
+        </div>
+        <div class="ep-meta-right">
+          <div class="ep-date">Jan 26, 2026</div>
+          <div class="ep-duration">&#128347; ~70 min</div>
+        </div>
+      </div>
+
+      <div class="episode-item">
+        <div class="ep-play">&#9654;</div>
+        <div class="ep-info">
+          <div class="ep-number">Episode 043</div>
+          <h4>Why &ldquo;Time Heals&rdquo; Is a Lie: The 2 Ways We Handle Grief (And Why One Keeps You Stuck)</h4>
+          <div class="ep-snippet">Part 2 with grief recovery specialist Kelli Sheumaker, exploring the complexities of grief, the importance of acknowledging it rather than pushing it aside, and the ripple effects of avoidance.</div>
+        </div>
+        <div class="ep-meta-right">
+          <div class="ep-date">Jan 12, 2026</div>
+          <div class="ep-duration">&#128347; ~55 min</div>
+        </div>
+      </div>
+
+      <div class="episode-item">
+        <div class="ep-play">&#9654;</div>
+        <div class="ep-info">
+          <div class="ep-number">Episode 042</div>
+          <h4>Stop Choosing Sides, Start Choosing People: How to Disagree Without Disconnecting</h4>
+          <div class="ep-snippet">Tammy Adams returns for her second appearance to discuss how families are getting fractured and ghosted over &ldquo;outside topics&rdquo; and how to love each other through differences.</div>
+        </div>
+        <div class="ep-meta-right">
+          <div class="ep-date">Dec 29, 2025</div>
+          <div class="ep-duration">&#128347; ~50 min</div>
+        </div>
+      </div>
+
+      <div class="episode-item">
+        <div class="ep-play">&#9654;</div>
+        <div class="ep-info">
+          <div class="ep-number">Episode 041</div>
+          <h4>Why Unresolved Grief Is Behind So Much Pain (and How to Heal It)</h4>
+          <div class="ep-snippet">Victoria Volk shares why unresolved grief is at the root of so much emotional and physical pain, and the practical steps to begin healing it.</div>
+        </div>
+        <div class="ep-meta-right">
+          <div class="ep-date">Nov 17, 2025</div>
+          <div class="ep-duration">&#128347; ~60 min</div>
+        </div>
+      </div>
+
+      <div class="episode-item">
+        <div class="ep-play">&#9654;</div>
+        <div class="ep-info">
+          <div class="ep-number">Episode 040</div>
+          <h4>Can You Grieve Someone You&rsquo;ve Never Met? The Truth About Hidden Grief</h4>
+          <div class="ep-snippet">Cindy Cipriani explores the lesser-discussed forms of grief &mdash; grieving someone you never met, adopted children grieving birth parents, and other hidden losses we rarely talk about.</div>
+        </div>
+        <div class="ep-meta-right">
+          <div class="ep-date">Nov 3, 2025</div>
+          <div class="ep-duration">&#128347; ~55 min</div>
+        </div>
+      </div>
+
+      <div class="episode-item">
+        <div class="ep-play">&#9654;</div>
+        <div class="ep-info">
+          <div class="ep-number">Episode 039</div>
+          <h4>Why You Can&rsquo;t Think Your Way Out of Grief | Healing the Heart, Not Just the Mind</h4>
+          <div class="ep-snippet">Andrea Szegedi discusses the critical difference between intellectual understanding and emotional healing when it comes to grief recovery.</div>
+        </div>
+        <div class="ep-meta-right">
+          <div class="ep-date">Oct 20, 2025</div>
+          <div class="ep-duration">&#128347; ~50 min</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="load-more-row">
+      <a href="https://cjames4.podbean.com/" target="_blank" class="btn-load">View All 46+ Episodes on Podbean &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= ABOUT THE HOST ======================= -->
+<section class="host-section">
+  <div class="container">
+    <div class="host-card">
+      <div class="host-photo">
+        <div class="hp-initial">CJ</div>
+      </div>
+      <div class="host-content">
+        <div class="section-eyebrow">Your Host</div>
+        <h3>Cole James</h3>
+        <div class="host-title">President, The Grief Recovery Institute &middot; Author &middot; Speaker</div>
+        <p>Cole W. James is the President of the Grief Recovery Institute and host of the <em>Feel Free Again</em> podcast. As the son of founder John W. James, Cole grew up immersed in the world of grief recovery and was encouraged to be &ldquo;a heart with ears&rdquo; from a very early age.</p>
+        <p>Through the podcast, Cole brings the same compassion and practical wisdom to listeners everywhere &mdash; sharing real stories, honest conversations, and evidence-based tools that help people break free from the prison of unresolved grief.</p>
+        <div class="host-links">
+          <a href="TGRM_About_Us.html" class="btn-teal">Meet the Team</a>
+          <a href="TGRM_Certification.html" class="btn-outline-teal">Get Certified</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SUBSCRIBE CTA ======================= -->
+<section class="subscribe-cta">
+  <div class="container">
+    <h2>Never Miss an Episode</h2>
+    <p>Subscribe on your favorite platform and get new episodes delivered automatically every two weeks.</p>
+    <div class="subscribe-platforms">
+      <a href="#" class="sub-plat"><span class="sp-icon">&#127911;</span> Apple Podcasts</a>
+      <a href="#" class="sub-plat"><span class="sp-icon">&#127925;</span> Spotify</a>
+      <a href="#" class="sub-plat"><span class="sp-icon">&#127926;</span> Amazon Music</a>
+      <a href="#" class="sub-plat"><span class="sp-icon">&#10084;&#65039;</span> iHeartRadio</a>
+      <a href="https://cjames4.podbean.com/" target="_blank" class="sub-plat"><span class="sp-icon">&#127897;&#65039;</span> Podbean</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= NEWSLETTER ======================= -->
+<section class="newsletter-section">
+  <div class="container">
+    <div class="newsletter-inner">
+      <div class="nl-content">
+        <h3>Get Grief Recovery Tips in Your Inbox</h3>
+        <p>Join thousands who receive our weekly insights on healing, resilience, and living beyond loss.</p>
+      </div>
+      <form class="nl-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed!'; this.querySelector('button').style.background='var(--teal)';">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="font-weight:700; font-size:1.05rem; color:#fff;">The Grief Recovery Method&reg;</div>
+        <p>The only evidence-based grief recovery program in the world. Helping people move from pain to peace since 1984.</p>
+        <div style="margin-top:16px; display:flex; gap:12px;">
+          <a href="#" style="opacity:.6; font-size:1.2rem;">&#128216;</a>
+          <a href="#" style="opacity:.6; font-size:1.2rem;">&#128248;</a>
+          <a href="#" style="opacity:.6; font-size:1.2rem;">&#9654;&#65039;</a>
+          <a href="#" style="opacity:.6; font-size:1.2rem;">&#128279;</a>
+        </div>
+      </div>
+      <div>
+        <h5>For Grievers</h5>
+        <ul class="footer-links">
+          <li><a href="TGRM_Directory.html">Find a Specialist</a></li>
+          <li><a href="TGRM_Grief_Type_Quiz.html">Grief Type Quiz</a></li>
+          <li><a href="#">$49 Online Course</a></li>
+          <li><a href="TGRM_Handbook.html">The Handbook</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>For Professionals</h5>
+        <ul class="footer-links">
+          <li><a href="TGRM_Certification.html">Certification Programs</a></li>
+          <li><a href="TGRM_Training_Calendar.html">Training Calendar</a></li>
+          <li><a href="TGRM_Coaches_Certification.html">For Coaches</a></li>
+          <li><a href="TGRM_Military_Certification.html">Military &amp; Veterans</a></li>
+          <li><a href="#">Specialist Login</a></li>
+          <li><a href="#">Talk to an Advisor</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul class="footer-links">
+          <li><a href="TGRM_About_Us.html">About Us</a></li>
+          <li><a href="TGRM_Blog.html">Blog</a></li>
+          <li><a href="TGRM_Podcast.html">Podcast</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="crisis-bar">
+      <strong>If you or someone you know is in crisis:</strong><br>
+      988 Suicide &amp; Crisis Lifeline: Call or text <strong>988</strong> &middot;
+      Veterans Crisis Line: <strong>1-800-273-8255</strong> (Press 1) &middot;
+      Crisis Text Line: Text <strong>HOME</strong> to <strong>741741</strong>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 The Grief Recovery Institute&reg;. All rights reserved. | <a href="#">Privacy</a> &middot; <a href="#">Terms</a></div>
+      <div>The Grief Recovery Method&reg; &middot; Certified Grief Recovery Specialist&reg;</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

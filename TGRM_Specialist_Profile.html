@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sarah Mitchell, LCSW — Certified Grief Recovery Specialist® | The Grief Recovery Method</title>
+<meta name="description" content="Sarah Mitchell is a Certified Grief Recovery Specialist® in Portland, OR. Advanced Certified with 8+ years of experience helping people move through loss.">
+<style>
+/* ========================================
+   CSS RESET & BASE
+   ======================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'Segoe UI', Arial, Helvetica, sans-serif; color: #2d3748; line-height: 1.6; background: #faf8f5; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; font-family: inherit; }
+
+/* ========================================
+   BRAND TOKENS
+   ======================================== */
+:root {
+  --orange: #e07525;
+  --orange-dark: #c4621a;
+  --orange-light: #f5a623;
+  --teal: #427e88;
+  --teal-dark: #356a73;
+  --teal-light: #7895a3;
+  --teal-pale: #e8f2f4;
+  --warm-bg: #faf8f5;
+  --warm-bg-alt: #f5f0eb;
+  --green: #16a34a;
+  --text-primary: #2d3748;
+  --text-secondary: #5a6577;
+  --text-light: #8896a8;
+  --white: #ffffff;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+  --shadow-md: 0 4px 14px rgba(0,0,0,.1);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,.12);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --transition: .25s ease;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+/* ========================================
+   NAV
+   ======================================== */
+.page-nav {
+  background: var(--white); border-bottom: 1px solid #ece8e3;
+  padding: 14px 0; position: sticky; top: 0; z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+.page-nav .container { display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-weight: 800; font-size: 1.1rem; color: var(--teal-dark); }
+.nav-links { display: flex; gap: 22px; font-size: .88rem; font-weight: 500; color: var(--text-secondary); align-items: center; }
+.nav-links a:hover { color: var(--orange); }
+.nav-cta { background: var(--orange); color: #fff; padding: 8px 18px; border-radius: var(--radius-sm); font-weight: 700; font-size: .82rem; }
+.nav-cta:hover { background: var(--orange-dark); }
+
+/* ========================================
+   BREADCRUMB
+   ======================================== */
+.breadcrumb {
+  padding: 14px 0; font-size: .82rem; color: var(--text-light);
+}
+.breadcrumb a { color: var(--teal); }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb span { margin: 0 6px; }
+
+/* ========================================
+   PROFILE HERO
+   ======================================== */
+.profile-hero {
+  padding-bottom: 40px;
+}
+.profile-hero-inner {
+  display: grid; grid-template-columns: 300px 1fr; gap: 40px; align-items: start;
+}
+.profile-photo-col { text-align: center; }
+.profile-photo-wrap {
+  width: 260px; height: 260px; border-radius: 50%; overflow: hidden;
+  margin: 0 auto 18px; border: 4px solid var(--teal-pale);
+  box-shadow: var(--shadow-md);
+  background: linear-gradient(135deg, var(--teal-pale), #d9e8eb);
+  display: flex; align-items: center; justify-content: center;
+}
+.profile-photo-wrap .photo-placeholder {
+  font-size: 5rem; color: var(--teal); opacity: .5;
+}
+
+.cert-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 16px; border-radius: 20px; font-size: .78rem; font-weight: 700;
+  margin-bottom: 10px;
+}
+.cert-badge.advanced { background: linear-gradient(135deg, #f3e8ff, #ede4fa); color: #6b21a8; border: 1px solid #d8b4fe; }
+.cert-badge.foundational { background: linear-gradient(135deg, #e0f2fe, #dbeafe); color: #1e40af; border: 1px solid #93c5fd; }
+.cert-badge.premium { background: linear-gradient(135deg, #fef3e2, #fff1d6); color: #9a3412; border: 1px solid #fed7aa; }
+
+.verified-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: .76rem; color: var(--green); font-weight: 600;
+}
+
+.profile-info h1 {
+  font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin-bottom: 4px;
+  line-height: 1.2;
+}
+.profile-credentials {
+  font-size: .88rem; color: var(--text-light); margin-bottom: 12px;
+}
+.profile-location-row {
+  display: flex; flex-wrap: wrap; gap: 18px; font-size: .88rem; color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+.profile-location-row span { display: flex; align-items: center; gap: 5px; }
+
+.profile-rating {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #fffbf5; border: 1px solid #f0ece7; border-radius: var(--radius-sm);
+  padding: 8px 14px; margin-bottom: 18px;
+}
+.profile-rating .stars { color: var(--orange); font-size: 1rem; letter-spacing: 1px; }
+.profile-rating .rating-text { font-size: .82rem; color: var(--text-secondary); font-weight: 600; }
+
+.profile-tags {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;
+}
+.profile-tag {
+  display: inline-block; padding: 4px 12px; border-radius: 16px;
+  font-size: .76rem; font-weight: 600;
+  background: var(--teal-pale); color: var(--teal-dark);
+}
+.profile-tag.orange { background: #fef3e2; color: #9a3412; }
+
+.profile-ctas {
+  display: flex; gap: 12px; flex-wrap: wrap;
+}
+.btn-contact {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 12px 28px; border-radius: var(--radius-sm); font-weight: 700; font-size: .9rem;
+  transition: all .2s;
+}
+.btn-contact.primary { background: var(--orange); color: #fff; }
+.btn-contact.primary:hover { background: var(--orange-dark); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.btn-contact.secondary { background: var(--white); color: var(--teal-dark); border: 2px solid var(--teal); }
+.btn-contact.secondary:hover { background: var(--teal); color: #fff; }
+
+/* ========================================
+   MAIN CONTENT GRID
+   ======================================== */
+.profile-body {
+  display: grid; grid-template-columns: 1fr 340px; gap: 36px;
+  padding-bottom: 50px;
+}
+
+/* --- ABOUT SECTION --- */
+.section-card {
+  background: var(--white); border-radius: var(--radius-lg);
+  border: 1px solid #ece8e3; padding: 28px; margin-bottom: 24px;
+  box-shadow: var(--shadow-sm);
+}
+.section-card h2 {
+  font-size: 1.15rem; font-weight: 700; color: var(--text-primary);
+  margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+}
+.section-card h2 .icon { font-size: 1.1rem; }
+
+.bio-text {
+  font-size: .92rem; color: var(--text-secondary); line-height: 1.75;
+}
+.bio-text p { margin-bottom: 14px; }
+.bio-read-more {
+  color: var(--teal); font-weight: 600; font-size: .88rem; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 4px;
+}
+.bio-read-more:hover { text-decoration: underline; }
+.bio-expanded { display: none; }
+.bio-expanded.show { display: block; }
+
+/* --- PROGRAMS OFFERED --- */
+.programs-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+}
+.program-card {
+  border: 1px solid #ece8e3; border-radius: var(--radius-md);
+  padding: 18px; text-align: center; transition: all .2s;
+  background: var(--white);
+}
+.program-card:hover { border-color: var(--teal); box-shadow: var(--shadow-sm); }
+.program-icon { font-size: 1.8rem; margin-bottom: 8px; }
+.program-card h3 { font-size: .92rem; font-weight: 700; margin-bottom: 4px; color: var(--text-primary); }
+.program-card p { font-size: .78rem; color: var(--text-light); line-height: 1.5; }
+.program-format {
+  display: inline-block; margin-top: 8px; font-size: .72rem; font-weight: 600;
+  padding: 3px 10px; border-radius: 10px;
+  background: var(--teal-pale); color: var(--teal-dark);
+}
+
+/* --- SPECIALTIES --- */
+.specialties-list {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.specialty-chip {
+  padding: 6px 14px; border-radius: 20px; font-size: .8rem; font-weight: 500;
+  background: var(--warm-bg-alt); color: var(--text-secondary);
+  border: 1px solid #ece8e3;
+}
+
+/* --- TESTIMONIALS --- */
+.testimonial-list { display: flex; flex-direction: column; gap: 16px; }
+.testi-card {
+  background: var(--warm-bg); border-radius: var(--radius-md);
+  padding: 18px; border-left: 3px solid var(--orange);
+}
+.testi-stars { color: var(--orange); font-size: .82rem; margin-bottom: 6px; letter-spacing: 1px; }
+.testi-quote {
+  font-size: .88rem; color: var(--text-secondary); line-height: 1.6;
+  font-style: italic; margin-bottom: 8px;
+}
+.testi-attr {
+  font-size: .78rem; color: var(--text-light); font-weight: 600;
+}
+
+/* --- SIDEBAR --- */
+.sidebar-card {
+  background: var(--white); border-radius: var(--radius-lg);
+  border: 1px solid #ece8e3; padding: 24px; margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+}
+.sidebar-card h3 {
+  font-size: .95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 14px;
+}
+.sidebar-card h3 .icon { margin-right: 6px; }
+
+.contact-form label {
+  display: block; font-size: .8rem; font-weight: 600; color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.contact-form input, .contact-form textarea {
+  width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: var(--radius-sm);
+  font-size: .88rem; font-family: inherit; margin-bottom: 12px;
+  transition: border-color .2s;
+}
+.contact-form input:focus, .contact-form textarea:focus {
+  outline: none; border-color: var(--teal);
+}
+.contact-form textarea { min-height: 100px; resize: vertical; }
+.btn-send {
+  width: 100%; padding: 12px; background: var(--orange); color: #fff;
+  border-radius: var(--radius-sm); font-weight: 700; font-size: .9rem;
+  transition: all .2s; border: none; cursor: pointer;
+}
+.btn-send:hover { background: var(--orange-dark); }
+.form-privacy { font-size: .72rem; color: var(--text-light); margin-top: 8px; text-align: center; }
+
+/* --- Quick Info Sidebar --- */
+.quick-info-row {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 10px 0; border-bottom: 1px solid #f0ece7;
+  font-size: .86rem;
+}
+.quick-info-row:last-child { border-bottom: none; }
+.quick-info-row .qi-icon { font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+.quick-info-row .qi-label { font-size: .72rem; color: var(--text-light); font-weight: 600; text-transform: uppercase; letter-spacing: .5px; }
+.quick-info-row .qi-value { color: var(--text-primary); font-weight: 500; }
+.quick-info-row a { color: var(--teal); }
+.quick-info-row a:hover { text-decoration: underline; }
+
+/* --- Map --- */
+.map-placeholder {
+  width: 100%; height: 200px; border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--teal-pale), #d1e5e9);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--teal); font-size: .82rem; font-weight: 600;
+  border: 1px solid #cde0e3;
+}
+
+/* --- Evidence Badge --- */
+.evidence-badge {
+  text-align: center; padding: 20px;
+  background: linear-gradient(135deg, #f9fafb, var(--white));
+  border-radius: var(--radius-lg); border: 1px solid #ece8e3;
+}
+.evidence-seal {
+  width: 100px; height: 100px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal-dark), var(--teal));
+  color: #fff; display: flex; align-items: center; justify-content: center;
+  flex-direction: column; margin: 0 auto 10px; font-size: .65rem;
+  font-weight: 700; text-transform: uppercase; letter-spacing: .5px;
+  line-height: 1.3; text-align: center; padding: 10px;
+  box-shadow: 0 4px 12px rgba(66,126,136,.3);
+}
+.evidence-seal .seal-icon { font-size: 1.4rem; margin-bottom: 2px; }
+.evidence-badge p { font-size: .76rem; color: var(--text-light); line-height: 1.5; }
+
+/* ========================================
+   SIMILAR SPECIALISTS
+   ======================================== */
+.similar-section {
+  padding: 50px 0; background: var(--warm-bg-alt); border-top: 1px solid #ece8e3;
+}
+.similar-section h2 {
+  font-size: 1.2rem; font-weight: 700; text-align: center; margin-bottom: 24px;
+}
+.similar-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.similar-card {
+  background: var(--white); border-radius: var(--radius-lg);
+  border: 1px solid #ece8e3; padding: 24px; text-align: center;
+  transition: all .2s;
+}
+.similar-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.similar-avatar {
+  width: 70px; height: 70px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal-pale), #d1e5e9);
+  margin: 0 auto 12px; display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; color: var(--teal);
+}
+.similar-card h3 { font-size: .92rem; font-weight: 700; margin-bottom: 2px; }
+.similar-card .sim-loc { font-size: .78rem; color: var(--text-light); margin-bottom: 6px; }
+.similar-card .sim-stars { color: var(--orange); font-size: .78rem; }
+.similar-card .sim-link {
+  display: inline-block; margin-top: 10px; font-size: .82rem;
+  color: var(--teal); font-weight: 600;
+}
+.similar-card .sim-link:hover { text-decoration: underline; }
+
+/* ========================================
+   CTA BANNER
+   ======================================== */
+.profile-cta-banner {
+  padding: 50px 0; text-align: center;
+  background: linear-gradient(135deg, var(--teal-dark), #2c5d66);
+  color: #fff;
+}
+.profile-cta-banner h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; }
+.profile-cta-banner p { font-size: .95rem; opacity: .9; margin-bottom: 20px; }
+.profile-cta-banner .btn-cta-white {
+  display: inline-block; padding: 14px 32px; border-radius: var(--radius-sm);
+  background: #fff; color: var(--teal-dark); font-weight: 700; font-size: .95rem;
+  transition: all .2s;
+}
+.profile-cta-banner .btn-cta-white:hover { background: #f0f0f0; transform: translateY(-1px); box-shadow: var(--shadow-md); }
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.page-footer {
+  background: var(--text-primary); color: rgba(255,255,255,.7); padding: 30px 0;
+  font-size: .82rem;
+}
+.footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a:hover { color: var(--orange); }
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 900px) {
+  .profile-hero-inner { grid-template-columns: 1fr; text-align: center; }
+  .profile-photo-col { margin-bottom: 10px; }
+  .profile-location-row { justify-content: center; }
+  .profile-tags { justify-content: center; }
+  .profile-ctas { justify-content: center; }
+  .profile-body { grid-template-columns: 1fr; }
+  .similar-grid { grid-template-columns: 1fr 1fr; }
+  .programs-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .profile-hero-inner { gap: 20px; }
+  .profile-photo-wrap { width: 200px; height: 200px; }
+  .profile-info h1 { font-size: 1.4rem; }
+  .similar-grid { grid-template-columns: 1fr; }
+  .programs-grid { grid-template-columns: 1fr; }
+  .nav-links { gap: 12px; font-size: .82rem; }
+}
+
+.fade-in { opacity: 0; transform: translateY(14px); transition: all .5s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- ======================= NAV ======================= -->
+<nav class="page-nav">
+  <div class="container">
+    <a href="TGRM_Homepage_V2.html" class="nav-logo">The Grief Recovery Method&reg;</a>
+    <div class="nav-links">
+      <a href="TGRM_Homepage_V2.html">Home</a>
+      <a href="TGRM_Handbook.html">The Handbook</a>
+      <a href="TGRM_Directory.html">Find a Specialist</a>
+      <a href="TGRM_Certification.html">Get Certified</a>
+      <a href="TGRM_Blog.html">Blog</a>
+      <a href="TGRM_Certification.html" class="nav-cta">Free Online Course</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ======================= BREADCRUMB ======================= -->
+<div class="container">
+  <div class="breadcrumb fade-in">
+    <a href="TGRM_Homepage_V2.html">Home</a>
+    <span>&rsaquo;</span>
+    <a href="TGRM_Directory.html">Find a Specialist</a>
+    <span>&rsaquo;</span>
+    <a href="TGRM_Directory.html">Portland, OR</a>
+    <span>&rsaquo;</span>
+    Sarah Mitchell, LCSW
+  </div>
+</div>
+
+<!-- ======================= PROFILE HERO ======================= -->
+<section class="profile-hero">
+  <div class="container">
+    <div class="profile-hero-inner">
+
+      <!-- LEFT: PHOTO -->
+      <div class="profile-photo-col fade-in">
+        <div class="profile-photo-wrap">
+          <div class="photo-placeholder">&#128100;</div>
+        </div>
+        <div style="margin-bottom:6px;">
+          <span class="cert-badge advanced">&#9733; Advanced Certified Specialist</span>
+        </div>
+        <div class="verified-badge">&#10003; Verified &amp; Active Since 2018</div>
+      </div>
+
+      <!-- RIGHT: INFO -->
+      <div class="profile-info fade-in">
+        <h1>Sarah Mitchell, LCSW</h1>
+        <div class="profile-credentials">Licensed Clinical Social Worker &bull; Certified Grief Recovery Specialist&reg;</div>
+
+        <div class="profile-location-row">
+          <span>&#128205; Portland, OR</span>
+          <span>&#128187; Also available online</span>
+          <span>&#127760; English, Spanish</span>
+        </div>
+
+        <div class="profile-rating">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="rating-text">4.9 average &bull; 47 verified reviews</span>
+        </div>
+
+        <div class="profile-tags">
+          <span class="profile-tag">Grief &amp; Loss</span>
+          <span class="profile-tag">Pet Loss</span>
+          <span class="profile-tag">Divorce Recovery</span>
+          <span class="profile-tag">Death of a Loved One</span>
+          <span class="profile-tag orange">Children &amp; Teens</span>
+          <span class="profile-tag">Career &amp; Health Loss</span>
+        </div>
+
+        <div class="profile-ctas">
+          <a href="#contact-form" class="btn-contact primary">&#9993; Contact Sarah</a>
+          <a href="tel:+15035551234" class="btn-contact secondary">&#128222; (503) 555-1234</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= MAIN CONTENT ======================= -->
+<div class="container">
+  <div class="profile-body">
+
+    <!-- ====== LEFT COLUMN ====== -->
+    <div class="profile-main">
+
+      <!-- ABOUT -->
+      <div class="section-card fade-in">
+        <h2><span class="icon">&#128220;</span> About Sarah</h2>
+        <div class="bio-text">
+          <p>I became a Certified Grief Recovery Specialist because I saw a gap in my clinical work that traditional therapy alone wasn't filling. After 15 years as a licensed clinical social worker, I kept encountering clients who had done the cognitive work, understood their patterns intellectually, but still carried an emotional heaviness that wouldn't lift. That heaviness was unresolved grief.</p>
+          <p>The Grief Recovery Method gave me &mdash; and now gives my clients &mdash; a structured, evidence-based path to complete the unfinished emotional business that loss leaves behind. Whether it's the death of a loved one, a divorce, a career change, the loss of a pet, or the end of a friendship, grief touches every part of life.</p>
+          <div class="bio-expanded" id="bioExpanded">
+            <p>I specialize in working with adults and teens navigating all types of loss. I've facilitated over 200 Grief Recovery programs, both one-on-one and in group settings, and I also maintain a private therapy practice for those who benefit from ongoing clinical support alongside the GRM process.</p>
+            <p>My approach is warm, direct, and judgment-free. I believe everyone deserves a space to be heard &mdash; truly heard &mdash; without being analyzed, fixed, or told how they should feel. The GRM process provides exactly that: an action-based program that helps you move from where you are to where you want to be.</p>
+            <p>When I'm not working, you'll find me hiking the trails around the Columbia River Gorge with my two dogs, volunteering at our local food bank, or curled up with a good book and far too much coffee.</p>
+          </div>
+          <span class="bio-read-more" onclick="document.getElementById('bioExpanded').classList.toggle('show'); this.textContent = this.textContent.includes('Read More') ? 'Show Less \u25B2' : 'Read More \u25BC';">Read More &#9660;</span>
+        </div>
+      </div>
+
+      <!-- PROGRAMS OFFERED -->
+      <div class="section-card fade-in">
+        <h2><span class="icon">&#128218;</span> Programs Offered</h2>
+        <div class="programs-grid">
+          <div class="program-card">
+            <div class="program-icon">&#128101;</div>
+            <h3>Grief Recovery Support Group</h3>
+            <p>8-week evidence-based group program. Work through loss alongside others who understand.</p>
+            <span class="program-format">In-Person &amp; Online</span>
+          </div>
+          <div class="program-card">
+            <div class="program-icon">&#129309;</div>
+            <h3>One-on-One Grief Support</h3>
+            <p>7-session private program using the same proven GRM materials, tailored to your pace.</p>
+            <span class="program-format">In-Person &amp; Online</span>
+          </div>
+          <div class="program-card">
+            <div class="program-icon">&#128058;</div>
+            <h3>Pet Loss Support Group</h3>
+            <p>A safe, judgment-free space for those grieving the loss of a beloved animal companion.</p>
+            <span class="program-format">Online</span>
+          </div>
+          <div class="program-card">
+            <div class="program-icon">&#127806;</div>
+            <h3>Children &amp; Teen Program</h3>
+            <p>Age-appropriate grief support helping young people process loss in a healthy way.</p>
+            <span class="program-format">In-Person</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SPECIALTIES -->
+      <div class="section-card fade-in">
+        <h2><span class="icon">&#127919;</span> Areas of Specialty</h2>
+        <div class="specialties-list">
+          <span class="specialty-chip">Death of a Spouse/Partner</span>
+          <span class="specialty-chip">Death of a Parent</span>
+          <span class="specialty-chip">Death of a Child</span>
+          <span class="specialty-chip">Pet Loss &amp; Animal Grief</span>
+          <span class="specialty-chip">Divorce &amp; Relationship Loss</span>
+          <span class="specialty-chip">Career &amp; Identity Loss</span>
+          <span class="specialty-chip">Health &amp; Mobility Loss</span>
+          <span class="specialty-chip">Childhood Grief</span>
+          <span class="specialty-chip">Estrangement &amp; Living Loss</span>
+          <span class="specialty-chip">Moving &amp; Relocation</span>
+        </div>
+      </div>
+
+      <!-- TESTIMONIALS -->
+      <div class="section-card fade-in">
+        <h2><span class="icon">&#11088;</span> Client Reviews <span style="font-size:.78rem; font-weight:400; color:var(--text-light); margin-left:8px;">47 verified reviews</span></h2>
+        <div class="testimonial-list">
+
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="testi-quote">&ldquo;Devon showed professionalism, kindness and a good understanding of the process. She shared her story within the method which made me feel less alone and then supported me through each assignment to make sure that I was heard and was not stuck. I appreciated her care and compassion.&rdquo;</div>
+            <div class="testi-attr">&mdash; Devon V., Marina, CA</div>
+          </div>
+
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="testi-quote">&ldquo;The program as well as the facilitator were both such an incredible tool to help me work through my grief. I cannot recommend this program enough. In such a heavy culture of diminishing grief, I am thankful that this exists.&rdquo;</div>
+            <div class="testi-attr">&mdash; George V., Reno, NV</div>
+          </div>
+
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="testi-quote">&ldquo;I experienced a certain amount of freedom as a result of the reading, learning, and processing of the materials from the class. I would like to take the class again in the spring.&rdquo;</div>
+            <div class="testi-attr">&mdash; Randy R., Stow, OH</div>
+          </div>
+
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="testi-quote">&ldquo;I personally feel so much of a change in my thinking pattern. So much self-love, and most importantly the program helped me understand myself and evaluate every situation rather than procrastinate my feelings towards it.&rdquo;</div>
+            <div class="testi-attr">&mdash; Sabrina G.</div>
+          </div>
+
+          <div class="testi-card">
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="testi-quote">&ldquo;She explained the homework well and made herself available at any time if I needed help. I am very grateful for her guidance.&rdquo;</div>
+            <div class="testi-attr">&mdash; Michelle P., St. Clair, MO</div>
+          </div>
+
+        </div>
+        <div style="text-align:center; margin-top:18px;">
+          <span style="font-size:.82rem; color:var(--teal); font-weight:600; cursor:pointer;">View All 47 Reviews &darr;</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ====== RIGHT SIDEBAR ====== -->
+    <div class="profile-sidebar">
+
+      <!-- CONTACT FORM -->
+      <div class="sidebar-card fade-in" id="contact-form">
+        <h3>&#9993; Send Sarah a Message</h3>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent! Sarah will be in touch within 24 hours.');">
+          <label for="cf-name">Your Name *</label>
+          <input type="text" id="cf-name" placeholder="Your full name" required>
+
+          <label for="cf-email">Your Email *</label>
+          <input type="email" id="cf-email" placeholder="you@example.com" required>
+
+          <label for="cf-phone">Phone (optional)</label>
+          <input type="tel" id="cf-phone" placeholder="(555) 555-5555">
+
+          <label for="cf-msg">Message *</label>
+          <textarea id="cf-msg" placeholder="Tell Sarah a little about what you're going through and how she can help..." required></textarea>
+
+          <button type="submit" class="btn-send">Send Message</button>
+          <div class="form-privacy">Your info is kept private. See our <a href="#" style="color:var(--teal);">Privacy Policy</a>.</div>
+        </form>
+      </div>
+
+      <!-- QUICK INFO -->
+      <div class="sidebar-card fade-in">
+        <h3>&#128203; Quick Info</h3>
+        <div class="quick-info-row">
+          <span class="qi-icon">&#128205;</span>
+          <div>
+            <div class="qi-label">Location</div>
+            <div class="qi-value">Portland, OR 97201</div>
+          </div>
+        </div>
+        <div class="quick-info-row">
+          <span class="qi-icon">&#128222;</span>
+          <div>
+            <div class="qi-label">Phone</div>
+            <div class="qi-value"><a href="tel:+15035551234">(503) 555-1234</a></div>
+          </div>
+        </div>
+        <div class="quick-info-row">
+          <span class="qi-icon">&#127760;</span>
+          <div>
+            <div class="qi-label">Languages</div>
+            <div class="qi-value">English, Spanish</div>
+          </div>
+        </div>
+        <div class="quick-info-row">
+          <span class="qi-icon">&#128187;</span>
+          <div>
+            <div class="qi-label">Sessions Available</div>
+            <div class="qi-value">In-Person &amp; Online (Zoom)</div>
+          </div>
+        </div>
+        <div class="quick-info-row">
+          <span class="qi-icon">&#128338;</span>
+          <div>
+            <div class="qi-label">Availability</div>
+            <div class="qi-value">Accepting new clients</div>
+          </div>
+        </div>
+        <div class="quick-info-row">
+          <span class="qi-icon">&#128176;</span>
+          <div>
+            <div class="qi-label">Typical Investment</div>
+            <div class="qi-value">Contact for pricing</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAP -->
+      <div class="sidebar-card fade-in">
+        <h3>&#128506; Location</h3>
+        <div class="map-placeholder">
+          &#128205; Portland, OR &mdash; Map loads here
+        </div>
+        <div style="text-align:center; margin-top:10px;">
+          <a href="#" style="font-size:.82rem; color:var(--teal); font-weight:600;">Get Directions &rarr;</a>
+        </div>
+      </div>
+
+      <!-- EVIDENCE BADGE -->
+      <div class="evidence-badge fade-in">
+        <div class="evidence-seal">
+          <span class="seal-icon">&#10004;</span>
+          Evidence<br>Based<br>Program
+        </div>
+        <p style="margin-top:8px; font-weight:600; color:var(--text-primary); font-size:.85rem;">The Grief Recovery Method&reg;</p>
+        <p>Established, evidence-based program backed by peer-reviewed research and used by thousands worldwide.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ======================= SIMILAR SPECIALISTS ======================= -->
+<section class="similar-section">
+  <div class="container">
+    <h2 class="fade-in">Other Specialists Near Portland, OR</h2>
+    <div class="similar-grid">
+      <div class="similar-card fade-in">
+        <div class="similar-avatar">&#128100;</div>
+        <h3>James Whitfield, MA</h3>
+        <div class="sim-loc">Lake Oswego, OR &bull; 8 mi</div>
+        <div class="sim-stars">&#9733;&#9733;&#9733;&#9733;&#9733; <span style="color:var(--text-light); font-size:.72rem;">5.0 (23 reviews)</span></div>
+        <a href="#" class="sim-link">View Profile &rarr;</a>
+      </div>
+      <div class="similar-card fade-in">
+        <div class="similar-avatar">&#128100;</div>
+        <h3>Linda Park, LPC</h3>
+        <div class="sim-loc">Beaverton, OR &bull; 11 mi</div>
+        <div class="sim-stars">&#9733;&#9733;&#9733;&#9733;&#9733; <span style="color:var(--text-light); font-size:.72rem;">4.9 (18 reviews)</span></div>
+        <a href="#" class="sim-link">View Profile &rarr;</a>
+      </div>
+      <div class="similar-card fade-in">
+        <div class="similar-avatar">&#128100;</div>
+        <h3>Rachel Torres, LMFT</h3>
+        <div class="sim-loc">Vancouver, WA &bull; 14 mi</div>
+        <div class="sim-stars">&#9733;&#9733;&#9733;&#9733;&#9733; <span style="color:var(--text-light); font-size:.72rem;">5.0 (31 reviews)</span></div>
+        <a href="#" class="sim-link">View Profile &rarr;</a>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:24px;">
+      <a href="TGRM_Directory.html" style="font-size:.9rem; color:var(--teal); font-weight:700;">Search All Specialists in Oregon &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CTA BANNER ======================= -->
+<section class="profile-cta-banner">
+  <div class="container fade-in">
+    <h2>Not sure if the Grief Recovery Method&reg; is right for you?</h2>
+    <p>Take our free 2-minute quiz to find out if you may be carrying unresolved grief &mdash; and what to do about it.</p>
+    <a href="TGRM_Grief_Type_Quiz.html" class="btn-cta-white">Take the Free Grief Quiz &rarr;</a>
+  </div>
+</section>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="page-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="TGRM_Homepage_V2.html">Home</a>
+        <a href="TGRM_Directory.html">Find a Specialist</a>
+        <a href="TGRM_Certification.html">Certification</a>
+        <a href="TGRM_Handbook.html">The Handbook</a>
+        <a href="TGRM_Blog.html">Blog</a>
+        <a href="TGRM_For_Therapists.html">For Therapists</a>
+      </div>
+      <div>&copy; 2026 The Grief Recovery Institute&reg;. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Fade-in on scroll
+const faders = document.querySelectorAll('.fade-in');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.1 });
+faders.forEach(f => obs.observe(f));
+</script>
+</body>
+</html>

@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Therapists &amp; Counselors — The Grief Recovery Method®</title>
+<meta name="description" content="The grief training your grad program never gave you. Evidence-based, action-oriented grief framework with 10+ ready-to-deliver programs. 4-day certification, 20-person cap.">
+<style>
+/* ========================================
+   RESET & BASE
+   ======================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'Segoe UI', Arial, Helvetica, sans-serif; color: #2d3748; line-height: 1.7; background: #fff; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; font-family: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ========================================
+   BRAND TOKENS
+   ======================================== */
+:root {
+  --orange: #e07525;
+  --orange-dark: #c4621a;
+  --orange-light: #f5a623;
+  --teal: #427e88;
+  --teal-dark: #356a73;
+  --teal-light: #7895a3;
+  --teal-pale: #e8f2f4;
+  --warm-bg: #faf8f5;
+  --warm-bg-alt: #f5f0eb;
+  --text-primary: #2d3748;
+  --text-secondary: #5a6577;
+  --text-light: #8896a8;
+  --white: #ffffff;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+  --shadow-md: 0 4px 14px rgba(0,0,0,.1);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,.12);
+  --shadow-xl: 0 20px 50px rgba(0,0,0,.15);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --transition: .25s ease;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* ========================================
+   UTILITY BAR
+   ======================================== */
+.utility-bar {
+  background: var(--teal-dark); color: rgba(255,255,255,.9);
+  font-size: .8rem; padding: 6px 0;
+}
+.utility-bar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.utility-bar a { color: rgba(255,255,255,.9); }
+.utility-bar a:hover { color: #fff; }
+.utility-left { display: flex; gap: 18px; align-items: center; }
+.utility-right { display: flex; gap: 16px; align-items: center; }
+
+/* ========================================
+   HEADER
+   ======================================== */
+.header {
+  background: #fff; border-bottom: 1px solid rgba(0,0,0,.06);
+  position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow-sm);
+}
+.header .container {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 10px; padding-bottom: 10px;
+}
+.logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.logo-icon {
+  width: 44px; height: 44px;
+  background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 700; font-size: 1.1rem;
+}
+.logo-text { line-height: 1.15; }
+.logo-text .brand { font-weight: 700; font-size: 1.05rem; color: var(--teal-dark); }
+.logo-text .sub { font-size: .72rem; color: var(--text-secondary); }
+.inner-nav { display: flex; gap: 24px; align-items: center; }
+.inner-nav a { font-size: .92rem; color: var(--text-secondary); transition: color var(--transition); }
+.inner-nav a:hover { color: var(--teal); }
+.nav-cta-group { display: flex; gap: 10px; align-items: center; }
+.btn-outline-sm {
+  padding: 8px 18px; border-radius: var(--radius-sm); font-size: .88rem; font-weight: 600;
+  border: 1.5px solid var(--teal); color: var(--teal); transition: all var(--transition);
+}
+.btn-outline-sm:hover { background: var(--teal); color: #fff; }
+.btn-primary-sm {
+  padding: 8px 18px; border-radius: var(--radius-sm); font-size: .88rem; font-weight: 600;
+  background: var(--orange); color: #fff; transition: all var(--transition);
+}
+.btn-primary-sm:hover { background: var(--orange-dark); }
+
+/* ========================================
+   BREADCRUMB
+   ======================================== */
+.breadcrumb { background: var(--warm-bg); padding: 12px 0; font-size: .85rem; color: var(--text-light); }
+.breadcrumb a { color: var(--teal); }
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+.btn-primary {
+  display: inline-block; padding: 16px 36px; background: var(--orange); color: #fff;
+  border-radius: var(--radius-sm); font-weight: 700; font-size: 1.05rem;
+  transition: all var(--transition); text-align: center;
+}
+.btn-primary:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.btn-secondary {
+  display: inline-block; padding: 14px 28px; border: 2px solid #fff; color: #fff;
+  border-radius: var(--radius-sm); font-weight: 600; font-size: .95rem;
+  transition: all var(--transition); text-align: center;
+}
+.btn-secondary:hover { background: rgba(255,255,255,.15); }
+
+/* ========================================
+   HERO
+   ======================================== */
+.hero {
+  background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 50%, #4a8c97 100%);
+  color: #fff; padding: 80px 0 60px; position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(255,255,255,.06) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero-eyebrow {
+  display: inline-block; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25);
+  padding: 6px 16px; border-radius: 100px; font-size: .85rem; font-weight: 600;
+  letter-spacing: .5px; margin-bottom: 20px; backdrop-filter: blur(4px);
+}
+.hero h1 { font-size: 2.6rem; line-height: 1.2; max-width: 700px; margin-bottom: 18px; font-weight: 800; }
+.hero h1 em { font-style: italic; }
+.hero-sub { font-size: 1.15rem; line-height: 1.7; max-width: 640px; opacity: .92; margin-bottom: 30px; }
+.proof-bar {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  background: rgba(255,255,255,.1); border-radius: var(--radius-md); overflow: hidden;
+  max-width: 700px; margin-top: 36px; backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,.15);
+}
+.proof-item {
+  text-align: center; padding: 18px 12px;
+  border-right: 1px solid rgba(255,255,255,.12);
+}
+.proof-item:last-child { border-right: none; }
+.proof-num { font-size: 1.5rem; font-weight: 800; }
+.proof-label { font-size: .75rem; opacity: .8; margin-top: 2px; }
+
+.credibility-strip {
+  margin-top: 28px; font-size: .85rem; opacity: .8; max-width: 640px; line-height: 1.6;
+}
+.credibility-strip strong { opacity: 1; font-weight: 700; }
+
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* ========================================
+   SECTIONS
+   ======================================== */
+.section { padding: 80px 0; }
+.section-alt { background: var(--warm-bg); }
+.section-teal { background: var(--teal-pale); }
+
+.section-label {
+  display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--teal); margin-bottom: 12px;
+}
+.section-title { font-size: 2rem; font-weight: 800; margin-bottom: 16px; line-height: 1.25; }
+.section-desc { font-size: 1.05rem; color: var(--text-secondary); max-width: 680px; line-height: 1.7; margin-bottom: 40px; }
+
+/* ========================================
+   PROBLEM SECTION
+   ======================================== */
+.problem-section { padding: 80px 0; }
+.problem-quote {
+  font-size: 1.15rem; font-style: italic; color: var(--teal-dark); border-left: 4px solid var(--orange);
+  padding-left: 20px; margin: 24px 0 24px; max-width: 620px; line-height: 1.6;
+}
+.problem-text { font-size: 1.05rem; color: var(--text-secondary); max-width: 680px; line-height: 1.8; margin-bottom: 16px; }
+
+.pain-cards {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  margin-top: 40px;
+}
+.pain-card {
+  background: #fff; border-radius: var(--radius-md); padding: 28px;
+  box-shadow: var(--shadow-sm); border: 1px solid rgba(0,0,0,.05);
+  border-top: 3px solid var(--orange);
+}
+.pain-card h4 { font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; }
+.pain-card p { font-size: .92rem; color: var(--text-secondary); line-height: 1.6; }
+
+/* ========================================
+   DIFFERENTIATORS
+   ======================================== */
+.diff-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-top: 40px;
+}
+.diff-card {
+  background: #fff; border-radius: var(--radius-md); padding: 32px;
+  box-shadow: var(--shadow-sm); border: 1px solid rgba(0,0,0,.05);
+  transition: all var(--transition);
+}
+.diff-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.diff-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; background: var(--teal-pale); color: var(--teal-dark);
+  border-radius: 50%; font-weight: 700; font-size: .9rem; margin-bottom: 14px;
+}
+.diff-card h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+.diff-card p { font-size: .95rem; color: var(--text-secondary); line-height: 1.65; }
+
+/* ========================================
+   COMPARISON TABLE
+   ======================================== */
+.compare-table {
+  width: 100%; border-collapse: collapse; margin-top: 32px;
+  border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm);
+}
+.compare-table th, .compare-table td { padding: 14px 20px; text-align: left; font-size: .92rem; }
+.compare-table thead th {
+  background: var(--teal-dark); color: #fff; font-weight: 700; font-size: .88rem;
+}
+.compare-table thead th:first-child { background: var(--teal-dark); }
+.compare-table tbody tr { border-bottom: 1px solid #eef1f5; }
+.compare-table tbody tr:nth-child(even) { background: var(--warm-bg); }
+.compare-table tbody tr:last-child { border-bottom: none; }
+.compare-table td:first-child { font-weight: 600; color: var(--text-primary); }
+.compare-table td:nth-child(2) { color: var(--text-light); }
+.compare-table td:nth-child(3) { color: var(--teal-dark); font-weight: 600; }
+.check { color: var(--teal); font-weight: 700; }
+
+/* ========================================
+   TESTIMONIALS
+   ======================================== */
+.testimonial-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 36px;
+}
+.testimonial-card {
+  background: #fff; border-radius: var(--radius-md); padding: 28px;
+  box-shadow: var(--shadow-sm); border: 1px solid rgba(0,0,0,.05);
+  border-left: 4px solid var(--teal);
+  position: relative;
+}
+.testimonial-card::before {
+  content: '\201C'; position: absolute; top: 12px; right: 20px;
+  font-size: 3rem; color: var(--teal-pale); font-family: Georgia, serif; line-height: 1;
+}
+.testimonial-card p { font-size: .95rem; font-style: italic; color: var(--text-secondary); line-height: 1.65; margin-bottom: 14px; }
+.testimonial-card cite { display: block; font-style: normal; font-size: .85rem; font-weight: 600; color: var(--text-primary); }
+.testimonial-card cite span { display: block; font-weight: 400; color: var(--text-light); font-size: .8rem; }
+
+/* ========================================
+   INCLUDES SECTION
+   ======================================== */
+.includes-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px;
+}
+.include-item {
+  background: #fff; border-radius: var(--radius-md); padding: 24px;
+  box-shadow: var(--shadow-sm); border: 1px solid rgba(0,0,0,.05);
+}
+.include-icon { font-size: 1.6rem; margin-bottom: 10px; }
+.include-item h4 { font-size: .95rem; font-weight: 700; margin-bottom: 6px; }
+.include-item p { font-size: .85rem; color: var(--text-secondary); line-height: 1.55; }
+
+/* ========================================
+   ROI SECTION
+   ======================================== */
+.roi-section { background: linear-gradient(135deg, var(--teal-dark), var(--teal)); color: #fff; padding: 60px 0; }
+.roi-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+}
+.roi-text h2 { font-size: 2rem; font-weight: 800; margin-bottom: 12px; }
+.roi-text p { opacity: .9; line-height: 1.7; font-size: 1rem; }
+.roi-table {
+  background: rgba(255,255,255,.12); border-radius: var(--radius-md);
+  padding: 28px; backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,.15);
+}
+.roi-row {
+  display: flex; justify-content: space-between; padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,.12); font-size: .95rem;
+}
+.roi-row:last-child { border-bottom: none; font-weight: 700; font-size: 1rem; }
+.roi-row span:last-child { font-weight: 700; }
+.roi-note { font-size: .82rem; opacity: .7; margin-top: 14px; }
+
+/* ========================================
+   FAQ
+   ======================================== */
+.faq-list { max-width: 760px; margin: 0 auto; }
+.faq-item {
+  background: #fff; border-radius: var(--radius-md); margin-bottom: 12px;
+  box-shadow: var(--shadow-sm); border: 1px solid rgba(0,0,0,.05); overflow: hidden;
+}
+.faq-q {
+  padding: 20px 24px; display: flex; justify-content: space-between; align-items: center;
+  cursor: pointer; font-weight: 600; font-size: 1rem; transition: background var(--transition);
+}
+.faq-q:hover { background: var(--warm-bg); }
+.faq-q::after { content: '+'; font-size: 1.4rem; color: var(--teal); font-weight: 300; transition: transform var(--transition); }
+.faq-item.open .faq-q::after { content: '\2212'; }
+.faq-a {
+  max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .35s ease;
+  padding: 0 24px; font-size: .95rem; color: var(--text-secondary); line-height: 1.7;
+}
+.faq-item.open .faq-a { max-height: 500px; padding: 0 24px 20px; }
+
+/* ========================================
+   FINAL CTA
+   ======================================== */
+.final-cta {
+  background: linear-gradient(135deg, #2d3748, #1a202c); color: #fff;
+  padding: 80px 0; text-align: center;
+}
+.final-cta h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
+.final-cta h2 em { font-style: italic; }
+.final-cta .subtext { font-size: 1.05rem; opacity: .85; max-width: 580px; margin: 0 auto 14px; line-height: 1.7; }
+.final-cta .urgency { font-weight: 700; font-size: 1rem; margin-bottom: 28px; opacity: .9; }
+.final-cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.final-cta .financing { margin-top: 24px; font-size: .88rem; opacity: .65; }
+
+/* ========================================
+   FOOTER
+   ======================================== */
+footer {
+  background: var(--teal-dark); color: rgba(255,255,255,.85); padding: 60px 0 0;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px;
+  margin-bottom: 40px;
+}
+.footer-brand p { font-size: .88rem; line-height: 1.6; margin-top: 10px; opacity: .7; }
+footer h5 { font-weight: 700; margin-bottom: 12px; color: #fff; font-size: .9rem; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 8px; }
+.footer-links a { font-size: .85rem; opacity: .7; transition: opacity var(--transition); }
+.footer-links a:hover { opacity: 1; }
+.crisis-bar {
+  background: rgba(0,0,0,.15); text-align: center; padding: 16px 20px;
+  font-size: .82rem; line-height: 1.6; border-radius: var(--radius-sm); margin-bottom: 24px;
+}
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.1); padding: 20px 0;
+  display: flex; justify-content: space-between; font-size: .78rem; opacity: .6; flex-wrap: wrap; gap: 8px;
+}
+.footer-bottom a { color: rgba(255,255,255,.8); }
+
+/* ========================================
+   FADE-IN ANIMATION
+   ======================================== */
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 900px) {
+  .hero h1 { font-size: 2rem; }
+  .proof-bar { grid-template-columns: repeat(2, 1fr); }
+  .pain-cards { grid-template-columns: 1fr; }
+  .diff-grid { grid-template-columns: 1fr; }
+  .testimonial-grid { grid-template-columns: 1fr; }
+  .includes-grid { grid-template-columns: 1fr 1fr; }
+  .roi-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .inner-nav { display: none; }
+  .compare-table { font-size: .82rem; }
+  .compare-table th, .compare-table td { padding: 10px 12px; }
+}
+@media (max-width: 600px) {
+  .hero { padding: 50px 0 40px; }
+  .hero h1 { font-size: 1.7rem; }
+  .proof-bar { grid-template-columns: repeat(2, 1fr); }
+  .includes-grid { grid-template-columns: 1fr; }
+  .section { padding: 50px 0; }
+  .section-title { font-size: 1.6rem; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .final-cta h2 { font-size: 1.7rem; }
+  .utility-bar { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ======================= UTILITY BAR ======================= -->
+<div class="utility-bar">
+  <div class="container">
+    <div class="utility-left">
+      <a href="tel:18009939999">&#9742; 1-800-993-9999</a>
+      <span>|</span>
+      <a href="#">English &#9662;</a>
+    </div>
+    <div class="utility-right">
+      <a href="#">Specialist Login</a>
+      <a href="#">Contact Us</a>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= HEADER ======================= -->
+<header class="header">
+  <div class="container">
+    <a href="TGRM_Homepage_V2.html" class="logo">
+      <div class="logo-icon">GR</div>
+      <div class="logo-text">
+        <div class="brand">The Grief Recovery Method&reg;</div>
+        <div class="sub">Grief Recovery Institute&reg;</div>
+      </div>
+    </a>
+    <nav class="inner-nav">
+      <a href="TGRM_Homepage_V2.html">Home</a>
+      <a href="TGRM_Directory.html">Find a Specialist</a>
+      <a href="TGRM_Certification.html">Certification</a>
+      <a href="#">About</a>
+      <a href="#">Resources</a>
+    </nav>
+    <div class="nav-cta-group">
+      <a href="TGRM_Directory.html" class="btn-outline-sm">Find a Specialist</a>
+      <a href="TGRM_Certification.html" class="btn-primary-sm">Get Certified</a>
+    </div>
+  </div>
+</header>
+
+<!-- ======================= BREADCRUMB ======================= -->
+<div class="breadcrumb">
+  <div class="container">
+    <a href="TGRM_Homepage_V2.html">Home</a> &nbsp;&rsaquo;&nbsp;
+    <a href="TGRM_Certification.html">Certification</a> &nbsp;&rsaquo;&nbsp;
+    <strong>For Therapists &amp; Counselors</strong>
+  </div>
+</div>
+
+<!-- ======================= HERO ======================= -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">For Licensed Mental Health Professionals</div>
+    <h1>The grief training your grad program <em>never gave you.</em></h1>
+    <p class="hero-sub">
+      In 4 days, gain an evidence-based, action-oriented grief framework with 10+ ready-to-deliver programs &mdash; and start helping clients move from heartbreak to healing the week you get home.
+    </p>
+    <div class="hero-ctas">
+      <a href="TGRM_Certification.html#pricing" class="btn-primary">Reserve Your Seat &mdash; Only 20 Spots</a>
+      <a href="#faq" class="btn-secondary">Clinician FAQ &darr;</a>
+    </div>
+
+    <div class="proof-bar fade-in">
+      <div class="proof-item">
+        <div class="proof-num">45+</div>
+        <div class="proof-label">Years Proven Worldwide</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num">Only</div>
+        <div class="proof-label">Evidence-Based Grief Program</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num">10,000+</div>
+        <div class="proof-label">Certified Specialists</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-num">10&ndash;11</div>
+        <div class="proof-label">Deliverable Programs</div>
+      </div>
+    </div>
+
+    <div class="credibility-strip fade-in">
+      <strong>Kent State University</strong> validated as evidence-based &bull;
+      Featured in <strong>TIME &bull; WSJ &bull; CNN &bull; Today Show</strong> &bull;
+      Approved for <strong>Veteran&rsquo;s Education Benefits</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SECTION 2: THE PROBLEM ======================= -->
+<section class="problem-section section">
+  <div class="container">
+    <div class="section-label fade-in">The Gap in Your Training</div>
+    <h2 class="section-title fade-in">You were trained to treat anxiety, depression, and trauma. But what about grief?</h2>
+
+    <div class="problem-quote fade-in">
+      &ldquo;Even professionals have admitted that their training fell short when it came to grief.&rdquo;
+    </div>
+
+    <p class="problem-text fade-in">
+      Most graduate programs dedicate a few hours &mdash; at most &mdash; to grief and loss. You learn the K&uuml;bler-Ross stages. You learn to &ldquo;hold space.&rdquo; But when a client sits across from you, stuck in grief for months or years, and asks &ldquo;What do I actually do with this pain?&rdquo; &mdash; the answer often isn&rsquo;t there.
+    </p>
+    <p class="problem-text fade-in">
+      That gap isn&rsquo;t your fault. It&rsquo;s a gap in the training. And it affects every clinician who works with human beings &mdash; because grief touches every life.
+    </p>
+
+    <div class="pain-cards">
+      <div class="pain-card fade-in">
+        <h4>Theory Without Action</h4>
+        <p>You know the stages and models. But you don&rsquo;t have a step-by-step method to guide a client from pain to completion.</p>
+      </div>
+      <div class="pain-card fade-in">
+        <h4>Death-Focused Only</h4>
+        <p>Most grief training covers bereavement. But clients grieve divorce, job loss, health changes, estrangement &mdash; over 40 types of loss.</p>
+      </div>
+      <div class="pain-card fade-in">
+        <h4>Support &ne; Solution</h4>
+        <p>Holding space is essential. But it&rsquo;s not enough. Clients need structured action steps that lead to resolution &mdash; not just coping.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SECTION 3: DIFFERENTIATORS ======================= -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-label fade-in">What Makes GRM Different</div>
+    <h2 class="section-title fade-in">This isn&rsquo;t another CE course. It&rsquo;s a complete clinical framework.</h2>
+    <p class="section-desc fade-in">Other programs teach you about grief. The Grief Recovery Method certifies you to deliver a proven, structured program to clients &mdash; with everything you need to start immediately.</p>
+
+    <div class="diff-grid">
+      <div class="diff-card fade-in">
+        <div class="diff-num">01</div>
+        <h4>Action-Based, Not Just Educational</h4>
+        <p>Clients take specific, guided steps to complete their relationship to the pain. There&rsquo;s a clear beginning, middle, and end. This is a structured method &mdash; not open-ended talk therapy.</p>
+      </div>
+      <div class="diff-card fade-in">
+        <div class="diff-num">02</div>
+        <h4>Covers 40+ Types of Loss</h4>
+        <p>Death, divorce, pet loss, job loss, health changes, financial loss, estrangement, addiction &mdash; your scope of practice expands immediately. No other grief framework is this broad.</p>
+      </div>
+      <div class="diff-card fade-in">
+        <div class="diff-num">03</div>
+        <h4>You Experience It Yourself</h4>
+        <p>During the 4-day training, you work through one of your own losses. This isn&rsquo;t just pedagogy &mdash; it&rsquo;s what makes you a credible, effective specialist. GRM takes you through it.</p>
+      </div>
+      <div class="diff-card fade-in">
+        <div class="diff-num">04</div>
+        <h4>A Practice, Not Just a Certificate</h4>
+        <p>You leave with 10&ndash;11 complete lesson plans (individual, group, children, pet loss, alumni &mdash; in-person + online), marketing support, a referral directory listing, and a year of unlimited support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SECTION 4: COMPARISON TABLE ======================= -->
+<section class="section">
+  <div class="container">
+    <div class="section-label fade-in">Side-by-Side</div>
+    <h2 class="section-title fade-in">How GRM compares to typical grief CE courses</h2>
+    <p class="section-desc fade-in">Therapists comparison-shop &mdash; and you should. Here&rsquo;s how we stack up.</p>
+
+    <table class="compare-table fade-in">
+      <thead>
+        <tr>
+          <th style="width:30%"></th>
+          <th style="width:35%">Typical Grief CE Course</th>
+          <th style="width:35%">Grief Recovery Method&reg;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Approach</td><td>Educational / Informational</td><td><span class="check">&#10003;</span> Action-based with structured steps</td></tr>
+        <tr><td>Deliverable programs</td><td>0 &mdash; you build your own</td><td><span class="check">&#10003;</span> 10&ndash;11 ready-to-use lesson plans</td></tr>
+        <tr><td>Loss types addressed</td><td>Primarily death/bereavement</td><td><span class="check">&#10003;</span> 40+ types of loss</td></tr>
+        <tr><td>Evidence-based validation</td><td>Varies</td><td><span class="check">&#10003;</span> Kent State University research</td></tr>
+        <tr><td>Ongoing support</td><td>None or forum access</td><td><span class="check">&#10003;</span> 1 year unlimited 1:1 support</td></tr>
+        <tr><td>Client referral directory</td><td>No</td><td><span class="check">&#10003;</span> Global searchable directory</td></tr>
+        <tr><td>Marketing support</td><td>No</td><td><span class="check">&#10003;</span> 150+ videos + branding materials</td></tr>
+        <tr><td>Training format</td><td>Online, self-paced (often 100s)</td><td><span class="check">&#10003;</span> Live, 20-person cap, 32 hours</td></tr>
+        <tr><td>Track record</td><td>Varies</td><td><span class="check">&#10003;</span> 45+ years, 10,000+ specialists</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ======================= SECTION 5: TESTIMONIALS ======================= -->
+<section class="section section-teal">
+  <div class="container">
+    <div class="section-label fade-in">What Clinicians Say</div>
+    <h2 class="section-title fade-in">After certification, therapists tell us&hellip;</h2>
+
+    <div class="testimonial-grid">
+      <div class="testimonial-card fade-in">
+        <p>&ldquo;The training, the information, and the instructor were all awesome. I couldn&rsquo;t have gained that sort of knowledge and confidence anywhere else. This was worth every dollar and every minute. If you are going to do this work, this is the place to learn effectively.&rdquo;</p>
+        <cite>Verified Graduate &bull; &#9733;&#9733;&#9733;&#9733;&#9733;<span>Trained by Sandi Derby</span></cite>
+      </div>
+      <div class="testimonial-card fade-in">
+        <p>&ldquo;I had a very positive experience at the training. It was very eye opening to realize how so many people are connected through grief and this program gives people the tools to move forward.&rdquo;</p>
+        <cite>Verified Graduate &bull; &#9733;&#9733;&#9733;&#9733;&#9733;<span>Trained by Ashley Mielke, Registered Psychologist</span></cite>
+      </div>
+      <div class="testimonial-card fade-in">
+        <p>&ldquo;If you want to walk away with the tools to start working through your losses, and then be able to help others who are grieving, the Grief Recovery Specialist Training is the right choice.&rdquo;</p>
+        <cite>Verified Graduate &bull; &#9733;&#9733;&#9733;&#9733;&#9733;<span>Trained by Sandi Derby</span></cite>
+      </div>
+      <div class="testimonial-card fade-in">
+        <p>&ldquo;Learned so much about why people grieve that I never thought of before. This course will be very beneficial as I continue my practice. Has given me great insight into why people act the way they do, as I am now able to identify grief.&rdquo;</p>
+        <cite>Verified Graduate &bull; &#9733;&#9733;&#9733;&#9733;&#9733;<span>Trained by Ed Owens</span></cite>
+      </div>
+      <div class="testimonial-card fade-in">
+        <p>&ldquo;The Grief Recovery Method offers counselors a tool to help walk people through their grief. Grieving people will often need more than being able to discuss their feelings. I believe this will be a powerful tool during my chaplaincy care of veterans and their families.&rdquo;</p>
+        <cite>Chaplain &bull; &#9733;&#9733;&#9733;&#9733;&#9733;<span>Trained by Ed Owens</span></cite>
+      </div>
+      <div class="testimonial-card fade-in">
+        <p>&ldquo;Everyone can benefit from Grief Recovery. It&rsquo;s a tool that allows people to release unhealthy emotional baggage in a safe space.&rdquo;</p>
+        <cite>Verified Graduate &bull; &#9733;&#9733;&#9733;&#9733;&#9733;<span>Trained by Sandi Derby</span></cite>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:20px;">
+      <span style="display:inline-block; background:rgba(255,255,255,.15); color:#fff; padding:8px 20px; border-radius:30px; font-size:.9rem; font-weight:600;">&#9733; 4.9 average rating from 500+ certified specialists</span>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SECTION 6: WHAT'S INCLUDED ======================= -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-label fade-in">Your Certification Includes</div>
+    <h2 class="section-title fade-in">Everything you need to add grief recovery to your practice &mdash; this month.</h2>
+
+    <div class="includes-grid">
+      <div class="include-item fade-in">
+        <div class="include-icon">&#128221;</div>
+        <h4>10&ndash;11 Lesson Plans</h4>
+        <p>Individual, group, children, pet loss, alumni &mdash; in-person and online formats. Ready to deliver immediately.</p>
+      </div>
+      <div class="include-item fade-in">
+        <div class="include-icon">&#127891;</div>
+        <h4>32 Hours Live Training</h4>
+        <p>4-day intensive, capped at 20 people. Personal attention, real coaching, experiential learning.</p>
+      </div>
+      <div class="include-item fade-in">
+        <div class="include-icon">&#127760;</div>
+        <h4>Your Own Microsite</h4>
+        <p>Professional page on griefrecoverymethod.com with your bio, testimonials, and contact info.</p>
+      </div>
+      <div class="include-item fade-in">
+        <div class="include-icon">&#128269;</div>
+        <h4>Global Referral Directory</h4>
+        <p>Grievers search daily for certified specialists. You&rsquo;re discoverable from day one.</p>
+      </div>
+      <div class="include-item fade-in">
+        <div class="include-icon">&#128222;</div>
+        <h4>1 Year Unlimited Support</h4>
+        <p>Email, phone, and Zoom access to the Institute&rsquo;s expert team. 45+ years of experience at your fingertips.</p>
+      </div>
+      <div class="include-item fade-in">
+        <div class="include-icon">&#127909;</div>
+        <h4>150+ Marketing Videos</h4>
+        <p>Professional content to attract clients, fill groups, and establish your grief specialization.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SECTION 7: ROI ======================= -->
+<section class="roi-section">
+  <div class="container">
+    <div class="roi-grid fade-in">
+      <div class="roi-text">
+        <h2>The certification pays for itself &mdash; fast.</h2>
+        <p>Therapists who add GRM to their practice create a new revenue stream with built-in structure. No curriculum to build, no materials to design &mdash; just deliver the programs and serve your clients.</p>
+      </div>
+      <div class="roi-table">
+        <div class="roi-row">
+          <span>7-session individual program @ $150/session</span>
+          <span>$1,050</span>
+        </div>
+        <div class="roi-row">
+          <span>8-session group (6 participants @ $75/person)</span>
+          <span>$3,600</span>
+        </div>
+        <div class="roi-row">
+          <span>One group program per month &times; 12</span>
+          <span>$43,200/yr</span>
+        </div>
+        <div class="roi-row">
+          <span>Certification investment</span>
+          <span>Pays for itself with first client</span>
+        </div>
+        <div class="roi-note">Pricing is at your discretion based on your local market.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SECTION 8: FAQ ======================= -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-label fade-in">Common Questions from Clinicians</div>
+    <h2 class="section-title fade-in" style="text-align:center;">We know you&rsquo;ll have questions. Here are the ones we hear most.</h2>
+
+    <div class="faq-list" style="margin-top:36px;">
+      <div class="faq-item fade-in">
+        <div class="faq-q">How does GRM integrate with my existing clinical practice?</div>
+        <div class="faq-a">Many therapists use GRM as a structured grief intervention alongside their primary modality &mdash; whether that&rsquo;s CBT, EMDR, psychodynamic, or another approach. The method gives you a clear, action-based protocol for grief-specific work that complements what you already do. Clients often make faster progress in their broader therapy after completing the GRM program.</div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-q">Is this approved for CE credits?</div>
+        <div class="faq-a">The certification is approved for Veteran&rsquo;s Education Benefits and may be used for continuing education credit with the Association of Professional Chaplains. For other license types, we recommend checking with your state board, as CE acceptance varies. Many licensed professionals attend because the practical tools fill a gap that standard CE courses don&rsquo;t address.</div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-q">Can I really be effective after just 4 days?</div>
+        <div class="faq-a">We won&rsquo;t call you an expert in 4 days. But you&rsquo;ll leave with a solid foundation, every program you need to start, and the personal experience of having gone through the method yourself. Combined with your existing clinical skills, most therapists tell us they feel ready to offer their first program within weeks. And you&rsquo;ll have a year of unlimited support from our team as you build confidence.</div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-q">How is this different from a PESI or Evergreen grief course?</div>
+        <div class="faq-a">Those are excellent CE programs &mdash; and many of our specialists hold them too. The difference is output: CE courses teach you about grief, then you build your own approach. GRM certifies you to deliver a complete, structured program with ready-made lesson plans, homework assignments, and a step-by-step process. Plus we&rsquo;re the only program with evidence-based validation from Kent State University.</div>
+      </div>
+      <div class="faq-item fade-in">
+        <div class="faq-q">Will my clients take this seriously if it&rsquo;s not psychotherapy?</div>
+        <div class="faq-a">Yes. The GRM is positioned as an educational program, which actually lowers the barrier for many clients who are resistant to &ldquo;therapy.&rdquo; Therapists across the country report that clients who complete the GRM program make remarkable progress in their broader therapeutic work afterward. It&rsquo;s a complement to your practice, not a replacement.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SECTION 9: FINAL CTA ======================= -->
+<section class="final-cta">
+  <div class="container">
+    <h2 class="fade-in">Grief doesn&rsquo;t wait. <em>Neither should you.</em></h2>
+    <p class="subtext fade-in">Every week, clients walk into your office carrying unresolved grief &mdash; and most of us were never given the tools to truly help. The Grief Recovery Method changes that.</p>
+    <p class="urgency fade-in">Seats limited to 20 per training &bull; They sell out regularly</p>
+    <div class="final-cta-buttons fade-in">
+      <a href="TGRM_Certification.html#pricing" class="btn-primary">View Upcoming Trainings &rarr;</a>
+      <a href="#" class="btn-secondary">Schedule a Free Consultation</a>
+    </div>
+    <p class="financing fade-in">Financing available: PayPal Credit (6 months interest-free) &bull; Approved for Veteran&rsquo;s Education Benefits</p>
+  </div>
+</section>
+
+<!-- ======================= FOOTER ======================= -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="font-weight:700; font-size:1.05rem; color:#fff;">The Grief Recovery Method&reg;</div>
+        <p>The only evidence-based grief recovery program in the world. Helping people move from pain to peace since 1984.</p>
+        <div style="margin-top:16px; display:flex; gap:12px;">
+          <a href="#" style="opacity:.6; font-size:1.2rem;">&#128216;</a>
+          <a href="#" style="opacity:.6; font-size:1.2rem;">&#128248;</a>
+          <a href="#" style="opacity:.6; font-size:1.2rem;">&#9654;&#65039;</a>
+          <a href="#" style="opacity:.6; font-size:1.2rem;">&#128279;</a>
+        </div>
+      </div>
+      <div>
+        <h5>For Grievers</h5>
+        <ul class="footer-links">
+          <li><a href="TGRM_Directory.html">Find a Specialist</a></li>
+          <li><a href="TGRM_Homepage_V2.html#quiz">Grief Type Quiz</a></li>
+          <li><a href="#">$49 Online Course</a></li>
+          <li><a href="#">Join the Community</a></li>
+          <li><a href="#">The Handbook</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>For Professionals</h5>
+        <ul class="footer-links">
+          <li><a href="TGRM_Certification.html">Certification Programs</a></li>
+          <li><a href="#">Training Calendar</a></li>
+          <li><a href="TGRM_Private_Certification.html">Private / Org Training</a></li>
+          <li><a href="TGRM_Coaches_Certification.html">For Coaches</a></li>
+          <li><a href="TGRM_Military_Certification.html">Military &amp; Veterans</a></li>
+          <li><a href="#">Specialist Login</a></li>
+          <li><a href="#">Specialist Resource Center</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul class="footer-links">
+          <li><a href="#">About The Method</a></li>
+          <li><a href="#">Our Team</a></li>
+          <li><a href="#">The Research</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="crisis-bar">
+      <strong>If you or someone you know is in crisis:</strong><br>
+      988 Suicide &amp; Crisis Lifeline: Call or text <strong>988</strong> &middot;
+      Veterans Crisis Line: <strong>1-800-273-8255</strong> (Press 1) &middot;
+      Crisis Text Line: Text <strong>HOME</strong> to <strong>741741</strong>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 The Grief Recovery Institute&reg;. All rights reserved. | <a href="#">Privacy</a> &middot; <a href="#">Terms</a></div>
+      <div>The Grief Recovery Method&reg; &middot; Certified Grief Recovery Specialist&reg; &middot; Grief&#10084;Recovery&reg;</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// FAQ Accordion
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-q').addEventListener('click', () => {
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+
+// Fade-in on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

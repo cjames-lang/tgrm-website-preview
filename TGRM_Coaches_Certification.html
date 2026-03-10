@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grief Recovery Certification for Coaches — The Grief Recovery Method®</title>
+<meta name="description" content="The missing piece in your coaching practice. Get certified in the only evidence-based grief recovery program and help your clients break through the blocks that hold them back.">
+<style>
+/* ========================================
+   CSS RESET & BASE
+   ======================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'Segoe UI', Arial, Helvetica, sans-serif; color: #2d3748; line-height: 1.6; background: #fff; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; font-family: inherit; }
+
+/* ========================================
+   BRAND TOKENS
+   ======================================== */
+:root {
+  --orange: #e07525;
+  --orange-dark: #c4621a;
+  --orange-light: #f5a623;
+  --teal: #427e88;
+  --teal-dark: #356a73;
+  --teal-light: #7895a3;
+  --teal-pale: #e8f2f4;
+  --warm-bg: #faf8f5;
+  --warm-bg-alt: #f5f0eb;
+  --text-primary: #2d3748;
+  --text-secondary: #5a6577;
+  --text-light: #8896a8;
+  --white: #ffffff;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+  --shadow-md: 0 4px 14px rgba(0,0,0,.1);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,.12);
+  --shadow-xl: 0 20px 50px rgba(0,0,0,.15);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --transition: .25s ease;
+}
+
+/* ========================================
+   UTILITY BAR
+   ======================================== */
+.utility-bar {
+  background: var(--teal-dark); color: rgba(255,255,255,.9); font-size: .8rem; padding: 6px 0;
+}
+.utility-bar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.utility-bar a { color: rgba(255,255,255,.9); }
+.utility-bar a:hover { color: #fff; }
+.utility-left { display: flex; gap: 18px; align-items: center; }
+.utility-right { display: flex; gap: 16px; align-items: center; }
+.utility-right a { display: flex; align-items: center; gap: 4px; }
+
+/* ========================================
+   HEADER / NAVIGATION
+   ======================================== */
+.header {
+  background: #fff; border-bottom: 1px solid rgba(0,0,0,.06);
+  position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow-sm);
+}
+.header .container { display: flex; align-items: center; justify-content: space-between; padding-top: 10px; padding-bottom: 10px; }
+.logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.logo-icon {
+  width: 44px; height: 44px;
+  background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 700; font-size: 1.1rem;
+}
+.logo-text { line-height: 1.15; }
+.logo-text .brand { font-weight: 700; font-size: 1.05rem; color: var(--teal-dark); }
+.logo-text .tagline { font-size: .68rem; color: var(--text-light); letter-spacing: .3px; }
+.main-nav { display: flex; align-items: center; gap: 0; }
+.nav-item { position: relative; }
+.nav-item > a, .nav-item > button {
+  display: flex; align-items: center; gap: 4px; padding: 8px 14px; font-size: .88rem; font-weight: 500;
+  color: var(--text-primary); background: none; border-radius: var(--radius-sm); transition: var(--transition);
+}
+.nav-item > a:hover, .nav-item > button:hover { color: var(--orange); background: rgba(224,117,37,.05); }
+.nav-caret { font-size: .6rem; opacity: .5; }
+.mega-menu {
+  display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+  background: #fff; border-radius: var(--radius-md); box-shadow: var(--shadow-xl);
+  padding: 24px; min-width: 580px; z-index: 999; border: 1px solid rgba(0,0,0,.06);
+}
+.mega-menu.mega-wide { min-width: 720px; }
+.nav-item:hover .mega-menu { display: block; }
+.mega-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.mega-cols.three-col { grid-template-columns: 1fr 1fr 1fr; }
+.mega-col-title { font-size: .72rem; text-transform: uppercase; letter-spacing: 1px; color: var(--teal); font-weight: 700; margin-bottom: 10px; }
+.mega-link { display: block; padding: 7px 10px; border-radius: var(--radius-sm); transition: var(--transition); }
+.mega-link:hover { background: var(--teal-pale); }
+.mega-link .ml-title { font-size: .88rem; font-weight: 600; color: var(--text-primary); }
+.mega-link .ml-desc { font-size: .76rem; color: var(--text-light); margin-top: 2px; }
+.nav-cta-group { display: flex; align-items: center; gap: 10px; margin-left: 10px; }
+.btn-outline-sm {
+  padding: 7px 16px; font-size: .82rem; font-weight: 600; border-radius: 50px;
+  border: 2px solid var(--teal); color: var(--teal); background: transparent; transition: var(--transition);
+}
+.btn-outline-sm:hover { background: var(--teal); color: #fff; }
+.btn-primary-sm {
+  padding: 8px 20px; font-size: .82rem; font-weight: 600; border-radius: 50px;
+  background: linear-gradient(135deg, var(--orange), var(--orange-dark)); color: #fff; transition: var(--transition);
+}
+.btn-primary-sm:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(224,117,37,.35); }
+
+/* ========================================
+   LAYOUT & BUTTONS
+   ======================================== */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.btn-primary {
+  display: inline-block; padding: 14px 32px; font-size: .95rem; font-weight: 600; border-radius: 50px;
+  background: linear-gradient(135deg, var(--orange), var(--orange-dark)); color: #fff;
+  transition: var(--transition); text-align: center; border: none; cursor: pointer;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(224,117,37,.35); }
+.btn-secondary {
+  display: inline-block; padding: 14px 32px; font-size: .95rem; font-weight: 600; border-radius: 50px;
+  border: 2px solid var(--teal); color: var(--teal); background: transparent; transition: var(--transition); text-align: center;
+}
+.btn-secondary:hover { background: var(--teal); color: #fff; }
+.btn-white {
+  display: inline-block; padding: 14px 32px; font-size: .95rem; font-weight: 600; border-radius: 50px;
+  background: #fff; color: var(--teal-dark); transition: var(--transition); text-align: center;
+}
+.btn-white:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+
+/* ========================================
+   HERO
+   ======================================== */
+.coach-hero {
+  background: linear-gradient(135deg, #1a3a42 0%, var(--teal-dark) 50%, #2a5a64 100%);
+  color: #fff; padding: 80px 0 60px; position: relative; overflow: hidden;
+}
+.coach-hero::before {
+  content: ''; position: absolute; top: -40%; right: -15%; width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(224,117,37,.15) 0%, transparent 70%); border-radius: 50%;
+}
+.coach-hero .container { position: relative; z-index: 2; }
+.coach-hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; }
+.coach-hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2);
+  padding: 6px 16px; border-radius: 50px; font-size: .78rem; font-weight: 600;
+  letter-spacing: .5px; text-transform: uppercase; margin-bottom: 20px; color: rgba(255,255,255,.9);
+}
+.coach-hero h1 { font-size: 2.5rem; font-weight: 800; line-height: 1.15; margin-bottom: 18px; }
+.coach-hero h1 span { color: var(--orange-light); }
+.coach-hero-sub { font-size: 1.05rem; line-height: 1.7; color: rgba(255,255,255,.85); margin-bottom: 20px; max-width: 560px; }
+.coach-types { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.coach-type-tag {
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+  padding: 6px 16px; border-radius: 50px; font-size: .8rem; font-weight: 500;
+  color: rgba(255,255,255,.9);
+}
+.coach-hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 32px; }
+.coach-hero-trust {
+  display: flex; gap: 28px; flex-wrap: wrap;
+  padding-top: 24px; border-top: 1px solid rgba(255,255,255,.15);
+}
+.coach-trust-item { text-align: center; }
+.coach-trust-num { font-size: 1.4rem; font-weight: 800; color: var(--orange-light); }
+.coach-trust-label { font-size: .72rem; color: rgba(255,255,255,.6); text-transform: uppercase; letter-spacing: .5px; }
+
+/* Hero Right — Coach Quote Card */
+.coach-quote-card {
+  background: #fff; border-radius: var(--radius-lg); padding: 32px;
+  box-shadow: var(--shadow-xl); color: var(--text-primary); position: relative;
+}
+.coach-quote-card::before {
+  content: '\201C'; position: absolute; top: 16px; left: 24px;
+  font-size: 4rem; color: var(--orange); opacity: .15; font-family: Georgia, serif; line-height: 1;
+}
+.coach-quote-card blockquote {
+  font-size: .92rem; font-style: italic; color: var(--text-secondary); line-height: 1.7;
+  margin-bottom: 20px; padding-top: 16px;
+}
+.coach-quote-author { display: flex; align-items: center; gap: 12px; }
+.coach-quote-avatar {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal-pale), rgba(66,126,136,.2));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; font-weight: 700; color: var(--teal-dark);
+}
+.coach-quote-name { font-weight: 700; font-size: .9rem; color: var(--text-primary); }
+.coach-quote-role { font-size: .78rem; color: var(--text-light); }
+.coach-quote-card .cta-row {
+  margin-top: 20px; padding-top: 18px; border-top: 1px solid #eef1f5;
+  display: flex; gap: 10px; flex-wrap: wrap;
+}
+
+/* ========================================
+   THE PROBLEM — GRIEF IS THE BLOCK
+   ======================================== */
+.problem-section { padding: 72px 0; background: var(--warm-bg); }
+.problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.problem-content h2 { font-size: 2rem; font-weight: 800; color: var(--teal-dark); margin-bottom: 16px; line-height: 1.2; }
+.problem-content p { color: var(--text-secondary); margin-bottom: 14px; font-size: .95rem; }
+.problem-content .highlight-box {
+  background: #fff; border-left: 4px solid var(--orange); border-radius: var(--radius-sm);
+  padding: 16px 20px; margin: 20px 0; font-size: .9rem; color: var(--text-primary);
+}
+.problem-content .highlight-box strong { color: var(--orange-dark); }
+.problem-scenarios { display: grid; gap: 12px; }
+.scenario-card {
+  background: #fff; border-radius: var(--radius-md); padding: 18px 20px;
+  border: 1px solid #e8ecf0; display: flex; gap: 14px; align-items: flex-start;
+  transition: var(--transition);
+}
+.scenario-card:hover { border-color: var(--teal); box-shadow: var(--shadow-sm); }
+.scenario-card .sc-icon {
+  flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; background: var(--teal-pale);
+}
+.scenario-card h4 { font-size: .88rem; font-weight: 600; color: var(--text-primary); margin-bottom: 3px; }
+.scenario-card p { font-size: .8rem; color: var(--text-secondary); margin: 0; }
+
+/* ========================================
+   ARE YOU A...
+   ======================================== */
+.coach-audience { padding: 72px 0; background: #fff; }
+.coach-audience h2 { text-align: center; font-size: 2rem; font-weight: 800; color: var(--teal-dark); margin-bottom: 12px; }
+.coach-audience .section-sub {
+  text-align: center; color: var(--text-secondary); max-width: 650px; margin: 0 auto 48px; font-size: 1rem;
+}
+.audience-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.audience-card {
+  background: var(--warm-bg); border-radius: var(--radius-lg); padding: 28px 24px; text-align: center;
+  border: 2px solid transparent; transition: var(--transition); cursor: default;
+}
+.audience-card:hover { border-color: var(--orange); transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.audience-card .ac-icon {
+  width: 60px; height: 60px; border-radius: 50%; margin: 0 auto 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; background: var(--teal-pale);
+}
+.audience-card h4 { font-size: 1rem; font-weight: 700; color: var(--teal-dark); margin-bottom: 8px; }
+.audience-card p { font-size: .85rem; color: var(--text-secondary); line-height: 1.6; }
+
+/* ========================================
+   BENEFITS GRID
+   ======================================== */
+.benefits-section { padding: 72px 0; background: var(--warm-bg); }
+.benefits-section h2 { text-align: center; font-size: 2rem; font-weight: 800; color: var(--teal-dark); margin-bottom: 12px; }
+.benefits-section .section-sub {
+  text-align: center; color: var(--text-secondary); max-width: 650px; margin: 0 auto 48px; font-size: 1rem;
+}
+.benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.benefit-card {
+  background: #fff; border-radius: var(--radius-lg); padding: 28px 24px;
+  border: 1px solid #e8ecf0; transition: var(--transition);
+}
+.benefit-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.benefit-card .bc-icon {
+  width: 52px; height: 52px; border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; margin-bottom: 16px;
+}
+.bc-teal { background: var(--teal-pale); }
+.bc-orange { background: rgba(224,117,37,.1); }
+.benefit-card h4 { font-size: 1rem; font-weight: 700; color: var(--teal-dark); margin-bottom: 8px; }
+.benefit-card p { font-size: .85rem; color: var(--text-secondary); line-height: 1.6; }
+
+/* ========================================
+   10 WAYS TO USE
+   ======================================== */
+.ways-section { padding: 72px 0; background: #fff; }
+.ways-section h2 { text-align: center; font-size: 2rem; font-weight: 800; color: var(--teal-dark); margin-bottom: 12px; }
+.ways-section .section-sub {
+  text-align: center; color: var(--text-secondary); max-width: 650px; margin: 0 auto 48px; font-size: 1rem;
+}
+.ways-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 900px; margin: 0 auto; }
+.way-item {
+  display: flex; gap: 14px; align-items: flex-start; padding: 16px 20px;
+  background: var(--warm-bg); border-radius: var(--radius-md); border: 1px solid #e8ecf0;
+  transition: var(--transition);
+}
+.way-item:hover { border-color: var(--teal); }
+.way-num {
+  flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+  display: flex; align-items: center; justify-content: center;
+  font-size: .78rem; font-weight: 800; color: #fff;
+}
+.way-item h5 { font-size: .88rem; font-weight: 600; color: var(--text-primary); margin-bottom: 2px; }
+.way-item p { font-size: .78rem; color: var(--text-secondary); margin: 0; }
+
+/* ========================================
+   TESTIMONIALS
+   ======================================== */
+.testimonials-section { padding: 72px 0; background: var(--warm-bg-alt); }
+.testimonials-section h2 { text-align: center; font-size: 2rem; font-weight: 800; color: var(--teal-dark); margin-bottom: 12px; }
+.testimonials-section .section-sub {
+  text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto 48px; font-size: 1rem;
+}
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.testimonial-card {
+  background: #fff; border-radius: var(--radius-lg); padding: 28px; position: relative;
+  border: 1px solid #e8ecf0;
+}
+.testimonial-card::before {
+  content: '\201C'; position: absolute; top: 12px; left: 20px;
+  font-size: 3rem; color: var(--orange); opacity: .12; font-family: Georgia, serif; line-height: 1;
+}
+.testimonial-card blockquote {
+  font-size: .85rem; font-style: italic; color: var(--text-secondary); line-height: 1.7;
+  margin-bottom: 18px; padding-top: 12px;
+}
+.testimonial-author { display: flex; align-items: center; gap: 12px; }
+.testimonial-avatar {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal-pale), rgba(66,126,136,.2));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; font-weight: 700; color: var(--teal-dark);
+}
+.testimonial-name { font-weight: 700; font-size: .85rem; color: var(--text-primary); }
+.testimonial-role { font-size: .75rem; color: var(--text-light); }
+
+/* ========================================
+   PRICING TIERS
+   ======================================== */
+.pricing-section { padding: 72px 0; background: #fff; }
+.pricing-section h2 { text-align: center; font-size: 2rem; font-weight: 800; color: var(--teal-dark); margin-bottom: 12px; }
+.pricing-section .section-sub {
+  text-align: center; color: var(--text-secondary); max-width: 650px; margin: 0 auto 48px; font-size: 1rem;
+}
+.pricing-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto; }
+.pricing-card {
+  border: 2px solid #e8ecf0; border-radius: var(--radius-lg); overflow: hidden;
+  transition: var(--transition); background: #fff;
+}
+.pricing-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+.pricing-card.featured { border-color: var(--orange); }
+.pricing-card-header { padding: 28px 24px 20px; text-align: center; }
+.pricing-card.featured .pricing-card-header { background: linear-gradient(135deg, rgba(224,117,37,.06), rgba(224,117,37,.02)); }
+.pricing-popular-tag {
+  display: inline-block; background: var(--orange); color: #fff; font-size: .68rem;
+  font-weight: 700; text-transform: uppercase; letter-spacing: .8px;
+  padding: 3px 12px; border-radius: 50px; margin-bottom: 10px;
+}
+.pricing-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--teal-dark); margin-bottom: 6px; }
+.pricing-card .price { font-size: 2.2rem; font-weight: 900; color: var(--text-primary); }
+.pricing-card .price-note { font-size: .78rem; color: var(--text-light); }
+.pricing-card .format-tag {
+  display: inline-block; background: var(--teal-pale); color: var(--teal-dark); font-size: .72rem;
+  font-weight: 600; padding: 3px 12px; border-radius: 50px; margin-top: 8px;
+}
+.pricing-card-body { padding: 0 24px 16px; }
+.pricing-features { list-style: none; }
+.pricing-features li {
+  padding: 8px 0; border-bottom: 1px solid #f0f2f5; font-size: .83rem;
+  display: flex; gap: 8px; align-items: flex-start; color: var(--text-secondary);
+}
+.pricing-features li:last-child { border-bottom: none; }
+.pricing-features .pf-check { color: var(--teal); font-weight: 700; flex-shrink: 0; }
+.pricing-card-footer { padding: 0 24px 24px; }
+.pricing-installment {
+  text-align: center; font-size: .78rem; color: var(--text-light); margin-top: 8px;
+}
+
+/* ========================================
+   FAQ
+   ======================================== */
+.faq-section { padding: 72px 0; background: var(--warm-bg); }
+.faq-section h2 { text-align: center; font-size: 2rem; font-weight: 800; color: var(--teal-dark); margin-bottom: 48px; }
+.faq-list { max-width: 780px; margin: 0 auto; }
+.faq-item {
+  background: #fff; border-radius: var(--radius-md); margin-bottom: 12px;
+  border: 1px solid #e8ecf0; overflow: hidden;
+}
+.faq-q {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 24px; cursor: pointer; font-weight: 600; font-size: .95rem;
+  color: var(--text-primary); background: none; width: 100%; text-align: left;
+  border: none; font-family: inherit;
+}
+.faq-q:hover { color: var(--teal); }
+.faq-q .faq-toggle { font-size: 1.2rem; color: var(--teal); transition: transform .2s; flex-shrink: 0; }
+.faq-a {
+  display: none; padding: 0 24px 18px; font-size: .88rem; color: var(--text-secondary); line-height: 1.7;
+}
+.faq-item.open .faq-a { display: block; }
+.faq-item.open .faq-toggle { transform: rotate(45deg); }
+
+/* ========================================
+   BOTTOM CTA
+   ======================================== */
+.bottom-cta {
+  padding: 72px 0;
+  background: linear-gradient(135deg, #1a3a42, var(--teal-dark));
+  color: #fff; text-align: center;
+}
+.bottom-cta h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 14px; }
+.bottom-cta h2 span { color: var(--orange-light); }
+.bottom-cta p { font-size: 1.05rem; color: rgba(255,255,255,.8); max-width: 600px; margin: 0 auto 32px; }
+.bottom-cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.footer { background: #1a2332; color: rgba(255,255,255,.7); padding: 56px 0 0; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 40px; }
+.footer-brand p { font-size: .85rem; margin-top: 10px; line-height: 1.7; color: rgba(255,255,255,.5); }
+.footer h5 { color: #fff; font-size: .85rem; margin-bottom: 14px; text-transform: uppercase; letter-spacing: .5px; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 8px; }
+.footer-links a { font-size: .84rem; color: rgba(255,255,255,.55); transition: var(--transition); }
+.footer-links a:hover { color: var(--orange-light); }
+.crisis-bar {
+  background: rgba(255,255,255,.05); padding: 16px 0; text-align: center;
+  font-size: .8rem; color: rgba(255,255,255,.5); margin-top: 8px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+.crisis-bar strong { color: rgba(255,255,255,.7); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+  padding: 20px 0; margin-top: 8px; border-top: 1px solid rgba(255,255,255,.06);
+  font-size: .75rem; color: rgba(255,255,255,.35); gap: 12px;
+}
+.footer-bottom a { color: rgba(255,255,255,.45); }
+.footer-bottom a:hover { color: var(--orange-light); }
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 960px) {
+  .coach-hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .problem-grid { grid-template-columns: 1fr; gap: 32px; }
+  .audience-grid { grid-template-columns: 1fr 1fr; }
+  .benefits-grid { grid-template-columns: 1fr 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+  .pricing-cards { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+  .ways-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .coach-hero h1 { font-size: 2rem; }
+}
+@media (max-width: 600px) {
+  .coach-hero { padding: 48px 0 40px; }
+  .coach-hero h1 { font-size: 1.6rem; }
+  .audience-grid { grid-template-columns: 1fr; }
+  .benefits-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .main-nav, .nav-cta-group { display: none; }
+}
+
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- ======================= UTILITY BAR ======================= -->
+<div class="utility-bar">
+  <div class="container">
+    <div class="utility-left">
+      <a href="tel:8003347606">&#128222; 800-334-7606</a>
+      <span>|</span>
+      <a href="#">&#127760; English</a>
+      <a href="#">Espa&ntilde;ol</a>
+      <a href="#">UK</a>
+      <a href="#">Canada</a>
+    </div>
+    <div class="utility-right">
+      <a href="TGRM_Handbook.html">&#128214; The Grief Recovery Handbook</a>
+      <a href="TGRM_Podcast.html">&#127897;&#65039; Podcast</a>
+      <a href="#">Specialist Login</a>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= HEADER / NAV ======================= -->
+<header class="header">
+  <div class="container">
+    <a href="TGRM_Homepage_V2.html" class="logo">
+      <div class="logo-icon">GR</div>
+      <div class="logo-text">
+        <div class="brand">The Grief Recovery Method<sup style="font-size:.55rem">&reg;</sup></div>
+        <div class="tagline">Evidence-Based Grief Recovery Since 1984</div>
+      </div>
+    </a>
+    <nav class="main-nav">
+      <div class="nav-item">
+        <button>I Need Help <span class="nav-caret">&#9660;</span></button>
+        <div class="mega-menu">
+          <div class="mega-cols">
+            <div>
+              <div class="mega-col-title">Find Support</div>
+              <a href="TGRM_Directory.html" class="mega-link"><div class="ml-title">&#128270; Find a Specialist Near You</div><div class="ml-desc">Search 3,000+ certified professionals</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">&#127891; Start the $49 Online Course</div><div class="ml-desc">Self-paced grief recovery</div></a>
+              <a href="TGRM_Join_Recovery_Group.html" class="mega-link"><div class="ml-title">&#129309; Join the Free Community</div><div class="ml-desc">Connect with others who understand</div></a>
+              <a href="TGRM_Handbook.html" class="mega-link"><div class="ml-title">&#128218; Get the Handbook</div><div class="ml-desc">The Grief Recovery Handbook</div></a>
+            </div>
+            <div>
+              <div class="mega-col-title">Explore by Loss Type</div>
+              <a href="#" class="mega-link"><div class="ml-title">Death of a Loved One</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">Divorce &amp; Relationship Loss</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">Pet Loss</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">Health, Career &amp; Life Changes</div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button>Get Certified <span class="nav-caret">&#9660;</span></button>
+        <div class="mega-menu mega-wide">
+          <div class="mega-cols three-col">
+            <div>
+              <div class="mega-col-title">Training Programs</div>
+              <a href="TGRM_Certification.html" class="mega-link"><div class="ml-title">Foundational Certification</div><div class="ml-desc">4-day live Zoom &mdash; $2,495</div></a>
+              <a href="TGRM_Certification.html" class="mega-link"><div class="ml-title">Advanced Certification</div><div class="ml-desc">Foundational + 18hrs &mdash; $3,995</div></a>
+              <a href="TGRM_Certification.html" class="mega-link"><div class="ml-title">In-Person Premium</div><div class="ml-desc">Small group intensive &mdash; $4,995</div></a>
+              <a href="TGRM_Private_Certification.html" class="mega-link"><div class="ml-title">&#127970; Private / Org Training</div><div class="ml-desc">Custom on-site or online for 12&ndash;20 staff</div></a>
+            </div>
+            <div>
+              <div class="mega-col-title">For Your Profession</div>
+              <a href="TGRM_For_Therapists.html" class="mega-link"><div class="ml-title">For Therapists &amp; Counselors</div><div class="ml-desc">Add evidence-based tools</div></a>
+              <a href="TGRM_Coaches_Certification.html" class="mega-link" style="background:rgba(224,117,37,.06); border-left:3px solid var(--orange);"><div class="ml-title" style="color:var(--orange-dark);">&#127947;&#65039; For Coaches</div><div class="ml-desc">The missing piece in your coaching practice</div></a>
+              <a href="TGRM_Military_Certification.html" class="mega-link"><div class="ml-title">&#127894;&#65039; Military, Veterans &amp; First Responders</div><div class="ml-desc">GI Bill approved &mdash; veteran-created</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">For Career Changers</div><div class="ml-desc">No special degree required</div></a>
+            </div>
+            <div>
+              <div class="mega-col-title">Resources</div>
+              <a href="TGRM_Training_Calendar.html" class="mega-link"><div class="ml-title">Training Calendar</div><div class="ml-desc">Upcoming dates &amp; availability</div></a>
+              <a href="TGRM_Certification.html#faq" class="mega-link"><div class="ml-title">Certification FAQ</div><div class="ml-desc">Common questions answered</div></a>
+              <a href="TGRM_Certification.html#pricing" class="mega-link"><div class="ml-title">3-Pay Installment Plans</div><div class="ml-desc">Flexible monthly payments</div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button>About <span class="nav-caret">&#9660;</span></button>
+        <div class="mega-menu">
+          <div class="mega-cols">
+            <div>
+              <div class="mega-col-title">The Method</div>
+              <a href="#" class="mega-link"><div class="ml-title">How The Method Works</div><div class="ml-desc">Action-based grief recovery explained</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">The Research</div><div class="ml-desc">Kent State University validation</div></a>
+              <a href="TGRM_About_Us.html" class="mega-link"><div class="ml-title">40+ Years of Impact</div></a>
+            </div>
+            <div>
+              <div class="mega-col-title">Our Team</div>
+              <a href="#" class="mega-link"><div class="ml-title">John W. James, Founder</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">Our Trainers</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">Leadership</div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <button>Learn <span class="nav-caret">&#9660;</span></button>
+        <div class="mega-menu mega-wide">
+          <div class="mega-cols three-col">
+            <div>
+              <div class="mega-col-title">Content</div>
+              <a href="TGRM_Blog.html" class="mega-link"><div class="ml-title">Blog</div></a>
+              <a href="TGRM_Podcast.html" class="mega-link"><div class="ml-title">Podcast</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">YouTube</div></a>
+            </div>
+            <div>
+              <div class="mega-col-title">Popular Topics</div>
+              <a href="#" class="mega-link"><div class="ml-title">Myths About Grief</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">Grief at Work</div></a>
+            </div>
+            <div>
+              <div class="mega-col-title">Books</div>
+              <a href="TGRM_Handbook.html" class="mega-link"><div class="ml-title">The Grief Recovery Handbook</div></a>
+              <a href="#" class="mega-link"><div class="ml-title">When Children Grieve</div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="nav-cta-group">
+      <a href="TGRM_Directory.html" class="btn-outline-sm">Find Help</a>
+      <a href="TGRM_Certification.html" class="btn-primary-sm">Get Certified &rarr;</a>
+    </div>
+  </div>
+</header>
+
+<!-- ======================= HERO ======================= -->
+<section class="coach-hero">
+  <div class="container">
+    <div class="coach-hero-grid">
+      <div>
+        <div class="coach-hero-badge">&#127947;&#65039; For Coaches &amp; Life Coaches</div>
+        <h1>The Missing Piece in <span>Your Coaching Practice</span></h1>
+        <p class="coach-hero-sub">Every client you work with is carrying unresolved grief. It's the hidden block behind their stuck goals, broken relationships, and inability to move forward. Get certified in the only evidence-based program that gives you the tools to help them break through.</p>
+        <div class="coach-types">
+          <span class="coach-type-tag">Life Coaches</span>
+          <span class="coach-type-tag">Relationship Coaches</span>
+          <span class="coach-type-tag">Health &amp; Wellness Coaches</span>
+          <span class="coach-type-tag">Executive Coaches</span>
+          <span class="coach-type-tag">Business &amp; Career Coaches</span>
+          <span class="coach-type-tag">Divorce Coaches</span>
+        </div>
+        <div class="coach-hero-ctas">
+          <a href="TGRM_Certification.html" class="btn-primary">View Dates &amp; Enroll &rarr;</a>
+          <a href="#benefits" class="btn-white">Why Coaches Love This</a>
+        </div>
+        <div class="coach-hero-trust">
+          <div class="coach-trust-item">
+            <div class="coach-trust-num">40+</div>
+            <div class="coach-trust-label">Years Proven</div>
+          </div>
+          <div class="coach-trust-item">
+            <div class="coach-trust-num">1,000s</div>
+            <div class="coach-trust-label">Coaches Trained</div>
+          </div>
+          <div class="coach-trust-item">
+            <div class="coach-trust-num">50%+</div>
+            <div class="coach-trust-label">Clients Come via Referral</div>
+          </div>
+          <div class="coach-trust-item">
+            <div class="coach-trust-num">Kent State</div>
+            <div class="coach-trust-label">Evidence-Based</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="coach-quote-card">
+        <blockquote>Excellent training &mdash; which has made me feel that I have the right tools to work with loss in all its forms in my role as a coach. Invariably loss will come into many coaching conversations. The Grief Recovery Method has provided me with the confidence to know that if a client chooses to work on this, I am able to effectively support them at an incredibly difficult time.</blockquote>
+        <div class="coach-quote-author">
+          <div class="coach-quote-avatar">SD</div>
+          <div>
+            <div class="coach-quote-name">Sandi Derby</div>
+            <div class="coach-quote-role">Life &amp; Relationship Coach</div>
+          </div>
+        </div>
+        <div class="cta-row">
+          <a href="TGRM_Certification.html" class="btn-primary" style="padding:11px 24px; font-size:.88rem;">View Training Dates &rarr;</a>
+          <a href="tel:8003347606" class="btn-secondary" style="padding:11px 24px; font-size:.88rem;">&#128222; Talk to an Advisor</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= THE PROBLEM ======================= -->
+<section class="problem-section">
+  <div class="container">
+    <div class="problem-grid">
+      <div class="problem-content fade-in">
+        <h2>Grief Isn't Just About Death and Divorce</h2>
+        <p>People grieve over anything or anyone they've lost. And how they cope with these emotional changes impacts every choice they make &mdash; including the goals they bring to you.</p>
+        <p>Job loss, business failure, health changes, broken trust, missed promotions, shattered dreams, estrangement &mdash; these are all grief events. And they're probably showing up in your coaching sessions right now.</p>
+        <div class="highlight-box">
+          <strong>The problem isn't that your clients lack motivation.</strong> It's that unresolved grief is the invisible block sitting between where they are and where they want to be. Until that grief is addressed, no amount of goal-setting, accountability, or mindset work will create lasting change.
+        </div>
+      </div>
+      <div class="problem-scenarios fade-in">
+        <div class="scenario-card">
+          <div class="sc-icon">&#128188;</div>
+          <div>
+            <h4>Client still hurting from losing a job?</h4>
+            <p>Disappointment and anger make it hard to muster the energy to look for a new job or consider a new career.</p>
+          </div>
+        </div>
+        <div class="scenario-card">
+          <div class="sc-icon">&#128200;</div>
+          <div>
+            <h4>Client struggling to turn around a business?</h4>
+            <p>Worrying over recent performance and fear of further losses can be debilitating.</p>
+          </div>
+        </div>
+        <div class="scenario-card">
+          <div class="sc-icon">&#128148;</div>
+          <div>
+            <h4>Client broken-hearted from a relationship ending?</h4>
+            <p>Fear from the past keeps people from opening to new love and new possibilities.</p>
+          </div>
+        </div>
+        <div class="scenario-card">
+          <div class="sc-icon">&#128561;</div>
+          <div>
+            <h4>Client afraid to try new things after past failure?</h4>
+            <p>Regret holds people back from exploring new possibilities and taking meaningful risks.</p>
+          </div>
+        </div>
+        <div class="scenario-card">
+          <div class="sc-icon">&#129657;</div>
+          <div>
+            <h4>Client struggling with health issues?</h4>
+            <p>Frustration and fear make it hard to see the light at the end of the tunnel.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= COACH TYPES ======================= -->
+<section class="coach-audience">
+  <div class="container">
+    <h2>This Certification Was Built for Coaches Like You</h2>
+    <p class="section-sub">No matter your coaching specialty, unresolved grief is affecting your clients. Here's how this training transforms each niche.</p>
+
+    <div class="audience-grid">
+      <div class="audience-card fade-in">
+        <div class="ac-icon">&#127793;</div>
+        <h4>Life Coaches</h4>
+        <p>Help clients move past the losses holding them back from the life they want. Address the root cause, not just the symptoms.</p>
+      </div>
+      <div class="audience-card fade-in">
+        <div class="ac-icon">&#128156;</div>
+        <h4>Relationship Coaches</h4>
+        <p>Clients carry unresolved grief from past relationships into every new one. Give them the tools to complete what's incomplete.</p>
+      </div>
+      <div class="audience-card fade-in">
+        <div class="ac-icon">&#129504;</div>
+        <h4>Health &amp; Wellness Coaches</h4>
+        <p>Emotional loss often manifests as physical symptoms. Address the grief beneath the stress, fatigue, and self-neglect.</p>
+      </div>
+      <div class="audience-card fade-in">
+        <div class="ac-icon">&#128188;</div>
+        <h4>Executive &amp; Leadership Coaches</h4>
+        <p>Unresolved grief impacts decision-making, leadership presence, and resilience. Help leaders process what they've been carrying.</p>
+      </div>
+      <div class="audience-card fade-in">
+        <div class="ac-icon">&#128200;</div>
+        <h4>Business &amp; Career Coaches</h4>
+        <p>Job loss, missed promotions, failed ventures &mdash; these are all grief events. Help clients recover and move forward with clarity.</p>
+      </div>
+      <div class="audience-card fade-in">
+        <div class="ac-icon">&#128276;</div>
+        <h4>Divorce Coaches</h4>
+        <p>Divorce is one of the most painful grief experiences. Give clients an action-based path through the emotional wreckage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= BENEFITS ======================= -->
+<section class="benefits-section" id="benefits">
+  <div class="container">
+    <h2>How This Certification Transforms Your Practice</h2>
+    <p class="section-sub">Coaches who add The Grief Recovery Method don't just help more clients &mdash; they differentiate their entire practice.</p>
+
+    <div class="benefits-grid">
+      <div class="benefit-card fade-in">
+        <div class="bc-icon bc-orange">&#11088;</div>
+        <h4>Stand Out from Every Other Coach</h4>
+        <p>There are thousands of coaches offering similar services. A Grief Recovery certification gives you an evidence-based specialty that is genuinely different and highly effective.</p>
+      </div>
+      <div class="benefit-card fade-in">
+        <div class="bc-icon bc-teal">&#127919;</div>
+        <h4>More Effective Coaching Outcomes</h4>
+        <p>Unresolved grief is a block to reaching goals. Having the right tools to navigate grief allows for more effective coaching and better client results.</p>
+      </div>
+      <div class="benefit-card fade-in">
+        <div class="bc-icon bc-orange">&#128300;</div>
+        <h4>Evidence-Based Credibility</h4>
+        <p>The coaching profession is unregulated, which can deter potential clients. Offering a program validated by Kent State University research gives you an immediate credibility advantage.</p>
+      </div>
+      <div class="benefit-card fade-in">
+        <div class="bc-icon bc-teal">&#129309;</div>
+        <h4>Referral Network with Therapists</h4>
+        <p>There can be a divide between coaches and mental health professionals. The GRM bridges that gap, creating referral networks with therapists and counselors.</p>
+      </div>
+      <div class="benefit-card fade-in">
+        <div class="bc-icon bc-orange">&#128640;</div>
+        <h4>50%+ Clients Come via Referral</h4>
+        <p>Historically, more than half of people who go through the Grief Recovery Method were referred by someone who had a life-changing outcome. The work speaks for itself.</p>
+      </div>
+      <div class="benefit-card fade-in">
+        <div class="bc-icon bc-teal">&#127891;</div>
+        <h4>40+ Year Brand Behind You</h4>
+        <p>The Grief Recovery Institute has been established for more than 40 years with an exceptional reputation. You're backed by a recognizable brand with a wealth of resources.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 10 WAYS TO USE ======================= -->
+<section class="ways-section">
+  <div class="container">
+    <h2>10 Ways to Use The Grief Recovery Method with Your Clients</h2>
+    <p class="section-sub">This certification doesn't replace your coaching &mdash; it supercharges it. Here's how coaches are integrating the method into their practice.</p>
+
+    <div class="ways-grid">
+      <div class="way-item fade-in">
+        <div class="way-num">1</div>
+        <div>
+          <h5>Setting &amp; Achieving Goals</h5>
+          <p>Remove the grief blocks that prevent clients from following through</p>
+        </div>
+      </div>
+      <div class="way-item fade-in">
+        <div class="way-num">2</div>
+        <div>
+          <h5>Overcoming Limiting Beliefs</h5>
+          <p>Address the loss events that created those beliefs in the first place</p>
+        </div>
+      </div>
+      <div class="way-item fade-in">
+        <div class="way-num">3</div>
+        <div>
+          <h5>Managing Stress &amp; Anxiety</h5>
+          <p>Unresolved grief is one of the most common hidden drivers of chronic stress</p>
+        </div>
+      </div>
+      <div class="way-item fade-in">
+        <div class="way-num">4</div>
+        <div>
+          <h5>Building Confidence &amp; Self-Esteem</h5>
+          <p>Help clients release the emotional weight that keeps them playing small</p>
+        </div>
+      </div>
+      <div class="way-item fade-in">
+        <div class="way-num">5</div>
+        <div>
+          <h5>Building &amp; Maintaining Healthy Relationships</h5>
+          <p>Complete past relationship grief so clients can fully show up in new ones</p>
+        </div>
+      </div>
+      <div class="way-item fade-in">
+        <div class="way-num">6</div>
+        <div>
+          <h5>Developing Communication Skills</h5>
+          <p>Grief teaches us to hide. Recovery teaches us to communicate with emotional honesty.</p>
+        </div>
+      </div>
+      <div class="way-item fade-in">
+        <div class="way-num">7</div>
+        <div>
+          <h5>Enhancing Work-Life Balance</h5>
+          <p>Unresolved grief drives overwork, avoidance, and burnout. Address the root cause.</p>
+        </div>
+      </div>
+      <div class="way-item fade-in">
+        <div class="way-num">8</div>
+        <div>
+          <h5>Cultivating Mindfulness &amp; Presence</h5>
+          <p>Help clients stop ruminating on the past and become truly present</p>
+        </div>
+      </div>
+      <div class="way-item fade-in">
+        <div class="way-num">9</div>
+        <div>
+          <h5>Navigating Life Transitions &amp; Changes</h5>
+          <p>Every major transition involves loss. Give clients a framework for moving through it.</p>
+        </div>
+      </div>
+      <div class="way-item fade-in">
+        <div class="way-num">10</div>
+        <div>
+          <h5>Finding Purpose &amp; Fulfillment</h5>
+          <p>When the emotional weight lifts, clients can finally see what's possible for their lives</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= TESTIMONIALS ======================= -->
+<section class="testimonials-section">
+  <div class="container">
+    <h2>What Coaches Are Saying</h2>
+    <p class="section-sub">We've trained thousands of coaches. Here's what some of them have to say about the impact on their practice.</p>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-in">
+        <blockquote>As a Life and Holistic Coach, I discovered this method is the key piece I was looking for in my career as a Coach and Spiritual Teacher. Now I feel my purpose is more structured and supported by this amazing team, and I am so proud of being a part of this compassionate community.</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">VH</div>
+          <div>
+            <div class="testimonial-name">Vicki Hagadorn</div>
+            <div class="testimonial-role">Life &amp; Holistic Coach</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-in">
+        <blockquote>The Grief Recovery Method Certification Training has changed the focus of my coaching practice. To be able to help people move beyond their loss and heal their hearts with this simple and effective method is exciting and I can't wait to share this with everyone I know!</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">TD</div>
+          <div>
+            <div class="testimonial-name">Tami Dowd</div>
+            <div class="testimonial-role">Health &amp; Life Coach</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-in">
+        <blockquote>The training was so rich and giving that I'm actually thinking about shifting my business from mainly coaching to mainly grief work. I think that every person should go through the Grief Recovery Training &mdash; it changes the way you look at the world, and people, and their stories and pain.</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">HW</div>
+          <div>
+            <div class="testimonial-name">Hannah Wachter</div>
+            <div class="testimonial-role">Wellness Coach</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PRICING ======================= -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+    <h2>Choose Your Certification Path</h2>
+    <p class="section-sub">All three tiers include the same transformative 4-day training. Choose the level that fits your coaching practice.</p>
+
+    <div class="pricing-cards">
+      <div class="pricing-card">
+        <div class="pricing-card-header">
+          <h3>Foundational</h3>
+          <div class="price">$2,495</div>
+          <div class="price-note">or 3 payments of $898</div>
+          <div class="format-tag">&#128187; Live Online via Zoom</div>
+        </div>
+        <div class="pricing-card-body">
+          <ul class="pricing-features">
+            <li><span class="pf-check">&#10003;</span> 32-hour live certification training</li>
+            <li><span class="pf-check">&#10003;</span> 8-session group program lesson plan</li>
+            <li><span class="pf-check">&#10003;</span> All 5 Grief Recovery books</li>
+            <li><span class="pf-check">&#10003;</span> Certified Specialist&reg; title</li>
+            <li><span class="pf-check">&#10003;</span> 1 year unlimited support</li>
+            <li><span class="pf-check">&#10003;</span> Directory listing &amp; micro website</li>
+          </ul>
+        </div>
+        <div class="pricing-card-footer">
+          <a href="TGRM_Certification.html" class="btn-secondary" style="display:block;">View Dates &rarr;</a>
+        </div>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="pricing-card-header">
+          <div class="pricing-popular-tag">Best for Coaches</div>
+          <h3>Advanced</h3>
+          <div class="price">$3,995</div>
+          <div class="price-note">or 3 payments of $1,398</div>
+          <div class="format-tag">&#128187; Live Online via Zoom</div>
+        </div>
+        <div class="pricing-card-body">
+          <ul class="pricing-features">
+            <li><span class="pf-check">&#10003;</span> Everything in Foundational, plus:</li>
+            <li><span class="pf-check">&#10003;</span> 18hrs advanced video training</li>
+            <li><span class="pf-check">&#10003;</span> 7-session 1-on-1 program lesson plan</li>
+            <li><span class="pf-check">&#10003;</span> Children's grief program</li>
+            <li><span class="pf-check">&#10003;</span> Pet loss group program</li>
+            <li><span class="pf-check">&#10003;</span> Marketing &amp; practice-building resources</li>
+          </ul>
+        </div>
+        <div class="pricing-card-footer">
+          <a href="TGRM_Certification.html" class="btn-primary" style="display:block;">View Dates &rarr;</a>
+          <div class="pricing-installment">Most coaches choose Advanced for the 1-on-1 program</div>
+        </div>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-card-header">
+          <h3>In-Person Premium</h3>
+          <div class="price">$4,995</div>
+          <div class="price-note">or 3 payments of $1,798</div>
+          <div class="format-tag">&#127970; In-Person &mdash; Small Group</div>
+        </div>
+        <div class="pricing-card-body">
+          <ul class="pricing-features">
+            <li><span class="pf-check">&#10003;</span> Everything in Advanced, plus:</li>
+            <li><span class="pf-check">&#10003;</span> Intimate in-person experience</li>
+            <li><span class="pf-check">&#10003;</span> Max 20 participants per class</li>
+            <li><span class="pf-check">&#10003;</span> Hands-on practice &amp; role-play</li>
+            <li><span class="pf-check">&#10003;</span> Deeper personal grief recovery</li>
+            <li><span class="pf-check">&#10003;</span> Networking with fellow specialists</li>
+          </ul>
+        </div>
+        <div class="pricing-card-footer">
+          <a href="TGRM_Certification.html" class="btn-secondary" style="display:block;">View Dates &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FAQ ======================= -->
+<section class="faq-section">
+  <div class="container">
+    <h2>Questions Coaches Ask</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          I'm not a therapist. Can I still get certified?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">Absolutely. No special degree or license is required. The Grief Recovery Method certification is designed for anyone with a genuine interest in helping others. In fact, coaches make up one of our largest groups of certified specialists &mdash; and they often get better results because they're already skilled at holding space and facilitating transformation.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          How does this fit into my existing coaching practice?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">This certification adds a powerful tool to your coaching toolkit &mdash; it doesn't replace your existing approach. Many coaches offer the Grief Recovery Method as a separate program (either 1-on-1 or group) that clients complete before or alongside their regular coaching. Others weave the principles into every coaching conversation. You'll have the flexibility to integrate it however it works best for your niche.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          Is this the same training therapists take?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">Yes &mdash; this is the exact same comprehensive 32-hour certification program. Therapists, counselors, social workers, chaplains, and coaches all train together. This is actually one of the unique strengths of the training: you'll build a cross-disciplinary referral network with professionals from diverse backgrounds.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          How quickly can I start working with clients?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">Immediately after certification. You leave the 4-day training with complete lesson plans for running the 8-session group program. If you choose the Advanced tier, you'll also have the 7-session 1-on-1 program, pet loss program, and children's grief program. Many coaches schedule their first group within weeks of completing the training.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          Can I charge for Grief Recovery programs as a coach?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">Yes. As a Certified Grief Recovery Specialist&reg;, you set your own pricing for the programs you run. Many coaches charge $300&ndash;$600+ for the group program and $150&ndash;$250+ per session for the 1-on-1 program. This creates a significant new revenue stream alongside your existing coaching offerings.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          What's the time commitment for the training?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">The certification is 4 consecutive days, 8:30am &ndash; 5:30pm each day (32 total hours). It's intensive and immersive by design &mdash; you'll actually go through the grief recovery process yourself, which is what makes our specialists so effective. Online classes are held via Zoom with a live trainer, not pre-recorded videos.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          Do you offer payment plans?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-a">Yes. All three certification tiers offer a 3-payment installment option. Foundational is $898/month, Advanced is $1,398/month, and In-Person Premium is $1,798/month. PayPal Credit (6 months interest-free) is also available.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= BOTTOM CTA ======================= -->
+<section class="bottom-cta">
+  <div class="container">
+    <h2>Ready to Add the <span>Missing Piece?</span></h2>
+    <p>Join thousands of coaches who've transformed their practice with The Grief Recovery Method. Your clients are already carrying grief &mdash; now you can help them let it go.</p>
+    <div class="bottom-cta-actions">
+      <a href="TGRM_Certification.html" class="btn-primary">View Training Dates &amp; Enroll &rarr;</a>
+      <a href="tel:8003347606" class="btn-white">&#128222; Call 800-334-7606</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="font-weight:700; font-size:1.05rem; color:#fff;">The Grief Recovery Method&reg;</div>
+        <p>The only evidence-based grief recovery program in the world. Helping people move from pain to peace since 1984.</p>
+        <div style="margin-top:16px; display:flex; gap:12px;">
+          <a href="#" style="opacity:.6; font-size:1.2rem;">&#128216;</a>
+          <a href="#" style="opacity:.6; font-size:1.2rem;">&#128248;</a>
+          <a href="#" style="opacity:.6; font-size:1.2rem;">&#9654;&#65039;</a>
+          <a href="#" style="opacity:.6; font-size:1.2rem;">&#128279;</a>
+        </div>
+      </div>
+      <div>
+        <h5>For Grievers</h5>
+        <ul class="footer-links">
+          <li><a href="TGRM_Directory.html">Find a Specialist</a></li>
+          <li><a href="#">$49 Online Course</a></li>
+          <li><a href="TGRM_Join_Recovery_Group.html">Join the Community</a></li>
+          <li><a href="TGRM_Handbook.html">The Handbook</a></li>
+          <li><a href="#">Types of Loss</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>For Professionals</h5>
+        <ul class="footer-links">
+          <li><a href="TGRM_Certification.html">Certification Programs</a></li>
+          <li><a href="TGRM_Training_Calendar.html">Training Calendar</a></li>
+          <li><a href="TGRM_Private_Certification.html">Private / Org Training</a></li>
+          <li><a href="TGRM_Coaches_Certification.html" style="color:var(--orange-light);">For Coaches</a></li>
+          <li><a href="TGRM_Military_Certification.html">Military &amp; Veterans</a></li>
+          <li><a href="TGRM_For_Therapists.html">For Therapists</a></li>
+          <li><a href="#">Specialist Login</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul class="footer-links">
+          <li><a href="#">About The Method</a></li>
+          <li><a href="TGRM_About_Us.html">Our Team</a></li>
+          <li><a href="#">The Research</a></li>
+          <li><a href="TGRM_Blog.html">Blog</a></li>
+          <li><a href="TGRM_Podcast.html">Podcast</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="crisis-bar">
+      <strong>If you or someone you know is in crisis:</strong><br>
+      988 Suicide &amp; Crisis Lifeline: Call or text <strong>988</strong> &middot;
+      Veterans Crisis Line: <strong>1-800-273-8255</strong> (Press 1) &middot;
+      Crisis Text Line: Text <strong>HOME</strong> to <strong>741741</strong>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 The Grief Recovery Institute&reg;. All rights reserved. | <a href="#">Privacy</a> &middot; <a href="#">Terms</a></div>
+      <div>The Grief Recovery Method&reg; &middot; Certified Grief Recovery Specialist&reg; &middot; Grief&#10084;Recovery&reg;</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ======================= JAVASCRIPT ======================= -->
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const t = document.querySelector(this.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
+</body>
+</html>
