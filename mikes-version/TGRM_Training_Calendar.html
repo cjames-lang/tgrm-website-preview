@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certification Training Calendar | TGRM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --orange: #e07525;
+            --orange-dark: #c4621a;
+            --teal: #427e88;
+            --teal-dark: #356a73;
+            --teal-pale: #e8f2f4;
+            --warm-bg: #faf8f5;
+            --text-primary: #2d3748;
+            --text-secondary: #5a6577;
+            --text-light: #8896a8;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            background-color: #ffffff;
+        }
+
+        /* UTILITY BAR */
+        .utility-bar {
+            background-color: var(--teal-dark);
+            color: white;
+            padding: 12px 0;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .utility-bar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .utility-bar a:hover {
+            text-decoration: underline;
+        }
+
+        /* STICKY HEADER */
+        .header {
+            position: sticky;
+            top: 0;
+            background: white;
+            border-bottom: 1px solid #f0f0f0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--orange);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 40px;
+            flex: 1;
+            margin-left: 60px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 15px;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: var(--orange);
+        }
+
+        .nav a.active {
+            color: var(--orange);
+        }
+
+        .nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--orange);
+            border-radius: 2px;
+        }
+
+        .header-ctas {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .btn-phone {
+            text-decoration: none;
+            color: var(--teal);
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(224, 117, 37, 0.3);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, var(--teal-pale) 0%, #f0f8fa 100%);
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* FILTER BUTTONS */
+        .filter-section {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .filter-btn {
+            padding: 10px 24px;
+            border: 2px solid var(--teal);
+            background: white;
+            color: var(--teal);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active {
+            background: var(--teal);
+            color: white;
+        }
+
+        .filter-btn:hover {
+            background: var(--teal);
+            color: white;
+        }
+
+        /* STATS BAR */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(66, 126, 136, 0.2);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--orange);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* TRAINING CARDS SECTION */
+        .trainings-section {
+            max-width: 1200px;
+            margin: 80px auto 0;
+            padding: 0 24px;
+        }
+
+        .trainings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 28px;
+            margin-bottom: 80px;
+        }
+
+        .training-card {
+            background: white;
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 28px;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .training-card:hover {
+            border-color: var(--orange);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            transform: translateY(-4px);
+        }
+
+        .card-date {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .card-badges {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-format {
+            background: var(--teal-pale);
+            color: var(--teal-dark);
+        }
+
+        .badge-format.online {
+            background: var(--teal-pale);
+            color: var(--teal-dark);
+        }
+
+        .badge-format.inperson {
+            background: #ffe8d6;
+            color: var(--orange-dark);
+        }
+
+        .card-location {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .card-location strong {
+            color: var(--text-primary);
+        }
+
+        .card-divider {
+            height: 1px;
+            background: #f0f0f0;
+            margin: 16px 0;
+        }
+
+        .card-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--orange);
+            margin-bottom: 8px;
+        }
+
+        .card-price-label {
+            font-size: 12px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .card-availability {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            padding: 12px;
+            background: #fef3e8;
+            border-radius: 8px;
+            font-size: 14px;
+            color: var(--orange-dark);
+            font-weight: 600;
+        }
+
+        .availability-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--orange);
+        }
+
+        .card-cta {
+            margin-top: auto;
+        }
+
+        .btn-reserve {
+            width: 100%;
+            background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-reserve:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(224, 117, 37, 0.3);
+        }
+
+        /* WHAT'S INCLUDED SECTION */
+        .whats-included {
+            background: var(--warm-bg);
+            padding: 60px 24px;
+            margin: 60px 0;
+        }
+
+        .whats-included-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: var(--text-primary);
+            text-align: center;
+        }
+
+        .included-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .included-item {
+            display: flex;
+            gap: 16px;
+        }
+
+        .included-icon {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            background: var(--orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .included-text h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .included-text p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* FAQ SECTION */
+        .faq {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 24px;
+        }
+
+        .faq-items {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e8e8e8;
+            padding: 24px 0;
+            cursor: pointer;
+        }
+
+        .faq-item:first-child {
+            border-top: 1px solid #e8e8e8;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            user-select: none;
+        }
+
+        .faq-question h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .faq-toggle {
+            color: var(--orange);
+            font-size: 20px;
+            font-weight: 700;
+            min-width: 24px;
+            text-align: right;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.open .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+            margin-top: 16px;
+        }
+
+        /* BOTTOM CTA SECTION */
+        .bottom-cta {
+            background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+            color: white;
+            padding: 60px 24px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .bottom-cta-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .bottom-cta h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .bottom-cta p {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .bottom-cta-phone {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--orange);
+            text-decoration: none;
+        }
+
+        .bottom-cta-phone:hover {
+            text-decoration: underline;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 60px 24px 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h4 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            color: var(--orange);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--orange);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 24px;
+            text-align: center;
+            font-size: 13px;
+            color: #999;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 12px 24px;
+            }
+
+            .nav {
+                margin-left: 0;
+                width: 100%;
+                margin-top: 12px;
+                gap: 20px;
+                font-size: 13px;
+                order: 3;
+            }
+
+            .header-ctas {
+                margin-left: auto;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .stats-bar {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .trainings-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .section-title {
+                font-size: 24px;
+                margin-bottom: 32px;
+            }
+
+            .included-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-question h3 {
+                font-size: 15px;
+            }
+
+            .bottom-cta h2 {
+                font-size: 22px;
+            }
+
+            .bottom-cta-phone {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-content {
+                justify-content: space-between;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .nav {
+                gap: 12px;
+                font-size: 12px;
+            }
+
+            .nav a.active::after {
+                height: 2px;
+                bottom: -6px;
+            }
+
+            .header-ctas {
+                gap: 8px;
+            }
+
+            .btn-primary {
+                padding: 10px 16px;
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 40px 16px;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+                margin-bottom: 12px;
+            }
+
+            .hero p {
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+
+            .filter-section {
+                gap: 8px;
+            }
+
+            .filter-btn {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+
+            .card-date {
+                font-size: 16px;
+            }
+
+            .card-price {
+                font-size: 24px;
+            }
+
+            .btn-reserve {
+                padding: 12px 16px;
+                font-size: 14px;
+            }
+
+            .trainings-section {
+                margin-top: 40px;
+            }
+
+            .trainings-grid {
+                gap: 16px;
+            }
+
+            .training-card {
+                padding: 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- UTILITY BAR -->
+    <div class="utility-bar">
+        Questions? <a href="tel:1-818-907-9600">Call 1-818-907-9600</a> | <a href="mailto:info@tgrm.org">Email us</a>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">TGRM</a>
+            <nav class="nav">
+                <a href="/certification">Certification Training</a>
+                <a href="/organizations">For Organizations</a>
+                <a href="/calendar" class="active">Dates & Pricing</a>
+                <a href="/about">About</a>
+            </nav>
+            <div class="header-ctas">
+                <a href="tel:1-818-907-9600" class="btn-phone">📞 1-818-907-9600</a>
+                <button class="btn-primary">Get Started</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Upcoming Certification Trainings</h1>
+            <p>Choose your training format and dates. Same world-class curriculum, lifetime certification, and immediate specialist directory listing.</p>
+
+            <div class="filter-section">
+                <button class="filter-btn active" onclick="filterTrainings('all')">All Trainings</button>
+                <button class="filter-btn" onclick="filterTrainings('online')">Online</button>
+                <button class="filter-btn" onclick="filterTrainings('inperson')">In-Person</button>
+            </div>
+
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Upcoming Dates</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Online Sessions</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2 Days</div>
+                    <div class="stat-label">Until Next Training</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRAINING CARDS -->
+    <section class="trainings-section">
+        <div class="trainings-grid">
+            <!-- Training 1: Online -->
+            <div class="training-card" data-format="online">
+                <div class="card-date">April 14–17, 2026</div>
+                <div class="card-badges">
+                    <span class="badge badge-format online">Online</span>
+                </div>
+                <div class="card-location"><strong>Live via Zoom</strong><br>4 days, 9am–5pm PT</div>
+                <div class="card-divider"></div>
+                <div class="card-price">$1,495</div>
+                <div class="card-price-label">Early Bird Pricing</div>
+                <div class="card-availability">
+                    <span class="availability-dot"></span>
+                    8 seats left
+                </div>
+                <div class="card-cta">
+                    <button class="btn-reserve" onclick="reserveSeat(this)">Reserve Your Seat →</button>
+                </div>
+            </div>
+
+            <!-- Training 2: In-Person -->
+            <div class="training-card" data-format="inperson">
+                <div class="card-date">May 5–8, 2026</div>
+                <div class="card-badges">
+                    <span class="badge badge-format inperson">In-Person</span>
+                </div>
+                <div class="card-location"><strong>Sherman Oaks, CA</strong><br>4 days, 9am–5pm PT</div>
+                <div class="card-divider"></div>
+                <div class="card-price">$1,695</div>
+                <div class="card-price-label">Standard Pricing</div>
+                <div class="card-availability">
+                    <span class="availability-dot"></span>
+                    5 seats left
+                </div>
+                <div class="card-cta">
+                    <button class="btn-reserve" onclick="reserveSeat(this)">Reserve Your Seat →</button>
+                </div>
+            </div>
+
+            <!-- Training 3: Online -->
+            <div class="training-card" data-format="online">
+                <div class="card-date">May 19–22, 2026</div>
+                <div class="card-badges">
+                    <span class="badge badge-format online">Online</span>
+                </div>
+                <div class="card-location"><strong>Live via Zoom</strong><br>4 days, 9am–5pm PT</div>
+                <div class="card-divider"></div>
+                <div class="card-price">$1,495</div>
+                <div class="card-price-label">Early Bird Pricing</div>
+                <div class="card-availability">
+                    <span class="availability-dot"></span>
+                    12 seats left
+                </div>
+                <div class="card-cta">
+                    <button class="btn-reserve" onclick="reserveSeat(this)">Reserve Your Seat →</button>
+                </div>
+            </div>
+
+            <!-- Training 4: Online -->
+            <div class="training-card" data-format="online">
+                <div class="card-date">June 9–12, 2026</div>
+                <div class="card-badges">
+                    <span class="badge badge-format online">Online</span>
+                </div>
+                <div class="card-location"><strong>Live via Zoom</strong><br>4 days, 9am–5pm PT</div>
+                <div class="card-divider"></div>
+                <div class="card-price">$1,495</div>
+                <div class="card-price-label">Early Bird Pricing</div>
+                <div class="card-availability">
+                    <span class="availability-dot"></span>
+                    10 seats left
+                </div>
+                <div class="card-cta">
+                    <button class="btn-reserve" onclick="reserveSeat(this)">Reserve Your Seat →</button>
+                </div>
+            </div>
+
+            <!-- Training 5: In-Person -->
+            <div class="training-card" data-format="inperson">
+                <div class="card-date">June 23–26, 2026</div>
+                <div class="card-badges">
+                    <span class="badge badge-format inperson">In-Person</span>
+                </div>
+                <div class="card-location"><strong>Dallas, TX</strong><br>4 days, 9am–5pm CT</div>
+                <div class="card-divider"></div>
+                <div class="card-price">$1,695</div>
+                <div class="card-price-label">Standard Pricing</div>
+                <div class="card-availability">
+                    <span class="availability-dot"></span>
+                    6 seats left
+                </div>
+                <div class="card-cta">
+                    <button class="btn-reserve" onclick="reserveSeat(this)">Reserve Your Seat →</button>
+                </div>
+            </div>
+
+            <!-- Training 6: Online -->
+            <div class="training-card" data-format="online">
+                <div class="card-date">July 14–17, 2026</div>
+                <div class="card-badges">
+                    <span class="badge badge-format online">Online</span>
+                </div>
+                <div class="card-location"><strong>Live via Zoom</strong><br>4 days, 9am–5pm PT</div>
+                <div class="card-divider"></div>
+                <div class="card-price">$1,495</div>
+                <div class="card-price-label">Early Bird Pricing</div>
+                <div class="card-availability">
+                    <span class="availability-dot"></span>
+                    14 seats left
+                </div>
+                <div class="card-cta">
+                    <button class="btn-reserve" onclick="reserveSeat(this)">Reserve Your Seat →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT'S INCLUDED -->
+    <section class="whats-included">
+        <div class="whats-included-content">
+            <h2 class="section-title">What's Included in Your Training</h2>
+            <div class="included-grid">
+                <div class="included-item">
+                    <div class="included-icon">📚</div>
+                    <div class="included-text">
+                        <h3>4-Day Intensive</h3>
+                        <p>Comprehensive training from 9am to 5pm daily with breaks. One-on-one support included.</p>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <div class="included-icon">🎓</div>
+                    <div class="included-text">
+                        <h3>Lifetime Certification</h3>
+                        <p>Become a Grief Recovery Specialist® with credentials recognized internationally.</p>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <div class="included-icon">📖</div>
+                    <div class="included-text">
+                        <h3>Complete Materials</h3>
+                        <p>Grief Recovery Handbook, specialist resources, and all training materials included.</p>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <div class="included-icon">🌍</div>
+                    <div class="included-text">
+                        <h3>Directory Listing</h3>
+                        <p>Instant listing in the international Grief Recovery Specialist directory.</p>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <div class="included-icon">✅</div>
+                    <div class="included-text">
+                        <h3>CEU Credits</h3>
+                        <p>Continuing education units available for most professional licenses.</p>
+                    </div>
+                </div>
+                <div class="included-item">
+                    <div class="included-icon">🚀</div>
+                    <div class="included-text">
+                        <h3>Advanced Programs</h3>
+                        <p>Access to specialized training programs and ongoing professional development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-items">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>Do I need a clinical license to become a Grief Recovery Specialist?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    No. Grief Recovery Specialists come from all walks of life. Whether you're a mental health professional, spiritual counselor, coach, or someone called to help others through grief, you can certify. Our curriculum is designed to be accessible and practical for anyone with a genuine desire to support others.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>What's the difference between online and in-person training?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    The curriculum is identical—you'll receive the same training, materials, and certification. The main difference is delivery: online trainings are conducted live via Zoom (you can participate from anywhere), while in-person trainings bring the cohort together in our designated location. Both formats include interactive exercises, group discussions, and one-on-one support.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>Are continuing education units (CEUs) available?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Yes. CEU credits are available for most professional licenses including counselors, social workers, nurses, and other healthcare professionals. The specific requirements and number of credits vary by state and license type. We'll provide documentation and guidance to help you report your credits to your licensing board.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>What if I need to reschedule my training?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    We understand life happens. We offer a flexible rescheduling policy—if you need to move your dates, just let us know at least 14 days before your training begins. You can reschedule to any upcoming training at no additional cost, subject to availability.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h3>Do you offer payment plans?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Yes. We offer flexible payment plans to make certification accessible. Payment plans are available for all trainings, and we work with you to find a schedule that fits your budget. Contact us at 1-818-907-9600 or email info@tgrm.org to discuss payment options.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOTTOM CTA -->
+    <section class="bottom-cta">
+        <div class="bottom-cta-content">
+            <h2>Not sure which training is right for you?</h2>
+            <p>We're here to help you find the perfect fit.</p>
+            <a href="tel:1-818-907-9600" class="bottom-cta-phone">📞 1-818-907-9600</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>Training</h4>
+                    <ul>
+                        <li><a href="/certification">Certification Program</a></li>
+                        <li><a href="/calendar">Training Dates</a></li>
+                        <li><a href="/pricing">Pricing</a></li>
+                        <li><a href="/online-vs-inperson">Online vs In-Person</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>For Organizations</h4>
+                    <ul>
+                        <li><a href="/organizations">Corporate Training</a></li>
+                        <li><a href="/organizations/group-rates">Group Rates</a></li>
+                        <li><a href="/organizations/onsite-training">On-Site Training</a></li>
+                        <li><a href="/organizations/contact">Request a Quote</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="/about">About TGRM</a></li>
+                        <li><a href="/our-method">Our Method</a></li>
+                        <li><a href="/specialists">Find a Specialist</a></li>
+                        <li><a href="/resources">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:1-818-907-9600">1-818-907-9600</a></li>
+                        <li><a href="mailto:info@tgrm.org">info@tgrm.org</a></li>
+                        <li><a href="/contact">Contact Form</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Grief Recovery Method. All rights reserved. | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function filterTrainings(format) {
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Filter cards
+            document.querySelectorAll('.training-card').forEach(card => {
+                if (format === 'all') {
+                    card.style.display = 'flex';
+                } else if (card.dataset.format === format) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function reserveSeat(button) {
+            const card = button.closest('.training-card');
+            const dateRange = card.querySelector('.card-date').textContent;
+            const format = card.dataset.format === 'online' ? 'Online' : 'In-Person';
+            const location = card.querySelector('.card-location').textContent;
+            const price = card.querySelector('.card-price').textContent;
+
+            // Redirect to checkout with training details
+            const message = `I'd like to reserve a seat for the ${dateRange} ${format} training. ${location.split('\\n')[0]}. Price: ${price}`;
+            alert(`Booking: ${dateRange}\n${format}\n${price}\n\nIn a real implementation, this would redirect to the checkout page with these details pre-filled.`);
+
+            // In production, this would be:
+            // window.location.href = `/checkout?training=${encodeURIComponent(dateRange)}&format=${format}&price=${price}`;
+        }
+
+        function toggleFaq(element) {
+            const faqItem = element.closest('.faq-item');
+            faqItem.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

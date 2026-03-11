@@ -162,6 +162,57 @@
   }
   .notice strong { color: var(--teal); }
 
+  /* Version Switcher */
+  .version-switcher {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 2rem;
+  }
+  .version-card {
+    display: block;
+    background: white;
+    border-radius: 12px;
+    padding: 20px 24px;
+    border: 2px solid var(--rule);
+    text-decoration: none;
+    color: inherit;
+    transition: all .25s ease;
+  }
+  .version-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,.08);
+  }
+  .version-card.active {
+    border-color: var(--orange);
+    background: linear-gradient(135deg, #fff 0%, var(--orange-light) 100%);
+  }
+  .version-card.alt {
+    border-color: var(--teal);
+  }
+  .version-card.alt:hover {
+    border-color: var(--teal);
+    background: var(--teal-light);
+  }
+  .version-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 50px;
+    font-size: .7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin-bottom: 8px;
+  }
+  .version-badge.current { background: var(--orange); color: white; }
+  .version-badge.mikes { background: var(--teal); color: white; }
+  .version-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
+  .version-card p { font-size: .82rem; color: var(--gray); line-height: 1.5; }
+  .version-card .arrow-link { font-size: .82rem; color: var(--teal); font-weight: 600; margin-top: 8px; display: inline-block; }
+  @media (max-width: 700px) {
+    .version-switcher { grid-template-columns: 1fr; }
+  }
+
   /* Footer */
   .footer {
     text-align: center;
@@ -192,6 +243,21 @@
 </div>
 
 <div class="container">
+
+  <!-- VERSION SWITCHER -->
+  <div class="version-switcher">
+    <div class="version-card active">
+      <span class="version-badge current">Viewing Now</span>
+      <h3>Original Version — 17 Pages</h3>
+      <p>Full site with equal weight on grievers and professionals. Blog, podcast, quiz, community, and all certification sub-pages.</p>
+    </div>
+    <a href="mikes-version/" class="version-card alt">
+      <span class="version-badge mikes">Mike's Version</span>
+      <h3>Simplified — 6 Pages</h3>
+      <p>Certification-first. 17→6 pages. Sales-focused with B2B emphasis. Griever path secondary.</p>
+      <span class="arrow-link">View Mike's Version →</span>
+    </a>
+  </div>
 
   <div class="notice">
     <strong>Note:</strong> Each link below opens a full-width, interactive HTML mockup of the page design. These are reference prototypes — click through to see layout, navigation, colors, and content structure.

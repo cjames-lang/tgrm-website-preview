@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grief Recovery Method® Certification Training | TGRM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --orange: #e07525;
+            --orange-dark: #c4621a;
+            --teal: #427e88;
+            --teal-dark: #356a73;
+            --teal-pale: #e8f2f4;
+            --warm-bg: #faf8f5;
+            --text-primary: #2d3748;
+            --text-secondary: #5a6577;
+            --text-light: #8896a8;
+            --br-sm: 6px;
+            --br-md: 10px;
+            --br-lg: 16px;
+            --br-xl: 24px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+            --shadow-md: 0 4px 14px rgba(0,0,0,.1);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,.12);
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+            color: var(--text-primary);
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* ===== UTILITY BAR ===== */
+        .utility-bar {
+            background-color: var(--teal-dark);
+            color: white;
+            padding: 12px 24px;
+            font-size: 13px;
+        }
+
+        .utility-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .utility-left, .utility-right {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .utility-left a, .utility-right a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: opacity 0.3s;
+        }
+
+        .utility-left a:hover, .utility-right a:hover {
+            opacity: 0.8;
+        }
+
+        /* ===== STICKY HEADER ===== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: white;
+            border-bottom: 1px solid #e8e8e8;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 16px;
+            white-space: nowrap;
+        }
+
+        .logo-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--teal), var(--orange));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 900;
+            font-size: 18px;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            flex: 1;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--orange);
+        }
+
+        .header-ctas {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--teal);
+            color: var(--teal);
+            background: transparent;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--teal-pale);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--warm-bg) 0%, var(--teal-pale) 100%);
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .hero .btn {
+            margin: 0 auto;
+            display: inline-flex;
+        }
+
+        /* ===== PROOF BAR ===== */
+        .proof-bar {
+            background-color: white;
+            border-top: 1px solid #e8e8e8;
+            border-bottom: 1px solid #e8e8e8;
+            padding: 32px 24px;
+        }
+
+        .proof-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            text-align: center;
+        }
+
+        .proof-item h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--orange);
+            margin-bottom: 8px;
+        }
+
+        .proof-item p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ===== SECTION: WHAT YOU'LL LEARN ===== */
+        .section {
+            padding: 80px 24px;
+        }
+
+        .section-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            margin-bottom: 48px;
+            text-align: center;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .card {
+            background: white;
+            border-radius: var(--br-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #f0f0f0;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+
+        .card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        /* ===== SECTION: WHO THIS IS FOR ===== */
+        .who-section {
+            background-color: var(--warm-bg);
+        }
+
+        .who-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+
+        .who-item {
+            display: flex;
+            gap: 16px;
+        }
+
+        .who-icon {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            border-radius: var(--br-md);
+            background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .who-content h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .who-content p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ===== SECTION: TRAINING FORMAT ===== */
+        .format-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        .format-card {
+            background: linear-gradient(135deg, #ffffff 0%, var(--teal-pale) 100%);
+            border-radius: var(--br-lg);
+            padding: 40px;
+            border: 2px solid var(--teal);
+            text-align: center;
+        }
+
+        .format-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .format-feature {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .format-feature::before {
+            content: '✓';
+            color: var(--orange);
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .format-divider {
+            border-top: 1px solid #d0d0d0;
+            margin: 24px 0;
+        }
+
+        .format-shared {
+            font-size: 12px;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* ===== SECTION: TESTIMONIAL ===== */
+        .testimonial-section {
+            background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+            color: white;
+        }
+
+        .testimonial-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-quote {
+            font-size: 22px;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-size: 14px;
+            font-weight: 600;
+            opacity: 0.95;
+        }
+
+        /* ===== SECTION: FINAL CTA ===== */
+        .cta-final {
+            background: linear-gradient(135deg, var(--warm-bg) 0%, var(--teal-pale) 100%);
+            text-align: center;
+        }
+
+        .cta-final h2 {
+            font-size: 36px;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .cta-final p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--teal-dark);
+            color: white;
+            padding: 60px 24px 32px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-col a, .footer-col p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            margin-bottom: 12px;
+            display: block;
+            transition: opacity 0.3s;
+        }
+
+        .footer-col a:hover {
+            opacity: 1;
+            color: var(--orange);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 24px;
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            nav {
+                gap: 16px;
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .utility-content {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .utility-left, .utility-right {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section h2 {
+                font-size: 28px;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .who-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .format-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-final h2 {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-ctas {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 60px 16px;
+            }
+
+            .section {
+                padding: 60px 16px;
+            }
+
+            .proof-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar">
+    <div class="utility-content">
+        <div class="utility-left">
+            <a href="tel:+1234567890">📞 (555) 123-4567</a>
+            <a href="#next-training">Next Training: April 14–17</a>
+        </div>
+        <div class="utility-right">
+            <a href="#student-login">Student Login</a>
+            <a href="#find-specialist">Find a Specialist</a>
+        </div>
+    </div>
+</div>
+
+<!-- STICKY HEADER -->
+<header>
+    <div class="header-content">
+        <a href="#home" class="logo">
+            <div class="logo-circle">GR</div>
+            The Grief Recovery Method®
+        </a>
+        <nav>
+            <a href="#certification">Certification Training</a>
+            <a href="#organizations">For Organizations</a>
+            <a href="#pricing">Dates & Pricing</a>
+            <a href="#about">About</a>
+        </nav>
+        <div class="header-ctas">
+            <a href="#find-specialist" class="btn btn-secondary">Find a Specialist</a>
+            <a href="#get-certified" class="btn btn-primary">Get Certified →</a>
+        </div>
+    </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>The Certification That Changes Everything</h1>
+        <p>Four days. Evidence-based tools your graduate degree didn't provide. Complete unfinished grief. Serve your clients, patients, and community with proven, action-based methods grounded in 40+ years of research.</p>
+        <a href="#next-training" class="btn btn-primary">View Upcoming Trainings →</a>
+    </div>
+</section>
+
+<!-- PROOF BAR -->
+<div class="proof-bar">
+    <div class="proof-content">
+        <div class="proof-item">
+            <h3>10,000+</h3>
+            <p>Certified Specialists</p>
+        </div>
+        <div class="proof-item">
+            <h3>40+ Years</h3>
+            <p>Research-Backed Method</p>
+        </div>
+        <div class="proof-item">
+            <h3>Kent State</h3>
+            <p>Validated & Approved</p>
+        </div>
+        <div class="proof-item">
+            <h3>CEUs</h3>
+            <p>Available for All States</p>
+        </div>
+    </div>
+</div>
+
+<!-- WHAT YOU'LL LEARN -->
+<section class="section">
+    <div class="section-content">
+        <h2>What You'll Learn</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>The Method</h3>
+                <p>Action-based, not talk-based. Master the proven process that helps people complete unfinished grief instead of managing it for life.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">👥</div>
+                <h3>Group Facilitation</h3>
+                <p>Lead 7-week programs for your clients, patients, community members, or corporate teams with step-by-step curriculum and proven outcomes.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">💔</div>
+                <h3>40+ Loss Types</h3>
+                <p>Go beyond death. Learn to serve clients through divorce, health crises, career changes, faith loss, pet loss, and every loss that matters.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📈</div>
+                <h3>Business Building</h3>
+                <p>Market your certification, run profitable groups, set pricing, and scale your practice with real business strategies from certified leaders.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHO THIS IS FOR -->
+<section class="section who-section">
+    <div class="section-content">
+        <h2>Who This Is For</h2>
+        <div class="who-grid">
+            <div class="who-item">
+                <div class="who-icon">🩺</div>
+                <div class="who-content">
+                    <h4>Therapists & Counselors</h4>
+                    <p>Fill the gap your degree left. Add grief recovery to your practice and serve the clients who need you most.</p>
+                </div>
+            </div>
+            <div class="who-item">
+                <div class="who-icon">🎯</div>
+                <div class="who-content">
+                    <h4>Coaches & Life Coaches</h4>
+                    <p>The missing piece for your practice. Give your clients the tools to move through loss and into their best lives.</p>
+                </div>
+            </div>
+            <div class="who-item">
+                <div class="who-icon">🇺🇸</div>
+                <div class="who-content">
+                    <h4>Military & First Responders</h4>
+                    <p>GI Bill approved. Veteran-created method. Serve your peers with tools designed for tactical minds and warrior hearts.</p>
+                </div>
+            </div>
+            <div class="who-item">
+                <div class="who-icon">⛪</div>
+                <div class="who-content">
+                    <h4>Chaplains & Hospice Workers</h4>
+                    <p>Serve with presence and tools. Give spiritual care alongside evidence-based methods for moving through loss.</p>
+                </div>
+            </div>
+            <div class="who-item">
+                <div class="who-icon">📚</div>
+                <div class="who-content">
+                    <h4>Educators & Administrators</h4>
+                    <p>Bring grief-aware practice to your school. Support students and staff through loss with proven, scalable curriculum.</p>
+                </div>
+            </div>
+            <div class="who-item">
+                <div class="who-icon">🤝</div>
+                <div class="who-content">
+                    <h4>Anyone Called to Help</h4>
+                    <p>If you're called to help others through loss, this training will change how you show up and the results you create.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TRAINING FORMAT -->
+<section class="section">
+    <div class="section-content">
+        <h2>How It Works</h2>
+        <div class="format-grid">
+            <div class="format-card">
+                <h3>Online Live</h3>
+                <div class="format-feature">4 consecutive days</div>
+                <div class="format-feature">Via Zoom from anywhere</div>
+                <div class="format-feature">Interactive & engaging</div>
+                <div class="format-divider"></div>
+                <div class="format-shared">Same certification. Same curriculum. Same outcomes.</div>
+            </div>
+            <div class="format-card">
+                <h3>In-Person</h3>
+                <div class="format-feature">4 days at select locations</div>
+                <div class="format-feature">Immersive, in-room experience</div>
+                <div class="format-feature">Network with cohort</div>
+                <div class="format-divider"></div>
+                <div class="format-shared">Same certification. Same curriculum. Same outcomes.</div>
+            </div>
+        </div>
+        <div style="text-align: center; font-size: 14px; color: var(--text-secondary); line-height: 1.8;">
+            <p><strong>Both formats include:</strong></p>
+            <p>Lifetime access to training materials • CEU credits for your state • Expert instructor guidance • Certification upon completion • Ongoing community support</p>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="section testimonial-section">
+    <div class="section-content">
+        <div class="testimonial-content">
+            <p class="testimonial-quote">"This training gave me tools I've searched for in 20 years of therapy. My clients aren't managing grief anymore—they're completing it. Everything changed."</p>
+            <p class="testimonial-author">— Dr. Sarah Chen, Licensed Therapist & Certified Grief Recovery Specialist</p>
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section cta-final">
+    <div class="section-content">
+        <h2>Your Next Training Is Waiting</h2>
+        <p>Join 10,000+ certified specialists who've learned to serve grief with presence and evidence-based methods.</p>
+        <a href="#training-calendar" class="btn btn-primary">View Training Calendar & Reserve Your Seat</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>Training</h4>
+            <a href="#certification">Certification Program</a>
+            <a href="#dates">Dates & Locations</a>
+            <a href="#pricing">Pricing & Payment</a>
+            <a href="#workshops">Workshops & Events</a>
+        </div>
+        <div class="footer-col">
+            <h4>For Organizations</h4>
+            <a href="#corporate">Corporate Training</a>
+            <a href="#schools">Schools & Districts</a>
+            <a href="#healthcare">Healthcare Systems</a>
+            <a href="#nonprofits">Nonprofits & Community</a>
+        </div>
+        <div class="footer-col">
+            <h4>Resources</h4>
+            <a href="#find-specialist">Find a Specialist</a>
+            <a href="#blog">Blog & Articles</a>
+            <a href="#research">Research & Evidence</a>
+            <a href="#faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+            <h4>About</h4>
+            <a href="#about">About TGRM</a>
+            <a href="#story">Our Story</a>
+            <a href="#contact">Contact</a>
+            <a href="#careers">Careers</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 The Grief Recovery Method®. All rights reserved. | <a href="#privacy" style="color: inherit; text-decoration: underline;">Privacy</a> | <a href="#terms" style="color: inherit; text-decoration: underline;">Terms</a></p>
+    </div>
+</footer>
+
+</body>
+</html>

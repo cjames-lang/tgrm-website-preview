@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Grief Recovery Specialist | TGRM</title>
+    <style>
+        :root {
+            --orange: #e07525;
+            --orange-dark: #c4621a;
+            --teal: #427e88;
+            --teal-dark: #356a73;
+            --teal-pale: #e8f2f4;
+            --warm-bg: #faf8f5;
+            --text-primary: #2d3748;
+            --text-secondary: #5a6577;
+            --text-light: #8896a8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            background-color: white;
+        }
+
+        /* Utility Bar */
+        .utility-bar {
+            background-color: var(--warm-bg);
+            padding: 12px 24px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-align: center;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            background: white;
+            border-bottom: 1px solid #e8e8e8;
+            z-index: 100;
+            padding: 16px 24px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--orange);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--orange);
+        }
+
+        .header-ctas {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--teal);
+            border: 2px solid var(--teal);
+            padding: 8px 22px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: var(--teal-pale);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--teal-pale) 0%, white 100%);
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        /* Search Bar */
+        .search-box {
+            background: white;
+            border-radius: 50px;
+            padding: 12px 20px;
+            display: flex;
+            gap: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-input {
+            flex: 1;
+            min-width: 220px;
+            border: none;
+            padding: 10px 12px;
+            font-size: 16px;
+            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: var(--text-light);
+        }
+
+        .search-btn {
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+            color: white;
+            border: none;
+            padding: 10px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .search-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-top: 16px;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        /* Results Section */
+        .results-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 24px;
+        }
+
+        .results-header {
+            margin-bottom: 40px;
+        }
+
+        .results-header h2 {
+            font-size: 32px;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .results-header p {
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        .specialist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-bottom: 60px;
+        }
+
+        .specialist-card {
+            background: var(--warm-bg);
+            border-radius: 12px;
+            padding: 28px;
+            border: 1px solid #e8e8e8;
+            transition: all 0.3s ease;
+        }
+
+        .specialist-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+        }
+
+        .specialist-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .specialist-credentials {
+            font-size: 13px;
+            color: var(--orange);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .specialist-location {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .online-tag {
+            display: inline-block;
+            background: var(--teal-pale);
+            color: var(--teal-dark);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .specialist-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .contact-btn {
+            background: white;
+            color: var(--teal);
+            border: 2px solid var(--teal);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .contact-btn:hover {
+            background: var(--teal-pale);
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            background: var(--warm-bg);
+            padding: 60px 24px;
+            margin: 60px 0;
+        }
+
+        .how-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .how-title {
+            text-align: center;
+            font-size: 32px;
+            color: var(--text-primary);
+            margin-bottom: 48px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+            color: white;
+            border-radius: 50%;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .step-description {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 24px;
+            text-align: center;
+        }
+
+        .cta-text {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .cta-link {
+            color: var(--orange);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .cta-link:hover {
+            color: var(--orange-dark);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 60px 24px 40px;
+            margin-top: 80px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h4 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column a {
+            color: #b8c1cd;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--orange);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #3d4a5c;
+            padding-top: 24px;
+            text-align: center;
+            font-size: 13px;
+            color: #8896a8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .search-input {
+                width: 100%;
+            }
+
+            .search-btn {
+                width: 100%;
+            }
+
+            .specialist-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .header-ctas {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .results-header h2 {
+                font-size: 24px;
+            }
+
+            .how-title {
+                font-size: 24px;
+            }
+
+            header {
+                padding: 12px 16px;
+            }
+
+            .hero {
+                padding: 40px 16px;
+            }
+
+            .results-section {
+                margin: 40px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Utility Bar -->
+    <div class="utility-bar">
+        Questions? Call us at 1-800-GRIEVE-1 or email support@tgrm.com
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">TGRM</a>
+            <nav>
+                <a href="/certification">Certification Training</a>
+                <a href="/organizations">For Organizations</a>
+                <a href="/pricing">Dates & Pricing</a>
+                <a href="/about">About</a>
+            </nav>
+            <div class="header-ctas">
+                <a href="/certification" class="btn-primary">Start Training</a>
+                <a href="/find-specialist" class="btn-secondary">Find a Specialist</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Find a Grief Recovery Specialist</h1>
+            <p>You don't have to do this alone. Our certified specialists use proven, action-based tools to help you move beyond loss.</p>
+
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Enter location or ZIP code">
+                <button class="search-btn">Search</button>
+            </div>
+
+            <div class="hero-stats">
+                <span>3,000+ certified specialists</span>
+                <span>In-person & online</span>
+                <span>All 50 states + 80 countries</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section">
+        <div class="results-header">
+            <h2>Grief Recovery Specialists</h2>
+            <p>Meet our compassionate, trained professionals ready to support your journey.</p>
+        </div>
+
+        <div class="specialist-grid">
+            <!-- Card 1 -->
+            <div class="specialist-card">
+                <div class="specialist-name">Sarah Mitchell</div>
+                <div class="specialist-credentials">LCSW</div>
+                <div class="specialist-location">📍 Portland, OR</div>
+                <div class="online-tag">Also available online</div>
+                <p class="specialist-description">Specializes in grief following sudden loss. Gentle, client-centered approach with 12+ years experience.</p>
+                <button class="contact-btn">Contact</button>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="specialist-card">
+                <div class="specialist-name">James Rivera</div>
+                <div class="specialist-credentials">LPC</div>
+                <div class="specialist-location">📍 Dallas, TX</div>
+                <div class="online-tag">Also available online</div>
+                <p class="specialist-description">Compassionate guide through loss and life transitions. Bilingual (English/Spanish).</p>
+                <button class="contact-btn">Contact</button>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="specialist-card">
+                <div class="specialist-name">Dr. Emily Chen</div>
+                <div class="specialist-credentials">PhD, Grief Counselor</div>
+                <div class="specialist-location">📍 San Francisco, CA</div>
+                <div class="online-tag">Online only</div>
+                <p class="specialist-description">Trauma-informed care for complex grief. Works with grievers worldwide across all time zones.</p>
+                <button class="contact-btn">Contact</button>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="specialist-card">
+                <div class="specialist-name">Marcus Thompson</div>
+                <div class="specialist-credentials">LMFT</div>
+                <div class="specialist-location">📍 Atlanta, GA</div>
+                <div class="online-tag">Also available online</div>
+                <p class="specialist-description">Specializes in supporting families through collective grieving. Warm, grounded approach.</p>
+                <button class="contact-btn">Contact</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="how-container">
+            <h2 class="how-title">How It Works</h2>
+
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Search by Location</h3>
+                    <p class="step-description">Enter your location or choose "online" to find specialists in your area or available worldwide.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Review Profiles</h3>
+                    <p class="step-description">Read about each specialist's experience, approach, and availability. Choose someone you feel comfortable with.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Begin Your Journey</h3>
+                    <p class="step-description">Contact your chosen specialist and take the first step toward grief recovery and healing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <p class="cta-text">Interested in becoming a grief recovery specialist? <a href="/certification" class="cta-link">Learn about our certification training</a> and join our community of compassionate professionals.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>Find Help</h4>
+                    <ul>
+                        <li><a href="/directory">Find a Specialist</a></li>
+                        <li><a href="/support-groups">Support Groups</a></li>
+                        <li><a href="/resources">Grief Resources</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Training</h4>
+                    <ul>
+                        <li><a href="/certification">Certification Program</a></li>
+                        <li><a href="/curriculum">Our Curriculum</a></li>
+                        <li><a href="/dates">Schedule & Dates</a></li>
+                        <li><a href="/pricing">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/about">About TGRM</a></li>
+                        <li><a href="/mission">Our Mission</a></li>
+                        <li><a href="/team">Our Team</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 The Grief Recovery Method. All rights reserved. Compassion in action.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

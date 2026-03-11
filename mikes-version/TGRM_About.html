@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About The Grief Recovery Method | Mike's Version</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --orange: #e07525;
+            --orange-dark: #c4621a;
+            --teal: #427e88;
+            --teal-dark: #356a73;
+            --teal-pale: #e8f2f4;
+            --warm-bg: #faf8f5;
+            --text-primary: #2d3748;
+            --text-secondary: #5a6577;
+            --text-light: #8896a8;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+            color: var(--text-primary);
+            background-color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Utility Bar */
+        .utility-bar {
+            background-color: var(--warm-bg);
+            padding: 12px 24px;
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-align: right;
+            border-bottom: 1px solid #f0ebe4;
+        }
+
+        /* Header */
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #f0ebe4;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--orange);
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav a {
+            font-size: 14px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--orange);
+        }
+
+        nav a.active {
+            color: var(--orange);
+            font-weight: 600;
+        }
+
+        .header-cta {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+            color: #ffffff;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(224, 117, 37, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--teal);
+            border: 2px solid var(--teal);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--teal-pale);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--warm-bg) 0%, #fdfbf7 100%);
+            padding: 80px 24px;
+            text-align: center;
+            border-bottom: 2px solid #f0ebe4;
+        }
+
+        .hero .container {
+            max-width: 800px;
+        }
+
+        .hero-since {
+            display: inline-block;
+            color: var(--orange);
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Main Sections */
+        section {
+            padding: 64px 24px;
+            border-bottom: 1px solid #f0ebe4;
+        }
+
+        section.alt-bg {
+            background-color: var(--warm-bg);
+        }
+
+        section h2 {
+            font-size: 36px;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            align-items: start;
+        }
+
+        .section-item {
+            text-align: center;
+        }
+
+        .section-item h3 {
+            font-size: 20px;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .section-item p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Method Section */
+        .method-list {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .method-list li {
+            list-style: none;
+            padding-left: 32px;
+            margin-bottom: 20px;
+            position: relative;
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .method-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--orange);
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        /* Book Section */
+        .book-content {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 40px;
+            align-items: start;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .book-cover {
+            background: linear-gradient(135deg, #d4a574 0%, #c49364 100%);
+            width: 280px;
+            height: 420px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 13px;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .book-info h3 {
+            font-size: 24px;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .book-info p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .book-stats {
+            background-color: var(--teal-pale);
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+
+        .book-stats p {
+            font-size: 14px;
+            color: var(--teal-dark);
+            margin: 8px 0;
+        }
+
+        /* Timeline */
+        .timeline {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .timeline-item {
+            padding-left: 40px;
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background-color: var(--orange);
+            border-radius: 50%;
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 0 2px var(--orange);
+        }
+
+        .timeline-item:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            left: 15px;
+            top: 20px;
+            width: 2px;
+            height: calc(100% + 12px);
+            background-color: #f0ebe4;
+        }
+
+        .timeline-year {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--orange);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .timeline-content {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Mission Statement */
+        .mission-statement {
+            background-color: var(--teal-pale);
+            padding: 32px;
+            border-radius: 8px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .mission-statement p {
+            font-size: 16px;
+            color: var(--teal-dark);
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        /* Evidence Section */
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 40px;
+        }
+
+        .evidence-card {
+            background-color: #ffffff;
+            border: 2px solid var(--teal-pale);
+            padding: 32px;
+            border-radius: 8px;
+        }
+
+        .evidence-card h3 {
+            font-size: 18px;
+            color: var(--teal);
+            margin-bottom: 12px;
+        }
+
+        .evidence-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            padding: 64px 24px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            color: #ffffff;
+            margin-bottom: 24px;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-section .btn-primary {
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+            font-size: 16px;
+            padding: 14px 36px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-primary);
+            color: #ffffff;
+            padding: 64px 24px 32px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto 48px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            color: var(--orange);
+        }
+
+        .footer-col a,
+        .footer-col p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-col a:hover {
+            color: var(--orange);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            section h2 {
+                font-size: 28px;
+            }
+
+            .book-content {
+                grid-template-columns: 1fr;
+            }
+
+            .book-cover {
+                width: 100%;
+                height: 300px;
+            }
+
+            .cta-section h2 {
+                font-size: 28px;
+            }
+
+            .section-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Utility Bar -->
+    <div class="utility-bar">
+        Questions? Call us at 1-800-XXX-XXXX
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">TGRM</a>
+            <nav>
+                <a href="#certification">Certification Training</a>
+                <a href="#organizations">For Organizations</a>
+                <a href="#pricing">Dates & Pricing</a>
+                <a href="TGRM_About.html" class="active">About</a>
+            </nav>
+            <div class="header-cta">
+                <a href="#certification" class="btn-secondary">Explore Training</a>
+                <a href="#contact" class="btn-primary">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-since">Since 1984</div>
+            <h1>The Only Evidence-Based Grief Recovery Program in the World</h1>
+            <p>Founded on a simple truth: grief is the normal and natural reaction to loss, and it deserves real tools — not just time.</p>
+        </div>
+    </section>
+
+    <!-- The Method Section -->
+    <section>
+        <div class="container">
+            <h2>The Method</h2>
+            <ul class="method-list">
+                <li><strong>Action-based, not talk-based</strong> — Focuses on doing, not dwelling, to move grief from the head to resolution</li>
+                <li><strong>Completes unfinished emotional communication</strong> — Addresses the things we wish we'd said or done</li>
+                <li><strong>Works for 40+ types of loss</strong> — Death, divorce, career changes, relationships, identity shifts, and more</li>
+                <li><strong>7-week structured program</strong> — Guided, time-limited, and designed for measurable progress</li>
+                <li><strong>Validated by peer-reviewed research</strong> — Kent State University confirmed statistically significant outcomes</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- The Book Section -->
+    <section class="alt-bg">
+        <div class="container">
+            <h2>The Grief Recovery Handbook</h2>
+            <div class="book-content">
+                <div class="book-cover">
+                    <span>The Grief Recovery<br>Handbook<br><br>1M+ Copies Sold<br>20th Anniversary Edition</span>
+                </div>
+                <div class="book-info">
+                    <h3>The Definitive Guide</h3>
+                    <p>Written by John W. James and Russell Friedman, <em>The Grief Recovery Handbook</em> has helped over 1 million people find clarity and healing. Now in its 20th anniversary edition, available in 14 languages, and referenced by the New York Times.</p>
+                    <p>This internationally recognized resource provides the same evidence-based approach taught in our certification program, making professional-grade grief recovery tools accessible to everyone.</p>
+                    <div class="book-stats">
+                        <p><strong>1,000,000+</strong> copies sold worldwide</p>
+                        <p><strong>20</strong> years of continuous publication</p>
+                        <p><strong>14</strong> languages</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section>
+        <div class="container">
+            <h2>Our Story</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">1984</div>
+                    <div class="timeline-content">John W. James founded the Grief Recovery Institute after experiencing profound loss. He created a method that transformed his own grief—and has since helped millions worldwide.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">1998</div>
+                    <div class="timeline-content"><em>The Grief Recovery Handbook</em> is published, bringing evidence-based grief recovery tools into homes and offices across the world.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2014</div>
+                    <div class="timeline-content">Kent State University validates the method through peer-reviewed research, confirming statistically significant improvements in grief outcomes.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-content">Over 10,000 certified specialists worldwide are trained and equipped to bring evidence-based grief recovery to their clients and communities.</div>
+                </div>
+            </div>
+            <div class="mission-statement">
+                <p>"We believe no one should have to grieve alone, and no professional should have to face a griever without proper tools."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Evidence Section -->
+    <section class="alt-bg">
+        <div class="container">
+            <h2>The Evidence</h2>
+            <div class="evidence-grid">
+                <div class="evidence-card">
+                    <h3>Statistically Significant Results</h3>
+                    <p>Peer-reviewed research demonstrates that participants in the Grief Recovery Method show measurable, sustained improvement in grief outcomes compared to control groups.</p>
+                </div>
+                <div class="evidence-card">
+                    <h3>Universal, Not One-Size-Fits-All</h3>
+                    <p>The method works across cultures, ages, and loss types—from death and divorce to career loss and life transitions. It's adaptable, yet structured.</p>
+                </div>
+                <div class="evidence-card">
+                    <h3>Uniquely Validated</h3>
+                    <p>The Grief Recovery Method is the only grief program with university-validated, peer-reviewed research. This isn't philosophy or hope—it's science.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Bring Evidence-Based Tools to Your Practice?</h2>
+            <p>Become a certified specialist and transform how you support people through grief. Our training is intensive, evidence-backed, and designed for professionals who want to make a real difference.</p>
+            <a href="#certification" class="btn-primary">Explore Certification Training</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Training</h3>
+                <p><a href="#certification">Certification Program</a></p>
+                <p><a href="#dates">Dates & Pricing</a></p>
+                <p><a href="#schedule">Course Schedule</a></p>
+            </div>
+            <div class="footer-col">
+                <h3>Resources</h3>
+                <p><a href="#about">About The Method</a></p>
+                <p><a href="#handbook">The Handbook</a></p>
+                <p><a href="#research">Research & Evidence</a></p>
+            </div>
+            <div class="footer-col">
+                <h3>Organizations</h3>
+                <p><a href="#organizations">For Organizations</a></p>
+                <p><a href="#workshops">Workshops</a></p>
+                <p><a href="#consulting">Consulting</a></p>
+            </div>
+            <div class="footer-col">
+                <h3>Connect</h3>
+                <p><a href="mailto:info@tgrm.org">info@tgrm.org</a></p>
+                <p><a href="tel:1-800-XXXXX">1-800-XXXXX</a></p>
+                <p><a href="#contact">Contact Us</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 The Grief Recovery Institute. All rights reserved. | <a href="#privacy" style="color: rgba(255,255,255,0.5);">Privacy Policy</a> | <a href="#terms" style="color: rgba(255,255,255,0.5);">Terms of Service</a></p>
+        </div>
+    </footer>
+</body>
+</html>
