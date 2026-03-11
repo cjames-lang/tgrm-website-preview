@@ -3,89 +3,154 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TGRM Website — Mike's Version</title>
+<title>TGRM Website — Mike's Version V2</title>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Segoe UI', Arial, Helvetica, sans-serif; background: #faf8f5; color: #2d3748; min-height: 100vh; }
 
-.header { background: linear-gradient(135deg, #356a73 0%, #427e88 100%); color: #fff; padding: 48px 24px 40px; text-align: center; }
-.header h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
-.header .badge { display: inline-block; background: rgba(224,117,37,.9); padding: 4px 14px; border-radius: 50px; font-size: .78rem; font-weight: 600; margin-bottom: 16px; }
-.header p { font-size: 1rem; opacity: .9; max-width: 600px; margin: 0 auto 20px; line-height: 1.6; }
-.header .meta { font-size: .82rem; opacity: .6; }
-.back-link { display: inline-block; margin-top: 16px; color: rgba(255,255,255,.8); font-size: .85rem; text-decoration: underline; }
+.header { background: linear-gradient(135deg, #356a73 0%, #427e88 60%, #4a8f9a 100%); color: #fff; padding: 48px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+.header::before { content: ''; position: absolute; top: -50%; right: -20%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(224,117,37,.15) 0%, transparent 70%); border-radius: 50%; }
+.header h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; position: relative; }
+.header .badge { display: inline-block; background: rgba(224,117,37,.9); padding: 4px 14px; border-radius: 50px; font-size: .78rem; font-weight: 600; margin-bottom: 16px; position: relative; }
+.header p { font-size: 1rem; opacity: .9; max-width: 640px; margin: 0 auto 20px; line-height: 1.6; position: relative; }
+.header .meta { font-size: .82rem; opacity: .6; position: relative; }
+.back-link { display: inline-block; margin-top: 16px; color: rgba(255,255,255,.8); font-size: .85rem; text-decoration: underline; position: relative; }
 .back-link:hover { color: #fff; }
 
 .container { max-width: 960px; margin: 0 auto; padding: 40px 24px; }
 
-.section-label { font-size: .72rem; text-transform: uppercase; letter-spacing: 1.5px; color: #e07525; font-weight: 700; margin-bottom: 16px; }
-
-.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px; }
-.card { background: #fff; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.06); border: 2px solid transparent; transition: all .25s ease; text-decoration: none; color: inherit; display: block; }
-.card:hover { transform: translateY(-3px); border-color: #e07525; box-shadow: 0 8px 24px rgba(0,0,0,.1); }
-.card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; color: #2d3748; }
-.card p { font-size: .85rem; color: #5a6577; line-height: 1.5; margin-bottom: 12px; }
-.card .arrow { font-size: .85rem; color: #e07525; font-weight: 600; }
-
+/* What Changed card */
 .compare-note { background: #fff; border-radius: 12px; padding: 24px 28px; box-shadow: 0 2px 8px rgba(0,0,0,.06); margin-bottom: 40px; border-left: 4px solid #427e88; }
 .compare-note h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: #356a73; }
 .compare-note p { font-size: .9rem; color: #5a6577; line-height: 1.6; }
 .compare-note strong { color: #e07525; }
 
-.footer { text-align: center; padding: 24px; font-size: .78rem; color: #8896a8; border-top: 1px solid rgba(0,0,0,.06); }
+/* Section labels */
+.section-label { font-size: .72rem; text-transform: uppercase; letter-spacing: 1.5px; color: #e07525; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+.section-label::after { content: ''; flex: 1; height: 1px; background: #e0dcd8; }
+
+/* Page cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-bottom: 40px; }
+.card { background: #fff; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,.06); border: 2px solid transparent; transition: all .25s ease; text-decoration: none; color: inherit; display: block; position: relative; }
+.card:hover { transform: translateY(-3px); border-color: #e07525; box-shadow: 0 8px 24px rgba(0,0,0,.1); }
+.card .card-num { position: absolute; top: 16px; right: 16px; width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: .75rem; font-weight: 700; color: white; }
+.card .card-num.orange { background: #e07525; }
+.card .card-num.teal { background: #427e88; }
+.card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; color: #2d3748; padding-right: 40px; }
+.card p { font-size: .85rem; color: #5a6577; line-height: 1.5; margin-bottom: 12px; }
+.card .arrow { font-size: .85rem; color: #e07525; font-weight: 600; }
+
+/* Stats bar */
+.stats-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 40px; }
+.stat { background: #fff; border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+.stat .num { font-size: 1.8rem; font-weight: 800; color: #e07525; }
+.stat .label { font-size: .8rem; color: #5a6577; margin-top: 4px; }
+
+.footer { text-align: center; padding: 24px; font-size: .78rem; color: #8896a8; border-top: 1px solid rgba(0,0,0,.06); margin-top: 20px; }
+
+@media (max-width: 700px) {
+  .cards { grid-template-columns: 1fr; }
+  .stats-bar { grid-template-columns: 1fr; }
+  .header h1 { font-size: 1.5rem; }
+}
 </style>
 </head>
 <body>
 
 <div class="header">
-  <div class="badge">Mike's Version — 6 Pages</div>
-  <h1>TGRM Website — Simplified</h1>
-  <p>Streamlined from 17 pages to 6. Certification-first design with clear sales focus. Griever path available but secondary.</p>
+  <div class="badge">Mike's Version V2 — 10 Pages</div>
+  <h1>TGRM Website — Revised</h1>
+  <p>The happy medium: certification-first sales focus <strong>plus</strong> all the SEO-critical pages that protect 15+ years of search equity. Full design polish on every page.</p>
   <div class="meta">Prepared by Cole James — TGRM · March 2026</div>
   <a href="../" class="back-link">← Back to Original Version (17 pages)</a>
 </div>
 
 <div class="container">
 
-  <div class="compare-note">
-    <h3>What Changed</h3>
-    <p>Original site: 17 pages with equal weight on grievers and professionals. Mike's version: <strong>6 pages focused on driving certification sales</strong> — both B2C (individual professionals) and B2B (organizations). Blog, podcast, quiz, and community pages removed. Specialist directory moved to supporting role. Copy simplified for faster decisions.</p>
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stat"><div class="num">10</div><div class="label">Total Pages</div></div>
+    <div class="stat"><div class="num">4</div><div class="label">Sales Pages</div></div>
+    <div class="stat"><div class="num">4</div><div class="label">SEO Pages Preserved</div></div>
   </div>
 
+  <!-- What Changed -->
+  <div class="compare-note">
+    <h3>What Changed from V1</h3>
+    <p>Mike's V1 cut from 17→6 pages but lost critical SEO equity. This V2 finds the <strong>happy medium: 10 pages</strong> that keep the certification-first focus while preserving the blog, handbook, and griever program pages that drive organic traffic. Every page now has full design polish matching the original version's quality — utility bar, sticky header with mega menus, gradient sections, testimonials, and polished footer.</p>
+  </div>
+
+  <!-- Core Sales Pages -->
   <div class="section-label">Core Sales Pages</div>
   <div class="cards">
     <a href="TGRM_Homepage.html" class="card">
+      <span class="card-num orange">1</span>
       <h3>Homepage</h3>
-      <p>Certification-first hero with proof bar. B2B banner. Griever path secondary at bottom.</p>
+      <p>Certification-first hero with dual path cards, proof bar, cert tier comparison, B2B banner, and blog preview.</p>
       <span class="arrow">View Page →</span>
     </a>
     <a href="TGRM_Certification.html" class="card">
+      <span class="card-num teal">2</span>
       <h3>Certification Training</h3>
-      <p>Unified page: therapists, coaches, military, and general — all on one page with audience tabs.</p>
+      <p>Unified page with audience tabs: therapists, coaches, military, and general. Program comparison and FAQ accordion.</p>
       <span class="arrow">View Page →</span>
     </a>
     <a href="TGRM_Private_Certification.html" class="card">
+      <span class="card-num orange">3</span>
       <h3>Private / B2B Certification</h3>
-      <p>For organizations: VA, hospices, EAPs, military. ROI-focused with quote request form.</p>
+      <p>For organizations: VA, hospices, EAPs, military. ROI stats, audience cards, and quote request form.</p>
       <span class="arrow">View Page →</span>
     </a>
     <a href="TGRM_Training_Calendar.html" class="card">
+      <span class="card-num teal">4</span>
       <h3>Training Calendar & Registration</h3>
-      <p>See dates, filter by format, reserve a seat. Calendar + checkout combined into one flow.</p>
+      <p>8 upcoming sessions with date blocks, format filters, pricing, and seat reservation CTAs.</p>
       <span class="arrow">View Page →</span>
     </a>
   </div>
 
+  <!-- Content & SEO Pages -->
+  <div class="section-label">Content & SEO Pages</div>
+  <div class="cards">
+    <a href="TGRM_Blog.html" class="card">
+      <span class="card-num orange">5</span>
+      <h3>Blog</h3>
+      <p>Featured post hero, category filters, 9-card content grid with pagination. Preserves #5 landing page SEO.</p>
+      <span class="arrow">View Page →</span>
+    </a>
+    <a href="TGRM_Blog_Post.html" class="card">
+      <span class="card-num teal">6</span>
+      <h3>Blog Post Template</h3>
+      <p>Article layout with sidebar, author bio, social sharing, table of contents, and related posts.</p>
+      <span class="arrow">View Page →</span>
+    </a>
+    <a href="TGRM_Handbook.html" class="card">
+      <span class="card-num orange">7</span>
+      <h3>Grief Recovery Handbook</h3>
+      <p>3D book visualization, chapter preview, reviews, companion books, and course upsell. #3 landing page.</p>
+      <span class="arrow">View Page →</span>
+    </a>
+    <a href="TGRM_Programs.html" class="card">
+      <span class="card-num teal">8</span>
+      <h3>Programs for Grievers</h3>
+      <p>Three program comparison cards (Online, Support Groups, 1-on-1), loss type cloud, specialist finder CTA.</p>
+      <span class="arrow">View Page →</span>
+    </a>
+  </div>
+
+  <!-- Supporting Pages -->
   <div class="section-label">Supporting Pages</div>
   <div class="cards">
     <a href="TGRM_Directory.html" class="card">
+      <span class="card-num orange">9</span>
       <h3>Find a Specialist</h3>
-      <p>Simplified directory with search. Available for grievers but not the primary focus.</p>
+      <p>Directory with search bar, location/specialty filters, 6 specialist cards with profile previews.</p>
       <span class="arrow">View Page →</span>
     </a>
     <a href="TGRM_About.html" class="card">
+      <span class="card-num teal">10</span>
       <h3>About / The Method</h3>
-      <p>40+ years of evidence, the founders' story, and the Handbook — all on one credibility page.</p>
+      <p>40+ years of evidence, founders' story, the method explained, research backing, and leadership team.</p>
       <span class="arrow">View Page →</span>
     </a>
   </div>
@@ -93,7 +158,7 @@ body { font-family: 'Segoe UI', Arial, Helvetica, sans-serif; background: #faf8f
 </div>
 
 <div class="footer">
-  © 2026 The Grief Recovery Institute Educational Foundation, Inc. · Design Preview
+  © 2026 The Grief Recovery Institute Educational Foundation, Inc. · Design Preview — Mike's Version V2
 </div>
 
 </body>

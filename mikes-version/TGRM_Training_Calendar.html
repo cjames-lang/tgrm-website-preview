@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certification Training Calendar | TGRM</title>
+    <title>Training Calendar | The Grief Recovery Method</title>
     <style>
         * {
             margin: 0;
@@ -14,724 +14,783 @@
         :root {
             --orange: #e07525;
             --orange-dark: #c4621a;
+            --orange-light: #f5a623;
             --teal: #427e88;
             --teal-dark: #356a73;
+            --teal-light: #7895a3;
             --teal-pale: #e8f2f4;
             --warm-bg: #faf8f5;
+            --warm-bg-alt: #f5f0eb;
             --text-primary: #2d3748;
             --text-secondary: #5a6577;
             --text-light: #8896a8;
-        }
-
-        html {
-            scroll-behavior: smooth;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+            --shadow-md: 0 4px 14px rgba(0,0,0,.1);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,.12);
+            --shadow-xl: 0 20px 50px rgba(0,0,0,.15);
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --transition: .25s ease;
         }
 
         body {
             font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
             color: var(--text-primary);
+            background-color: white;
             line-height: 1.6;
-            background-color: #ffffff;
         }
 
-        /* UTILITY BAR */
+        /* ===== UTILITY BAR ===== */
         .utility-bar {
             background-color: var(--teal-dark);
             color: white;
-            padding: 12px 0;
+            padding: 12px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-size: 14px;
-            text-align: center;
         }
 
         .utility-bar a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
+            margin-left: 16px;
+            transition: opacity var(--transition);
         }
 
         .utility-bar a:hover {
-            text-decoration: underline;
+            opacity: 0.8;
         }
 
-        /* STICKY HEADER */
+        @media (max-width: 768px) {
+            .utility-bar {
+                padding: 12px 20px;
+                font-size: 12px;
+            }
+            .utility-bar-right {
+                display: none;
+            }
+        }
+
+        /* ===== HEADER ===== */
         .header {
             position: sticky;
             top: 0;
-            background: white;
-            border-bottom: 1px solid #f0f0f0;
-            z-index: 100;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            z-index: 1000;
+            background-color: white;
+            box-shadow: var(--shadow-md);
+            padding: 16px 40px;
         }
 
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
+        .header-container {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            height: 70px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--orange);
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
-
-        .nav {
             display: flex;
-            gap: 40px;
-            flex: 1;
-            margin-left: 60px;
-        }
-
-        .nav a {
+            align-items: center;
+            gap: 12px;
             text-decoration: none;
             color: var(--text-primary);
-            font-size: 15px;
-            font-weight: 500;
-            position: relative;
-            transition: color 0.3s;
         }
 
-        .nav a:hover {
-            color: var(--orange);
-        }
-
-        .nav a.active {
-            color: var(--orange);
-        }
-
-        .nav a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--orange);
-            border-radius: 2px;
-        }
-
-        .header-ctas {
-            display: flex;
-            gap: 16px;
-            align-items: center;
-        }
-
-        .btn-phone {
-            text-decoration: none;
-            color: var(--teal);
-            font-weight: 600;
-            font-size: 14px;
+        .logo-circle {
+            width: 48px;
+            height: 48px;
+            background-color: var(--orange);
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 8px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+            justify-content: center;
+            font-weight: bold;
             color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 50px;
+            font-size: 20px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .logo-text strong {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .logo-text small {
+            font-size: 11px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 15px;
+            transition: color var(--transition);
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--orange);
+        }
+
+        .nav-ctas {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn-outline {
+            padding: 10px 20px;
+            border: 2px solid var(--teal);
+            color: var(--teal);
+            text-decoration: none;
+            border-radius: var(--radius-md);
             font-weight: 600;
             font-size: 14px;
+            transition: all var(--transition);
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--teal);
+            color: white;
+        }
+
+        .btn-gradient {
+            padding: 10px 24px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+            color: white;
             text-decoration: none;
-            display: inline-block;
+            border-radius: var(--radius-xl);
+            font-weight: 600;
+            font-size: 14px;
+            transition: all var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
         }
 
-        .btn-primary:hover {
+        .btn-gradient:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(224, 117, 37, 0.3);
+            box-shadow: var(--shadow-lg);
         }
 
-        /* HERO SECTION */
+        @media (max-width: 1024px) {
+            .header {
+                padding: 12px 24px;
+            }
+            nav {
+                gap: 20px;
+            }
+            nav a {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+            nav {
+                order: 3;
+                width: 100%;
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+            .nav-ctas {
+                gap: 8px;
+            }
+        }
+
+        /* ===== HERO ===== */
         .hero {
-            background: linear-gradient(135deg, var(--teal-pale) 0%, #f0f8fa 100%);
-            padding: 60px 24px;
+            background: linear-gradient(135deg, var(--warm-bg-alt) 0%, var(--warm-bg) 100%);
+            padding: 80px 40px;
             text-align: center;
+            border-bottom: 1px solid #e0e6ed;
         }
 
         .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--text-primary);
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: var(--text-secondary);
-            margin-bottom: 32px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* FILTER BUTTONS */
-        .filter-section {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-bottom: 24px;
-        }
-
-        .filter-btn {
-            padding: 10px 24px;
-            border: 2px solid var(--teal);
-            background: white;
-            color: var(--teal);
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 14px;
-            transition: all 0.3s;
-        }
-
-        .filter-btn.active {
-            background: var(--teal);
-            color: white;
-        }
-
-        .filter-btn:hover {
-            background: var(--teal);
-            color: white;
-        }
-
-        /* STATS BAR */
-        .stats-bar {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 24px;
-            padding-top: 24px;
-            border-top: 1px solid rgba(66, 126, 136, 0.2);
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--orange);
-        }
-
-        .stat-label {
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin-top: 4px;
-        }
-
-        /* TRAINING CARDS SECTION */
-        .trainings-section {
-            max-width: 1200px;
-            margin: 80px auto 0;
-            padding: 0 24px;
-        }
-
-        .trainings-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 28px;
-            margin-bottom: 80px;
-        }
-
-        .training-card {
-            background: white;
-            border: 1px solid #e8e8e8;
-            border-radius: 12px;
-            padding: 28px;
-            transition: all 0.3s;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-        }
-
-        .training-card:hover {
-            border-color: var(--orange);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-            transform: translateY(-4px);
-        }
-
-        .card-date {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 16px;
-        }
-
-        .card-badges {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 16px;
-            flex-wrap: wrap;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .badge-format {
-            background: var(--teal-pale);
-            color: var(--teal-dark);
-        }
-
-        .badge-format.online {
-            background: var(--teal-pale);
-            color: var(--teal-dark);
-        }
-
-        .badge-format.inperson {
-            background: #ffe8d6;
-            color: var(--orange-dark);
-        }
-
-        .card-location {
-            font-size: 15px;
-            color: var(--text-secondary);
-            margin-bottom: 16px;
-            line-height: 1.5;
-        }
-
-        .card-location strong {
-            color: var(--text-primary);
-        }
-
-        .card-divider {
-            height: 1px;
-            background: #f0f0f0;
-            margin: 16px 0;
-        }
-
-        .card-price {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--orange);
-            margin-bottom: 8px;
-        }
-
-        .card-price-label {
-            font-size: 12px;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 16px;
-        }
-
-        .card-availability {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 20px;
-            padding: 12px;
-            background: #fef3e8;
-            border-radius: 8px;
-            font-size: 14px;
-            color: var(--orange-dark);
-            font-weight: 600;
-        }
-
-        .availability-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--orange);
-        }
-
-        .card-cta {
-            margin-top: auto;
-        }
-
-        .btn-reserve {
-            width: 100%;
-            background: linear-gradient(135deg, var(--orange), var(--orange-dark));
-            color: white;
-            border: none;
-            padding: 14px 24px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 15px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .btn-reserve:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(224, 117, 37, 0.3);
-        }
-
-        /* WHAT'S INCLUDED SECTION */
-        .whats-included {
-            background: var(--warm-bg);
-            padding: 60px 24px;
-            margin: 60px 0;
-        }
-
-        .whats-included-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 40px;
-            color: var(--text-primary);
-            text-align: center;
-        }
-
-        .included-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 32px;
-        }
-
-        .included-item {
-            display: flex;
-            gap: 16px;
-        }
-
-        .included-icon {
-            width: 40px;
-            height: 40px;
-            min-width: 40px;
-            background: var(--orange);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-        .included-text h3 {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 6px;
-        }
-
-        .included-text p {
-            font-size: 15px;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* FAQ SECTION */
-        .faq {
-            max-width: 1200px;
-            margin: 80px auto;
-            padding: 0 24px;
-        }
-
-        .faq-items {
             max-width: 800px;
             margin: 0 auto;
         }
 
-        .faq-item {
-            border-bottom: 1px solid #e8e8e8;
-            padding: 24px 0;
-            cursor: pointer;
-        }
-
-        .faq-item:first-child {
-            border-top: 1px solid #e8e8e8;
-        }
-
-        .faq-question {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-            user-select: none;
-        }
-
-        .faq-question h3 {
-            font-size: 16px;
-            font-weight: 600;
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
             color: var(--text-primary);
         }
 
-        .faq-toggle {
-            color: var(--orange);
-            font-size: 20px;
-            font-weight: 700;
-            min-width: 24px;
-            text-align: right;
-            transition: transform 0.3s;
-        }
-
-        .faq-item.open .faq-toggle {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
+        .hero-subtitle {
+            font-size: 18px;
+            margin-bottom: 40px;
             color: var(--text-secondary);
-            font-size: 15px;
-            line-height: 1.7;
+            font-weight: 400;
         }
 
-        .faq-item.open .faq-answer {
-            max-height: 300px;
-            margin-top: 16px;
+        /* ===== FILTER SECTION ===== */
+        .filter-section {
+            padding: 40px 40px;
+            background-color: white;
+            border-bottom: 1px solid #e0e6ed;
         }
 
-        /* BOTTOM CTA SECTION */
-        .bottom-cta {
-            background: linear-gradient(135deg, var(--teal), var(--teal-dark));
-            color: white;
-            padding: 60px 24px;
-            text-align: center;
-            margin-top: 80px;
-        }
-
-        .bottom-cta-content {
-            max-width: 1200px;
+        .filter-container {
+            max-width: 1400px;
             margin: 0 auto;
         }
 
-        .bottom-cta h2 {
-            font-size: 28px;
-            font-weight: 700;
+        .filter-group {
             margin-bottom: 24px;
         }
 
-        .bottom-cta p {
+        .filter-label {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .pill-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .pill {
+            padding: 8px 16px;
+            border: 2px solid #e0e6ed;
+            background-color: white;
+            color: var(--text-primary);
+            border-radius: var(--radius-xl);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all var(--transition);
+        }
+
+        .pill:hover {
+            border-color: var(--orange);
+            color: var(--orange);
+        }
+
+        .pill.active {
+            background: linear-gradient(135deg, var(--orange-light) 0%, var(--orange) 100%);
+            color: white;
+            border-color: var(--orange);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 20px;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .filter-section {
+                padding: 30px 20px;
+            }
+        }
+
+        /* ===== CALENDAR GRID ===== */
+        .calendar-section {
+            padding: 60px 40px;
+            background-color: white;
+        }
+
+        .calendar-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .event-list {
+            list-style: none;
+        }
+
+        .event-card {
+            display: grid;
+            grid-template-columns: 100px 1fr auto;
+            gap: 32px;
+            align-items: center;
+            padding: 32px;
+            background-color: white;
+            border: 1px solid #e0e6ed;
+            border-radius: var(--radius-lg);
+            margin-bottom: 20px;
+            transition: all var(--transition);
+        }
+
+        .event-card:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: var(--orange);
+            transform: translateY(-2px);
+        }
+
+        .event-date {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            color: white;
+            padding: 16px 12px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .event-month {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.9;
+        }
+
+        .event-day {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .event-details h3 {
             font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .event-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .event-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background-color: var(--teal-pale);
+            color: var(--teal-dark);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .event-info {
+            color: var(--text-secondary);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .event-location {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .event-duration {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .event-spots {
+            color: var(--text-secondary);
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .spots-low {
+            color: var(--orange);
+            font-weight: 600;
+        }
+
+        .event-right {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 16px;
+        }
+
+        .event-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--orange);
+        }
+
+        .btn-cta {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--orange-light) 0%, var(--orange) 100%);
+            color: white;
+            border: none;
+            border-radius: var(--radius-lg);
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all var(--transition);
+            white-space: nowrap;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        @media (max-width: 1024px) {
+            .event-card {
+                grid-template-columns: 80px 1fr;
+                gap: 20px;
+            }
+            .event-right {
+                grid-column: 1 / -1;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .calendar-section {
+                padding: 40px 20px;
+            }
+            .event-card {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                padding: 24px;
+            }
+            .event-date {
+                padding: 12px 16px;
+                flex-direction: row;
+                gap: 12px;
+                justify-content: flex-start;
+            }
+            .event-right {
+                grid-column: 1;
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+            }
+            .event-day {
+                font-size: 24px;
+            }
+        }
+
+        /* ===== PAYMENT INFO SECTION ===== */
+        .payment-info-section {
+            background-color: var(--warm-bg);
+            padding: 60px 40px;
+        }
+
+        .payment-info-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .payment-info-container h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .payment-item {
+            background-color: white;
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .payment-item h3 {
+            font-size: 16px;
+            font-weight: 700;
             margin-bottom: 12px;
         }
 
-        .bottom-cta-phone {
-            font-size: 32px;
+        .payment-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1024px) {
+            .payment-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .payment-info-section {
+                padding: 40px 20px;
+            }
+            .payment-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== CAN'T FIND A DATE ===== */
+        .cta-section {
+            padding: 80px 40px;
+            background-color: white;
+            border-top: 1px solid #e0e6ed;
+        }
+
+        .cta-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            background: linear-gradient(135deg, var(--teal-pale) 0%, #f0f8fa 100%);
+            padding: 48px;
+            border-radius: var(--radius-lg);
+            border: 2px solid var(--teal-light);
+        }
+
+        .cta-container h2 {
+            font-size: 24px;
             font-weight: 700;
-            color: var(--orange);
-            text-decoration: none;
+            margin-bottom: 16px;
+            color: var(--text-primary);
         }
 
-        .bottom-cta-phone:hover {
-            text-decoration: underline;
+        .cta-container p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
         }
 
-        /* FOOTER */
-        footer {
-            background: var(--text-primary);
+        .btn-cta-large {
+            padding: 14px 32px;
+            background: linear-gradient(135deg, var(--orange-light) 0%, var(--orange) 100%);
             color: white;
-            padding: 60px 24px 40px;
+            text-decoration: none;
+            border-radius: var(--radius-lg);
+            font-weight: 700;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition);
+            box-shadow: var(--shadow-md);
+            display: inline-block;
         }
 
-        .footer-content {
-            max-width: 1200px;
+        .btn-cta-large:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        @media (max-width: 768px) {
+            .cta-section {
+                padding: 60px 20px;
+            }
+            .cta-container {
+                padding: 32px;
+            }
+        }
+
+        /* ===== NEWSLETTER SECTION ===== */
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%);
+            color: white;
+            padding: 60px 40px;
+        }
+
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .newsletter-section p {
+            font-size: 15px;
+            margin-bottom: 24px;
+            opacity: 0.95;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 16px;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+        }
+
+        .newsletter-form button {
+            padding: 12px 28px;
+            background-color: var(--orange);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background-color: var(--orange-dark);
+        }
+
+        @media (max-width: 768px) {
+            .newsletter-section {
+                padding: 40px 20px;
+            }
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background-color: #1a2a30;
+            color: #cbd5e0;
+            padding: 60px 40px 40px;
+        }
+
+        .footer-container {
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 40px;
             margin-bottom: 40px;
         }
 
-        .footer-column h4 {
-            font-size: 14px;
+        .footer-section h3 {
+            color: white;
+            font-size: 16px;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
             margin-bottom: 16px;
-            color: var(--orange);
         }
 
-        .footer-column ul {
+        .footer-section ul {
             list-style: none;
         }
 
-        .footer-column li {
+        .footer-section ul li {
             margin-bottom: 12px;
         }
 
-        .footer-column a {
-            color: #ccc;
+        .footer-section a {
+            color: #cbd5e0;
             text-decoration: none;
             font-size: 14px;
-            transition: color 0.3s;
+            transition: color var(--transition);
         }
 
-        .footer-column a:hover {
+        .footer-section a:hover {
+            color: var(--orange);
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand-circle {
+            width: 40px;
+            height: 40px;
+            background-color: var(--orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .footer-brand-text {
+            font-size: 14px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .crisis-bar {
+            background-color: rgba(224, 117, 37, 0.1);
+            border-left: 4px solid var(--orange);
+            padding: 16px;
+            margin-bottom: 24px;
+            border-radius: var(--radius-sm);
+        }
+
+        .crisis-bar p {
+            font-size: 13px;
+            color: #cbd5e0;
+            margin-bottom: 8px;
+        }
+
+        .crisis-bar strong {
             color: var(--orange);
         }
 
         .footer-bottom {
-            border-top: 1px solid #444;
-            padding-top: 24px;
+            border-top: 1px solid rgba(203, 213, 224, 0.2);
+            padding-top: 32px;
             text-align: center;
             font-size: 13px;
-            color: #999;
+            color: #8896a8;
         }
 
-        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
-            .header-content {
-                flex-wrap: wrap;
-                height: auto;
-                padding: 12px 24px;
+            .footer {
+                padding: 40px 20px 30px;
             }
-
-            .nav {
-                margin-left: 0;
-                width: 100%;
-                margin-top: 12px;
-                gap: 20px;
-                font-size: 13px;
-                order: 3;
-            }
-
-            .header-ctas {
-                margin-left: auto;
-            }
-
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .stats-bar {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .trainings-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .section-title {
-                font-size: 24px;
-                margin-bottom: 32px;
-            }
-
-            .included-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .faq-question h3 {
-                font-size: 15px;
-            }
-
-            .bottom-cta h2 {
-                font-size: 22px;
-            }
-
-            .bottom-cta-phone {
-                font-size: 24px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header-content {
-                justify-content: space-between;
-            }
-
-            .logo {
-                font-size: 18px;
-            }
-
-            .nav {
-                gap: 12px;
-                font-size: 12px;
-            }
-
-            .nav a.active::after {
-                height: 2px;
-                bottom: -6px;
-            }
-
-            .header-ctas {
-                gap: 8px;
-            }
-
-            .btn-primary {
-                padding: 10px 16px;
-                font-size: 12px;
-            }
-
-            .hero {
-                padding: 40px 16px;
-            }
-
-            .hero h1 {
-                font-size: 24px;
-                margin-bottom: 12px;
-            }
-
-            .hero p {
-                font-size: 14px;
-                margin-bottom: 20px;
-            }
-
-            .filter-section {
-                gap: 8px;
-            }
-
-            .filter-btn {
-                padding: 8px 16px;
-                font-size: 12px;
-            }
-
-            .card-date {
-                font-size: 16px;
-            }
-
-            .card-price {
-                font-size: 24px;
-            }
-
-            .btn-reserve {
-                padding: 12px 16px;
-                font-size: 14px;
-            }
-
-            .trainings-section {
-                margin-top: 40px;
-            }
-
-            .trainings-grid {
-                gap: 16px;
-            }
-
-            .training-card {
-                padding: 20px;
-            }
-
             .footer-grid {
                 grid-template-columns: 1fr;
-                gap: 24px;
+                gap: 32px;
             }
         }
     </style>
@@ -739,22 +798,28 @@
 <body>
     <!-- UTILITY BAR -->
     <div class="utility-bar">
-        Questions? <a href="tel:1-818-907-9600">Call 1-818-907-9600</a> | <a href="mailto:info@tgrm.org">Email us</a>
+        <div>📞 (800) 334-7606 · ✉ support@griefrecovery.com</div>
+        <div class="utility-bar-right">🔒 Specialist Login · 📱 Community</div>
     </div>
 
     <!-- HEADER -->
     <header class="header">
-        <div class="header-content">
-            <a href="/" class="logo">TGRM</a>
-            <nav class="nav">
-                <a href="/certification">Certification Training</a>
-                <a href="/organizations">For Organizations</a>
-                <a href="/calendar" class="active">Dates & Pricing</a>
-                <a href="/about">About</a>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <div class="logo-circle">GR</div>
+                <div class="logo-text">
+                    <strong>The Grief Recovery</strong>
+                    <small>METHOD</small>
+                </div>
+            </a>
+            <nav>
+                <a href="#programs">Programs</a>
+                <a href="#resources">Resources</a>
+                <a href="#about">About</a>
             </nav>
-            <div class="header-ctas">
-                <a href="tel:1-818-907-9600" class="btn-phone">📞 1-818-907-9600</a>
-                <button class="btn-primary">Get Started</button>
+            <div class="nav-ctas">
+                <button class="btn-outline">Find a Specialist</button>
+                <button class="btn-gradient">Get Certified</button>
             </div>
         </div>
     </header>
@@ -762,353 +827,307 @@
     <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Upcoming Certification Trainings</h1>
-            <p>Choose your training format and dates. Same world-class curriculum, lifetime certification, and immediate specialist directory listing.</p>
+            <h1>Upcoming Training Dates</h1>
+            <p class="hero-subtitle">Find and register for the next Grief Recovery Specialist certification or advanced training.</p>
+        </div>
+    </section>
 
-            <div class="filter-section">
-                <button class="filter-btn active" onclick="filterTrainings('all')">All Trainings</button>
-                <button class="filter-btn" onclick="filterTrainings('online')">Online</button>
-                <button class="filter-btn" onclick="filterTrainings('inperson')">In-Person</button>
+    <!-- FILTERS -->
+    <section class="filter-section">
+        <div class="filter-container">
+            <div class="filter-group">
+                <label class="filter-label">Format</label>
+                <div class="pill-group">
+                    <button class="pill active">All Formats</button>
+                    <button class="pill">Online</button>
+                    <button class="pill">In-Person</button>
+                    <button class="pill">Hybrid</button>
+                </div>
             </div>
-
-            <div class="stats-bar">
-                <div class="stat-item">
-                    <div class="stat-number">6</div>
-                    <div class="stat-label">Upcoming Dates</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">3</div>
-                    <div class="stat-label">Online Sessions</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">2 Days</div>
-                    <div class="stat-label">Until Next Training</div>
+            <div class="filter-group">
+                <label class="filter-label">Program Type</label>
+                <div class="pill-group">
+                    <button class="pill active">All Programs</button>
+                    <button class="pill">Specialist Certification</button>
+                    <button class="pill">Advanced Training</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TRAINING CARDS -->
-    <section class="trainings-section">
-        <div class="trainings-grid">
-            <!-- Training 1: Online -->
-            <div class="training-card" data-format="online">
-                <div class="card-date">April 14–17, 2026</div>
-                <div class="card-badges">
-                    <span class="badge badge-format online">Online</span>
-                </div>
-                <div class="card-location"><strong>Live via Zoom</strong><br>4 days, 9am–5pm PT</div>
-                <div class="card-divider"></div>
-                <div class="card-price">$1,495</div>
-                <div class="card-price-label">Early Bird Pricing</div>
-                <div class="card-availability">
-                    <span class="availability-dot"></span>
-                    8 seats left
-                </div>
-                <div class="card-cta">
-                    <button class="btn-reserve" onclick="reserveSeat(this)">Reserve Your Seat →</button>
-                </div>
-            </div>
+    <!-- CALENDAR GRID -->
+    <section class="calendar-section">
+        <div class="calendar-container">
+            <ul class="event-list">
+                <!-- Event 1 -->
+                <li class="event-card">
+                    <div class="event-date">
+                        <div class="event-month">Apr</div>
+                        <div class="event-day">7</div>
+                    </div>
+                    <div class="event-details">
+                        <h3>Grief Recovery Specialist Certification</h3>
+                        <div class="event-meta">
+                            <span class="event-badge">Online</span>
+                            <span class="event-info">Apr 7-10, 2026</span>
+                        </div>
+                        <div class="event-location">📍 Virtual / Online</div>
+                        <div class="event-duration">⏱ 4 days (32 hours)</div>
+                        <div class="event-spots"><span class="spots-low">12 spots remaining</span></div>
+                    </div>
+                    <div class="event-right">
+                        <div class="event-price">$1,295</div>
+                        <button class="btn-cta">Reserve Your Seat</button>
+                    </div>
+                </li>
 
-            <!-- Training 2: In-Person -->
-            <div class="training-card" data-format="inperson">
-                <div class="card-date">May 5–8, 2026</div>
-                <div class="card-badges">
-                    <span class="badge badge-format inperson">In-Person</span>
-                </div>
-                <div class="card-location"><strong>Sherman Oaks, CA</strong><br>4 days, 9am–5pm PT</div>
-                <div class="card-divider"></div>
-                <div class="card-price">$1,695</div>
-                <div class="card-price-label">Standard Pricing</div>
-                <div class="card-availability">
-                    <span class="availability-dot"></span>
-                    5 seats left
-                </div>
-                <div class="card-cta">
-                    <button class="btn-reserve" onclick="reserveSeat(this)">Reserve Your Seat →</button>
-                </div>
-            </div>
+                <!-- Event 2 -->
+                <li class="event-card">
+                    <div class="event-date">
+                        <div class="event-month">Apr</div>
+                        <div class="event-day">21</div>
+                    </div>
+                    <div class="event-details">
+                        <h3>Grief Recovery Specialist Certification</h3>
+                        <div class="event-meta">
+                            <span class="event-badge">In-Person</span>
+                            <span class="event-info">Apr 21-24, 2026</span>
+                        </div>
+                        <div class="event-location">📍 Sherman Oaks, CA</div>
+                        <div class="event-duration">⏱ 4 days (32 hours)</div>
+                        <div class="event-spots"><span class="spots-low">8 spots remaining</span></div>
+                    </div>
+                    <div class="event-right">
+                        <div class="event-price">$1,295</div>
+                        <button class="btn-cta">Reserve Your Seat</button>
+                    </div>
+                </li>
 
-            <!-- Training 3: Online -->
-            <div class="training-card" data-format="online">
-                <div class="card-date">May 19–22, 2026</div>
-                <div class="card-badges">
-                    <span class="badge badge-format online">Online</span>
-                </div>
-                <div class="card-location"><strong>Live via Zoom</strong><br>4 days, 9am–5pm PT</div>
-                <div class="card-divider"></div>
-                <div class="card-price">$1,495</div>
-                <div class="card-price-label">Early Bird Pricing</div>
-                <div class="card-availability">
-                    <span class="availability-dot"></span>
-                    12 seats left
-                </div>
-                <div class="card-cta">
-                    <button class="btn-reserve" onclick="reserveSeat(this)">Reserve Your Seat →</button>
-                </div>
-            </div>
+                <!-- Event 3 -->
+                <li class="event-card">
+                    <div class="event-date">
+                        <div class="event-month">May</div>
+                        <div class="event-day">5</div>
+                    </div>
+                    <div class="event-details">
+                        <h3>Advanced Grief Recovery</h3>
+                        <div class="event-meta">
+                            <span class="event-badge">Online</span>
+                            <span class="event-info">May 5-6, 2026</span>
+                        </div>
+                        <div class="event-location">📍 Virtual / Online</div>
+                        <div class="event-duration">⏱ 2 days (16 hours)</div>
+                        <div class="event-spots">15 spots remaining</div>
+                    </div>
+                    <div class="event-right">
+                        <div class="event-price">$995</div>
+                        <button class="btn-cta">Reserve Your Seat</button>
+                    </div>
+                </li>
 
-            <!-- Training 4: Online -->
-            <div class="training-card" data-format="online">
-                <div class="card-date">June 9–12, 2026</div>
-                <div class="card-badges">
-                    <span class="badge badge-format online">Online</span>
-                </div>
-                <div class="card-location"><strong>Live via Zoom</strong><br>4 days, 9am–5pm PT</div>
-                <div class="card-divider"></div>
-                <div class="card-price">$1,495</div>
-                <div class="card-price-label">Early Bird Pricing</div>
-                <div class="card-availability">
-                    <span class="availability-dot"></span>
-                    10 seats left
-                </div>
-                <div class="card-cta">
-                    <button class="btn-reserve" onclick="reserveSeat(this)">Reserve Your Seat →</button>
-                </div>
-            </div>
+                <!-- Event 4 -->
+                <li class="event-card">
+                    <div class="event-date">
+                        <div class="event-month">May</div>
+                        <div class="event-day">12</div>
+                    </div>
+                    <div class="event-details">
+                        <h3>Grief Recovery Specialist Certification</h3>
+                        <div class="event-meta">
+                            <span class="event-badge">Online</span>
+                            <span class="event-info">May 12-15, 2026</span>
+                        </div>
+                        <div class="event-location">📍 Virtual / Online</div>
+                        <div class="event-duration">⏱ 4 days (32 hours)</div>
+                        <div class="event-spots">10 spots remaining</div>
+                    </div>
+                    <div class="event-right">
+                        <div class="event-price">$1,295</div>
+                        <button class="btn-cta">Reserve Your Seat</button>
+                    </div>
+                </li>
 
-            <!-- Training 5: In-Person -->
-            <div class="training-card" data-format="inperson">
-                <div class="card-date">June 23–26, 2026</div>
-                <div class="card-badges">
-                    <span class="badge badge-format inperson">In-Person</span>
-                </div>
-                <div class="card-location"><strong>Dallas, TX</strong><br>4 days, 9am–5pm CT</div>
-                <div class="card-divider"></div>
-                <div class="card-price">$1,695</div>
-                <div class="card-price-label">Standard Pricing</div>
-                <div class="card-availability">
-                    <span class="availability-dot"></span>
-                    6 seats left
-                </div>
-                <div class="card-cta">
-                    <button class="btn-reserve" onclick="reserveSeat(this)">Reserve Your Seat →</button>
-                </div>
-            </div>
+                <!-- Event 5 -->
+                <li class="event-card">
+                    <div class="event-date">
+                        <div class="event-month">Jun</div>
+                        <div class="event-day">2</div>
+                    </div>
+                    <div class="event-details">
+                        <h3>Grief Recovery Specialist Certification</h3>
+                        <div class="event-meta">
+                            <span class="event-badge">In-Person</span>
+                            <span class="event-info">Jun 2-5, 2026</span>
+                        </div>
+                        <div class="event-location">📍 Dallas, TX</div>
+                        <div class="event-duration">⏱ 4 days (32 hours)</div>
+                        <div class="event-spots"><span class="spots-low">6 spots remaining</span></div>
+                    </div>
+                    <div class="event-right">
+                        <div class="event-price">$1,295</div>
+                        <button class="btn-cta">Reserve Your Seat</button>
+                    </div>
+                </li>
 
-            <!-- Training 6: Online -->
-            <div class="training-card" data-format="online">
-                <div class="card-date">July 14–17, 2026</div>
-                <div class="card-badges">
-                    <span class="badge badge-format online">Online</span>
+                <!-- Event 6 -->
+                <li class="event-card">
+                    <div class="event-date">
+                        <div class="event-month">Jun</div>
+                        <div class="event-day">16</div>
+                    </div>
+                    <div class="event-details">
+                        <h3>Advanced Grief Recovery</h3>
+                        <div class="event-meta">
+                            <span class="event-badge">Online</span>
+                            <span class="event-info">Jun 16-17, 2026</span>
+                        </div>
+                        <div class="event-location">📍 Virtual / Online</div>
+                        <div class="event-duration">⏱ 2 days (16 hours)</div>
+                        <div class="event-spots">20 spots remaining</div>
+                    </div>
+                    <div class="event-right">
+                        <div class="event-price">$995</div>
+                        <button class="btn-cta">Reserve Your Seat</button>
+                    </div>
+                </li>
+
+                <!-- Event 7 -->
+                <li class="event-card">
+                    <div class="event-date">
+                        <div class="event-month">Jul</div>
+                        <div class="event-day">7</div>
+                    </div>
+                    <div class="event-details">
+                        <h3>Grief Recovery Specialist Certification</h3>
+                        <div class="event-meta">
+                            <span class="event-badge">Online</span>
+                            <span class="event-info">Jul 7-10, 2026</span>
+                        </div>
+                        <div class="event-location">📍 Virtual / Online</div>
+                        <div class="event-duration">⏱ 4 days (32 hours)</div>
+                        <div class="event-spots">14 spots remaining</div>
+                    </div>
+                    <div class="event-right">
+                        <div class="event-price">$1,295</div>
+                        <button class="btn-cta">Reserve Your Seat</button>
+                    </div>
+                </li>
+
+                <!-- Event 8 -->
+                <li class="event-card">
+                    <div class="event-date">
+                        <div class="event-month">Jul</div>
+                        <div class="event-day">21</div>
+                    </div>
+                    <div class="event-details">
+                        <h3>Grief Recovery Specialist Certification</h3>
+                        <div class="event-meta">
+                            <span class="event-badge">In-Person</span>
+                            <span class="event-info">Jul 21-24, 2026</span>
+                        </div>
+                        <div class="event-location">📍 Chicago, IL</div>
+                        <div class="event-duration">⏱ 4 days (32 hours)</div>
+                        <div class="event-spots">9 spots remaining</div>
+                    </div>
+                    <div class="event-right">
+                        <div class="event-price">$1,295</div>
+                        <button class="btn-cta">Reserve Your Seat</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- PAYMENT INFO -->
+    <section class="payment-info-section">
+        <div class="payment-info-container">
+            <h2>Training Details & Payment Options</h2>
+            <div class="payment-grid">
+                <div class="payment-item">
+                    <h3>Payment Plans</h3>
+                    <p>Split your tuition into 2-3 installments. Flexible scheduling to fit your budget.</p>
                 </div>
-                <div class="card-location"><strong>Live via Zoom</strong><br>4 days, 9am–5pm PT</div>
-                <div class="card-divider"></div>
-                <div class="card-price">$1,495</div>
-                <div class="card-price-label">Early Bird Pricing</div>
-                <div class="card-availability">
-                    <span class="availability-dot"></span>
-                    14 seats left
+                <div class="payment-item">
+                    <h3>CEU Credits</h3>
+                    <p>All trainings qualify for CEU credits. Certificates awarded upon successful completion.</p>
                 </div>
-                <div class="card-cta">
-                    <button class="btn-reserve" onclick="reserveSeat(this)">Reserve Your Seat →</button>
+                <div class="payment-item">
+                    <h3>Cancellation Policy</h3>
+                    <p>Free cancellation up to 14 days before training. 50% refund up to 7 days.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WHAT'S INCLUDED -->
-    <section class="whats-included">
-        <div class="whats-included-content">
-            <h2 class="section-title">What's Included in Your Training</h2>
-            <div class="included-grid">
-                <div class="included-item">
-                    <div class="included-icon">📚</div>
-                    <div class="included-text">
-                        <h3>4-Day Intensive</h3>
-                        <p>Comprehensive training from 9am to 5pm daily with breaks. One-on-one support included.</p>
-                    </div>
-                </div>
-                <div class="included-item">
-                    <div class="included-icon">🎓</div>
-                    <div class="included-text">
-                        <h3>Lifetime Certification</h3>
-                        <p>Become a Grief Recovery Specialist® with credentials recognized internationally.</p>
-                    </div>
-                </div>
-                <div class="included-item">
-                    <div class="included-icon">📖</div>
-                    <div class="included-text">
-                        <h3>Complete Materials</h3>
-                        <p>Grief Recovery Handbook, specialist resources, and all training materials included.</p>
-                    </div>
-                </div>
-                <div class="included-item">
-                    <div class="included-icon">🌍</div>
-                    <div class="included-text">
-                        <h3>Directory Listing</h3>
-                        <p>Instant listing in the international Grief Recovery Specialist directory.</p>
-                    </div>
-                </div>
-                <div class="included-item">
-                    <div class="included-icon">✅</div>
-                    <div class="included-text">
-                        <h3>CEU Credits</h3>
-                        <p>Continuing education units available for most professional licenses.</p>
-                    </div>
-                </div>
-                <div class="included-item">
-                    <div class="included-icon">🚀</div>
-                    <div class="included-text">
-                        <h3>Advanced Programs</h3>
-                        <p>Access to specialized training programs and ongoing professional development.</p>
-                    </div>
-                </div>
-            </div>
+    <!-- CAN'T FIND A DATE -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Don't See a Date That Works?</h2>
+            <p>Request private training for your organization or team with custom scheduling and location.</p>
+            <a href="TGRM_Private_Certification.html" class="btn-cta-large">Request Private Training</a>
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="faq">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <div class="faq-items">
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <h3>Do I need a clinical license to become a Grief Recovery Specialist?</h3>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    No. Grief Recovery Specialists come from all walks of life. Whether you're a mental health professional, spiritual counselor, coach, or someone called to help others through grief, you can certify. Our curriculum is designed to be accessible and practical for anyone with a genuine desire to support others.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <h3>What's the difference between online and in-person training?</h3>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    The curriculum is identical—you'll receive the same training, materials, and certification. The main difference is delivery: online trainings are conducted live via Zoom (you can participate from anywhere), while in-person trainings bring the cohort together in our designated location. Both formats include interactive exercises, group discussions, and one-on-one support.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <h3>Are continuing education units (CEUs) available?</h3>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    Yes. CEU credits are available for most professional licenses including counselors, social workers, nurses, and other healthcare professionals. The specific requirements and number of credits vary by state and license type. We'll provide documentation and guidance to help you report your credits to your licensing board.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <h3>What if I need to reschedule my training?</h3>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    We understand life happens. We offer a flexible rescheduling policy—if you need to move your dates, just let us know at least 14 days before your training begins. You can reschedule to any upcoming training at no additional cost, subject to availability.
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">
-                    <h3>Do you offer payment plans?</h3>
-                    <span class="faq-toggle">+</span>
-                </div>
-                <div class="faq-answer">
-                    Yes. We offer flexible payment plans to make certification accessible. Payment plans are available for all trainings, and we work with you to find a schedule that fits your budget. Contact us at 1-818-907-9600 or email info@tgrm.org to discuss payment options.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- BOTTOM CTA -->
-    <section class="bottom-cta">
-        <div class="bottom-cta-content">
-            <h2>Not sure which training is right for you?</h2>
-            <p>We're here to help you find the perfect fit.</p>
-            <a href="tel:1-818-907-9600" class="bottom-cta-phone">📞 1-818-907-9600</a>
+    <!-- NEWSLETTER -->
+    <section class="newsletter-section">
+        <div class="newsletter-container">
+            <h2>Stay Updated on Training Dates</h2>
+            <p>Get notified about new training sessions, special offers, and grief recovery resources.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer>
-        <div class="footer-content">
+    <footer class="footer">
+        <div class="footer-container">
             <div class="footer-grid">
-                <div class="footer-column">
-                    <h4>Training</h4>
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <div class="footer-brand-circle">GR</div>
+                        <div class="footer-brand-text">The Grief Recovery<br>METHOD</div>
+                    </div>
+                    <p style="font-size: 13px; line-height: 1.6; margin-top: 12px;">Evidence-based training for professionals and organizations supporting people through loss.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Programs</h3>
                     <ul>
-                        <li><a href="/certification">Certification Program</a></li>
-                        <li><a href="/calendar">Training Dates</a></li>
-                        <li><a href="/pricing">Pricing</a></li>
-                        <li><a href="/online-vs-inperson">Online vs In-Person</a></li>
+                        <li><a href="#cert">Specialist Certification</a></li>
+                        <li><a href="#advanced">Advanced Training</a></li>
+                        <li><a href="#private">Private & B2B</a></li>
+                        <li><a href="#calendar">Training Calendar</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h4>For Organizations</h4>
+                <div class="footer-section">
+                    <h3>Resources</h3>
                     <ul>
-                        <li><a href="/organizations">Corporate Training</a></li>
-                        <li><a href="/organizations/group-rates">Group Rates</a></li>
-                        <li><a href="/organizations/onsite-training">On-Site Training</a></li>
-                        <li><a href="/organizations/contact">Request a Quote</a></li>
+                        <li><a href="#blog">Blog & Articles</a></li>
+                        <li><a href="#handbook">The Handbook</a></li>
+                        <li><a href="#find">Find a Specialist</a></li>
+                        <li><a href="#faq">FAQs</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h4>About</h4>
+                <div class="footer-section">
+                    <h3>Connect</h3>
                     <ul>
-                        <li><a href="/about">About TGRM</a></li>
-                        <li><a href="/our-method">Our Method</a></li>
-                        <li><a href="/specialists">Find a Specialist</a></li>
-                        <li><a href="/resources">Resources</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><a href="tel:1-818-907-9600">1-818-907-9600</a></li>
-                        <li><a href="mailto:info@tgrm.org">info@tgrm.org</a></li>
-                        <li><a href="/contact">Contact Form</a></li>
-                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#community">Community</a></li>
+                        <li><a href="#privacy">Privacy & Terms</a></li>
                     </ul>
                 </div>
             </div>
+
+            <div class="crisis-bar">
+                <p><strong>In Crisis?</strong> Call or text 988 (US Suicide & Crisis Lifeline) or contact The Crisis Text Line by texting HOME to 741741.</p>
+            </div>
+
             <div class="footer-bottom">
-                <p>&copy; 2026 Grief Recovery Method. All rights reserved. | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
+                <p>&copy; 2026 The Grief Recovery Method. All rights reserved. | Privacy Policy | Terms of Service</p>
             </div>
         </div>
     </footer>
-
-    <script>
-        function filterTrainings(format) {
-            // Update active button
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-
-            // Filter cards
-            document.querySelectorAll('.training-card').forEach(card => {
-                if (format === 'all') {
-                    card.style.display = 'flex';
-                } else if (card.dataset.format === format) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-
-        function reserveSeat(button) {
-            const card = button.closest('.training-card');
-            const dateRange = card.querySelector('.card-date').textContent;
-            const format = card.dataset.format === 'online' ? 'Online' : 'In-Person';
-            const location = card.querySelector('.card-location').textContent;
-            const price = card.querySelector('.card-price').textContent;
-
-            // Redirect to checkout with training details
-            const message = `I'd like to reserve a seat for the ${dateRange} ${format} training. ${location.split('\\n')[0]}. Price: ${price}`;
-            alert(`Booking: ${dateRange}\n${format}\n${price}\n\nIn a real implementation, this would redirect to the checkout page with these details pre-filled.`);
-
-            // In production, this would be:
-            // window.location.href = `/checkout?training=${encodeURIComponent(dateRange)}&format=${format}&price=${price}`;
-        }
-
-        function toggleFaq(element) {
-            const faqItem = element.closest('.faq-item');
-            faqItem.classList.toggle('open');
-        }
-    </script>
 </body>
 </html>

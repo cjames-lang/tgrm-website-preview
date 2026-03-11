@@ -3,37 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grief Recovery Method® Certification Training | TGRM</title>
+    <title>Grief Recovery Specialist Certification Training | TGRM</title>
     <style>
+        :root {
+            --orange: #e07525;
+            --orange-dark: #c4621a;
+            --orange-light: #f5a623;
+            --teal: #427e88;
+            --teal-dark: #356a73;
+            --teal-light: #7895a3;
+            --teal-pale: #e8f2f4;
+            --warm-bg: #faf8f5;
+            --warm-bg-alt: #f5f0eb;
+            --text-primary: #2d3748;
+            --text-secondary: #5a6577;
+            --text-light: #8896a8;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+            --shadow-md: 0 4px 14px rgba(0,0,0,.1);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,.12);
+            --shadow-xl: 0 20px 50px rgba(0,0,0,.15);
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --transition: .25s ease;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --orange: #e07525;
-            --orange-dark: #c4621a;
-            --teal: #427e88;
-            --teal-dark: #356a73;
-            --teal-pale: #e8f2f4;
-            --warm-bg: #faf8f5;
-            --text-primary: #2d3748;
-            --text-secondary: #5a6577;
-            --text-light: #8896a8;
-            --br-sm: 6px;
-            --br-md: 10px;
-            --br-lg: 16px;
-            --br-xl: 24px;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
-            --shadow-md: 0 4px 14px rgba(0,0,0,.1);
-            --shadow-lg: 0 10px 30px rgba(0,0,0,.12);
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
             color: var(--text-primary);
-            background-color: #ffffff;
+            background-color: var(--warm-bg);
             line-height: 1.6;
         }
 
@@ -41,53 +50,55 @@
         .utility-bar {
             background-color: var(--teal-dark);
             color: white;
-            padding: 12px 24px;
-            font-size: 13px;
-        }
-
-        .utility-content {
-            max-width: 1200px;
-            margin: 0 auto;
+            font-size: 0.85rem;
+            padding: 10px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
+            font-weight: 500;
         }
 
-        .utility-left, .utility-right {
+        .utility-bar-left, .utility-bar-right {
             display: flex;
-            gap: 24px;
+            gap: 20px;
             align-items: center;
         }
 
-        .utility-left a, .utility-right a {
-            color: white;
+        .utility-bar a {
+            color: inherit;
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: opacity 0.3s;
+            transition: opacity var(--transition);
         }
 
-        .utility-left a:hover, .utility-right a:hover {
+        .utility-bar a:hover {
             opacity: 0.8;
         }
 
+        @media (max-width: 768px) {
+            .utility-bar {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            .utility-bar-left, .utility-bar-right {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+
         /* ===== STICKY HEADER ===== */
-        header {
+        .header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background-color: white;
-            border-bottom: 1px solid #e8e8e8;
-            box-shadow: var(--shadow-sm);
+            background: white;
+            box-shadow: var(--shadow-md);
+            padding: 12px 20px;
         }
 
-        .header-content {
+        .header-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 16px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -97,44 +108,88 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-weight: 700;
-            color: var(--text-primary);
+            gap: 10px;
             text-decoration: none;
-            font-size: 16px;
-            white-space: nowrap;
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 1.1rem;
         }
 
         .logo-circle {
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--teal), var(--orange));
+            background: var(--orange);
+            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-weight: 900;
-            font-size: 18px;
+            font-weight: bold;
+            font-size: 1.1rem;
         }
 
-        nav {
+        .nav {
             display: flex;
-            gap: 32px;
+            gap: 30px;
             align-items: center;
             flex: 1;
         }
 
-        nav a {
+        .nav-item {
+            position: relative;
+            cursor: pointer;
             color: var(--text-primary);
             text-decoration: none;
-            font-size: 14px;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: color var(--transition);
         }
 
-        nav a:hover {
+        .nav-item:hover {
             color: var(--orange);
+        }
+
+        .mega-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            padding: 30px;
+            margin-top: 10px;
+            min-width: 400px;
+            z-index: 1001;
+        }
+
+        .mega-dropdown.active {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .mega-column h3 {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .mega-column a {
+            display: block;
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 8px 0;
+            transition: color var(--transition);
+            border-left: 2px solid transparent;
+            padding-left: 8px;
+        }
+
+        .mega-column a:hover {
+            color: var(--orange);
+            border-left-color: var(--orange);
         }
 
         .header-ctas {
@@ -144,423 +199,646 @@
         }
 
         .btn {
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: var(--radius-sm);
             text-decoration: none;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all var(--transition);
+            cursor: pointer;
+            border: none;
+            text-align: center;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--orange), var(--orange-dark));
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn-secondary {
+        .btn-outline-teal {
             border: 2px solid var(--teal);
             color: var(--teal);
             background: transparent;
         }
 
-        .btn-secondary:hover {
-            background-color: var(--teal-pale);
+        .btn-outline-teal:hover {
+            background: var(--teal);
+            color: white;
+        }
+
+        .btn-gradient-orange {
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+            color: white;
+        }
+
+        .btn-gradient-orange:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .header-ctas {
+                flex-direction: column;
+                width: 100%;
+            }
+            .btn {
+                width: 100%;
+            }
         }
 
         /* ===== HERO SECTION ===== */
         .hero {
             background: linear-gradient(135deg, var(--warm-bg) 0%, var(--teal-pale) 100%);
-            padding: 80px 24px;
+            padding: 80px 20px;
             text-align: center;
         }
 
-        .hero-content {
-            max-width: 800px;
+        .hero-container {
+            max-width: 900px;
             margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--orange-light);
+            color: white;
+            padding: 8px 16px;
+            border-radius: var(--radius-xl);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
         }
 
         .hero h1 {
-            font-size: 48px;
-            line-height: 1.2;
-            margin-bottom: 24px;
+            font-size: clamp(2rem, 5vw, 3.5rem);
             color: var(--text-primary);
-            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
         }
 
-        .hero p {
-            font-size: 18px;
+        .hero-subtitle {
+            font-size: 1.1rem;
             color: var(--text-secondary);
-            margin-bottom: 32px;
-            line-height: 1.7;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .hero .btn {
-            margin: 0 auto;
-            display: inline-flex;
-        }
-
-        /* ===== PROOF BAR ===== */
-        .proof-bar {
-            background-color: white;
-            border-top: 1px solid #e8e8e8;
-            border-bottom: 1px solid #e8e8e8;
-            padding: 32px 24px;
-        }
-
-        .proof-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        .hero-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 32px;
-            text-align: center;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
         }
 
-        .proof-item h3 {
-            font-size: 24px;
+        .stat-item {
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-number {
+            font-size: 2rem;
             font-weight: 700;
             color: var(--orange);
             margin-bottom: 8px;
         }
 
-        .proof-item p {
-            font-size: 13px;
+        .stat-label {
+            font-size: 0.85rem;
             color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-weight: 500;
         }
 
-        /* ===== SECTION: WHAT YOU'LL LEARN ===== */
-        .section {
-            padding: 80px 24px;
+        /* ===== AUDIENCE TABS ===== */
+        .audience-section {
+            background: white;
+            padding: 60px 20px;
         }
 
-        .section-content {
+        .audience-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .audience-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--text-primary);
+            margin-bottom: 40px;
+        }
+
+        .tabs-container {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            border: 2px solid var(--text-light);
+            background: transparent;
+            border-radius: var(--radius-xl);
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all var(--transition);
+        }
+
+        .tab-btn.active {
+            background: var(--orange);
+            border-color: var(--orange);
+            color: white;
+        }
+
+        .tab-btn:hover:not(.active) {
+            border-color: var(--orange);
+            color: var(--orange);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .tab-content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .content-card {
+            background: var(--teal-pale);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+        }
+
+        .content-card h3 {
+            color: var(--teal-dark);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        .content-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ===== PROGRAM COMPARISON ===== */
+        .comparison-section {
+            background: var(--warm-bg-alt);
+            padding: 60px 20px;
+        }
+
+        .comparison-container {
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .section h2 {
-            font-size: 36px;
-            margin-bottom: 48px;
+        .section-title {
             text-align: center;
+            font-size: 2rem;
             color: var(--text-primary);
-            font-weight: 700;
+            margin-bottom: 50px;
         }
 
-        .cards-grid {
+        .comparison-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 32px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
         }
 
-        .card {
+        .program-card {
             background: white;
-            border-radius: var(--br-lg);
-            padding: 32px;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid #f0f0f0;
-            transition: all 0.3s;
-        }
-
-        .card:hover {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
             box-shadow: var(--shadow-md);
-            transform: translateY(-4px);
+            transition: all var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
-        .card h3 {
-            font-size: 18px;
+        .program-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .program-card.featured {
+            border: 3px solid var(--orange);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            transform: rotate(45deg);
+            background: var(--orange);
+            color: white;
+            padding: 6px 40px;
             font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--text-primary);
+            font-size: 0.75rem;
+            z-index: 10;
         }
 
-        .card p {
-            font-size: 14px;
+        .program-header {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .program-name {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .program-price {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .program-subtext {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .program-body {
+            padding: 30px 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .program-details {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+        }
+
+        .detail-icon {
+            color: var(--orange);
+            font-weight: bold;
+        }
+
+        .program-features {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .checkmark {
+            color: var(--orange);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .program-card .btn {
+            margin-top: auto;
+            width: 100%;
+        }
+
+        .comparison-note {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        /* ===== WHAT YOU'LL LEARN ===== */
+        .learn-section {
+            background: white;
+            padding: 60px 20px;
+        }
+
+        .learn-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .learn-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .learn-card {
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: var(--radius-lg);
+            background: var(--teal-pale);
+            transition: all var(--transition);
+        }
+
+        .learn-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .learn-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .learn-card h3 {
+            font-size: 1.2rem;
+            color: var(--teal-dark);
+            margin-bottom: 12px;
+        }
+
+        .learn-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials-section {
+            background: var(--warm-bg-alt);
+            padding: 60px 20px;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition);
+        }
+
+        .testimonial-card:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .avatar-1 { background: var(--orange); }
+        .avatar-2 { background: var(--teal); }
+        .avatar-3 { background: var(--orange-dark); }
+
+        .testimonial-info h4 {
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            font-size: 1rem;
+        }
+
+        .testimonial-info p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .testimonial-quote {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            font-style: italic;
+            border-left: 3px solid var(--orange);
+            padding-left: 15px;
+        }
+
+        /* ===== FAQ ACCORDION ===== */
+        .faq-section {
+            background: white;
+            padding: 60px 20px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 16px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-summary {
+            padding: 20px;
+            background: var(--teal-pale);
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--teal-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all var(--transition);
+            user-select: none;
+        }
+
+        .faq-summary:hover {
+            background: #dce8ec;
+        }
+
+        .faq-summary::marker {
+            color: var(--orange);
+        }
+
+        .faq-content {
+            padding: 20px;
+            background: white;
             color: var(--text-secondary);
             line-height: 1.7;
         }
 
-        .card-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--orange), var(--orange-dark));
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            margin-bottom: 16px;
+        .faq-item details[open] .faq-summary {
+            background: #c5dce8;
+            color: var(--teal-dark);
         }
 
-        /* ===== SECTION: WHO THIS IS FOR ===== */
-        .who-section {
-            background-color: var(--warm-bg);
-        }
-
-        .who-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 32px;
-        }
-
-        .who-item {
-            display: flex;
-            gap: 16px;
-        }
-
-        .who-icon {
-            width: 48px;
-            height: 48px;
-            min-width: 48px;
-            border-radius: var(--br-md);
-            background: linear-gradient(135deg, var(--teal), var(--teal-dark));
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-        }
-
-        .who-content h4 {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 6px;
-        }
-
-        .who-content p {
-            font-size: 13px;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* ===== SECTION: TRAINING FORMAT ===== */
-        .format-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-            margin-bottom: 40px;
-        }
-
-        .format-card {
-            background: linear-gradient(135deg, #ffffff 0%, var(--teal-pale) 100%);
-            border-radius: var(--br-lg);
-            padding: 40px;
-            border: 2px solid var(--teal);
+        /* ===== CTA BANNER ===== */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+            padding: 60px 20px;
             text-align: center;
+            color: white;
         }
 
-        .format-card h3 {
-            font-size: 20px;
-            font-weight: 700;
+        .cta-banner h2 {
+            font-size: 2rem;
             margin-bottom: 24px;
-            color: var(--text-primary);
         }
 
-        .format-feature {
-            font-size: 13px;
-            color: var(--text-secondary);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            justify-content: center;
-        }
-
-        .format-feature::before {
-            content: '✓';
+        .cta-banner .btn {
+            background: white;
             color: var(--orange);
-            font-weight: 700;
-            font-size: 16px;
+            padding: 14px 32px;
+            font-size: 1rem;
         }
 
-        .format-divider {
-            border-top: 1px solid #d0d0d0;
-            margin: 24px 0;
-        }
-
-        .format-shared {
-            font-size: 12px;
-            color: var(--text-light);
-            font-style: italic;
-        }
-
-        /* ===== SECTION: TESTIMONIAL ===== */
-        .testimonial-section {
-            background: linear-gradient(135deg, var(--teal), var(--teal-dark));
-            color: white;
-        }
-
-        .testimonial-content {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .testimonial-quote {
-            font-size: 22px;
-            line-height: 1.8;
-            margin-bottom: 24px;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            font-size: 14px;
-            font-weight: 600;
-            opacity: 0.95;
-        }
-
-        /* ===== SECTION: FINAL CTA ===== */
-        .cta-final {
-            background: linear-gradient(135deg, var(--warm-bg) 0%, var(--teal-pale) 100%);
-            text-align: center;
-        }
-
-        .cta-final h2 {
-            font-size: 36px;
-            margin-bottom: 24px;
-            color: var(--text-primary);
-        }
-
-        .cta-final p {
-            font-size: 16px;
-            color: var(--text-secondary);
-            margin-bottom: 32px;
+        .cta-banner .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
         }
 
         /* ===== FOOTER ===== */
-        footer {
-            background-color: var(--teal-dark);
-            color: white;
-            padding: 60px 24px 32px;
+        .footer {
+            background: #1a2a30;
+            color: #ffffff;
+            padding: 60px 20px 20px;
         }
 
-        .footer-content {
+        .footer-container {
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             margin-bottom: 40px;
         }
 
-        .footer-col h4 {
-            font-size: 14px;
-            font-weight: 700;
+        .footer-col h3 {
+            font-size: 1.1rem;
             margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            color: var(--orange);
+            font-weight: 700;
         }
 
-        .footer-col a, .footer-col p {
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.85);
-            text-decoration: none;
-            margin-bottom: 12px;
+        .footer-col a {
             display: block;
-            transition: opacity 0.3s;
+            color: #a8c5d1;
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: color var(--transition);
+            font-size: 0.9rem;
         }
 
         .footer-col a:hover {
-            opacity: 1;
-            color: var(--orange);
+            color: white;
+        }
+
+        .footer-col p {
+            color: #a8c5d1;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .crisis-bar {
+            background: #e07525;
+            color: white;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 600;
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: 24px;
+            border-top: 1px solid #2d4a52;
+            padding-top: 20px;
             text-align: center;
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.7);
+            color: #7a96a3;
+            font-size: 0.85rem;
         }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 16px;
-            }
-
-            nav {
-                gap: 16px;
-                order: 3;
-                width: 100%;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-
-            .utility-content {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .utility-left, .utility-right {
-                justify-content: center;
-                width: 100%;
+            .hero {
+                padding: 60px 20px;
             }
 
             .hero h1 {
-                font-size: 32px;
+                font-size: 1.8rem;
             }
 
-            .hero p {
-                font-size: 16px;
+            .section-title {
+                font-size: 1.5rem;
             }
 
-            .section h2 {
-                font-size: 28px;
-            }
-
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .who-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .format-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-final h2 {
-                font-size: 28px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header-ctas {
+            .tabs-container {
                 flex-direction: column;
+            }
+
+            .tab-btn {
                 width: 100%;
             }
 
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .hero {
-                padding: 60px 16px;
-            }
-
-            .section {
-                padding: 60px 16px;
-            }
-
-            .proof-content {
+            .comparison-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .popular-badge {
+                display: none;
+            }
+
+            .learn-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .program-card {
+                margin-bottom: 20px;
             }
         }
     </style>
@@ -569,233 +847,621 @@
 
 <!-- UTILITY BAR -->
 <div class="utility-bar">
-    <div class="utility-content">
-        <div class="utility-left">
-            <a href="tel:+1234567890">📞 (555) 123-4567</a>
-            <a href="#next-training">Next Training: April 14–17</a>
-        </div>
-        <div class="utility-right">
-            <a href="#student-login">Student Login</a>
-            <a href="#find-specialist">Find a Specialist</a>
-        </div>
+    <div class="utility-bar-left">
+        <span>📞 (800) 334-7606</span>
+        <span>✉ <a href="mailto:support@griefrecovery.com">support@griefrecovery.com</a></span>
+    </div>
+    <div class="utility-bar-right">
+        <a href="#">🔒 Specialist Login</a>
+        <a href="#">📱 Community</a>
     </div>
 </div>
 
 <!-- STICKY HEADER -->
-<header>
-    <div class="header-content">
-        <a href="#home" class="logo">
+<header class="header">
+    <div class="header-container">
+        <a href="index.html" class="logo">
             <div class="logo-circle">GR</div>
-            The Grief Recovery Method®
+            <span>The Grief Recovery Method®</span>
         </a>
-        <nav>
-            <a href="#certification">Certification Training</a>
-            <a href="#organizations">For Organizations</a>
-            <a href="#pricing">Dates & Pricing</a>
-            <a href="#about">About</a>
+
+        <nav class="nav">
+            <div class="nav-item" onclick="toggleDropdown(event, 'programs-dropdown')">
+                Programs
+                <div class="mega-dropdown" id="programs-dropdown">
+                    <div class="mega-column">
+                        <h3>Training</h3>
+                        <a href="TGRM_Certification.html">Certification Training</a>
+                        <a href="#">Private & B2B Training</a>
+                        <a href="TGRM_Training_Calendar.html">Training Calendar</a>
+                    </div>
+                    <div class="mega-column">
+                        <h3>For Grievers</h3>
+                        <a href="#">Programs for Grievers</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-item" onclick="toggleDropdown(event, 'resources-dropdown')">
+                Resources
+                <div class="mega-dropdown" id="resources-dropdown">
+                    <div class="mega-column">
+                        <h3>Learning</h3>
+                        <a href="#">Blog & Articles</a>
+                        <a href="#">Handbook</a>
+                    </div>
+                    <div class="mega-column">
+                        <h3>Support</h3>
+                        <a href="#">Find a Specialist</a>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#" class="nav-item">About</a>
         </nav>
+
         <div class="header-ctas">
-            <a href="#find-specialist" class="btn btn-secondary">Find a Specialist</a>
-            <a href="#get-certified" class="btn btn-primary">Get Certified →</a>
+            <a href="#" class="btn btn-outline-teal">Find a Specialist</a>
+            <a href="#programs" class="btn btn-gradient-orange">Get Certified</a>
         </div>
     </div>
 </header>
 
 <!-- HERO SECTION -->
 <section class="hero">
-    <div class="hero-content">
-        <h1>The Certification That Changes Everything</h1>
-        <p>Four days. Evidence-based tools your graduate degree didn't provide. Complete unfinished grief. Serve your clients, patients, and community with proven, action-based methods grounded in 40+ years of research.</p>
-        <a href="#next-training" class="btn btn-primary">View Upcoming Trainings →</a>
+    <div class="hero-container">
+        <div class="hero-badge">Become a Certified Grief Recovery Specialist®</div>
+        <h1>The World's Most Trusted Grief Recovery Certification</h1>
+        <p class="hero-subtitle">
+            Our evidence-based method is backed by 40+ years of research and trusted by grievers, clinicians, and specialists across 100+ countries. Get the skills and credentials to make a real difference in people's lives.
+        </p>
+
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="stat-number">10,000+</div>
+                <div class="stat-label">Certified Specialists</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Countries</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">40+</div>
+                <div class="stat-label">Years Proven</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">CEU</div>
+                <div class="stat-label">Approved</div>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- PROOF BAR -->
-<div class="proof-bar">
-    <div class="proof-content">
-        <div class="proof-item">
-            <h3>10,000+</h3>
-            <p>Certified Specialists</p>
+<!-- AUDIENCE TABS SECTION -->
+<section class="audience-section">
+    <div class="audience-container">
+        <h2 class="audience-title">Which Path is Right for You?</h2>
+
+        <div class="tabs-container">
+            <button class="tab-btn active" onclick="switchTab(event, 'tab-therapists')">
+                Therapists & Counselors
+            </button>
+            <button class="tab-btn" onclick="switchTab(event, 'tab-coaches')">
+                Life Coaches
+            </button>
+            <button class="tab-btn" onclick="switchTab(event, 'tab-military')">
+                Military & Veterans
+            </button>
+            <button class="tab-btn" onclick="switchTab(event, 'tab-general')">
+                General Professionals
+            </button>
         </div>
-        <div class="proof-item">
-            <h3>40+ Years</h3>
-            <p>Research-Backed Method</p>
+
+        <!-- THERAPISTS TAB -->
+        <div id="tab-therapists" class="tab-content active">
+            <div class="tab-content-grid">
+                <div class="content-card">
+                    <h3>Why This Cert Matters for You</h3>
+                    <p>Add a proven, evidence-based grief recovery methodology to your clinical practice. The Grief Recovery Method complements your existing therapeutic toolkit and gives clients concrete tools for emotional action.</p>
+                </div>
+                <div class="content-card">
+                    <h3>What You'll Learn</h3>
+                    <p>Master our proprietary facilitator skills, learn to guide clients through the eight tasks of grief recovery, understand contraindications, and develop competency in our assessment and follow-up protocols.</p>
+                </div>
+                <div class="content-card">
+                    <h3>Outcomes & Results</h3>
+                    <p>Join a community of licensed therapists who've integrated our method into their practices. Earn 30+ CEUs, expand your service offerings, and report increased client satisfaction and treatment efficacy.</p>
+                </div>
+            </div>
         </div>
-        <div class="proof-item">
-            <h3>Kent State</h3>
-            <p>Validated & Approved</p>
+
+        <!-- LIFE COACHES TAB -->
+        <div id="tab-coaches" class="tab-content">
+            <div class="tab-content-grid">
+                <div class="content-card">
+                    <h3>Why This Cert Matters for You</h3>
+                    <p>Grief is a major life transition. This certification positions you as a trusted guide through loss, differentiating your coaching practice and opening new revenue streams with specialization.</p>
+                </div>
+                <div class="content-card">
+                    <h3>What You'll Learn</h3>
+                    <p>Learn the science of grief, master group facilitation techniques, develop business-building strategies specific to grief coaching, and build a referral network with healthcare professionals.</p>
+                </div>
+                <div class="content-card">
+                    <h3>Outcomes & Results</h3>
+                    <p>Become the go-to grief specialist in your market. Certified coaches report increased client retention, higher-value engagements, and the satisfaction of helping people move through profound transitions.</p>
+                </div>
+            </div>
         </div>
-        <div class="proof-item">
-            <h3>CEUs</h3>
-            <p>Available for All States</p>
+
+        <!-- MILITARY/VETERANS TAB -->
+        <div id="tab-military" class="tab-content">
+            <div class="tab-content-grid">
+                <div class="content-card">
+                    <h3>Why This Cert Matters for You</h3>
+                    <p>Military personnel face unique grief challenges: combat loss, survivor guilt, transition grief. This specialized certification equips you to address these profound experiences with skill and respect.</p>
+                </div>
+                <div class="content-card">
+                    <h3>What You'll Learn</h3>
+                    <p>Deep-dive into military grief dynamics, master peer-support facilitation, understand trauma and grief intersection, and learn approaches trusted by military health systems and veteran organizations.</p>
+                </div>
+                <div class="content-card">
+                    <h3>Outcomes & Results</h3>
+                    <p>Become a certified resource within military communities and VA networks. Specialized expertise opens doors to VA training contracts, military installation programs, and veteran-serving organizations nationwide.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- GENERAL TAB -->
+        <div id="tab-general" class="tab-content">
+            <div class="tab-content-grid">
+                <div class="content-card">
+                    <h3>Why This Cert Matters for You</h3>
+                    <p>Whether you work in healthcare, education, HR, or community organizations, this certification adds profound value. Grief touches everyone—and now you can facilitate recovery with proven methods.</p>
+                </div>
+                <div class="content-card">
+                    <h3>What You'll Learn</h3>
+                    <p>Master the fundamentals of grief recovery, learn to recognize and address unresolved grief in various contexts, develop facilitation skills, and build your personal practice or integrate grief support into your organization.</p>
+                </div>
+                <div class="content-card">
+                    <h3>Outcomes & Results</h3>
+                    <p>Certified professionals report deeper client relationships, career advancement, and the fulfillment of meaningful impact work. Many launch private practices or become trusted resources within their organizations.</p>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</section>
 
-<!-- WHAT YOU'LL LEARN -->
-<section class="section">
-    <div class="section-content">
-        <h2>What You'll Learn</h2>
-        <div class="cards-grid">
-            <div class="card">
-                <div class="card-icon">⚡</div>
-                <h3>The Method</h3>
-                <p>Action-based, not talk-based. Master the proven process that helps people complete unfinished grief instead of managing it for life.</p>
+<!-- PROGRAM COMPARISON SECTION -->
+<section class="comparison-section" id="programs">
+    <div class="comparison-container">
+        <h2 class="section-title">Our Training Programs</h2>
+
+        <div class="comparison-grid">
+            <!-- PROGRAM 1: MAIN CERT -->
+            <div class="program-card featured">
+                <div class="popular-badge">MOST POPULAR</div>
+                <div class="program-header">
+                    <div class="program-name">Grief Recovery Specialist</div>
+                    <div class="program-price">$1,295</div>
+                    <div class="program-subtext">Full Certification Program</div>
+                </div>
+                <div class="program-body">
+                    <div class="program-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">📅</span>
+                            <span><strong>4-day</strong> intensive program</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🌐</span>
+                            <span>Online or <strong>in-person</strong> options</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📜</span>
+                            <span><strong>30+ CEUs</strong> included</span>
+                        </div>
+                    </div>
+
+                    <div class="program-features">
+                        <div class="feature-item">
+                            <span class="checkmark">✓</span>
+                            <span>Complete Facilitator Toolkit</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="checkmark">✓</span>
+                            <span>Certification Exam & Badge</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="checkmark">✓</span>
+                            <span>Marketing Resources & Templates</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="checkmark">✓</span>
+                            <span>Access to Specialist Network</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="checkmark">✓</span>
+                            <span>One Year of Support</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="checkmark">✓</span>
+                            <span>Listing on Specialist Directory</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-gradient-orange">Enroll Now</button>
             </div>
-            <div class="card">
-                <div class="card-icon">👥</div>
-                <h3>Group Facilitation</h3>
-                <p>Lead 7-week programs for your clients, patients, community members, or corporate teams with step-by-step curriculum and proven outcomes.</p>
+
+            <!-- PROGRAM 2: ADVANCED -->
+            <div class="program-card">
+                <div class="program-header">
+                    <div class="program-name">Advanced Grief Recovery</div>
+                    <div class="program-price">$995</div>
+                    <div class="program-subtext">Specialized Populations</div>
+                </div>
+                <div class="program-body">
+                    <div class="program-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">📅</span>
+                            <span><strong>2-day</strong> add-on program</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🌐</span>
+                            <span>Online or <strong>in-person</strong> options</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📜</span>
+                            <span><strong>15+ CEUs</strong> included</span>
+                        </div>
+                    </div>
+
+                    <div class="program-features">
+                        <div class="feature-item">
+                            <span class="checkmark">✓</span>
+                            <span>Specialized Training Modules</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="checkmark">✓</span>
+                            <span>Advanced Facilitation Skills</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="checkmark">✓</span>
+                            <span>Military & Trauma Specialization</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="checkmark">✓</span>
+                            <span>Group Facilitation Mastery</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="checkmark">✓</span>
+                            <span>Advanced Assessment Protocols</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-gradient-orange">Learn More</button>
             </div>
-            <div class="card">
-                <div class="card-icon">💔</div>
-                <h3>40+ Loss Types</h3>
-                <p>Go beyond death. Learn to serve clients through divorce, health crises, career changes, faith loss, pet loss, and every loss that matters.</p>
+
+            <!-- PROGRAM 3: PRIVATE/TEAM -->
+            <div class="program-card">
+                <div class="program-header">
+                    <div class="program-name">Private & Team Training</div>
+                    <div class="program-price">Custom</div>
+                    <div class="program-subtext">In-House Solutions</div>
+                </div>
+                <div class="program-body">
+                    <div class="program-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">👥</span>
+                            <span><strong>Tailored</strong> for your team</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📍</span>
+                            <span><strong>On-site</strong> or online</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">💰</span>
+                            <span><strong>Volume pricing</strong> available</span>
+                        </div>
+                    </div>
+
+                    <div class="program-features">
+                        <div class="feature-item">
+                            <span class="checkmark">✓</span>
+                            <span>Custom Curriculum Design</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="checkmark">✓</span>
+                            <span>Flexible Scheduling</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="checkmark">✓</span>
+                            <span>All Certifications Included</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="checkmark">✓</span>
+                            <span>Ongoing Consultation</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="checkmark">✓</span>
+                            <span>Implementation Support</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-gradient-orange">Get Quote</button>
             </div>
-            <div class="card">
-                <div class="card-icon">📈</div>
+        </div>
+
+        <div class="comparison-note">
+            <strong>Payment Plans Available:</strong> All programs offer flexible 2-3 month payment plans. Inquire during registration.
+        </div>
+    </div>
+</section>
+
+<!-- WHAT YOU'LL LEARN SECTION -->
+<section class="learn-section">
+    <div class="learn-container">
+        <h2 class="section-title">What You'll Master</h2>
+
+        <div class="learn-grid">
+            <div class="learn-card">
+                <div class="learn-icon">🔬</div>
+                <h3>Evidence-Based Method</h3>
+                <p>Master the eight tasks of grief recovery, grounded in 40+ years of research and clinical validation. Learn the neuroscience behind grief and why our method works.</p>
+            </div>
+            <div class="learn-card">
+                <div class="learn-icon">🛠️</div>
+                <h3>Practical Tools & Protocols</h3>
+                <p>Gain certification-level expertise in our assessment tools, facilitation guides, and follow-up protocols. Ready-to-use resources for immediate practice application.</p>
+            </div>
+            <div class="learn-card">
+                <div class="learn-icon">💼</div>
                 <h3>Business Building</h3>
-                <p>Market your certification, run profitable groups, set pricing, and scale your practice with real business strategies from certified leaders.</p>
+                <p>Learn marketing strategies, pricing models, how to build your referral network, and strategies for growing a grief recovery practice. Includes templates and marketing assets.</p>
+            </div>
+            <div class="learn-card">
+                <div class="learn-icon">🤝</div>
+                <h3>Ongoing Support Network</h3>
+                <p>Join our community of 10,000+ certified specialists. Access continuing education, peer mentoring, supervision opportunities, and collaboration resources year-round.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- WHO THIS IS FOR -->
-<section class="section who-section">
-    <div class="section-content">
-        <h2>Who This Is For</h2>
-        <div class="who-grid">
-            <div class="who-item">
-                <div class="who-icon">🩺</div>
-                <div class="who-content">
-                    <h4>Therapists & Counselors</h4>
-                    <p>Fill the gap your degree left. Add grief recovery to your practice and serve the clients who need you most.</p>
+<!-- TESTIMONIALS SECTION -->
+<section class="testimonials-section">
+    <div class="testimonials-container">
+        <h2 class="section-title">From Certified Specialists</h2>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar avatar-1">DR</div>
+                    <div class="testimonial-info">
+                        <h4>Dr. Rachel Martinez</h4>
+                        <p>Licensed Therapist, Denver CO</p>
+                    </div>
                 </div>
+                <p class="testimonial-quote">
+                    "The Grief Recovery certification transformed my practice. My clients finally have concrete steps to move through grief, not just talk about it. My clinical outcomes improved dramatically, and my referrals doubled within a year."
+                </p>
             </div>
-            <div class="who-item">
-                <div class="who-icon">🎯</div>
-                <div class="who-content">
-                    <h4>Coaches & Life Coaches</h4>
-                    <p>The missing piece for your practice. Give your clients the tools to move through loss and into their best lives.</p>
+
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar avatar-2">JS</div>
+                    <div class="testimonial-info">
+                        <h4>James Sullivan</h4>
+                        <p>Life Coach & Veterans Advocate, Austin TX</p>
+                    </div>
                 </div>
+                <p class="testimonial-quote">
+                    "Working with veterans, I needed tools for the complex grief they carry. This certification gave me exactly that—plus the confidence to market myself as a grief recovery specialist. My business grew 40% in the first year."
+                </p>
             </div>
-            <div class="who-item">
-                <div class="who-icon">🇺🇸</div>
-                <div class="who-content">
-                    <h4>Military & First Responders</h4>
-                    <p>GI Bill approved. Veteran-created method. Serve your peers with tools designed for tactical minds and warrior hearts.</p>
+
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar avatar-3">KC</div>
+                    <div class="testimonial-info">
+                        <h4>Katherine Chen</h4>
+                        <p>Hospital Chaplain, Seattle WA</p>
+                    </div>
                 </div>
-            </div>
-            <div class="who-item">
-                <div class="who-icon">⛪</div>
-                <div class="who-content">
-                    <h4>Chaplains & Hospice Workers</h4>
-                    <p>Serve with presence and tools. Give spiritual care alongside evidence-based methods for moving through loss.</p>
-                </div>
-            </div>
-            <div class="who-item">
-                <div class="who-icon">📚</div>
-                <div class="who-content">
-                    <h4>Educators & Administrators</h4>
-                    <p>Bring grief-aware practice to your school. Support students and staff through loss with proven, scalable curriculum.</p>
-                </div>
-            </div>
-            <div class="who-item">
-                <div class="who-icon">🤝</div>
-                <div class="who-content">
-                    <h4>Anyone Called to Help</h4>
-                    <p>If you're called to help others through loss, this training will change how you show up and the results you create.</p>
-                </div>
+                <p class="testimonial-quote">
+                    "Bringing this method into our hospital chaplaincy program was the best decision we made. Staff certification elevated our entire department's competency. Patients and families report real healing."
+                </p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- TRAINING FORMAT -->
-<section class="section">
-    <div class="section-content">
-        <h2>How It Works</h2>
-        <div class="format-grid">
-            <div class="format-card">
-                <h3>Online Live</h3>
-                <div class="format-feature">4 consecutive days</div>
-                <div class="format-feature">Via Zoom from anywhere</div>
-                <div class="format-feature">Interactive & engaging</div>
-                <div class="format-divider"></div>
-                <div class="format-shared">Same certification. Same curriculum. Same outcomes.</div>
+<!-- FAQ SECTION -->
+<section class="faq-section">
+    <div class="faq-container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+
+        <details class="faq-item">
+            <summary class="faq-summary">
+                <span>Who is this certification designed for?</span>
+                <span>➕</span>
+            </summary>
+            <div class="faq-content">
+                <p>This certification is ideal for licensed therapists, counselors, social workers, life coaches, clergy, hospital chaplains, HR professionals, and anyone who works with grieving individuals. You don't need prior grief experience—just a genuine desire to help people through loss.</p>
             </div>
-            <div class="format-card">
-                <h3>In-Person</h3>
-                <div class="format-feature">4 days at select locations</div>
-                <div class="format-feature">Immersive, in-room experience</div>
-                <div class="format-feature">Network with cohort</div>
-                <div class="format-divider"></div>
-                <div class="format-shared">Same certification. Same curriculum. Same outcomes.</div>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-summary">
+                <span>What's the time commitment for the main certification?</span>
+                <span>➕</span>
+            </summary>
+            <div class="faq-content">
+                <p>The main certification is a 4-day intensive program (32 hours). This can be completed in consecutive days or spread over 2 weekends, depending on the training schedule. Most participants complete it within one month, then engage in 2-3 months of mentored practice before final certification.</p>
             </div>
-        </div>
-        <div style="text-align: center; font-size: 14px; color: var(--text-secondary); line-height: 1.8;">
-            <p><strong>Both formats include:</strong></p>
-            <p>Lifetime access to training materials • CEU credits for your state • Expert instructor guidance • Certification upon completion • Ongoing community support</p>
-        </div>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-summary">
+                <span>Are CEU credits really included?</span>
+                <span>➕</span>
+            </summary>
+            <div class="faq-content">
+                <p>Yes! Our main certification program includes 30+ approved CEUs. The credits are approved by multiple licensing boards including NBCC, NASW, APA, and state psychology boards. Advanced program includes 15+ additional CEUs. Your certificate is issued upon completion and exam passage.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-summary">
+                <span>Can I take training online, or do I need to attend in-person?</span>
+                <span>➕</span>
+            </summary>
+            <div class="faq-content">
+                <p>We offer both! Our live online trainings are highly interactive—you'll participate in role-plays, practice facilitation, and get real-time feedback. In-person trainings at our locations across the country offer the same comprehensive experience with additional networking. Choose what works best for your schedule and learning style.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-summary">
+                <span>What's included after the training ends?</span>
+                <span>➕</span>
+            </summary>
+            <div class="faq-content">
+                <p>Your certification includes one year of ongoing support: access to mentored practice sessions, peer consultation calls, continuing education webinars, listing on our Specialist Directory, marketing templates, and access to our private specialist community. We want you to succeed long-term.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-summary">
+                <span>What's the difference between online and in-person training?</span>
+                <span>➕</span>
+            </summary>
+            <div class="faq-content">
+                <p>The curriculum is identical—both formats are comprehensive and rigorous. Online training uses interactive video, breakout rooms for practice, and real-time instructor feedback. In-person training offers the same education plus in-room networking and the ability to practice group facilitation with live participants. Both produce fully certified specialists.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-summary">
+                <span>Can I take the Advanced program without the main certification?</span>
+                <span>➕</span>
+            </summary>
+            <div class="faq-content">
+                <p>No, the Advanced program is designed as a 2-day add-on to the main certification. It dives deeper into specialized populations (military, children, trauma, etc.) and advanced facilitation skills. You'll need main certification first to enroll in Advanced.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-summary">
+                <span>Do you offer corporate training discounts?</span>
+                <span>➕</span>
+            </summary>
+            <div class="faq-content">
+                <p>Absolutely! We offer custom corporate training and team certification programs with volume pricing. Whether you're training 5 people or 50, we can design a program that fits your timeline and budget. Contact our corporate training team for a personalized quote.</p>
+            </div>
+        </details>
     </div>
 </section>
 
-<!-- TESTIMONIAL -->
-<section class="section testimonial-section">
-    <div class="section-content">
-        <div class="testimonial-content">
-            <p class="testimonial-quote">"This training gave me tools I've searched for in 20 years of therapy. My clients aren't managing grief anymore—they're completing it. Everything changed."</p>
-            <p class="testimonial-author">— Dr. Sarah Chen, Licensed Therapist & Certified Grief Recovery Specialist</p>
-        </div>
-    </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="section cta-final">
-    <div class="section-content">
-        <h2>Your Next Training Is Waiting</h2>
-        <p>Join 10,000+ certified specialists who've learned to serve grief with presence and evidence-based methods.</p>
-        <a href="#training-calendar" class="btn btn-primary">View Training Calendar & Reserve Your Seat</a>
-    </div>
+<!-- CTA BANNER SECTION -->
+<section class="cta-banner">
+    <h2>Ready to Make a Difference in Someone's Life?</h2>
+    <a href="TGRM_Training_Calendar.html" class="btn">View Upcoming Dates & Enroll</a>
 </section>
 
 <!-- FOOTER -->
-<footer>
-    <div class="footer-content">
-        <div class="footer-col">
-            <h4>Training</h4>
-            <a href="#certification">Certification Program</a>
-            <a href="#dates">Dates & Locations</a>
-            <a href="#pricing">Pricing & Payment</a>
-            <a href="#workshops">Workshops & Events</a>
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <!-- BRAND COLUMN -->
+            <div class="footer-col">
+                <h3>The Grief Recovery Method®</h3>
+                <p>Helping people move beyond grief to recovery since 1981. Evidence-based, proven outcomes, trusted by 10,000+ specialists worldwide.</p>
+            </div>
+
+            <!-- PROGRAMS COLUMN -->
+            <div class="footer-col">
+                <h3>Programs</h3>
+                <a href="TGRM_Certification.html">Certification Training</a>
+                <a href="#">Private & Team Training</a>
+                <a href="TGRM_Training_Calendar.html">Training Calendar</a>
+                <a href="#">Advanced Programs</a>
+                <a href="#">Programs for Grievers</a>
+            </div>
+
+            <!-- RESOURCES COLUMN -->
+            <div class="footer-col">
+                <h3>Resources</h3>
+                <a href="#">Blog & Articles</a>
+                <a href="#">Handbook Download</a>
+                <a href="#">Find a Specialist</a>
+                <a href="#">Specialist Directory</a>
+                <a href="#">Community Forum</a>
+            </div>
+
+            <!-- CONNECT COLUMN -->
+            <div class="footer-col">
+                <h3>Connect</h3>
+                <a href="mailto:support@griefrecovery.com">✉ Email Support</a>
+                <a href="tel:+18003347606">📞 (800) 334-7606</a>
+                <a href="#">🔒 Specialist Login</a>
+                <a href="#">📱 Join Community</a>
+            </div>
         </div>
-        <div class="footer-col">
-            <h4>For Organizations</h4>
-            <a href="#corporate">Corporate Training</a>
-            <a href="#schools">Schools & Districts</a>
-            <a href="#healthcare">Healthcare Systems</a>
-            <a href="#nonprofits">Nonprofits & Community</a>
+
+        <div class="crisis-bar">
+            <strong>In Crisis?</strong> Call or text 988 (US Suicide & Crisis Lifeline) anytime, 24/7.
         </div>
-        <div class="footer-col">
-            <h4>Resources</h4>
-            <a href="#find-specialist">Find a Specialist</a>
-            <a href="#blog">Blog & Articles</a>
-            <a href="#research">Research & Evidence</a>
-            <a href="#faq">FAQ</a>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 The Grief Recovery Institute. All rights reserved. The Grief Recovery Method® is a registered trademark. | <a href="#" style="color: inherit;">Privacy Policy</a> | <a href="#" style="color: inherit;">Terms of Service</a></p>
         </div>
-        <div class="footer-col">
-            <h4>About</h4>
-            <a href="#about">About TGRM</a>
-            <a href="#story">Our Story</a>
-            <a href="#contact">Contact</a>
-            <a href="#careers">Careers</a>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2026 The Grief Recovery Method®. All rights reserved. | <a href="#privacy" style="color: inherit; text-decoration: underline;">Privacy</a> | <a href="#terms" style="color: inherit; text-decoration: underline;">Terms</a></p>
     </div>
 </footer>
+
+<script>
+    // Toggle mega dropdowns
+    function toggleDropdown(e, dropdownId) {
+        e.preventDefault();
+        const dropdown = document.getElementById(dropdownId);
+        const allDropdowns = document.querySelectorAll('.mega-dropdown');
+
+        allDropdowns.forEach(d => {
+            if (d.id !== dropdownId) d.classList.remove('active');
+        });
+
+        dropdown.classList.toggle('active');
+    }
+
+    // Close dropdowns when clicking elsewhere
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.nav-item')) {
+            document.querySelectorAll('.mega-dropdown').forEach(d => d.classList.remove('active'));
+        }
+    });
+
+    // Tab switching
+    function switchTab(e, tabId) {
+        e.preventDefault();
+
+        // Remove active class from all tabs and contents
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+        // Add active class to clicked button and corresponding content
+        e.target.classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+    }
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href !== '#' && document.querySelector(href)) {
+                e.preventDefault();
+                document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+</script>
 
 </body>
 </html>

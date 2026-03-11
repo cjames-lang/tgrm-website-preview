@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover why we hold onto possessions after losing someone we love, and learn practical, compassionate approaches to dealing with their belongings.">
+  <title>Letting Go of Stuff After a Loss | The Grief Recovery Blog</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --orange: #e07525;
+      --orange-dark: #c4621a;
+      --orange-light: #f5a623;
+      --teal: #427e88;
+      --teal-dark: #356a73;
+      --teal-light: #7895a3;
+      --teal-pale: #e8f2f4;
+      --warm-bg: #faf8f5;
+      --warm-bg-alt: #f5f0eb;
+      --text-primary: #2d3748;
+      --text-secondary: #5a6577;
+      --text-light: #8896a8;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+      --shadow-md: 0 4px 14px rgba(0,0,0,.1);
+      --shadow-lg: 0 10px 30px rgba(0,0,0,.12);
+      --shadow-xl: 0 20px 50px rgba(0,0,0,.15);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --transition: .25s ease;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+      color: var(--text-primary);
+      background-color: var(--warm-bg);
+      line-height: 1.8;
+    }
+
+    /* ===== UTILITY BAR ===== */
+    .utility-bar {
+      background-color: var(--teal-dark);
+      color: white;
+      padding: 10px 20px;
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .utility-bar a {
+      color: white;
+      text-decoration: none;
+      transition: opacity var(--transition);
+    }
+
+    .utility-bar a:hover {
+      opacity: 0.8;
+    }
+
+    /* ===== STICKY HEADER ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: white;
+      box-shadow: var(--shadow-md);
+      padding: 12px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      color: var(--text-primary);
+      font-size: 14px;
+      min-width: 200px;
+    }
+
+    .logo-circle {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    nav {
+      display: flex;
+      gap: 35px;
+      flex: 1;
+    }
+
+    .nav-item {
+      position: relative;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: color var(--transition);
+    }
+
+    .nav-item:hover {
+      color: var(--orange);
+    }
+
+    .mega-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: 24px;
+      margin-top: 8px;
+      min-width: 300px;
+      display: none;
+      z-index: 1001;
+    }
+
+    .nav-item:hover .mega-menu {
+      display: block;
+    }
+
+    .mega-menu a {
+      display: block;
+      color: var(--text-primary);
+      text-decoration: none;
+      padding: 10px 0;
+      font-size: 13px;
+      transition: color var(--transition);
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .mega-menu a:last-child {
+      border-bottom: none;
+    }
+
+    .mega-menu a:hover {
+      color: var(--orange);
+      padding-left: 8px;
+    }
+
+    .header-ctas {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+      text-decoration: none;
+      border: none;
+      display: inline-block;
+    }
+
+    .btn-outline {
+      border: 2px solid var(--teal);
+      color: var(--teal);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--teal-pale);
+      color: var(--teal-dark);
+    }
+
+    .btn-gradient {
+      background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+      color: white;
+      border: none;
+    }
+
+    .btn-gradient:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* ===== BREADCRUMB ===== */
+    .breadcrumb {
+      padding: 20px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    .breadcrumb a {
+      color: var(--teal);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .breadcrumb a:hover {
+      color: var(--teal-dark);
+    }
+
+    /* ===== MAIN CONTENT AREA ===== */
+    .post-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 50px;
+    }
+
+    /* ===== ARTICLE MAIN ===== */
+    .article-main {
+      background: white;
+      padding: 40px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+    }
+
+    .article-category {
+      display: inline-block;
+      background: var(--orange);
+      color: white;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .article-main h1 {
+      font-size: 36px;
+      line-height: 1.3;
+      margin-bottom: 20px;
+      color: var(--text-primary);
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding-bottom: 24px;
+      border-bottom: 2px solid var(--warm-bg-alt);
+      margin-bottom: 24px;
+      color: var(--text-light);
+      font-size: 13px;
+      flex-wrap: wrap;
+    }
+
+    .author-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal-light), var(--teal));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .author-details {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .author-name {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .article-date {
+      color: var(--text-light);
+      font-size: 12px;
+    }
+
+    .read-time {
+      color: var(--text-light);
+    }
+
+    .social-share {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .share-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--teal-pale);
+      color: var(--teal);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition);
+      font-size: 14px;
+    }
+
+    .share-btn:hover {
+      background: var(--teal);
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .featured-image {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(135deg, var(--teal), var(--teal-light));
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 56px;
+      margin-bottom: 40px;
+    }
+
+    /* ===== ARTICLE CONTENT ===== */
+    .article-content {
+      line-height: 1.8;
+    }
+
+    .article-content p {
+      margin-bottom: 20px;
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+
+    .article-content h2 {
+      font-size: 24px;
+      margin: 40px 0 20px 0;
+      color: var(--text-primary);
+    }
+
+    .article-content h3 {
+      font-size: 18px;
+      margin: 30px 0 15px 0;
+      color: var(--text-primary);
+    }
+
+    .article-content ul,
+    .article-content ol {
+      margin-bottom: 20px;
+      padding-left: 24px;
+    }
+
+    .article-content li {
+      margin-bottom: 12px;
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+
+    .article-content a {
+      color: var(--teal);
+      text-decoration: underline;
+      transition: color var(--transition);
+    }
+
+    .article-content a:hover {
+      color: var(--teal-dark);
+    }
+
+    .pull-quote {
+      border-left: 4px solid var(--orange);
+      padding: 24px;
+      background: var(--warm-bg-alt);
+      margin: 40px 0;
+      border-radius: var(--radius-md);
+      font-size: 18px;
+      font-style: italic;
+      color: var(--text-primary);
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, var(--teal-pale), #f0f8fa);
+      border-left: 4px solid var(--teal);
+      padding: 30px;
+      border-radius: var(--radius-lg);
+      margin: 40px 0;
+    }
+
+    .cta-box h3 {
+      margin: 0 0 12px 0;
+      color: var(--teal-dark);
+    }
+
+    .cta-box p {
+      margin: 0 0 20px 0;
+      color: var(--text-secondary);
+    }
+
+    .cta-box a {
+      display: inline-block;
+      padding: 12px 24px;
+      background: var(--teal);
+      color: white;
+      text-decoration: none;
+      border-radius: var(--radius-md);
+      transition: background var(--transition);
+    }
+
+    .cta-box a:hover {
+      background: var(--teal-dark);
+    }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .sidebar-card {
+      background: white;
+      padding: 24px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+    }
+
+    .sidebar-card h3 {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+      margin-bottom: 16px;
+    }
+
+    .author-bio {
+      text-align: center;
+    }
+
+    .author-bio .author-avatar {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 16px;
+      font-size: 28px;
+    }
+
+    .author-bio .author-name {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .author-bio .author-role {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-bottom: 12px;
+    }
+
+    .author-bio p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .popular-list {
+      list-style: none;
+    }
+
+    .popular-list li {
+      border-bottom: 1px solid var(--warm-bg-alt);
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+    }
+
+    .popular-list li:last-child {
+      border-bottom: none;
+    }
+
+    .popular-list a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 13px;
+      line-height: 1.4;
+      transition: color var(--transition);
+    }
+
+    .popular-list a:hover {
+      color: var(--orange);
+    }
+
+    .resource-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 13px;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+      margin-top: 12px;
+    }
+
+    .resource-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .categories {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .category-tag {
+      display: inline-block;
+      padding: 6px 12px;
+      background: var(--teal-pale);
+      color: var(--teal-dark);
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      text-decoration: none;
+      transition: all var(--transition);
+      cursor: pointer;
+    }
+
+    .category-tag:hover {
+      background: var(--teal);
+      color: white;
+    }
+
+    /* ===== RELATED POSTS ===== */
+    .related-section {
+      max-width: 1200px;
+      margin: 60px auto 0;
+      padding: 60px 40px 0;
+      border-top: 2px solid #f0f0f0;
+    }
+
+    .related-section h2 {
+      font-size: 28px;
+      margin-bottom: 40px;
+      color: var(--text-primary);
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .related-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: all var(--transition);
+    }
+
+    .related-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .related-card-header {
+      height: 160px;
+      background: linear-gradient(135deg, var(--teal), var(--teal-light));
+      position: relative;
+    }
+
+    .related-card-header.orange {
+      background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+    }
+
+    .related-card-content {
+      padding: 24px;
+    }
+
+    .related-card-category {
+      display: inline-block;
+      background: var(--teal-pale);
+      color: var(--teal-dark);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .related-card-category.orange {
+      background: rgba(224, 117, 37, 0.15);
+      color: var(--orange-dark);
+    }
+
+    .related-card h3 {
+      font-size: 15px;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+      line-height: 1.4;
+      min-height: 42px;
+    }
+
+    .related-card-date {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-bottom: 12px;
+    }
+
+    .related-card-link {
+      display: inline-block;
+      color: var(--orange);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 13px;
+      transition: color var(--transition);
+    }
+
+    .related-card-link:hover {
+      color: var(--orange-dark);
+    }
+
+    /* ===== NEWSLETTER ===== */
+    .newsletter-section {
+      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+      color: white;
+      padding: 60px 40px;
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .newsletter-section h2 {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .newsletter-section p {
+      font-size: 16px;
+      margin-bottom: 24px;
+      opacity: 0.95;
+    }
+
+    .newsletter-form {
+      max-width: 400px;
+      margin: 0 auto;
+      display: flex;
+      gap: 8px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 12px 16px;
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: 14px;
+    }
+
+    .newsletter-form button {
+      padding: 12px 24px;
+      background: var(--orange);
+      color: white;
+      border: none;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      cursor: pointer;
+      transition: background var(--transition);
+    }
+
+    .newsletter-form button:hover {
+      background: var(--orange-dark);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background-color: #1a2a30;
+      color: white;
+      padding: 60px 40px 40px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    .footer-col a,
+    .footer-col p {
+      font-size: 13px;
+      color: #b0bcc4;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: color var(--transition);
+    }
+
+    .footer-col a:hover {
+      color: var(--orange);
+    }
+
+    .footer-crisis {
+      background: var(--orange);
+      color: white;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #8896a8;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .post-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .related-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 16px 20px;
+        gap: 16px;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .post-container {
+        padding: 20px;
+      }
+
+      .article-main {
+        padding: 24px;
+      }
+
+      .article-main h1 {
+        font-size: 26px;
+      }
+
+      .article-meta {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .related-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .related-section {
+        padding: 40px 20px 0;
+      }
+
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar">
+  <div>📞 (800) 334-7606 · ✉ support@griefrecovery.com</div>
+  <div>
+    <a href="#login">🔒 Specialist Login</a> ·
+    <a href="#community">📱 Community</a>
+  </div>
+</div>
+
+<!-- STICKY HEADER -->
+<header>
+  <a href="#" class="logo">
+    <div class="logo-circle">GR</div>
+    <div>
+      <div style="font-size: 12px; color: var(--text-light);">The Grief Recovery Method®</div>
+      <div style="font-size: 11px; color: var(--text-light);">Evidence-Based Since 1977</div>
+    </div>
+  </a>
+
+  <nav>
+    <div class="nav-item">
+      Programs
+      <div class="mega-menu">
+        <a href="TGRM_Certification.html">Certification</a>
+        <a href="TGRM_Private_Certification.html">Private & B2B Certification</a>
+        <a href="TGRM_Training_Calendar.html">Training Calendar</a>
+        <a href="TGRM_Programs.html">For Grievers</a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      Resources
+      <div class="mega-menu">
+        <a href="TGRM_Blog.html">Blog</a>
+        <a href="TGRM_Handbook.html">Handbook</a>
+        <a href="TGRM_Directory.html">Find a Specialist</a>
+      </div>
+    </div>
+
+    <a href="TGRM_About.html" class="nav-item">About</a>
+  </nav>
+
+  <div class="header-ctas">
+    <button class="btn btn-outline">Find a Specialist</button>
+    <button class="btn btn-gradient">Get Certified</button>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="#">Home</a> > <a href="TGRM_Blog.html">Blog</a> > <a href="#">Grief & Loss</a> > Letting Go of Stuff After a Loss
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="post-container">
+  <!-- ARTICLE MAIN -->
+  <main class="article-main">
+    <span class="article-category">Grief & Loss</span>
+
+    <h1>Letting Go of Stuff After a Loss: Why It's So Hard and What Really Helps</h1>
+
+    <div class="article-meta">
+      <div class="author-info">
+        <div class="author-avatar">SM</div>
+        <div class="author-details">
+          <div class="author-name">Sarah Mitchell</div>
+          <div class="article-date">February 15, 2024</div>
+        </div>
+      </div>
+      <div class="read-time">6 min read</div>
+      <div class="social-share">
+        <span style="color: var(--text-light); font-size: 12px;">Share:</span>
+        <button class="share-btn">f</button>
+        <button class="share-btn">𝕏</button>
+        <button class="share-btn">in</button>
+      </div>
+    </div>
+
+    <div class="featured-image">📷</div>
+
+    <article class="article-content">
+      <p>One of the most emotionally charged tasks after losing someone you love is dealing with their belongings. Whether it's a closet full of clothes, a house full of furniture, or boxes of personal items, the weight of these possessions can feel overwhelming. For many grievers, holding onto these items becomes a way of holding onto the person—but it can also prevent healing and moving forward.</p>
+
+      <p>Understanding why we struggle with this process, and learning practical strategies to address it, can transform one of grief's most daunting tasks into an opportunity for growth and closure.</p>
+
+      <h2>Why We Hold On</h2>
+
+      <p>When someone dies, their belongings become powerful symbols. Each item carries memories, represents aspects of our relationship with the deceased, and can feel like a tangible connection to them. Letting go of a loved one's belongings can feel like losing them all over again.</p>
+
+      <p>Beyond the emotional attachment, many grievers experience guilt or worry about "doing the right thing." Questions swirl: Will I regret getting rid of this? Am I dishonoring their memory? Should I keep everything? This decision paralysis can lead people to hold onto items indefinitely, which often complicates the grieving process rather than supporting it.</p>
+
+      <p>Additionally, some belongings carry practical weight. An expensive coat, heirloom jewelry, or valuable antiques create pressure to use, sell, or preserve them "properly." This burden can add to the already overwhelming nature of grief.</p>
+
+      <div class="pull-quote">
+        "Holding onto possessions isn't about dishonoring the person—it's about finding a new way to honor them while allowing yourself to move forward."
+      </div>
+
+      <h2>The Action Steps That Help</h2>
+
+      <ol>
+        <li><strong>Start small and give yourself permission to feel.</strong> Don't tackle the entire house on day one. Begin with a single drawer or box. Allow emotions to surface—tears, laughter, memories—without judgment. Grief is messy, and that's okay.</li>
+
+        <li><strong>Create a "memory keeper" strategy.</strong> Instead of keeping everything, intentionally select a few meaningful items. A favorite sweater, a watch, letters, or photos can preserve the connection while honoring the practical reality that you can't keep everything.</li>
+
+        <li><strong>Try the photograph method.</strong> Before discarding items, photograph them. This captures the memory and frees you from physical storage burden. You can create digital albums organized by category or person.</li>
+
+        <li><strong>Donate with intention.</strong> Rather than simply discarding items, donate them to organizations that honor the person's values or interests. A musician's instruments to a school, a reader's books to a library, or clothing to organizations helping those in need can feel meaningful and purposeful.</li>
+
+        <li><strong>Get support from trusted people.</strong> Don't do this alone. Invite a friend, family member, or even a grief counselor to help you sort. Sometimes an objective presence makes decisions easier, and the company provides emotional support.</li>
+
+        <li><strong>Set realistic timelines.</strong> Grief doesn't have a deadline, but indefinite holding can extend suffering. Work with a grief specialist to establish a compassionate timeline that feels manageable without adding pressure.</li>
+      </ol>
+
+      <h2>Finding Your Way Forward</h2>
+
+      <p>The goal isn't to rush through this process or to eliminate all connection to your loved one. Rather, it's to transform your relationship with their belongings from a source of burden into something manageable and intentional. The items you keep will mean more because you've consciously chosen them. The memories you preserve digitally remain accessible without taking up physical and emotional space.</p>
+
+      <p>Many grievers find that this process, while challenging, becomes part of their healing journey. Each item handled, each memory honored, and each decision made marks progress in integrating the loss into their life narrative. You're not moving on from the person—you're moving forward with their memory in a healthier way.</p>
+
+      <p>Remember: there's no "right" timeline or method for dealing with a loved one's belongings. What matters is that your approach honors both your grief and your wellbeing, and allows you to eventually step forward into your life without the weight of unprocessed loss.</p>
+
+      <div class="cta-box">
+        <h3>Need Support?</h3>
+        <p>Dealing with a loved one's belongings is one of grief's most challenging tasks. Our certified Grief Recovery specialists are trained to guide you through this process with compassion and expertise.</p>
+        <a href="TGRM_Directory.html">Find a Specialist in Your Area</a>
+      </div>
+    </article>
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <!-- Author Bio Card -->
+    <div class="sidebar-card author-bio">
+      <div class="author-avatar">SM</div>
+      <div class="author-name">Sarah Mitchell</div>
+      <div class="author-role">Grief Recovery Specialist</div>
+      <p>Sarah is a certified Grief Recovery specialist with over 8 years of experience helping individuals and families navigate loss. She specializes in complicated grief and major life transitions.</p>
+    </div>
+
+    <!-- Popular Articles Card -->
+    <div class="sidebar-card">
+      <h3>Popular Articles</h3>
+      <ul class="popular-list">
+        <li><a href="#">What If You're Still Grieving Years Later?</a></li>
+        <li><a href="#">Why 'Time Heals All Wounds' Is a Myth</a></li>
+        <li><a href="#">8 Best Ways to Help Someone Who Is Grieving</a></li>
+        <li><a href="#">The Difference Between Grief and Depression</a></li>
+        <li><a href="#">Supporting a Child Through Grief</a></li>
+      </ul>
+    </div>
+
+    <!-- Free Resources Card -->
+    <div class="sidebar-card">
+      <h3>Free Resources</h3>
+      <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;">Download our comprehensive guide to navigating loss with practical tools and insights.</p>
+      <button class="resource-btn">Download the Handbook</button>
+    </div>
+
+    <!-- Find a Specialist Card -->
+    <div class="sidebar-card" style="background: linear-gradient(135deg, var(--teal-pale), #f0f8fa); border-left: 4px solid var(--teal);">
+      <h3>Need Personalized Support?</h3>
+      <p style="font-size: 13px; color: var(--text-secondary);">Connect with a certified grief recovery specialist who can provide one-on-one guidance.</p>
+      <a href="TGRM_Directory.html" class="resource-btn" style="background: var(--teal);">Find a Specialist</a>
+    </div>
+
+    <!-- Categories Card -->
+    <div class="sidebar-card">
+      <h3>Categories</h3>
+      <div class="categories">
+        <span class="category-tag">Grief & Loss</span>
+        <span class="category-tag">Self-Help</span>
+        <span class="category-tag">Recovery Stories</span>
+        <span class="category-tag">Relationships</span>
+        <span class="category-tag">For Professionals</span>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- RELATED POSTS -->
+<section class="related-section">
+  <h2>Related Articles</h2>
+  <div class="related-grid">
+    <div class="related-card">
+      <div class="related-card-header"></div>
+      <div class="related-card-content">
+        <span class="related-card-category">Grief & Loss</span>
+        <h3>What If You're Still Grieving Years Later?</h3>
+        <div class="related-card-date">March 8, 2024</div>
+        <a href="#" class="related-card-link">Read Article →</a>
+      </div>
+    </div>
+
+    <div class="related-card">
+      <div class="related-card-header orange"></div>
+      <div class="related-card-content">
+        <span class="related-card-category orange">Self-Help</span>
+        <h3>8 Best Ways to Help Someone Who Is Grieving</h3>
+        <div class="related-card-date">March 1, 2024</div>
+        <a href="#" class="related-card-link">Read Article →</a>
+      </div>
+    </div>
+
+    <div class="related-card">
+      <div class="related-card-header"></div>
+      <div class="related-card-content">
+        <span class="related-card-category">Relationships</span>
+        <h3>Estrangement from Adult Children: A Loss Few Talk About</h3>
+        <div class="related-card-date">February 28, 2024</div>
+        <a href="#" class="related-card-link">Read Article →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+  <h2>Get Healing Insights Delivered</h2>
+  <p>Subscribe to receive expert articles, recovery stories, and practical guidance directly to your inbox.</p>
+  <form class="newsletter-form" onsubmit="return false;">
+    <input type="email" placeholder="Enter your email" required>
+    <button type="submit">Subscribe</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-crisis">
+    🆘 In crisis? National Suicide Prevention Lifeline: 988 (call or text)
+  </div>
+
+  <div class="footer-content">
+    <div class="footer-col">
+      <h4>The Grief Recovery Method</h4>
+      <p>Evidence-based grief recovery programs and certification since 1977. Helping people move beyond loss.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <a href="TGRM_Certification.html">Certification</a>
+      <a href="TGRM_Private_Certification.html">Private & B2B</a>
+      <a href="TGRM_Training_Calendar.html">Training Calendar</a>
+      <a href="TGRM_Programs.html">For Grievers</a>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="TGRM_Blog.html">Blog</a>
+      <a href="TGRM_Handbook.html">Handbook</a>
+      <a href="TGRM_Directory.html">Find a Specialist</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="#">Facebook</a>
+      <a href="#">Twitter</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Contact Us</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2024 The Grief Recovery Method. All rights reserved. | Privacy Policy | Terms of Service
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grief Recovery Programs - One-on-One, Groups & Online Courses</title>
+    <style>
+        :root {
+            --orange: #e07525;
+            --orange-dark: #c4621a;
+            --orange-light: #f5a623;
+            --teal: #427e88;
+            --teal-dark: #356a73;
+            --teal-light: #7895a3;
+            --teal-pale: #e8f2f4;
+            --warm-bg: #faf8f5;
+            --warm-bg-alt: #f5f0eb;
+            --text-primary: #2d3748;
+            --text-secondary: #5a6577;
+            --text-light: #8896a8;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+            --shadow-md: 0 4px 14px rgba(0,0,0,.1);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,.12);
+            --shadow-xl: 0 20px 50px rgba(0,0,0,.15);
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --transition: .25s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+            color: var(--text-primary);
+            background: white;
+            line-height: 1.6;
+        }
+
+        /* ======================== UTILITY BAR ======================== */
+        .utility-bar {
+            background: var(--teal-dark);
+            color: white;
+            padding: 12px 0;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .utility-bar a {
+            color: white;
+            text-decoration: none;
+            transition: opacity var(--transition);
+        }
+
+        .utility-bar a:hover {
+            opacity: 0.8;
+        }
+
+        /* ======================== STICKY HEADER ======================== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .logo-circle {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-text-main {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .logo-text-sub {
+            font-size: 10px;
+            color: var(--text-secondary);
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color var(--transition);
+        }
+
+        .nav-item:hover {
+            color: var(--orange);
+        }
+
+        .nav-item::after {
+            content: '▼';
+            font-size: 10px;
+            margin-left: 6px;
+            opacity: 0.5;
+        }
+
+        .nav-item.no-mega::after {
+            display: none;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn-specialist {
+            padding: 10px 16px;
+            border: 2px solid var(--teal);
+            background: transparent;
+            color: var(--teal);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all var(--transition);
+        }
+
+        .btn-specialist:hover {
+            background: var(--teal);
+            color: white;
+        }
+
+        .btn-certified {
+            padding: 10px 18px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+
+        .btn-certified:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ======================== HERO SECTION ======================== */
+        .hero {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--warm-bg) 100%);
+            padding: 5rem 2rem;
+            color: white;
+        }
+
+        .hero-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            color: white;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .hero .subtitle {
+            color: rgba(255,255,255,0.95);
+        }
+
+        .trust-badge {
+            display: inline-flex;
+            gap: 1.5rem;
+            font-size: 15px;
+            color: rgba(255,255,255,0.9);
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
+        /* ======================== PROGRAM CARDS ======================== */
+        .programs-section {
+            background: white;
+            padding: 4rem 2rem;
+        }
+
+        .section-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-card {
+            background: white;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 2rem;
+            transition: all var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .program-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .program-card.featured {
+            border-top: 4px solid var(--orange);
+            background: linear-gradient(135deg, rgba(224,117,37,0.02) 0%, white 100%);
+            transform: scale(1.02);
+        }
+
+        .program-card.featured:hover {
+            transform: scale(1.02) translateY(-6px);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--orange);
+            color: white;
+            padding: 6px 14px;
+            border-radius: var(--radius-xl);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .program-icon {
+            font-size: 36px;
+            margin-bottom: 1rem;
+        }
+
+        .program-card h3 {
+            font-size: 22px;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .program-card p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .program-detail {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 0.8rem;
+        }
+
+        .program-detail strong {
+            color: var(--text-primary);
+        }
+
+        .program-divider {
+            border-top: 1px solid rgba(0,0,0,0.1);
+            margin: 1.5rem 0;
+        }
+
+        .program-best-for {
+            background: var(--warm-bg);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 1.5rem;
+        }
+
+        .best-for-label {
+            font-size: 12px;
+            color: var(--text-light);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .best-for-text {
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+
+        .program-price {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-primary {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-outline {
+            padding: 12px 24px;
+            background: transparent;
+            color: var(--teal);
+            border: 2px solid var(--teal);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+
+        .btn-outline:hover {
+            background: var(--teal);
+            color: white;
+        }
+
+        /* ======================== HOW IT WORKS ======================== */
+        .how-it-works {
+            background: var(--teal-pale);
+            padding: 4rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .step {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            position: relative;
+        }
+
+        .step::before {
+            content: attr(data-number);
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--orange);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .step h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+        }
+
+        .step p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* ======================== TESTIMONIALS ======================== */
+        .testimonials {
+            background: white;
+            padding: 4rem 2rem;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--warm-bg);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--teal);
+        }
+
+        .testimonial-text {
+            font-size: 15px;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 14px;
+        }
+
+        .testimonial-title {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* ======================== LOSS TYPES ======================== */
+        .loss-types {
+            background: var(--warm-bg);
+            padding: 4rem 2rem;
+        }
+
+        .loss-intro {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        .loss-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .loss-tag {
+            background: white;
+            border: 1px solid var(--teal-light);
+            color: var(--teal-dark);
+            padding: 8px 16px;
+            border-radius: var(--radius-xl);
+            font-size: 13px;
+            font-weight: 500;
+            transition: all var(--transition);
+        }
+
+        .loss-tag:hover {
+            background: var(--teal);
+            color: white;
+            border-color: var(--teal);
+        }
+
+        /* ======================== FIND SPECIALIST CTA ======================== */
+        .find-specialist {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            padding: 3rem 2rem;
+            color: white;
+        }
+
+        .find-specialist-container {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .find-specialist h2 {
+            font-size: 32px;
+            margin-bottom: 2rem;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 14px 18px;
+            border: none;
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            font-size: 15px;
+        }
+
+        .search-bar button {
+            padding: 14px 28px;
+            background: var(--orange);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+
+        .search-bar button:hover {
+            background: var(--orange-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ======================== FREE RESOURCES ======================== */
+        .free-resources {
+            background: white;
+            padding: 4rem 2rem;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .resource-card {
+            background: white;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            text-align: center;
+            transition: all var(--transition);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .resource-icon {
+            font-size: 42px;
+            margin-bottom: 1rem;
+        }
+
+        .resource-card h3 {
+            font-size: 20px;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .resource-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* ======================== NEWSLETTER ======================== */
+        .newsletter {
+            background: var(--warm-bg-alt);
+            padding: 3rem 2rem;
+        }
+
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 28px;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .newsletter p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: var(--radius-md);
+            font-family: inherit;
+        }
+
+        .newsletter-form button {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ======================== FOOTER ======================== */
+        footer {
+            background: #1a2a30;
+            color: white;
+            padding: 3rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3 {
+            font-size: 16px;
+            margin-bottom: 1rem;
+            color: var(--orange);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col a {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.7rem;
+            transition: color var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--orange);
+        }
+
+        .crisis-bar {
+            background: var(--orange);
+            padding: 1rem;
+            text-align: center;
+            border-radius: var(--radius-md);
+            margin-bottom: 2rem;
+        }
+
+        .crisis-bar a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* ======================== RESPONSIVE ======================== */
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .program-card.featured {
+                transform: scale(1);
+            }
+
+            .program-card.featured:hover {
+                transform: translateY(-6px);
+            }
+
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .header-container {
+                padding: 1rem;
+            }
+
+            .nav {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .utility-bar {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+                font-size: 12px;
+            }
+
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .nav-actions {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .trust-badge {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .loss-tags {
+                gap: 0.7rem;
+            }
+
+            .search-bar {
+                flex-direction: column;
+            }
+
+            .search-bar input,
+            .search-bar button {
+                width: 100%;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input,
+            .newsletter-form button {
+                width: 100%;
+            }
+
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .utility-bar {
+                padding: 0.8rem;
+            }
+
+            .hero, .programs-section, .how-it-works, .testimonials, .loss-types, .find-specialist, .free-resources, .newsletter {
+                padding: 2rem 1rem;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .section-header h2 {
+                font-size: 26px;
+            }
+
+            .program-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .loss-tag {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-badge {
+                top: 1rem;
+                right: 1rem;
+                font-size: 10px;
+                padding: 4px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- UTILITY BAR -->
+    <div class="utility-bar">
+        <div>
+            📞 (800) 334-7606 · ✉ support@griefrecovery.com
+        </div>
+        <div>
+            🔒 <a href="#">Specialist Login</a> · 📱 <a href="#">Community</a>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <div class="logo-circle">GR</div>
+                <div class="logo-text">
+                    <div class="logo-text-main">The Grief Recovery Method®</div>
+                    <div class="logo-text-sub">Evidence-Based Since 1977</div>
+                </div>
+            </a>
+            <nav class="nav">
+                <a href="#" class="nav-item">Programs</a>
+                <a href="#" class="nav-item">Resources</a>
+                <a href="#" class="nav-item no-mega">About</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="btn-specialist">Find a Specialist</button>
+                <button class="btn-certified">Get Certified</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Your Path to Grief Recovery Starts Here</h1>
+            <p class="subtitle">Whether you prefer working one-on-one, in a group, or at your own pace — we have a program for you</p>
+            <div class="trust-badge">
+                <span>✓ Evidence-Based</span>
+                <span>✓ 40+ Years</span>
+                <span>✓ Proven Results</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAM CARDS -->
+    <section class="programs-section">
+        <div class="section-container">
+            <div class="programs-grid">
+                <!-- Card 1: One-on-One -->
+                <div class="program-card">
+                    <div class="program-icon">👤</div>
+                    <h3>One-on-One Support</h3>
+                    <p>Work privately with a Certified Grief Recovery Specialist who will guide you through the action steps at your own pace.</p>
+                    <div class="program-detail"><strong>Duration:</strong> 7-8 weekly sessions</div>
+                    <div class="program-detail"><strong>Format:</strong> In-Person or Online</div>
+                    <div class="program-divider"></div>
+                    <div class="program-best-for">
+                        <div class="best-for-label">Best For</div>
+                        <div class="best-for-text">Those who prefer private, personalized support</div>
+                    </div>
+                    <div class="program-price">Varies by specialist</div>
+                    <button class="btn-outline" style="width: 100%;">Find a Specialist</button>
+                </div>
+
+                <!-- Card 2: Support Groups (FEATURED) -->
+                <div class="program-card featured">
+                    <div class="featured-badge">MOST POPULAR</div>
+                    <div class="program-icon">👥</div>
+                    <h3>Support Groups</h3>
+                    <p>Join a small group guided by a Certified Specialist where you'll share experiences and support one another through the recovery process.</p>
+                    <div class="program-detail"><strong>Duration:</strong> 8-12 weekly sessions</div>
+                    <div class="program-detail"><strong>Format:</strong> In-Person or Online</div>
+                    <div class="program-divider"></div>
+                    <div class="program-best-for">
+                        <div class="best-for-label">Best For</div>
+                        <div class="best-for-text">Those who gain strength from shared experience</div>
+                    </div>
+                    <div class="program-price">Varies by group</div>
+                    <button class="btn-primary" style="width: 100%;">Find a Group</button>
+                </div>
+
+                <!-- Card 3: Online Course -->
+                <div class="program-card">
+                    <div class="program-icon">💻</div>
+                    <h3>Online Course</h3>
+                    <p>Self-guided recovery based on The Grief Recovery Handbook. Learn the proven action steps at your own pace whenever it's convenient.</p>
+                    <div class="program-detail"><strong>Duration:</strong> Self-paced (avg 6-8 weeks)</div>
+                    <div class="program-detail"><strong>Format:</strong> 100% Online</div>
+                    <div class="program-divider"></div>
+                    <div class="program-best-for">
+                        <div class="best-for-label">Best For</div>
+                        <div class="best-for-text">Those who prefer to work at their own pace</div>
+                    </div>
+                    <div class="program-price">$49</div>
+                    <button class="btn-primary" style="width: 100%;">Start Today</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>How the Programs Work</h2>
+            </div>
+            <div class="steps-grid">
+                <div class="step" data-number="1">
+                    <h3>Choose Format</h3>
+                    <p>Select the program that best fits your needs and lifestyle.</p>
+                </div>
+                <div class="step" data-number="2">
+                    <h3>Start the Program</h3>
+                    <p>Connect with your specialist or begin your online course.</p>
+                </div>
+                <div class="step" data-number="3">
+                    <h3>Complete Action Steps</h3>
+                    <p>Work through our proven grief recovery process with guidance.</p>
+                </div>
+                <div class="step" data-number="4">
+                    <h3>Find Recovery</h3>
+                    <p>Experience emotional peace and build meaning after loss.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>What People Say</h2>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"After my husband's death, I felt completely lost. My grief specialist gave me the tools to process my emotions and find a way forward. I'm grateful every day."</p>
+                    <div class="testimonial-author">— Maria S.</div>
+                    <div class="testimonial-title">One-on-One Support Participant</div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The support group changed my life. Hearing other people's stories and knowing I wasn't alone in this pain was healing. I formed friendships that continue today."</p>
+                    <div class="testimonial-author">— David L.</div>
+                    <div class="testimonial-title">Support Group Participant</div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"I was skeptical about doing it online, but the course was thorough and compassionate. The workbook exercises really helped me work through my grief on my own schedule."</p>
+                    <div class="testimonial-author">— Jessica P.</div>
+                    <div class="testimonial-title">Online Course Participant</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TYPES OF LOSS -->
+    <section class="loss-types">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Types of Loss We Address</h2>
+            </div>
+            <p class="loss-intro">The Grief Recovery Method works for over 40 different types of loss. Here are some of the most common:</p>
+            <div class="loss-tags">
+                <span class="loss-tag">Death of Loved One</span>
+                <span class="loss-tag">Divorce</span>
+                <span class="loss-tag">Job Loss</span>
+                <span class="loss-tag">Health Crisis</span>
+                <span class="loss-tag">Pet Loss</span>
+                <span class="loss-tag">Estrangement</span>
+                <span class="loss-tag">Miscarriage</span>
+                <span class="loss-tag">Moving</span>
+                <span class="loss-tag">Retirement</span>
+                <span class="loss-tag">Financial Loss</span>
+                <span class="loss-tag">Betrayal of Trust</span>
+                <span class="loss-tag">Identity Change</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FIND SPECIALIST CTA -->
+    <section class="find-specialist">
+        <div class="find-specialist-container">
+            <h2>Ready to Start Your Recovery?</h2>
+            <p style="font-size: 16px; margin-bottom: 1.5rem;">Search our directory of certified specialists or explore our programs.</p>
+            <div class="search-bar">
+                <input type="text" placeholder="Enter your location or search...">
+                <button>Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FREE RESOURCES -->
+    <section class="free-resources">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Free Resources</h2>
+            </div>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">📖</div>
+                    <h3>The Handbook</h3>
+                    <p>The definitive guide to understanding and moving beyond grief. Available in print, ebook, and audiobook formats.</p>
+                    <button class="btn-primary">Learn More</button>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">📝</div>
+                    <h3>The Blog</h3>
+                    <p>Expert articles, tips, and stories to help you understand grief and discover your path to recovery.</p>
+                    <button class="btn-primary">Read Articles</button>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">📚</div>
+                    <h3>Free E-Books</h3>
+                    <p>Download our collection of helpful resources including coping strategies and grief myths worksheets.</p>
+                    <button class="btn-primary">Download Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+        <div class="newsletter-container">
+            <h2>Get Grief Recovery Tips</h2>
+            <p>Subscribe to our newsletter for resources, insights, and stories to support your healing journey.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>The Grief Recovery Method</h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-bottom: 1rem;">Evidence-based grief recovery for over 40 types of loss.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Programs</h3>
+                <ul>
+                    <li><a href="#">Certification Program</a></li>
+                    <li><a href="#">For Grievers</a></li>
+                    <li><a href="#">Training Calendar</a></li>
+                    <li><a href="#">Private Programs</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">The Handbook</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Find a Specialist</a></li>
+                    <li><a href="#">Free Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="crisis-bar">
+            <a href="#">📞 988 Suicide & Crisis Lifeline - Call or Text 988</a>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 The Grief Recovery Institute. All rights reserved. | Privacy Policy | Terms of Service
+        </div>
+    </footer>
+</body>
+</html>

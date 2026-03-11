@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Grief Recovery Handbook - Evidence-Based Grief Recovery</title>
+    <style>
+        :root {
+            --orange: #e07525;
+            --orange-dark: #c4621a;
+            --orange-light: #f5a623;
+            --teal: #427e88;
+            --teal-dark: #356a73;
+            --teal-light: #7895a3;
+            --teal-pale: #e8f2f4;
+            --warm-bg: #faf8f5;
+            --warm-bg-alt: #f5f0eb;
+            --text-primary: #2d3748;
+            --text-secondary: #5a6577;
+            --text-light: #8896a8;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+            --shadow-md: 0 4px 14px rgba(0,0,0,.1);
+            --shadow-lg: 0 10px 30px rgba(0,0,0,.12);
+            --shadow-xl: 0 20px 50px rgba(0,0,0,.15);
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --transition: .25s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+            color: var(--text-primary);
+            background: white;
+            line-height: 1.6;
+        }
+
+        /* ======================== UTILITY BAR ======================== */
+        .utility-bar {
+            background: var(--teal-dark);
+            color: white;
+            padding: 12px 0;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .utility-bar a {
+            color: white;
+            text-decoration: none;
+            transition: opacity var(--transition);
+        }
+
+        .utility-bar a:hover {
+            opacity: 0.8;
+        }
+
+        /* ======================== STICKY HEADER ======================== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .logo-circle {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-text-main {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .logo-text-sub {
+            font-size: 10px;
+            color: var(--text-secondary);
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color var(--transition);
+        }
+
+        .nav-item:hover {
+            color: var(--orange);
+        }
+
+        .nav-item::after {
+            content: '▼';
+            font-size: 10px;
+            margin-left: 6px;
+            opacity: 0.5;
+        }
+
+        .nav-item.no-mega::after {
+            display: none;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn-specialist {
+            padding: 10px 16px;
+            border: 2px solid var(--teal);
+            background: transparent;
+            color: var(--teal);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all var(--transition);
+        }
+
+        .btn-specialist:hover {
+            background: var(--teal);
+            color: white;
+        }
+
+        .btn-certified {
+            padding: 10px 18px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+
+        .btn-certified:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ======================== HERO SECTION ======================== */
+        .hero {
+            background: linear-gradient(135deg, var(--warm-bg) 0%, var(--teal-pale) 100%);
+            padding: 4rem 2rem;
+        }
+
+        .hero-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+        }
+
+        .book-3d {
+            width: 280px;
+            height: 380px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateY(-15deg) rotateX(5deg);
+        }
+
+        .book-cover {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            border-radius: 4px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            box-shadow:
+                -20px 20px 40px rgba(0,0,0,0.2),
+                var(--shadow-xl);
+            text-align: center;
+            position: relative;
+        }
+
+        .book-cover::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            bottom: 0;
+            width: 8px;
+            background: linear-gradient(90deg, rgba(0,0,0,0.2) 0%, transparent 100%);
+            border-radius: 4px 0 0 4px;
+        }
+
+        .book-title {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .book-authors {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            background: var(--orange-light);
+            color: var(--text-primary);
+            padding: 8px 16px;
+            border-radius: var(--radius-xl);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            width: fit-content;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text-primary);
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .author-credit {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 2rem;
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .stats-row span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 14px 28px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-outline {
+            padding: 14px 28px;
+            background: transparent;
+            color: var(--teal);
+            border: 2px solid var(--teal);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+
+        .btn-outline:hover {
+            background: var(--teal);
+            color: white;
+        }
+
+        /* ======================== TRUST ROW ======================== */
+        .trust-row {
+            background: white;
+            padding: 2.5rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .trust-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .trust-label {
+            font-size: 12px;
+            color: var(--text-light);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .trust-logos {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-logo {
+            font-size: 13px;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        /* ======================== WHAT'S INSIDE ======================== */
+        .whats-inside {
+            background: white;
+            padding: 4rem 2rem;
+        }
+
+        .section-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            background: var(--warm-bg);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all var(--transition);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            background: white;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            color: var(--text-primary);
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* ======================== REVIEWS ======================== */
+        .reviews-section {
+            background: var(--teal-pale);
+            padding: 4rem 2rem;
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .review-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 16px;
+            margin-bottom: 1rem;
+        }
+
+        .review-text {
+            font-size: 15px;
+            color: var(--text-primary);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .review-summary {
+            text-align: center;
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        /* ======================== OTHER BOOKS ======================== */
+        .other-books {
+            background: white;
+            padding: 4rem 2rem;
+        }
+
+        .book-card {
+            background: white;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .book-card-visual {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .book-card-content {
+            padding: 1.5rem;
+        }
+
+        .book-card h3 {
+            font-size: 16px;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .book-card p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* ======================== COURSE CTA ======================== */
+        .course-cta {
+            background: var(--warm-bg);
+            padding: 3rem 2rem;
+        }
+
+        .course-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .course-details h2 {
+            font-size: 32px;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .course-details p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .course-price-box {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow-md);
+        }
+
+        .course-price {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--orange);
+            margin-bottom: 0.5rem;
+        }
+
+        .course-price-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* ======================== PROFESSIONAL BANNER ======================== */
+        .professional-banner {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+            padding: 2.5rem;
+            text-align: center;
+            color: white;
+        }
+
+        .professional-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .professional-banner h2 {
+            font-size: 28px;
+            margin-bottom: 1rem;
+        }
+
+        .professional-banner p {
+            font-size: 15px;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        /* ======================== NEWSLETTER ======================== */
+        .newsletter {
+            background: var(--warm-bg-alt);
+            padding: 3rem 2rem;
+        }
+
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 28px;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .newsletter p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: var(--radius-md);
+            font-family: inherit;
+        }
+
+        .newsletter-form button {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ======================== FOOTER ======================== */
+        footer {
+            background: #1a2a30;
+            color: white;
+            padding: 3rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h3 {
+            font-size: 16px;
+            margin-bottom: 1rem;
+            color: var(--orange);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col a {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.7rem;
+            transition: color var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--orange);
+        }
+
+        .crisis-bar {
+            background: var(--orange);
+            padding: 1rem;
+            text-align: center;
+            border-radius: var(--radius-md);
+            margin-bottom: 2rem;
+        }
+
+        .crisis-bar a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* ======================== RESPONSIVE ======================== */
+        @media (max-width: 1024px) {
+            .header-container {
+                padding: 1rem;
+            }
+
+            .nav {
+                gap: 1rem;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .course-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .utility-bar {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+                font-size: 12px;
+            }
+
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .nav-actions {
+                width: 100%;
+                justify-content: center;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-outline {
+                width: 100%;
+            }
+
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .review-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-row {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .trust-logos {
+                gap: 1.5rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .utility-bar {
+                padding: 0.8rem;
+            }
+
+            .logo-text-main {
+                font-size: 12px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .section-header h2 {
+                font-size: 26px;
+            }
+
+            .hero, .whats-inside, .reviews-section, .other-books, .course-cta {
+                padding: 2rem 1rem;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- UTILITY BAR -->
+    <div class="utility-bar">
+        <div>
+            📞 (800) 334-7606 · ✉ support@griefrecovery.com
+        </div>
+        <div>
+            🔒 <a href="#">Specialist Login</a> · 📱 <a href="#">Community</a>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <div class="logo-circle">GR</div>
+                <div class="logo-text">
+                    <div class="logo-text-main">The Grief Recovery Method®</div>
+                    <div class="logo-text-sub">Evidence-Based Since 1977</div>
+                </div>
+            </a>
+            <nav class="nav">
+                <a href="#" class="nav-item">Programs</a>
+                <a href="#" class="nav-item">Resources</a>
+                <a href="#" class="nav-item no-mega">About</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="btn-specialist">Find a Specialist</button>
+                <button class="btn-certified">Get Certified</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-visual">
+                <div class="book-3d">
+                    <div class="book-cover">
+                        <div class="book-title">The Grief Recovery Handbook</div>
+                        <div class="book-authors">John W. James & Russell Friedman</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-content">
+                <div class="badge">THE DEFINITIVE GUIDE</div>
+                <h1>The Grief Recovery Handbook</h1>
+                <p class="subtitle">The Action Program for Moving Beyond Death, Divorce, and Other Losses</p>
+                <div class="author-credit">By John W. James & Russell Friedman</div>
+                <div class="stats-row">
+                    <span>📈 1M+ Copies Sold</span>
+                    <span>🌍 14 Languages</span>
+                    <span>🎉 20th Anniversary Edition</span>
+                </div>
+                <div class="cta-group">
+                    <button class="btn-primary">Buy on Amazon</button>
+                    <button class="btn-outline">Find a Specialist</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST ROW -->
+    <div class="trust-row">
+        <div class="trust-container">
+            <div class="trust-label">As Recommended By</div>
+            <div class="trust-logos">
+                <div class="trust-logo">Therapists & Counselors</div>
+                <div class="trust-logo">Hospitals</div>
+                <div class="trust-logo">Universities</div>
+                <div class="trust-logo">Grief Specialists</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WHAT'S INSIDE -->
+    <section class="whats-inside">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>What's Inside the Handbook</h2>
+                <p>Everything you need to understand and move beyond your grief</p>
+            </div>
+            <div class="grid-3">
+                <div class="feature-card">
+                    <h3>Myths About Grief</h3>
+                    <p>Unlearn the harmful beliefs society teaches about loss and discover what grief really is.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>The Action Steps</h3>
+                    <p>A proven, step-by-step process for emotional recovery that has helped over 1 million people.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Your Relationship Review</h3>
+                    <p>Examine unfinished emotional business from any loss to find closure and peace.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>The Completion Letter</h3>
+                    <p>The powerful exercise that brings emotional resolution and allows you to say goodbye properly.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Beyond the Handbook</h3>
+                    <p>Next steps for continued growth, healing, and building a meaningful life after loss.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>For Every Type of Loss</h3>
+                    <p>Death, divorce, job loss, health crises, pet loss, and more than 35 other types of loss.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="reviews-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>What Readers Say</h2>
+            </div>
+            <div class="review-grid">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"This handbook gave me permission to grieve in my own way. It's compassionate, practical, and truly life-changing. I've recommended it to everyone I know who's experienced a loss."</p>
+                    <p class="reviewer-name">— Sarah M., Amazon Verified Purchaser</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"I thought I understood grief until I read this book. The action steps are simple yet profound. This should be required reading for anyone grieving."</p>
+                    <p class="reviewer-name">— Michael R., Goodreads</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"After losing my spouse, I felt stuck for years. This handbook helped me process my emotions and move forward with purpose. Truly transformative."</p>
+                    <p class="reviewer-name">— Jennifer L., Amazon Verified Purchaser</p>
+                </div>
+            </div>
+            <div class="review-summary">
+                <strong>4.7 / 5.0</strong> based on 3,200+ reviews on Amazon
+            </div>
+        </div>
+    </section>
+
+    <!-- OTHER BOOKS -->
+    <section class="other-books">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Other Books by John W. James & Russell Friedman</h2>
+            </div>
+            <div class="grid-3">
+                <div class="book-card">
+                    <div class="book-card-visual">When Children Grieve</div>
+                    <div class="book-card-content">
+                        <h3>When Children Grieve</h3>
+                        <p>Help young people process loss and develop healthy coping strategies.</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <div class="book-card-visual">Moving On</div>
+                    <div class="book-card-content">
+                        <h3>Moving On</h3>
+                        <p>Practical guidance for life after loss and building a new future.</p>
+                    </div>
+                </div>
+                <div class="book-card">
+                    <div class="book-card-visual">Pet Loss Handbook</div>
+                    <div class="book-card-content">
+                        <h3>The Grief Recovery Handbook for Pet Loss</h3>
+                        <p>Specialized guidance for grieving the loss of a beloved animal companion.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COURSE CTA -->
+    <section class="course-cta">
+        <div class="course-container">
+            <div class="course-details">
+                <h2>Start Your Recovery Journey</h2>
+                <p>Based on The Grief Recovery Handbook, our comprehensive online course guides you through the proven action steps at your own pace.</p>
+                <p>Perfect for those who prefer self-guided learning with the same evidence-based method trusted by over 1 million people worldwide.</p>
+                <p><strong>What's Included:</strong> Video lessons, workbook, completion letter template, and lifetime access to course materials.</p>
+            </div>
+            <div class="course-price-box">
+                <div class="course-price">$49</div>
+                <div class="course-price-label">One-time payment • Lifetime access</div>
+                <button class="btn-primary" style="width: 100%;">Start the Course Today</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROFESSIONAL BANNER -->
+    <section class="professional-banner">
+        <div class="professional-container">
+            <h2>Want to Help Others Grieve?</h2>
+            <p>Learn to guide people through the Grief Recovery Method with our professional certification program.</p>
+            <button class="btn-primary">Become a Specialist</button>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+        <div class="newsletter-container">
+            <h2>Get Grief Recovery Tips</h2>
+            <p>Subscribe to our newsletter for resources, insights, and stories to support your healing journey.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>The Grief Recovery Method</h3>
+                <p style="font-size: 14px; color: rgba(255,255,255,0.7); margin-bottom: 1rem;">Evidence-based grief recovery for over 40 types of loss.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Programs</h3>
+                <ul>
+                    <li><a href="#">Certification Program</a></li>
+                    <li><a href="#">For Grievers</a></li>
+                    <li><a href="#">Training Calendar</a></li>
+                    <li><a href="#">Private Programs</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">The Handbook</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Find a Specialist</a></li>
+                    <li><a href="#">Free Resources</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Connect</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="crisis-bar">
+            <a href="#">📞 988 Suicide & Crisis Lifeline - Call or Text 988</a>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 The Grief Recovery Institute. All rights reserved. | Privacy Policy | Terms of Service
+        </div>
+    </footer>
+</body>
+</html>
