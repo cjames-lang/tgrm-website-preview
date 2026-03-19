@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Help — The Grief Recovery Method®</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TGRM Premium Design System (inlined)
+   ============================================================ */
+:root {
+  --orange: #e07525; --orange-hover: #c96820; --teal: #427E88; --teal-hover: #366a73; --teal-light: #7895a3;
+  --dark: #1a1a1a; --body: #2d2d2d; --muted: #666; --faint: #999; --bg: #faf9f7; --white: #ffffff; --border: #e8e5e0;
+  --serif: 'DM Serif Display', serif; --sans: 'Inter', sans-serif; --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --space-xs: 8px; --space-sm: 16px; --space-md: 24px; --space-lg: 40px; --space-xl: 56px; --space-2xl: 80px; --space-3xl: 100px;
+  --radius-sm: 8px; --radius-md: 10px; --radius-lg: 16px; --radius-xl: 20px; --radius-pill: 40px;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { font-family: var(--sans); font-weight: 300; color: var(--body); background: var(--bg); overflow-x: hidden; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4, h5, h6 { font-family: var(--serif); font-weight: 700; color: var(--dark); line-height: 1.25; }
+.accent { color: var(--orange); }
+
+.utility-bar { background: var(--dark); color: #999; font-size: 13px; padding: 8px 40px; display: flex; justify-content: space-between; align-items: center; }
+.utility-bar a { color: #999; text-decoration: none; transition: color 0.2s; }
+.utility-bar a:hover { color: #fff; }
+
+header { background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; transition: box-shadow 0.3s var(--ease); }
+header.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.06); }
+.logo { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--body); }
+.logo span { color: var(--teal); }
+nav { display: flex; gap: 28px; align-items: center; }
+nav a { text-decoration: none; color: #555; font-size: 15px; font-weight: 500; transition: color 0.2s; position: relative; }
+nav a:hover { color: var(--body); }
+nav > a::after, .nav-item > a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--teal); transition: width 0.3s var(--ease); }
+nav > a:hover::after, .nav-item:hover > a::after { width: 100%; }
+.nav-cta { background: var(--teal); color: #fff !important; padding: 10px 22px; border-radius: var(--radius-sm); font-weight: 600; transition: all 0.3s var(--ease); position: relative; overflow: hidden; }
+.nav-cta::after { display: none !important; }
+.nav-cta:hover { background: var(--teal-hover) !important; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(66,126,136,0.3); }
+.mobile-menu-btn { display: none; background: none; border: none; font-size: 28px; color: var(--body); cursor: pointer; padding: 4px 8px; }
+
+.nav-item { position: relative; }
+.nav-item > a { display: flex; align-items: center; gap: 4px; }
+.nav-item > a::after { content: "\25BE"; font-size: 10px; opacity: 0.5; position: static; width: auto; height: auto; background: none; }
+.nav-item:hover > a::after { width: auto; }
+.mega-dropdown { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: rgba(255,255,255,0.98); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--border); border-radius: 14px; padding: 24px; min-width: 280px; box-shadow: 0 12px 40px rgba(0,0,0,0.12); z-index: 200; }
+.mega-dropdown::before { content: ""; position: absolute; top: 4px; left: 50%; transform: translateX(-50%); border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 8px solid #fff; }
+.nav-item:hover .mega-dropdown { display: block; }
+.mega-dropdown-title { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #999; font-weight: 600; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #f0ede8; }
+.mega-dropdown-title:not(:first-child) { margin-top: 16px; }
+.mega-link { display: block; padding: 7px 0; font-size: 14px; color: var(--body) !important; font-weight: 500 !important; text-decoration: none; transition: color 0.2s; line-height: 1.3; }
+.mega-link:hover { color: var(--teal) !important; }
+.mega-link-desc { font-size: 12px; color: #999; font-weight: 400 !important; margin-top: 1px; }
+.mega-loss-link { display: block; padding: 5px 0; font-size: 13px; color: #555 !important; font-weight: 500 !important; text-decoration: none; transition: color 0.2s; }
+.mega-loss-link:hover { color: var(--teal) !important; }
+.mega-wide { min-width: 640px; display: none; grid-template-columns: 1fr 1fr; gap: 28px; }
+.mega-3col { min-width: 720px; display: none; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+.nav-item:hover .mega-wide { display: grid; }
+.nav-item:hover .mega-3col { display: grid; }
+
+.btn-primary { display: inline-block; padding: 16px 36px; border-radius: var(--radius-md); font-weight: 600; font-size: 16px; font-family: var(--sans); text-decoration: none; text-align: center; cursor: pointer; border: none; transition: all 0.3s var(--ease); position: relative; overflow: hidden; }
+.btn-teal { background: var(--teal); color: #fff; }
+.btn-teal:hover { background: var(--teal-hover); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(66,126,136,0.3); }
+.btn-orange { background: var(--orange); color: #fff; }
+.btn-orange:hover { background: var(--orange-hover); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(224,117,37,0.3); }
+.btn-outline { background: transparent; color: var(--body); border: 2px solid var(--border); }
+.btn-outline:hover { border-color: var(--teal); color: var(--teal); transform: translateY(-2px); }
+.btn-white { background: #fff; color: var(--dark); }
+.btn-white:hover { background: #f5f5f5; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,255,255,0.2); }
+.door-btn { display: inline-block; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.8); color: #fff; padding: 13px 32px; border-radius: var(--radius-md); font-weight: 600; font-size: 15px; text-decoration: none; transition: all 0.3s var(--ease); backdrop-filter: blur(4px); }
+.door-btn:hover { background: rgba(255,255,255,0.3); border-color: #fff; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+
+.section-label { font-size: 12px; text-transform: uppercase; letter-spacing: 2.5px; color: var(--teal); font-weight: 600; text-align: center; margin-bottom: 16px; }
+.section-title { font-family: var(--serif); font-size: 38px; text-align: center; color: var(--dark); margin-bottom: 16px; line-height: 1.25; }
+.section-sub { font-size: 18px; color: var(--muted); text-align: center; max-width: 600px; margin: 0 auto 56px; line-height: 1.6; }
+.container { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
+.container-narrow { max-width: 750px; margin: 0 auto; padding: 0 40px; }
+.container-wide { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+.section-padding { padding-top: var(--space-2xl); padding-bottom: var(--space-2xl); }
+
+.card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px 28px; transition: all 0.4s var(--ease); position: relative; overflow: hidden; }
+.card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--teal), var(--teal-light)); transform: scaleX(0); transform-origin: left; transition: transform 0.4s var(--ease); }
+.card:hover::before { transform: scaleX(1); }
+.card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.06); border-color: transparent; }
+.card--orange::before { background: linear-gradient(90deg, var(--orange), #e8934d); }
+.card-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px; background: linear-gradient(135deg, rgba(66,126,136,0.08), rgba(66,126,136,0.03)); border: 1px solid rgba(66,126,136,0.1); }
+.card-icon--orange { background: linear-gradient(135deg, rgba(224,117,37,0.08), rgba(224,117,37,0.03)); border: 1px solid rgba(224,117,37,0.1); }
+.card h3 { font-family: var(--serif); font-size: 20px; color: var(--dark); margin-bottom: 10px; }
+.card p { font-size: 15px; color: var(--muted); line-height: 1.65; }
+.card-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.card-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+
+.hero { text-align: center; padding: 120px 40px 100px; position: relative; overflow: hidden; }
+.hero-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+.hero > * { position: relative; z-index: 1; }
+.hero-badge { display: inline-block; background: linear-gradient(135deg, rgba(66,126,136,0.08), rgba(66,126,136,0.04)); border: 1px solid rgba(66,126,136,0.12); color: var(--teal); font-size: 12px; font-weight: 600; padding: 8px 20px; border-radius: var(--radius-pill); margin-bottom: 28px; letter-spacing: 1.5px; text-transform: uppercase; }
+.hero h1 { font-family: var(--serif); font-size: 56px; font-weight: 700; line-height: 1.15; color: var(--dark); margin-bottom: 24px; }
+.hero h1 .accent { color: var(--orange); }
+.hero p { font-size: 20px; color: var(--muted); line-height: 1.7; max-width: 580px; margin: 0 auto; }
+.hero-gradient-teal { background: linear-gradient(155deg, rgba(58,117,128,0.92), rgba(91,163,175,0.88)), var(--hero-bg, none) center/cover no-repeat; color: #fff; }
+.hero-gradient-teal h1 { color: #fff; }
+.hero-gradient-teal p { color: rgba(255,255,255,0.85); }
+.hero-gradient-teal .hero-badge { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff; }
+.hero-gradient-orange { background: linear-gradient(155deg, rgba(208,106,30,0.9), rgba(232,148,80,0.88)), var(--hero-bg, none) center/cover no-repeat; color: #fff; }
+.hero-gradient-orange h1 { color: #fff; }
+.hero-gradient-orange p { color: rgba(255,255,255,0.85); }
+.hero-gradient-orange .hero-badge { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff; }
+
+.photo-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; max-width: 100%; overflow: hidden; }
+.photo-strip-item { height: 280px; background-size: cover; background-position: center; position: relative; overflow: hidden; transition: all 0.5s var(--ease); }
+.photo-strip-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,26,0.4), transparent 60%); transition: opacity 0.4s; }
+.photo-strip-item:hover { transform: scale(1.02); }
+.photo-strip-item:hover::after { opacity: 0.6; }
+.photo-strip-caption { position: absolute; bottom: 20px; left: 20px; right: 20px; color: #fff; font-size: 14px; font-weight: 500; z-index: 2; opacity: 0; transform: translateY(8px); transition: all 0.4s var(--ease); }
+.photo-strip-item:hover .photo-strip-caption { opacity: 1; transform: translateY(0); }
+
+.testimonial-section { max-width: 750px; margin: 0 auto; padding: 90px 40px; text-align: center; position: relative; }
+.testimonial-section::before { content: "\201C"; font-family: var(--serif); font-size: 160px; color: var(--teal); opacity: 0.06; position: absolute; top: 30px; left: 50%; transform: translateX(-50%); line-height: 1; pointer-events: none; }
+.testimonial-avatar { width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 24px; background: linear-gradient(135deg, var(--teal), var(--teal-light)); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 24px; color: #fff; box-shadow: 0 4px 16px rgba(66,126,136,0.2); }
+.testimonial-quote { font-family: var(--serif); font-size: 26px; line-height: 1.6; color: var(--dark); font-style: italic; margin-bottom: 28px; position: relative; }
+.testimonial-author { font-size: 15px; color: var(--faint); }
+.testimonial-author strong { color: #555; }
+
+.final-cta { background: linear-gradient(to right, rgba(26,26,26,0.93), rgba(26,26,26,0.88)), var(--cta-bg, none) center/cover no-repeat; padding: 100px 40px; text-align: center; color: #fff; position: relative; overflow: hidden; }
+.final-cta::before { content: ''; position: absolute; top: -100px; left: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(66,126,136,0.12), transparent 70%); pointer-events: none; }
+.final-cta::after { content: ''; position: absolute; bottom: -100px; right: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(224,117,37,0.1), transparent 70%); pointer-events: none; }
+.final-cta > * { position: relative; z-index: 1; }
+.final-cta h2 { font-family: var(--serif); font-size: 40px; margin-bottom: 16px; font-weight: 700; line-height: 1.2; color: #fff; }
+.final-cta h2 .accent { color: var(--orange); }
+.final-cta p { font-size: 18px; color: #999; margin-bottom: 40px; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+.final-cta-buttons { display: flex; justify-content: center; gap: 16px; }
+.cta-image-overlay { background-size: cover; background-position: center; }
+.cta-image-overlay::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(26,26,26,0.88), rgba(26,26,26,0.82)); z-index: 0; }
+
+footer { padding: 56px 40px 40px; border-top: 1px solid var(--border); }
+.footer-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; text-align: left; padding-bottom: 36px; border-bottom: 1px solid var(--border); margin-bottom: 28px; }
+.footer-brand { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--body); margin-bottom: 10px; }
+.footer-brand span { color: var(--teal); }
+.footer-desc { font-size: 14px; color: var(--faint); line-height: 1.6; margin-bottom: 14px; }
+.footer-stats { font-size: 13px; color: #bbb; }
+.footer-col-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--faint); margin-bottom: 14px; }
+.footer-link { display: block; font-size: 14px; color: var(--muted); padding: 5px 0; text-decoration: none; transition: color 0.2s, transform 0.2s; }
+.footer-link:hover { color: var(--body); transform: translateX(2px); }
+.footer-bottom { text-align: center; font-size: 14px; color: #aaa; }
+.footer-crisis { text-align: center; margin-top: 10px; font-size: 12px; color: #bbb; }
+
+/* Animations — forced visible for local file:// compatibility */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+.reveal { opacity: 1 !important; transform: none !important; }
+.reveal-stagger > * { opacity: 1 !important; transform: none !important; }
+
+@media (max-width: 768px) {
+  header { position: relative; padding: 12px 16px; }
+  nav { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(255,255,255,0.98); backdrop-filter: blur(16px); padding: 16px 20px; border-bottom: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,0.08); gap: 12px; z-index: 99; }
+  nav.nav-open { display: flex; }
+  .mobile-menu-btn { display: block; }
+  .mega-dropdown, .mega-wide { position: static; transform: none; box-shadow: none; border: none; border-radius: 0; padding: 0 0 0 16px; min-width: auto; backdrop-filter: none; animation: none; }
+  .mega-3col { grid-template-columns: 1fr; min-width: auto; }
+  .mega-wide { grid-template-columns: 1fr; min-width: auto; }
+  .nav-item:hover .mega-dropdown, .nav-item:hover .mega-wide { display: block; }
+  .mega-dropdown::before { display: none; }
+  .nav-item > a::after { display: none; }
+  .utility-bar { padding: 8px 16px; font-size: 12px; }
+  .hero { padding: 60px 20px 40px; }
+  .hero h1 { font-size: 34px; }
+  .hero p { font-size: 17px; }
+  .card-grid-3 { grid-template-columns: 1fr; }
+  .section-title { font-size: 30px; }
+  .container, .container-narrow, .container-wide { padding: 0 20px; }
+  .section-padding { padding-top: 60px; padding-bottom: 60px; }
+  .photo-strip { grid-template-columns: 1fr 1fr; }
+  .photo-strip-item { height: 200px; }
+  .final-cta { padding: 60px 20px; }
+  .final-cta h2 { font-size: 30px; }
+  .final-cta-buttons { flex-direction: column; align-items: center; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  footer { padding: 40px 20px 30px; }
+}
+@media (max-width: 480px) {
+  .hero h1 { font-size: 30px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .photo-strip { grid-template-columns: 1fr; }
+  .btn-primary { padding: 14px 28px; font-size: 15px; width: 100%; }
+}
+</style>
+<style>
+  /* ========== PAGE-SPECIFIC STYLES ========== */
+
+  /* Quiz Card */
+  .quiz-card {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    padding: 56px 48px;
+    max-width: 1000px;
+    margin: -60px auto 0;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+
+  .quiz-badge {
+    display: inline-block;
+    background: var(--teal);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: var(--radius-pill);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+
+  .quiz-card h2 {
+    font-family: var(--serif);
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 10px;
+  }
+
+  .quiz-card h2 em {
+    color: var(--teal);
+    font-style: italic;
+  }
+
+  .quiz-card > p {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 580px;
+    margin: 0 auto 36px;
+  }
+
+  .griever-types {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+
+  .griever-type-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 22px 14px;
+    text-align: center;
+    transition: all 0.3s var(--ease);
+    cursor: default;
+  }
+
+  .griever-type-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(66,126,136,0.12);
+    border-color: var(--teal);
+  }
+
+  .griever-type-card::before {
+    display: none;
+  }
+
+  .griever-type-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .griever-type-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .griever-type-card p {
+    font-size: 12px;
+    color: var(--faint);
+    line-height: 1.4;
+    font-style: italic;
+  }
+
+  .quiz-note {
+    font-size: 13px;
+    color: var(--faint);
+    margin-top: 14px;
+  }
+
+  /* Loss Tags */
+  .loss-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+    justify-content: center;
+  }
+
+  .loss-tag {
+    background: rgba(66,126,136,0.06);
+    color: var(--body);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s var(--ease);
+    border: 1px solid var(--border);
+  }
+
+  .loss-tag:hover {
+    background: var(--teal);
+    color: #fff;
+    border-color: var(--teal);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(66,126,136,0.2);
+  }
+
+  /* Program Cards */
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .program-card {
+    position: relative;
+  }
+
+  .program-card-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--teal);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: var(--radius-pill);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 2;
+  }
+
+  .program-card-price {
+    font-size: 13px;
+    color: var(--teal);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+
+  .program-card-details {
+    list-style: none;
+    margin-bottom: 20px;
+  }
+
+  .program-card-details li {
+    font-size: 14px;
+    color: #555;
+    padding: 5px 0;
+    padding-left: 22px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .program-card-details li::before {
+    content: "\2713";
+    color: var(--teal);
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+  }
+
+  .program-card-best {
+    font-size: 13px;
+    color: var(--faint);
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+
+  /* How It Works Steps */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+  }
+
+  .step {
+    text-align: center;
+  }
+
+  .step-number {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, var(--teal), var(--teal-light));
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 22px;
+    margin: 0 auto 18px;
+    box-shadow: 0 4px 16px rgba(66,126,136,0.25);
+    font-family: var(--serif);
+  }
+
+  .step h4 {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--dark);
+  }
+
+  .step p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* Specialist CTA */
+  .specialist-cta {
+    position: relative;
+    border-radius: var(--radius-xl);
+    padding: 60px 56px;
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    color: #fff;
+    background: linear-gradient(155deg, rgba(58,117,128,0.92), rgba(91,163,175,0.88)),
+                url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1200&q=80') center/cover no-repeat;
+  }
+
+  .specialist-cta-content { flex: 1; position: relative; z-index: 1; }
+
+  .specialist-cta h2 {
+    font-family: var(--serif);
+    font-size: 32px;
+    margin-bottom: 14px;
+    color: #fff;
+  }
+
+  .specialist-cta p {
+    font-size: 17px;
+    opacity: 0.9;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .specialist-cta-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .specialist-stat {
+    text-align: center;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: var(--radius-md);
+    padding: 22px 32px;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .specialist-stat-number {
+    font-family: var(--serif);
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+  .specialist-stat-label {
+    font-size: 13px;
+    opacity: 0.8;
+    margin-top: 4px;
+  }
+
+  /* Responsive overrides */
+  @media (max-width: 768px) {
+    .quiz-card {
+      margin: -40px 16px 0;
+      padding: 36px 24px;
+    }
+    .quiz-card h2 { font-size: 26px; }
+    .griever-types { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .griever-type-card { padding: 16px 10px; }
+    .griever-type-icon { font-size: 26px; }
+    .programs-grid { grid-template-columns: 1fr; }
+    .steps-grid { grid-template-columns: repeat(2, 1fr); }
+    .specialist-cta {
+      flex-direction: column;
+      text-align: center;
+      padding: 40px 28px;
+    }
+    .specialist-cta h2 { font-size: 26px; }
+    .specialist-cta-stats { flex-direction: row; }
+    .loss-types { justify-content: flex-start; }
+  }
+
+  @media (max-width: 480px) {
+    .steps-grid { grid-template-columns: 1fr; }
+    .griever-types { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Utility Bar -->
+<div class="utility-bar">
+  <div>
+    <a href="tel:800-334-7606">800-334-7606</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="#">Crisis Resources</a>
+  </div>
+  <div><a href="#">Login</a></div>
+</div>
+
+<!-- Header -->
+<header id="header">
+  <div class="logo"><a href="TGRM_Homepage_Simplified_Routing.html" style="text-decoration:none;color:inherit;">The Grief Recovery <span>Method</span>&reg;</a></div>
+  <nav>
+    <div class="nav-item">
+      <a href="TGRM_GetHelp_Hub.html">Get Help</a>
+      <div class="mega-dropdown mega-3col">
+        <div>
+          <div class="mega-dropdown-title">Find Support</div>
+          <a href="TGRM_Directory.html" class="mega-link">Find a Specialist Near You<div class="mega-link-desc">3,000+ certified specialists worldwide</div></a>
+          <a href="TGRM_Quiz.html" class="mega-link">What Type of Griever Are You?<div class="mega-link-desc">Free 2-minute assessment</div></a>
+          <a href="https://programs.griefrecoverymethod.com/online-course" class="mega-link" target="_blank">Free Online Course<div class="mega-link-desc">Video lessons with Cole James — free</div></a>
+          <a href="TGRM_Free_Resources.html" class="mega-link">Free Grief Recovery Guides<div class="mega-link-desc">7 free ebooks — instant download</div></a>
+          <a href="TGRM_Handbook.html" class="mega-link">Get the Handbook<div class="mega-link-desc">1M+ copies sold</div></a>
+        </div>
+        <div>
+          <div class="mega-dropdown-title">Explore by Loss Type</div>
+          <a href="TGRM_Loss_Child.html" class="mega-loss-link">Death of a Child</a>
+          <a href="TGRM_Loss_Spouse.html" class="mega-loss-link">Death of a Spouse or Partner</a>
+          <a href="TGRM_Loss_Parent.html" class="mega-loss-link">Death of a Parent</a>
+          <a href="TGRM_Loss_Suicide.html" class="mega-loss-link">Losing Someone to Suicide</a>
+          <a href="TGRM_Loss_Death.html" class="mega-loss-link">Death of a Friend or Loved One</a>
+          <a href="TGRM_Loss_Divorce.html" class="mega-loss-link">Divorce &amp; Relationship Loss</a>
+          <a href="TGRM_Loss_Pet.html" class="mega-loss-link">Pet Loss</a>
+          <a href="TGRM_Loss_Job.html" class="mega-loss-link">Job &amp; Career Loss</a>
+          <a href="TGRM_Loss_Health.html" class="mega-loss-link">Health Crisis &amp; Chronic Illness</a>
+          <a href="TGRM_Loss_Estrangement.html" class="mega-loss-link">Estrangement &amp; Family Cutoff</a>
+          <a href="TGRM_Loss_Miscarriage.html" class="mega-loss-link">Miscarriage &amp; Pregnancy Loss</a>
+        </div>
+        <div>
+          <div class="mega-dropdown-title">Popular Topics</div>
+          <a href="TGRM_Blog_Post.html" class="mega-loss-link">Myths About Grief</a>
+          <a href="TGRM_Blog_Post.html" class="mega-loss-link">What Not to Say to a Griever</a>
+          <a href="TGRM_Blog_Post.html" class="mega-loss-link">Grief vs. Depression</a>
+          <a href="TGRM_Blog_Post.html" class="mega-loss-link">Helping Children with Grief</a>
+          <a href="TGRM_Blog_Post.html" class="mega-loss-link">Grief at Work</a>
+          <a href="TGRM_Blog_Post.html" class="mega-loss-link">When Holidays Hurt</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="TGRM_GetCertified_Hub.html">Get Certified</a>
+      <div class="mega-dropdown mega-3col">
+        <div>
+          <div class="mega-dropdown-title">Training Programs</div>
+          <a href="TGRM_GetCertified_Hub.html#pricing" class="mega-link">Foundational Certification<div class="mega-link-desc">$2,495 &middot; 4-day live training</div></a>
+          <a href="TGRM_GetCertified_Hub.html#pricing" class="mega-link">Advanced Certification<div class="mega-link-desc">$3,995 &middot; 50 hours total</div></a>
+          <a href="TGRM_GetCertified_Hub.html#pricing" class="mega-link">Premium In-Person<div class="mega-link-desc">$4,995 &middot; Small group intensive</div></a>
+          <a href="TGRM_GetCertified_Hub.html" class="mega-link">Private / B2B Training<div class="mega-link-desc">Custom training for organizations</div></a>
+        </div>
+        <div>
+          <div class="mega-dropdown-title">Is It Right for You?</div>
+          <a href="TGRM_Cert_Grievers.html" class="mega-loss-link">Grievers with a Passion to Help</a>
+          <a href="TGRM_Cert_Therapists.html" class="mega-loss-link">Therapists &amp; Counselors</a>
+          <a href="TGRM_Cert_Coaches.html" class="mega-loss-link">Life &amp; Wellness Coaches</a>
+          <a href="TGRM_Cert_Military.html" class="mega-loss-link">Military &amp; Veterans</a>
+          <a href="TGRM_Cert_Healthcare.html" class="mega-loss-link">Healthcare &amp; Hospice</a>
+          <a href="TGRM_Cert_Faith.html" class="mega-loss-link">Faith Leaders &amp; Communities</a>
+        </div>
+        <div>
+          <div class="mega-dropdown-title">Resources</div>
+          <a href="TGRM_GetCertified_Hub.html" class="mega-loss-link">Upcoming Training Dates</a>
+          <a href="TGRM_FAQ.html" class="mega-loss-link">Certification FAQ</a>
+          <a href="TGRM_GetCertified_Hub.html" class="mega-loss-link">Payment Plans Available</a>
+          <a href="TGRM_GetCertified_Hub.html" class="mega-loss-link">Have Questions? Let's Talk</a>
+        </div>
+      </div>
+    </div>
+    <a href="TGRM_Directory.html">Find a Specialist</a>
+    <div class="nav-item">
+      <a href="TGRM_About.html">About</a>
+      <div class="mega-dropdown mega-wide">
+        <div>
+          <div class="mega-dropdown-title">The Method</div>
+          <a href="TGRM_About.html" class="mega-link">How The Method Works<div class="mega-link-desc">Action-based grief recovery in 3 steps</div></a>
+          <a href="TGRM_About.html" class="mega-link">45+ Years of Research<div class="mega-link-desc">Evidence-based, peer-reviewed</div></a>
+          <a href="TGRM_Handbook.html" class="mega-link">The Grief Recovery Handbook<div class="mega-link-desc">1M+ copies, 14 languages</div></a>
+        </div>
+        <div>
+          <div class="mega-dropdown-title">Our Team</div>
+          <a href="TGRM_About.html" class="mega-loss-link">John W. James, Founder</a>
+          <a href="TGRM_About.html" class="mega-loss-link">Leadership Team</a>
+          <a href="TGRM_About.html" class="mega-loss-link">Our Trainers</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="TGRM_Resources.html">Resources</a>
+      <div class="mega-dropdown mega-3col">
+        <div>
+          <div class="mega-dropdown-title">Content</div>
+          <a href="TGRM_Blog.html" class="mega-link">Blog<div class="mega-link-desc">Expert insights on grief recovery</div></a>
+          <a href="TGRM_Podcast.html" class="mega-link">Feel Free Again Podcast<div class="mega-link-desc">New episodes biweekly</div></a>
+          <a href="#" class="mega-loss-link">YouTube Channel</a>
+          <a href="TGRM_Free_Resources.html" class="mega-loss-link">Free Grief Recovery Guides</a>
+        </div>
+        <div>
+          <div class="mega-dropdown-title">Books</div>
+          <a href="TGRM_Handbook.html" class="mega-link">The Grief Recovery Handbook<div class="mega-link-desc">The definitive guide</div></a>
+          <a href="TGRM_Handbook.html" class="mega-loss-link">When Children Grieve</a>
+          <a href="TGRM_Handbook.html" class="mega-loss-link">The Pet Loss Handbook</a>
+          <a href="TGRM_Handbook.html" class="mega-loss-link">Moving On / Moving Beyond</a>
+        </div>
+        <div>
+          <div class="mega-dropdown-title">Popular Topics</div>
+          <a href="TGRM_Blog_Post.html" class="mega-loss-link">Myths About Grief</a>
+          <a href="TGRM_Blog_Post.html" class="mega-loss-link">What Not to Say to a Griever</a>
+          <a href="TGRM_Blog_Post.html" class="mega-loss-link">Grief vs. Depression</a>
+          <a href="TGRM_Blog_Post.html" class="mega-loss-link">When Holidays Hurt</a>
+        </div>
+      </div>
+    </div>
+    <a href="TGRM_Quiz.html" class="nav-cta">Take the Free Quiz</a>
+  </nav>
+  <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+</header>
+
+<!-- Hero -->
+<div class="hero hero-gradient-teal" style="--hero-bg: url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=1600&q=80')">
+  <div class="hero-inner">
+    <span class="hero-badge">For Anyone Experiencing a Loss</span>
+    <h1>You Don't Have to Do This Alone</h1>
+    <p>Whether you've lost a loved one, gone through a divorce, or are dealing with any kind of grief — there is a clear, proven path forward.</p>
+  </div>
+</div>
+
+<!-- Quiz Section — Premium Interactive Card -->
+<div class="quiz-card reveal">
+  <span class="quiz-badge">Free 2-Minute Assessment</span>
+  <h2>What Type of <em>Griever</em> Are You?</h2>
+  <p>Everyone grieves differently, and most of us were never taught how. Discover your unique grief pattern and get a personalized path forward.</p>
+
+  <div class="griever-types">
+    <div class="griever-type-card">
+      <span class="griever-type-icon">&#x1FAF6;</span>
+      <h4>The Silent Griever</h4>
+      <p>"I'm fine" — but you're not</p>
+    </div>
+    <div class="griever-type-card">
+      <span class="griever-type-icon">&#x26A1;</span>
+      <h4>The Busy Griever</h4>
+      <p>Always doing, never feeling</p>
+    </div>
+    <div class="griever-type-card">
+      <span class="griever-type-icon">&#x1F9E0;</span>
+      <h4>The Intellectual Griever</h4>
+      <p>Understands grief, still stuck</p>
+    </div>
+    <div class="griever-type-card">
+      <span class="griever-type-icon">&#x23F3;</span>
+      <h4>The Delayed Griever</h4>
+      <p>Old loss, unfinished business</p>
+    </div>
+    <div class="griever-type-card">
+      <span class="griever-type-icon">&#x1F30A;</span>
+      <h4>The Compounding Griever</h4>
+      <p>Many losses, one heavy weight</p>
+    </div>
+  </div>
+
+  <a href="TGRM_Quiz.html" class="btn-primary btn-orange">Take the Free Assessment &rarr;</a>
+  <div class="quiz-note">No sign-up required to start &bull; Results in under 2 minutes</div>
+</div>
+
+<!-- Types of Loss -->
+<section class="section-padding reveal">
+  <div class="container">
+    <div class="section-label">Over 40 Types of Loss</div>
+    <div class="section-title">This Method Works for All Kinds of Grief</div>
+    <div class="section-sub">Grief isn't just about death. Any significant emotional loss can benefit from the Grief Recovery Method. Click any loss type to learn more.</div>
+    <div class="loss-types">
+      <a href="TGRM_Loss_Child.html" class="loss-tag">Death of a Child</a>
+      <a href="TGRM_Loss_Spouse.html" class="loss-tag">Death of a Spouse</a>
+      <a href="TGRM_Loss_Parent.html" class="loss-tag">Death of a Parent</a>
+      <a href="TGRM_Loss_Suicide.html" class="loss-tag">Losing Someone to Suicide</a>
+      <a href="TGRM_Loss_Death.html" class="loss-tag">Death of a Friend or Loved One</a>
+      <a href="TGRM_Loss_Divorce.html" class="loss-tag">Divorce &amp; Relationship Loss</a>
+      <a href="TGRM_Loss_Pet.html" class="loss-tag">Pet Loss</a>
+      <a href="TGRM_Loss_Job.html" class="loss-tag">Job &amp; Career Loss</a>
+      <a href="TGRM_Loss_Job.html" class="loss-tag">Retirement</a>
+      <a href="TGRM_Loss_Health.html" class="loss-tag">Health Crisis</a>
+      <a href="TGRM_Loss_Estrangement.html" class="loss-tag">Estrangement</a>
+      <a href="TGRM_Loss_Miscarriage.html" class="loss-tag">Miscarriage &amp; Pregnancy Loss</a>
+      <a href="TGRM_Loss_Death.html" class="loss-tag">Moving</a>
+      <a href="TGRM_Loss_Death.html" class="loss-tag">Financial Loss</a>
+      <a href="TGRM_Loss_Death.html" class="loss-tag">Betrayal of Trust</a>
+      <a href="TGRM_Loss_Death.html" class="loss-tag">Identity Change</a>
+      <a href="TGRM_Loss_Death.html" class="loss-tag">Empty Nest</a>
+      <a href="TGRM_Loss_Death.html" class="loss-tag">End of a Friendship</a>
+      <a href="TGRM_Loss_Death.html" class="loss-tag">Addiction</a>
+      <a href="TGRM_Loss_Death.html" class="loss-tag">Loss of Safety</a>
+      <a href="TGRM_Loss_Death.html" class="loss-tag">Loss of Faith</a>
+    </div>
+  </div>
+</section>
+
+<!-- Photo Strip -->
+<div class="photo-strip reveal">
+  <div class="photo-strip-item" style="background-image:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80')">
+    <div class="photo-strip-caption">Real people finding real support</div>
+  </div>
+  <div class="photo-strip-item" style="background-image:url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600&q=80')">
+    <div class="photo-strip-caption">Compassionate guidance through loss</div>
+  </div>
+  <div class="photo-strip-item" style="background-image:url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=600&q=80')">
+    <div class="photo-strip-caption">Small group recovery programs</div>
+  </div>
+  <div class="photo-strip-item" style="background-image:url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600&q=80')">
+    <div class="photo-strip-caption">Community and connection</div>
+  </div>
+</div>
+
+<!-- Programs Section -->
+<section class="section-padding reveal">
+  <div class="container">
+    <div class="section-label">Your Options</div>
+    <div class="section-title">Choose the Path That Feels Right for You</div>
+    <div class="section-sub">Every path uses the same evidence-based method. The only difference is the format and level of support you receive.</div>
+
+    <div class="programs-grid reveal-stagger">
+      <!-- Card 1: Find a Specialist -->
+      <div class="card program-card">
+        <div class="program-card-badge">Most Popular</div>
+        <div class="program-card-price">Varies &middot; Multiple Formats</div>
+        <h3>Find a Grief Recovery Specialist</h3>
+        <p>Connect with a Certified Grief Recovery Specialist near you or online. They'll guide you through the evidence-based action steps — in a format that works for you.</p>
+        <ul class="program-card-details">
+          <li>One-on-one private sessions (7&ndash;8 weeks)</li>
+          <li>Support groups (8&ndash;12 weeks)</li>
+          <li>Helping Children with Loss program</li>
+          <li>In-person or online options</li>
+          <li>3,000+ specialists in 20+ countries</li>
+        </ul>
+        <div class="program-card-best">Best for: anyone who wants guided, personal support</div>
+        <a href="TGRM_Directory.html" class="btn-primary btn-teal">Find a Specialist Near You</a>
+      </div>
+
+      <!-- Card 2: Free Online Course -->
+      <div class="card program-card">
+        <div class="program-card-badge">Free</div>
+        <div class="program-card-price">Free &middot; Self-Paced</div>
+        <h3>Free Grief Recovery Online Course</h3>
+        <p>Start your grief recovery journey with the same evidence-based approach used by certified specialists — completely free, at your own pace.</p>
+        <ul class="program-card-details">
+          <li>Video lessons on understanding your grief</li>
+          <li>Introduction to the Grief Recovery Method</li>
+          <li>Guided exercises to begin your recovery</li>
+          <li>Lifetime access — go at your own pace</li>
+          <li>No credit card required</li>
+        </ul>
+        <div class="program-card-best">Best for: anyone ready to start their grief recovery journey</div>
+        <a href="#" class="btn-primary btn-teal">Start the Free Course</a>
+      </div>
+
+      <!-- Card 3: The Handbook -->
+      <div class="card program-card">
+        <div class="program-card-price">Book &middot; Self-Guided</div>
+        <h3>The Grief Recovery Handbook</h3>
+        <p>The book that started it all. A step-by-step action program for moving beyond death, divorce, and other losses — over 1 million copies sold in 14 languages.</p>
+        <ul class="program-card-details">
+          <li>The complete Grief Recovery Method in book form</li>
+          <li>Available in print, ebook, and audiobook</li>
+          <li>Includes the complete action program from the book</li>
+          <li>20th Anniversary Expanded Edition</li>
+          <li>4.7 stars from 3,200+ Amazon reviews</li>
+        </ul>
+        <div class="program-card-best">Best for: those who want to start with a book at their own pace</div>
+        <a href="TGRM_Handbook.html" class="btn-primary btn-teal">Learn More About the Book</a>
+      </div>
+
+      <!-- Card 4: Free Grief Recovery Guide -->
+      <div class="card program-card">
+        <div class="program-card-price">Free &middot; Instant Download</div>
+        <h3>Free Grief Recovery Guide</h3>
+        <p>Download our most popular ebook and start understanding your grief today. Learn what's really happening, why common advice doesn't work, and what actually does.</p>
+        <ul class="program-card-details">
+          <li>Understand why you feel the way you do</li>
+          <li>Learn why "time heals" and other myths don't work</li>
+          <li>Discover the evidence-based approach to grief recovery</li>
+          <li>Immediate download — read it today</li>
+          <li>No credit card required</li>
+        </ul>
+        <div class="program-card-best">Best for: anyone who wants to understand grief before taking the next step</div>
+        <a href="#" class="btn-primary btn-teal">Download the Free Guide</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="section-padding reveal" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="section-label">The Method</div>
+    <div class="section-title">How It Works</div>
+    <div class="section-sub">Most people complete the process in 7&ndash;8 sessions.</div>
+    <div class="steps-grid reveal-stagger">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h4>Discover Your Losses</h4>
+        <p>Discover the full picture of what you've been carrying — losses you may not have even recognized.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h4>Learn the Actions</h4>
+        <p>Guided by a certified specialist, learn the specific action steps for recovery.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h4>Complete the Work</h4>
+        <p>Structured exercises to say the things you never got to say and let go of unfinished business.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <h4>Move Forward</h4>
+        <p>Experience emotional completeness — a measurable shift from pain to peace.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Specialist Finder CTA -->
+<section class="section-padding reveal">
+  <div class="specialist-cta">
+    <div class="specialist-cta-content">
+      <h2>Find a Certified Specialist Near You</h2>
+      <p>Over 3,000 trained specialists worldwide, offering both in-person and online sessions. Search by location, loss type, or session format.</p>
+      <a href="TGRM_Directory.html" class="btn-primary btn-white">Search the Directory</a>
+    </div>
+    <div class="specialist-cta-stats">
+      <div class="specialist-stat">
+        <div class="specialist-stat-number">3,000+</div>
+        <div class="specialist-stat-label">Specialists</div>
+      </div>
+      <div class="specialist-stat">
+        <div class="specialist-stat-number">20+</div>
+        <div class="specialist-stat-label">Countries</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonial -->
+<div class="testimonial-section reveal">
+  <div class="testimonial-avatar">G</div>
+  <div class="testimonial-quote">
+    "It took me two years, from the point that my husband passed, to attempt grief counseling. The Grief Recovery Method allowed me to understand my grief better and discover an effective way to actually heal from it. After the seven week program I'm walking away emotionally lighter, grateful, and eager to encourage others toward this program."
+  </div>
+  <div class="testimonial-author">
+    — <strong>GRM Participant</strong>
+  </div>
+</div>
+
+<!-- Bottom CTA -->
+<div class="final-cta cta-image-overlay reveal" style="background-image: url('https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=1600&q=80');">
+  <h2>Ready to Take the First Step?</h2>
+  <p>You don't have to figure this out alone. Start with our free quiz or explore your options above.</p>
+  <div class="final-cta-buttons">
+    <a href="TGRM_Quiz.html" class="btn-primary btn-teal">Take the Free Quiz</a>
+    <a href="TGRM_Directory.html" class="btn-primary btn-white">Find a Specialist</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">The Grief Recovery <span>Method</span>&reg;</div>
+      <p class="footer-desc">An evidence-based grief recovery program helping people move beyond loss since 1977.</p>
+      <div class="footer-stats">45+ years &bull; 1.5M+ helped &bull; 3,000+ specialists</div>
+    </div>
+    <div>
+      <div class="footer-col-title">For Grievers</div>
+      <a href="TGRM_GetHelp_Hub.html" class="footer-link">Get Help</a>
+      <a href="TGRM_Directory.html" class="footer-link">Find a Specialist</a>
+      <a href="TGRM_Quiz.html" class="footer-link">Grief Type Quiz</a>
+      <a href="TGRM_Handbook.html" class="footer-link">The Handbook</a>
+    </div>
+    <div>
+      <div class="footer-col-title">For Professionals</div>
+      <a href="TGRM_GetCertified_Hub.html" class="footer-link">Get Certified</a>
+      <a href="TGRM_GetCertified_Hub.html" class="footer-link">Training Dates</a>
+      <a href="TGRM_Private_Training.html" class="footer-link">Private Training</a>
+      <a href="TGRM_About.html" class="footer-link">About Us</a>
+    </div>
+    <div>
+      <div class="footer-col-title">Resources</div>
+      <a href="TGRM_Blog.html" class="footer-link">Blog</a>
+      <a href="TGRM_Podcast.html" class="footer-link">Podcast</a>
+      <a href="TGRM_Resources.html" class="footer-link">All Resources</a>
+      <a href="#" class="footer-link">Contact Us</a>
+    </div>
+  </div>
+  <p class="footer-bottom">&copy; 2026 The Grief Recovery Method&reg;. All rights reserved.</p>
+  <p class="footer-crisis">If you or someone you know is in crisis, please call 988 (Suicide &amp; Crisis Lifeline) or text HOME to 741741.</p>
+</footer>
+
+<script>
+// Header shadow on scroll
+const header = document.getElementById('header') || document.querySelector('header');
+if (header) {
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+}
+// Mobile menu toggle
+const menuBtn = document.querySelector('.mobile-menu-btn');
+const nav = document.querySelector('nav');
+if (menuBtn && nav) {
+  menuBtn.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('nav-open');
+    menuBtn.setAttribute('aria-expanded', isOpen);
+    menuBtn.innerHTML = isOpen ? '&#x2715;' : '&#9776;';
+  });
+}
+</script>
+</body>
+</html>

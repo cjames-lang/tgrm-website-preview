@@ -3,415 +3,105 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TGRM Website Design Reference — iShure Media</title>
+<title>TGRM Website Preview — Page Index</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --orange: #e07525;
-    --orange-light: #f5dcc6;
-    --teal: #427e88;
-    --teal-light: #d4e5e8;
-    --warm-bg: #faf8f5;
-    --dark: #2d2d2d;
-    --gray: #666;
-    --light-gray: #999;
-    --rule: #e0dcd8;
-  }
+  :root { --orange: #e07525; --teal: #427E88; --dark: #1a1a1a; --body: #2d2d2d; --muted: #666; --faint: #999; --bg: #faf9f7; --white: #fff; --border: #e8e5e0; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: var(--warm-bg);
-    color: var(--dark);
-    line-height: 1.6;
-  }
-
-  /* Header */
-  .header {
-    background: white;
-    border-bottom: 3px solid var(--orange);
-    padding: 2rem 0;
-    text-align: center;
-  }
-  .header h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--dark);
-  }
-  .header h1 span { color: var(--teal); }
-  .header p {
-    color: var(--gray);
-    margin-top: 0.5rem;
-    font-size: 0.95rem;
-  }
-  .header .meta {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 1rem;
-    font-size: 0.85rem;
-    color: var(--light-gray);
-  }
-  .header .meta strong { color: var(--dark); }
-
-  /* Main */
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem;
-  }
-
-  /* Category labels */
-  .category {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin: 2.5rem 0 1rem;
-  }
-  .category h2 {
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--teal);
-  }
-  .category::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--rule);
-  }
-
-  /* Grid */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 1rem;
-  }
-
-  /* Card */
-  .card {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid var(--rule);
-    transition: transform 0.2s, box-shadow 0.2s;
-    text-decoration: none;
-    color: inherit;
-    display: block;
-  }
-  .card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  }
-  .card .num-bar {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem 1.25rem;
-  }
-  .card .num {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.9rem;
-    color: white;
-    flex-shrink: 0;
-  }
-  .card .num.orange { background: var(--orange); }
-  .card .num.teal { background: var(--teal); }
-  .card .info h3 {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--dark);
-  }
-  .card .info p {
-    font-size: 0.8rem;
-    color: var(--gray);
-    margin-top: 2px;
-  }
-  .card .preview {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 1.25rem 1rem;
-  }
-  .card .preview span {
-    font-size: 0.78rem;
-    color: var(--teal);
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-  }
-  .card .preview span::after {
-    content: '→';
-  }
-
-  /* Notice */
-  .notice {
-    background: var(--teal-light);
-    border-left: 4px solid var(--teal);
-    padding: 1rem 1.25rem;
-    border-radius: 0 8px 8px 0;
-    margin-bottom: 2rem;
-    font-size: 0.9rem;
-    color: var(--dark);
-  }
-  .notice strong { color: var(--teal); }
-
-  /* Version Switcher */
-  .version-switcher {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 2rem;
-  }
-  .version-card {
-    display: block;
-    background: white;
-    border-radius: 12px;
-    padding: 20px 24px;
-    border: 2px solid var(--rule);
-    text-decoration: none;
-    color: inherit;
-    transition: all .25s ease;
-  }
-  .version-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0,0,0,.08);
-  }
-  .version-card.active {
-    border-color: var(--orange);
-    background: linear-gradient(135deg, #fff 0%, var(--orange-light) 100%);
-  }
-  .version-card.alt {
-    border-color: var(--teal);
-  }
-  .version-card.alt:hover {
-    border-color: var(--teal);
-    background: var(--teal-light);
-  }
-  .version-badge {
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 50px;
-    font-size: .7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .5px;
-    margin-bottom: 8px;
-  }
-  .version-badge.current { background: var(--orange); color: white; }
-  .version-badge.mikes { background: var(--teal); color: white; }
-  .version-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
-  .version-card p { font-size: .82rem; color: var(--gray); line-height: 1.5; }
-  .version-card .arrow-link { font-size: .82rem; color: var(--teal); font-weight: 600; margin-top: 8px; display: inline-block; }
-  @media (max-width: 700px) {
-    .version-switcher { grid-template-columns: 1fr; }
-  }
-
-  /* Footer */
-  .footer {
-    text-align: center;
-    padding: 2rem;
-    color: var(--light-gray);
-    font-size: 0.8rem;
-    border-top: 1px solid var(--rule);
-    margin-top: 3rem;
-  }
-
-  @media (max-width: 700px) {
-    .grid { grid-template-columns: 1fr; }
-    .header .meta { flex-direction: column; gap: 0.5rem; }
-  }
+  body { font-family: 'Inter', sans-serif; font-weight: 300; color: var(--body); background: var(--bg); line-height: 1.6; }
+  .header { background: var(--dark); color: #fff; padding: 48px 40px; text-align: center; }
+  .header h1 { font-family: 'DM Serif Display', serif; font-size: 36px; margin-bottom: 8px; }
+  .header p { color: #999; font-size: 16px; }
+  .header .badge { display: inline-block; background: var(--orange); color: #fff; font-size: 12px; font-weight: 700; padding: 5px 14px; border-radius: 20px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+  .container { max-width: 1000px; margin: 0 auto; padding: 48px 40px; }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--dark); margin: 40px 0 16px; padding-bottom: 10px; border-bottom: 2px solid var(--border); }
+  .section-title:first-child { margin-top: 0; }
+  .page-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin-bottom: 16px; }
+  .page-link { display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: var(--white); border: 1px solid var(--border); border-radius: 10px; text-decoration: none; color: var(--body); font-size: 15px; font-weight: 500; transition: all 0.3s; }
+  .page-link:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.06); border-color: var(--teal); }
+  .page-link .icon { font-size: 20px; flex-shrink: 0; }
+  .page-link .label { font-size: 11px; color: var(--faint); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-top: 2px; }
+  .start-link { background: var(--teal); color: #fff; border-color: var(--teal); font-size: 17px; padding: 20px 24px; }
+  .start-link:hover { background: #366a73; border-color: #366a73; }
+  .start-link .label { color: rgba(255,255,255,0.7); }
+  .footer { text-align: center; padding: 32px 40px; color: var(--faint); font-size: 13px; border-top: 1px solid var(--border); margin-top: 40px; }
 </style>
 </head>
 <body>
 
 <div class="header">
-  <h1>TGRM <span>Website Design Reference</span></h1>
-  <p>www.griefrecoverymethod.com — Page Design Mockups</p>
-  <div class="meta">
-    <span><strong>Prepared for:</strong> iShure Media</span>
-    <span><strong>Prepared by:</strong> Cole James — TGRM</span>
-    <span><strong>Date:</strong> March 2026</span>
-    <span><strong>Pages:</strong> 17 designs</span>
-  </div>
+  <span class="badge">Internal Preview — March 2026</span>
+  <h1>TGRM Website Prototype</h1>
+  <p>35-page premium redesign &bull; Click any page to preview</p>
 </div>
 
 <div class="container">
 
-  <!-- VERSION SWITCHER -->
-  <div class="version-switcher">
-    <div class="version-card active">
-      <span class="version-badge current">Viewing Now</span>
-      <h3>Original Version — 17 Pages</h3>
-      <p>Full site with equal weight on grievers and professionals. Blog, podcast, quiz, community, and all certification sub-pages.</p>
-    </div>
-    <a href="mikes-version/" class="version-card alt">
-      <span class="version-badge mikes">Mike's Version V2</span>
-      <h3>Streamlined — 10 Pages</h3>
-      <p>Certification-first with SEO preserved. 17→10 pages. Blog, handbook, and griever programs kept for search equity. Full design polish.</p>
-      <span class="arrow-link">View Mike's Version V2 →</span>
+  <div class="page-grid">
+    <a href="TGRM_Homepage_Premium_POC.html" class="page-link start-link">
+      <span class="icon">&#x1F3E0;</span>
+      <div>Homepage<span class="label">Start here</span></div>
     </a>
   </div>
 
-  <div class="notice">
-    <strong>Note:</strong> Each link below opens a full-width, interactive HTML mockup of the page design. These are reference prototypes — click through to see layout, navigation, colors, and content structure.
+  <div class="section-title">Hub Pages</div>
+  <div class="page-grid">
+    <a href="TGRM_GetHelp_Hub.html" class="page-link"><span class="icon">&#x1F49A;</span><div>Get Help Hub<span class="label">Griever entry point</span></div></a>
+    <a href="TGRM_GetCertified_Hub.html" class="page-link"><span class="icon">&#x1F393;</span><div>Get Certified Hub<span class="label">Certification entry point</span></div></a>
   </div>
 
-  <!-- CORE PAGES -->
-  <div class="category"><h2>Core Pages</h2></div>
-  <div class="grid">
-    <a class="card" href="TGRM_Homepage_V2.html">
-      <div class="num-bar">
-        <div class="num orange">01</div>
-        <div class="info"><h3>Homepage</h3><p>Main landing page — hero, trust bar, courses, certifications</p></div>
-      </div>
-      <div class="preview"><span>Open mockup</span></div>
-    </a>
-    <a class="card" href="TGRM_About_Us.html">
-      <div class="num-bar">
-        <div class="num teal">02</div>
-        <div class="info"><h3>About Us</h3><p>Company story, mission, and team</p></div>
-      </div>
-      <div class="preview"><span>Open mockup</span></div>
-    </a>
+  <div class="section-title">Certification Persona Pages</div>
+  <div class="page-grid">
+    <a href="TGRM_Cert_Grievers.html" class="page-link"><span class="icon">&#x1F49A;</span><div>Grievers Who Want to Help<span class="label">Top persona (36%)</span></div></a>
+    <a href="TGRM_Cert_Therapists.html" class="page-link"><span class="icon">&#x1F9E0;</span><div>Therapists &amp; Counselors</div></a>
+    <a href="TGRM_Cert_Coaches.html" class="page-link"><span class="icon">&#x1F91D;</span><div>Life &amp; Wellness Coaches</div></a>
+    <a href="TGRM_Cert_Military.html" class="page-link"><span class="icon">&#x1F396;</span><div>Military &amp; Veterans</div></a>
+    <a href="TGRM_Cert_Healthcare.html" class="page-link"><span class="icon">&#x1F3E5;</span><div>Healthcare &amp; Hospice</div></a>
+    <a href="TGRM_Cert_Faith.html" class="page-link"><span class="icon">&#x26EA;</span><div>Faith Leaders</div></a>
   </div>
 
-  <!-- CERTIFICATION & TRAINING -->
-  <div class="category"><h2>Certification & Training</h2></div>
-  <div class="grid">
-    <a class="card" href="TGRM_Certification.html">
-      <div class="num-bar">
-        <div class="num orange">03</div>
-        <div class="info"><h3>Certification Overview</h3><p>All programs with tier comparison and pricing</p></div>
-      </div>
-      <div class="preview"><span>Open mockup</span></div>
-    </a>
-    <a class="card" href="TGRM_Coaches_Certification.html">
-      <div class="num-bar">
-        <div class="num teal">04</div>
-        <div class="info"><h3>Coaches Certification</h3><p>Landing page for life coaches</p></div>
-      </div>
-      <div class="preview"><span>Open mockup</span></div>
-    </a>
-    <a class="card" href="TGRM_Military_Certification.html">
-      <div class="num-bar">
-        <div class="num orange">05</div>
-        <div class="info"><h3>Military & Veterans</h3><p>Specialized military grief support certification</p></div>
-      </div>
-      <div class="preview"><span>Open mockup</span></div>
-    </a>
-    <a class="card" href="TGRM_Private_Certification.html">
-      <div class="num-bar">
-        <div class="num teal">06</div>
-        <div class="info"><h3>Private Certification</h3><p>Private and corporate training options</p></div>
-      </div>
-      <div class="preview"><span>Open mockup</span></div>
-    </a>
-    <a class="card" href="TGRM_Training_Calendar.html">
-      <div class="num-bar">
-        <div class="num orange">07</div>
-        <div class="info"><h3>Training Calendar</h3><p>Upcoming dates, locations, and registration</p></div>
-      </div>
-      <div class="preview"><span>Open mockup</span></div>
-    </a>
-    <a class="card" href="TGRM_For_Therapists.html">
-      <div class="num-bar">
-        <div class="num teal">08</div>
-        <div class="info"><h3>For Therapists</h3><p>Landing page for therapists and counselors</p></div>
-      </div>
-      <div class="preview"><span>Open mockup</span></div>
-    </a>
+  <div class="section-title">Loss Type Pages</div>
+  <div class="page-grid">
+    <a href="TGRM_Loss_Child.html" class="page-link"><span class="icon">&#x1F49B;</span><div>Death of a Child</div></a>
+    <a href="TGRM_Loss_Spouse.html" class="page-link"><span class="icon">&#x1F49B;</span><div>Death of a Spouse</div></a>
+    <a href="TGRM_Loss_Parent.html" class="page-link"><span class="icon">&#x1F49B;</span><div>Death of a Parent</div></a>
+    <a href="TGRM_Loss_Death.html" class="page-link"><span class="icon">&#x1F49B;</span><div>Death of a Friend/Loved One</div></a>
+    <a href="TGRM_Loss_Suicide.html" class="page-link"><span class="icon">&#x1F49B;</span><div>Losing Someone to Suicide</div></a>
+    <a href="TGRM_Loss_Divorce.html" class="page-link"><span class="icon">&#x1F49B;</span><div>Divorce &amp; Relationship Loss</div></a>
+    <a href="TGRM_Loss_Pet.html" class="page-link"><span class="icon">&#x1F43E;</span><div>Pet Loss</div></a>
+    <a href="TGRM_Loss_Job.html" class="page-link"><span class="icon">&#x1F4BC;</span><div>Job &amp; Career Loss</div></a>
+    <a href="TGRM_Loss_Health.html" class="page-link"><span class="icon">&#x1FA7A;</span><div>Health Crisis</div></a>
+    <a href="TGRM_Loss_Estrangement.html" class="page-link"><span class="icon">&#x1F6AA;</span><div>Estrangement</div></a>
+    <a href="TGRM_Loss_Miscarriage.html" class="page-link"><span class="icon">&#x1F49C;</span><div>Miscarriage &amp; Pregnancy Loss</div></a>
   </div>
 
-  <!-- DIRECTORY -->
-  <div class="category"><h2>Specialist Directory</h2></div>
-  <div class="grid">
-    <a class="card" href="TGRM_Directory.html">
-      <div class="num-bar">
-        <div class="num orange">09</div>
-        <div class="info"><h3>Directory Search</h3><p>Find certified specialists by location</p></div>
-      </div>
-      <div class="preview"><span>Open mockup</span></div>
-    </a>
-    <a class="card" href="TGRM_Specialist_Profile.html">
-      <div class="num-bar">
-        <div class="num teal">10</div>
-        <div class="info"><h3>Specialist Profile</h3><p>Individual profile with bio and credentials</p></div>
-      </div>
-      <div class="preview"><span>Open mockup</span></div>
-    </a>
+  <div class="section-title">Content &amp; Resources</div>
+  <div class="page-grid">
+    <a href="TGRM_About.html" class="page-link"><span class="icon">&#x1F4D6;</span><div>About Us</div></a>
+    <a href="TGRM_Blog.html" class="page-link"><span class="icon">&#x270D;</span><div>Blog</div></a>
+    <a href="TGRM_Blog_Post.html" class="page-link"><span class="icon">&#x1F4DD;</span><div>Blog Post (Template)</div></a>
+    <a href="TGRM_Podcast.html" class="page-link"><span class="icon">&#x1F3A7;</span><div>Podcast</div></a>
+    <a href="TGRM_FAQ.html" class="page-link"><span class="icon">&#x2753;</span><div>FAQ</div></a>
+    <a href="TGRM_Handbook.html" class="page-link"><span class="icon">&#x1F4D5;</span><div>The Handbook</div></a>
+    <a href="TGRM_Resources.html" class="page-link"><span class="icon">&#x1F4DA;</span><div>Resources Hub</div></a>
+    <a href="TGRM_Free_Resources.html" class="page-link"><span class="icon">&#x1F381;</span><div>Free Guides &amp; Course<span class="label">New</span></div></a>
   </div>
 
-  <!-- CONTENT & RESOURCES -->
-  <div class="category"><h2>Content & Resources</h2></div>
-  <div class="grid">
-    <a class="card" href="TGRM_Handbook.html">
-      <div class="num-bar">
-        <div class="num orange">11</div>
-        <div class="info"><h3>Grief Recovery Handbook</h3><p>Book product page and related resources</p></div>
-      </div>
-      <div class="preview"><span>Open mockup</span></div>
-    </a>
-    <a class="card" href="TGRM_Blog.html">
-      <div class="num-bar">
-        <div class="num teal">12</div>
-        <div class="info"><h3>Blog Listing</h3><p>Blog index with categories and content grid</p></div>
-      </div>
-      <div class="preview"><span>Open mockup</span></div>
-    </a>
-    <a class="card" href="TGRM_Blog_Post.html">
-      <div class="num-bar">
-        <div class="num orange">13</div>
-        <div class="info"><h3>Blog Post</h3><p>Article template with sidebar and related posts</p></div>
-      </div>
-      <div class="preview"><span>Open mockup</span></div>
-    </a>
-    <a class="card" href="TGRM_Podcast.html">
-      <div class="num-bar">
-        <div class="num teal">14</div>
-        <div class="info"><h3>Podcast</h3><p>Episodes, player, and subscription options</p></div>
-      </div>
-      <div class="preview"><span>Open mockup</span></div>
-    </a>
-  </div>
-
-  <!-- ENGAGEMENT & CONVERSION -->
-  <div class="category"><h2>Engagement & Conversion</h2></div>
-  <div class="grid">
-    <a class="card" href="TGRM_Join_Recovery_Group.html">
-      <div class="num-bar">
-        <div class="num orange">15</div>
-        <div class="info"><h3>Join a Recovery Group</h3><p>Find and join online or in-person groups</p></div>
-      </div>
-      <div class="preview"><span>Open mockup</span></div>
-    </a>
-    <a class="card" href="TGRM_Grief_Type_Quiz.html">
-      <div class="num-bar">
-        <div class="num teal">16</div>
-        <div class="info"><h3>Grief Type Quiz</h3><p>Interactive quiz to identify grief experience</p></div>
-      </div>
-      <div class="preview"><span>Open mockup</span></div>
-    </a>
-    <a class="card" href="TGRM_Checkout.html">
-      <div class="num-bar">
-        <div class="num orange">17</div>
-        <div class="info"><h3>Checkout</h3><p>Course and certification purchase flow</p></div>
-      </div>
-      <div class="preview"><span>Open mockup</span></div>
-    </a>
+  <div class="section-title">Functional Pages</div>
+  <div class="page-grid">
+    <a href="TGRM_Directory.html" class="page-link"><span class="icon">&#x1F50D;</span><div>Find a Specialist Directory</div></a>
+    <a href="TGRM_Specialist_Profile.html" class="page-link"><span class="icon">&#x1F464;</span><div>Specialist Profile</div></a>
+    <a href="TGRM_Quiz.html" class="page-link"><span class="icon">&#x1F9E9;</span><div>Grief Type Quiz</div></a>
+    <a href="TGRM_Checkout.html" class="page-link"><span class="icon">&#x1F4B3;</span><div>Checkout</div></a>
+    <a href="TGRM_Training_Calendar.html" class="page-link"><span class="icon">&#x1F4C5;</span><div>Training Calendar</div></a>
+    <a href="TGRM_Join_Recovery_Group.html" class="page-link"><span class="icon">&#x1F465;</span><div>Join a Recovery Group</div></a>
+    <a href="TGRM_Private_Training.html" class="page-link"><span class="icon">&#x1F3DB;</span><div>Private Training</div></a>
   </div>
 
 </div>
 
 <div class="footer">
-  <p>The Grief Recovery Method — Website Design Reference — March 2026</p>
-  <p>Confidential — For iShure Media development use only</p>
+  &copy; 2026 The Grief Recovery Method&reg; &bull; Internal preview — not for public distribution
 </div>
 
 </body>

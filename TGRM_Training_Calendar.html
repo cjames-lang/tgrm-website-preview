@@ -5,6 +5,1606 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Training Calendar — Grief Recovery Method® Certification Dates</title>
 <meta name="description" content="View all upcoming Grief Recovery Method certification training dates. Online Zoom, in-person intensives, and advanced certifications. Reserve your seat today.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* TGRM Premium Design System (inlined) */
+/* ============================================================
+   TGRM Premium Design System
+   The Grief Recovery Method® — Shared CSS Foundation
+   ============================================================
+   Version:  1.0
+   Updated:  2026-03-19
+   Usage:    Link this file on every page alongside tgrm-premium.js
+             <link rel="stylesheet" href="tgrm-premium.css">
+             <script>
+// Header shadow on scroll
+const header = document.getElementById('header') || document.querySelector('header');
+if (header) {
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+}
+// Mobile menu toggle
+const menuBtn = document.querySelector('.mobile-menu-btn');
+const nav = document.querySelector('nav');
+if (menuBtn && nav) {
+  menuBtn.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('nav-open');
+    menuBtn.setAttribute('aria-expanded', isOpen);
+    menuBtn.innerHTML = isOpen ? '&#x2715;' : '&#9776;';
+  });
+}
+</script>
+   ============================================================ */
+
+
+/* ============================================================
+   1. CSS CUSTOM PROPERTIES (Design Tokens)
+   ============================================================ */
+:root {
+  /* --- Brand Colors --- */
+  --orange:       #e07525;
+  --orange-hover:  #c96820;
+  --teal:         #427E88;
+  --teal-hover:   #366a73;
+  --teal-light:   #7895a3;
+
+  /* --- Neutrals --- */
+  --dark:         #1a1a1a;
+  --body:         #2d2d2d;
+  --muted:        #666;
+  --faint:        #999;
+  --bg:           #faf9f7;
+  --white:        #ffffff;
+  --border:       #e8e5e0;
+
+  /* --- Typography --- */
+  --serif:        'DM Serif Display', serif;
+  --sans:         'Inter', sans-serif;
+
+  /* --- Motion --- */
+  --ease:         cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* --- Spacing (reference scale) --- */
+  --space-xs:     8px;
+  --space-sm:     16px;
+  --space-md:     24px;
+  --space-lg:     40px;
+  --space-xl:     56px;
+  --space-2xl:    80px;
+  --space-3xl:    100px;
+
+  /* --- Radius --- */
+  --radius-sm:    8px;
+  --radius-md:    10px;
+  --radius-lg:    16px;
+  --radius-xl:    20px;
+  --radius-pill:  40px;
+}
+
+
+/* ============================================================
+   2. GLOBAL RESET + BASE TYPOGRAPHY
+   ============================================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--sans);
+  font-weight: 300;
+  color: var(--body);
+  background: var(--bg);
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--serif);
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.25;
+}
+
+.accent { color: var(--orange); }
+
+
+/* ============================================================
+   3. UTILITY BAR (dark top bar)
+   ============================================================ */
+.utility-bar {
+  background: var(--dark);
+  color: #999;
+  font-size: 13px;
+  padding: 8px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.utility-bar a {
+  color: #999;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.utility-bar a:hover {
+  color: #fff;
+}
+
+
+/* ============================================================
+   4. PREMIUM HEADER (sticky, frosted glass)
+   ============================================================ */
+header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: box-shadow 0.3s var(--ease);
+}
+
+/* Shadow state — toggled via JS on scroll */
+header.scrolled {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* --- Logo --- */
+.logo {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--body);
+}
+
+.logo span {
+  color: var(--teal);
+}
+
+/* --- Primary Nav --- */
+nav {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: #555;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.2s;
+  position: relative;
+}
+
+nav a:hover {
+  color: var(--body);
+}
+
+/* Underline hover effect on nav links */
+nav > a::after,
+.nav-item > a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--teal);
+  transition: width 0.3s var(--ease);
+}
+
+nav > a:hover::after,
+.nav-item:hover > a::after {
+  width: 100%;
+}
+
+/* --- Nav CTA Button --- */
+.nav-cta {
+  background: var(--teal);
+  color: #fff !important;
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: all 0.3s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-cta::after {
+  display: none !important;
+}
+
+.nav-cta:hover {
+  background: var(--teal-hover) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(66, 126, 136, 0.3);
+}
+
+/* --- Mobile Menu Button --- */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: var(--body);
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+
+/* ============================================================
+   4b. MEGA NAV DROPDOWNS
+   ============================================================ */
+.nav-item {
+  position: relative;
+}
+
+.nav-item > a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Dropdown caret */
+.nav-item > a::after {
+  content: "\25BE";
+  font-size: 10px;
+  opacity: 0.5;
+  position: static;
+  width: auto;
+  height: auto;
+  background: none;
+}
+
+.nav-item:hover > a::after {
+  width: auto;
+}
+
+/* --- Standard Dropdown --- */
+.mega-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  padding-top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  min-width: 280px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  z-index: 200;
+  animation: dropdownFadeIn 0.2s var(--ease);
+}
+
+@keyframes dropdownFadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(4px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Arrow/caret on dropdown */
+.mega-dropdown::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #fff;
+}
+
+.nav-item:hover .mega-dropdown {
+  display: block;
+}
+
+/* --- Dropdown Section Titles --- */
+.mega-dropdown-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #999;
+  font-weight: 600;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f0ede8;
+}
+
+.mega-dropdown-title:not(:first-child) {
+  margin-top: 16px;
+}
+
+/* --- Dropdown Links --- */
+.mega-link {
+  display: block;
+  padding: 7px 0;
+  font-size: 14px;
+  color: var(--body) !important;
+  font-weight: 500 !important;
+  text-decoration: none;
+  transition: color 0.2s;
+  line-height: 1.3;
+}
+
+.mega-link:hover {
+  color: var(--teal) !important;
+}
+
+.mega-link-desc {
+  font-size: 12px;
+  color: #999;
+  font-weight: 400 !important;
+  margin-top: 1px;
+}
+
+/* --- Smaller Loss-Type Links --- */
+.mega-loss-link {
+  display: block;
+  padding: 5px 0;
+  font-size: 13px;
+  color: #555 !important;
+  font-weight: 500 !important;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.mega-loss-link:hover {
+  color: var(--teal) !important;
+}
+
+/* --- Wide 2-Column Dropdown --- */
+.mega-wide {
+  min-width: 640px;
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+/* --- 3-Column Dropdown --- */
+.mega-3col {
+  min-width: 720px;
+  display: none;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+.nav-item:hover .mega-wide {
+  display: grid;
+}
+
+.nav-item:hover .mega-3col {
+  display: grid;
+}
+
+
+/* ============================================================
+   5. BUTTON SYSTEM
+   ============================================================ */
+
+/* --- Base Button --- */
+.btn-primary {
+  display: inline-block;
+  padding: 16px 36px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 16px;
+  font-family: var(--sans);
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- Teal Button --- */
+.btn-teal {
+  background: var(--teal);
+  color: #fff;
+}
+
+.btn-teal:hover {
+  background: var(--teal-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(66, 126, 136, 0.3);
+}
+
+/* --- Orange Button --- */
+.btn-orange {
+  background: var(--orange);
+  color: #fff;
+}
+
+.btn-orange:hover {
+  background: var(--orange-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(224, 117, 37, 0.3);
+}
+
+/* --- Outline Button --- */
+.btn-outline {
+  background: transparent;
+  color: var(--body);
+  border: 2px solid var(--border);
+}
+
+.btn-outline:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(66, 126, 136, 0.1);
+}
+
+/* --- White Button (for dark backgrounds) --- */
+.btn-white {
+  background: #fff;
+  color: var(--dark);
+}
+
+.btn-white:hover {
+  background: #f5f5f5;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+}
+
+/* --- Door-Style Button (glass on colored bg) --- */
+.door-btn {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  color: #fff;
+  padding: 13px 32px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s var(--ease);
+  backdrop-filter: blur(4px);
+}
+
+.door-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ============================================================
+   6. SECTION PRIMITIVES (labels, titles, subtitles, containers)
+   ============================================================ */
+.section-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--teal);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: 38px;
+  text-align: center;
+  color: var(--dark);
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+
+.section-sub {
+  font-size: 18px;
+  color: var(--muted);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 56px;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.container-narrow {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.container-wide {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.section-padding {
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+}
+
+
+/* ============================================================
+   7. CARD SYSTEM
+   ============================================================ */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  transition: all 0.4s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top border accent on hover */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--teal), var(--teal-light));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+  border-color: transparent;
+}
+
+/* Card with orange accent instead of teal */
+.card--orange::before {
+  background: linear-gradient(90deg, var(--orange), #e8934d);
+}
+
+/* Card icon container */
+.card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, rgba(66, 126, 136, 0.08), rgba(66, 126, 136, 0.03));
+  border: 1px solid rgba(66, 126, 136, 0.1);
+}
+
+.card-icon--orange {
+  background: linear-gradient(135deg, rgba(224, 117, 37, 0.08), rgba(224, 117, 37, 0.03));
+  border: 1px solid rgba(224, 117, 37, 0.1);
+}
+
+.card h3 {
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* Pillar cards — alias for backward compatibility with POC */
+.pillar-card     { /* extends .card — use class="card" on new pages */ }
+.pillar-icon     { /* extends .card-icon */ }
+
+/* Common grid layouts for cards */
+.card-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+
+/* ============================================================
+   8. HERO VARIANTS
+   ============================================================ */
+
+/* --- Base Hero --- */
+.hero {
+  text-align: center;
+  padding: 120px 40px 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero badge / eyebrow */
+.hero-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(66, 126, 136, 0.08), rgba(66, 126, 136, 0.04));
+  border: 1px solid rgba(66, 126, 136, 0.12);
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 28px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--dark);
+  margin-bottom: 24px;
+  
+}
+
+.hero h1 .accent {
+  color: var(--orange);
+}
+
+.hero p {
+  font-size: 20px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 580px;
+  margin: 0 auto;
+  
+}
+
+/* --- VARIANT: Image Hero (homepage style) --- */
+.hero-image {
+  background: linear-gradient(to bottom, rgba(250, 249, 247, 0.92), rgba(250, 249, 247, 0.96)),
+              var(--hero-bg, none) center/cover no-repeat;
+}
+
+/* Radial glow behind hero */
+.hero-image::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 500px;
+  background: radial-gradient(ellipse, rgba(66, 126, 136, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --- VARIANT: Teal Gradient Hero (griever/loss pages) --- */
+.hero-gradient-teal {
+  background: linear-gradient(155deg, rgba(58, 117, 128, 0.92), rgba(91, 163, 175, 0.88)),
+              var(--hero-bg, none) center/cover no-repeat;
+  color: #fff;
+}
+
+.hero-gradient-teal h1 {
+  color: #fff;
+}
+
+.hero-gradient-teal h1 .accent {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-gradient-teal p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-gradient-teal .hero-badge {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+/* --- VARIANT: Orange Gradient Hero (certification pages) --- */
+.hero-gradient-orange {
+  background: linear-gradient(155deg, rgba(208, 106, 30, 0.9), rgba(232, 148, 80, 0.88)),
+              var(--hero-bg, none) center/cover no-repeat;
+  color: #fff;
+}
+
+.hero-gradient-orange h1 {
+  color: #fff;
+}
+
+.hero-gradient-orange h1 .accent {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-gradient-orange p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-gradient-orange .hero-badge {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+/* --- VARIANT: Dark Hero (about/neutral pages) --- */
+.hero-dark {
+  background: linear-gradient(to right, rgba(26, 26, 26, 0.93), rgba(26, 26, 26, 0.88)),
+              var(--hero-bg, none) center/cover no-repeat;
+  color: #fff;
+}
+
+.hero-dark h1 {
+  color: #fff;
+}
+
+.hero-dark p {
+  color: #999;
+}
+
+.hero-dark .hero-badge {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* ============================================================
+   9. TWO DOORS (homepage routing)
+   ============================================================ */
+.two-doors {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 40px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.8s forwards;
+}
+
+.door {
+  border-radius: var(--radius-xl);
+  padding: 52px 40px;
+  text-align: center;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer effect on doors */
+.door::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  right: 0;
+  bottom: 0;
+  width: 200%;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.1) 45%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.1) 55%, transparent 60%);
+  transition: transform 0.8s var(--ease);
+  pointer-events: none;
+}
+
+.door:hover::before {
+  transform: translateX(60%);
+}
+
+.door:hover {
+  transform: translateY(-6px);
+}
+
+.door-griever {
+  background: linear-gradient(155deg, rgba(58, 117, 128, 0.92), rgba(91, 163, 175, 0.88)),
+              var(--door-bg, none) center/cover no-repeat;
+  color: #fff;
+}
+
+.door-griever:hover {
+  box-shadow: 0 20px 60px rgba(66, 126, 136, 0.25);
+}
+
+.door-professional {
+  background: linear-gradient(155deg, rgba(208, 106, 30, 0.9), rgba(232, 148, 80, 0.88)),
+              var(--door-bg, none) center/cover no-repeat;
+  color: #fff;
+}
+
+.door-professional:hover {
+  box-shadow: 0 20px 60px rgba(224, 117, 37, 0.25);
+}
+
+.door-icon {
+  font-size: 44px;
+  margin-bottom: 22px;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+.door h2 {
+  font-family: var(--serif);
+  font-size: 27px;
+  margin-bottom: 14px;
+  font-weight: 700;
+  color: inherit;
+}
+
+.door p {
+  font-size: 16px;
+  opacity: 0.9;
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+
+.door-links {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.door-links a {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.door-links a:hover {
+  color: #fff;
+  letter-spacing: 0.3px;
+}
+
+
+/* ============================================================
+   10. TRUST BAR (with teal underline accents)
+   ============================================================ */
+.trust-bar {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  padding: 70px 40px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.trust-item {
+  text-align: center;
+}
+
+.trust-number {
+  font-family: var(--serif);
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--dark);
+  position: relative;
+}
+
+/* Teal underline accent */
+.trust-number::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 3px;
+  background: var(--teal);
+  border-radius: 2px;
+  margin: 10px auto 0;
+  opacity: 0.4;
+}
+
+.trust-label {
+  font-size: 14px;
+  color: var(--faint);
+  margin-top: 8px;
+  letter-spacing: 0.3px;
+}
+
+
+/* ============================================================
+   11. PHOTO STRIP (4-column grid with hover captions)
+   ============================================================ */
+.photo-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.photo-strip-item {
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s var(--ease);
+}
+
+.photo-strip-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26, 26, 26, 0.4), transparent 60%);
+  transition: opacity 0.4s;
+}
+
+.photo-strip-item:hover {
+  transform: scale(1.02);
+}
+
+.photo-strip-item:hover::after {
+  opacity: 0.6;
+}
+
+.photo-strip-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.4s var(--ease);
+}
+
+.photo-strip-item:hover .photo-strip-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ============================================================
+   12. TESTIMONIAL SECTION
+   ============================================================ */
+.testimonial-section {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 90px 40px;
+  text-align: center;
+  position: relative;
+}
+
+/* Large decorative quotation mark */
+.testimonial-section::before {
+  content: "\201C";
+  font-family: var(--serif);
+  font-size: 160px;
+  color: var(--teal);
+  opacity: 0.06;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.testimonial-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: 0 auto 24px;
+  background: linear-gradient(135deg, var(--teal), var(--teal-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 24px;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(66, 126, 136, 0.2);
+}
+
+.testimonial-quote {
+  font-family: var(--serif);
+  font-size: 26px;
+  line-height: 1.6;
+  color: var(--dark);
+  font-style: italic;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.testimonial-author {
+  font-size: 15px;
+  color: var(--faint);
+}
+
+.testimonial-author strong {
+  color: #555;
+}
+
+
+/* ============================================================
+   13. SOCIAL PROOF / MEDIA LOGOS BAR
+   ============================================================ */
+.social-proof {
+  background: var(--white);
+  padding: 56px 40px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.featured-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #bbb;
+  margin-bottom: 28px;
+  font-weight: 600;
+}
+
+.media-logos {
+  display: flex;
+  justify-content: center;
+  gap: 56px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.media-logos span {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--body);
+  opacity: 0.2;
+  letter-spacing: 2px;
+  transition: opacity 0.3s;
+}
+
+.media-logos span:hover {
+  opacity: 0.5;
+}
+
+
+/* ============================================================
+   14. CTA SECTIONS
+   ============================================================ */
+
+/* --- Dark CTA with gradient orbs --- */
+.final-cta {
+  background: linear-gradient(to right, rgba(26, 26, 26, 0.93), rgba(26, 26, 26, 0.88)),
+              var(--cta-bg, none) center/cover no-repeat;
+  padding: 100px 40px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradient orb — top left */
+.final-cta::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(66, 126, 136, 0.12), transparent 70%);
+  pointer-events: none;
+}
+
+/* Gradient orb — bottom right */
+.final-cta::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(224, 117, 37, 0.1), transparent 70%);
+  pointer-events: none;
+}
+
+.final-cta > * {
+  position: relative;
+  z-index: 1;
+}
+
+.final-cta h2 {
+  font-family: var(--serif);
+  font-size: 40px;
+  margin-bottom: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.final-cta h2 .accent {
+  color: var(--orange);
+}
+
+.final-cta p {
+  font-size: 18px;
+  color: #999;
+  margin-bottom: 40px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.final-cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* --- Image Overlay CTA Variant --- */
+.cta-image-overlay {
+  background-size: cover;
+  background-position: center;
+}
+
+.cta-image-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(26, 26, 26, 0.88), rgba(26, 26, 26, 0.82));
+  z-index: 0;
+}
+
+
+/* ============================================================
+   15. PREMIUM FOOTER (4-column grid)
+   ============================================================ */
+footer {
+  padding: 56px 40px 40px;
+  border-top: 1px solid var(--border);
+}
+
+.footer-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  text-align: left;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+
+.footer-brand {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--body);
+  margin-bottom: 10px;
+}
+
+.footer-brand span {
+  color: var(--teal);
+}
+
+.footer-desc {
+  font-size: 14px;
+  color: var(--faint);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.footer-stats {
+  font-size: 13px;
+  color: #bbb;
+}
+
+.footer-col-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--faint);
+  margin-bottom: 14px;
+}
+
+.footer-link {
+  display: block;
+  font-size: 14px;
+  color: var(--muted);
+  padding: 5px 0;
+  text-decoration: none;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.footer-link:hover {
+  color: var(--body);
+  transform: translateX(2px);
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.footer-crisis {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #bbb;
+}
+
+
+/* ============================================================
+   16. ANIMATION SYSTEM
+   ============================================================ */
+
+/* --- Keyframes --- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Scroll Reveal (triggered by IntersectionObserver in JS) --- */
+.reveal { opacity: 1 !important; transform: none !important; }
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Stagger Children --- */
+.reveal-stagger > * { opacity: 1 !important; transform: none !important; }
+
+.reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: none; }
+.reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: none; }
+.reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.25s; opacity: 1; transform: none; }
+.reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.35s; opacity: 1; transform: none; }
+.reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.45s; opacity: 1; transform: none; }
+.reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.55s; opacity: 1; transform: none; }
+
+/* --- Prefers Reduced Motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal,
+  .reveal-stagger > * {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero-badge,
+  .hero h1,
+  .hero p,
+  .two-doors {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+
+/* ============================================================
+   17. RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* --- Tablet & Small Laptops (768px) --- */
+@media (max-width: 768px) {
+
+  /* Header */
+  header {
+    position: relative;
+    padding: 12px 16px;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    gap: 12px;
+    z-index: 99;
+  }
+
+  nav.nav-open {
+    display: flex;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .nav-cta {
+    text-align: center;
+  }
+
+  /* Mega Nav — stack on mobile */
+  .mega-dropdown,
+  .mega-wide {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    padding: 0 0 0 16px;
+    min-width: auto;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    animation: none;
+  }
+
+  .mega-3col {
+    grid-template-columns: 1fr;
+    min-width: auto;
+  }
+
+  .mega-wide {
+    grid-template-columns: 1fr;
+    min-width: auto;
+  }
+
+  .nav-item:hover .mega-dropdown,
+  .nav-item:hover .mega-wide {
+    display: block;
+  }
+
+  .mega-dropdown::before {
+    display: none;
+  }
+
+  .nav-item > a::after {
+    display: none;
+  }
+
+  .mega-dropdown-title {
+    font-size: 10px;
+    margin-top: 10px;
+  }
+
+  .mega-link {
+    padding: 6px 0;
+    font-size: 13px;
+  }
+
+  .mega-link-desc {
+    display: none;
+  }
+
+  /* Utility Bar */
+  .utility-bar {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 60px 20px 40px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero p {
+    font-size: 17px;
+  }
+
+  /* Two Doors */
+  .two-doors {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+    gap: 20px;
+  }
+
+  .door {
+    padding: 36px 28px;
+  }
+
+  .door h2 {
+    font-size: 24px;
+  }
+
+  /* Trust Bar */
+  .trust-bar {
+    flex-wrap: wrap;
+    gap: 28px;
+    padding: 50px 20px;
+  }
+
+  .trust-number {
+    font-size: 32px;
+  }
+
+  /* Cards */
+  .card-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .card-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Section Primitives */
+  .section-title {
+    font-size: 30px;
+  }
+
+  .container,
+  .container-narrow,
+  .container-wide {
+    padding: 0 20px;
+  }
+
+  .section-padding {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  /* Photo Strip */
+  .photo-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .photo-strip-item {
+    height: 200px;
+  }
+
+  /* Social Proof */
+  .social-proof {
+    padding: 40px 20px;
+  }
+
+  .media-logos {
+    gap: 24px;
+  }
+
+  /* Testimonial */
+  .testimonial-section {
+    padding: 60px 20px;
+  }
+
+  .testimonial-quote {
+    font-size: 21px;
+  }
+
+  /* CTA */
+  .final-cta {
+    padding: 60px 20px;
+  }
+
+  .final-cta h2 {
+    font-size: 30px;
+  }
+
+  .final-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  footer {
+    padding: 40px 20px 30px;
+  }
+}
+
+/* --- Mobile (480px) --- */
+@media (max-width: 480px) {
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-strip-item {
+    height: 180px;
+  }
+
+  .trust-bar {
+    gap: 20px;
+  }
+
+  .trust-number {
+    font-size: 28px;
+  }
+
+  .door {
+    padding: 32px 20px;
+  }
+
+  .door h2 {
+    font-size: 22px;
+  }
+
+  .btn-primary {
+    padding: 14px 28px;
+    font-size: 15px;
+    width: 100%;
+  }
+}
+
+</style>
 
 <!-- Event Schema -->
 <script type="application/ld+json">
@@ -26,579 +1626,306 @@
 </script>
 
 <style>
-/* ========================================
-   RESET & BASE
-   ======================================== */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { font-family: 'Segoe UI', Arial, Helvetica, sans-serif; color: #2d3748; line-height: 1.7; background: #faf8f5; overflow-x: hidden; }
-a { text-decoration: none; color: inherit; }
+/* ============ Training Calendar Page-Specific Styles ============ */
 
-:root {
-  --orange: #e07525;
-  --orange-dark: #c4621a;
-  --orange-light: #f5a623;
-  --teal: #427e88;
-  --teal-dark: #356a73;
-  --teal-light: #7895a3;
-  --teal-pale: #e8f2f4;
-  --warm-bg: #faf8f5;
-  --warm-bg-alt: #f5f0eb;
-  --text-primary: #2d3748;
-  --text-secondary: #5a6577;
-  --text-light: #8896a8;
-  --white: #ffffff;
-  --green: #38a169;
-  --green-light: #f0fff4;
-  --red: #e53e3e;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
-  --shadow-md: 0 4px 14px rgba(0,0,0,.1);
-  --shadow-lg: 0 10px 30px rgba(0,0,0,.12);
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-  --transition: .25s ease;
-}
-.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-
-/* ========================================
-   NAV
-   ======================================== */
-.page-nav {
-  background: var(--white); border-bottom: 1px solid #e8e4df;
-  padding: 14px 0; position: sticky; top: 0; z-index: 100;
-}
-.page-nav .container {
-  display: flex; align-items: center; justify-content: space-between;
-}
-.nav-logo {
-  font-size: .95rem; font-weight: 700; color: var(--teal-dark);
-  display: flex; align-items: center; gap: 10px;
-}
-.nav-logo .logo-mark {
-  width: 34px; height: 34px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--teal), var(--teal-dark));
-  display: flex; align-items: center; justify-content: center;
-  color: #fff; font-weight: 800; font-size: .72rem;
-}
-.nav-links { display: flex; align-items: center; gap: 24px; font-size: .88rem; }
-.nav-links a { color: var(--text-secondary); transition: color .2s; }
-.nav-links a:hover { color: var(--teal); }
-.btn-primary-sm {
-  background: var(--orange); color: #fff !important; padding: 9px 22px;
-  border-radius: var(--radius-sm); font-weight: 700; font-size: .85rem;
-  transition: background .2s;
-}
-.btn-primary-sm:hover { background: var(--orange-dark); }
-
-.breadcrumb {
-  padding: 14px 0; font-size: .82rem; color: var(--text-light);
-}
-.breadcrumb a { color: var(--teal); }
-.breadcrumb a:hover { text-decoration: underline; }
-
-/* ========================================
-   HERO
-   ======================================== */
-.cal-hero {
-  background: linear-gradient(135deg, var(--teal-dark), #2c5d66 60%, #3a7a6a);
-  color: #fff; padding: 52px 0 44px; text-align: center;
-}
-.cal-hero .eyebrow {
-  font-size: .72rem; text-transform: uppercase; letter-spacing: 2px;
-  opacity: .6; margin-bottom: 8px;
-}
-.cal-hero h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
-.cal-hero p { font-size: 1rem; opacity: .8; max-width: 600px; margin: 0 auto 24px; }
-
-/* Quick stats */
-.hero-stats {
-  display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;
-}
-.hero-stat { text-align: center; }
-.hero-stat .num { font-size: 1.6rem; font-weight: 800; }
-.hero-stat .label { font-size: .78rem; opacity: .65; }
-
-/* ========================================
-   FILTERS
-   ======================================== */
+/* Filter Bar */
 .filter-bar {
-  background: var(--white); border-bottom: 1px solid #e8e4df;
-  padding: 16px 0; position: sticky; top: 56px; z-index: 90;
+  background: var(--white); border-bottom: 1px solid var(--border);
+  padding: 16px 0; position: sticky; top: 64px; z-index: 90;
 }
-.filter-inner {
-  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-}
-.filter-label {
-  font-size: .82rem; font-weight: 600; color: var(--text-secondary); margin-right: 4px;
-}
+.filter-inner { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+.filter-label { font-size: .82rem; font-weight: 600; color: var(--muted); margin-right: 4px; }
 .filter-btn {
-  padding: 7px 16px; border-radius: 20px; font-size: .82rem; font-weight: 600;
-  border: 1.5px solid #ddd8d2; background: var(--white); color: var(--text-secondary);
-  cursor: pointer; transition: all .2s;
+  padding: 7px 16px; border-radius: var(--radius-pill); font-size: .82rem; font-weight: 600;
+  border: 1.5px solid var(--border); background: var(--white); color: var(--muted);
+  cursor: pointer; transition: all 0.3s var(--ease); font-family: var(--sans);
 }
 .filter-btn:hover { border-color: var(--teal); color: var(--teal); }
 .filter-btn.active { background: var(--teal); color: #fff; border-color: var(--teal); }
-
-.filter-right {
-  margin-left: auto; display: flex; align-items: center; gap: 8px;
-}
-.view-toggle {
-  display: flex; border: 1.5px solid #ddd8d2; border-radius: var(--radius-sm); overflow: hidden;
-}
+.filter-right { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.view-toggle { display: flex; border: 1.5px solid var(--border); border-radius: var(--radius-sm); overflow: hidden; }
 .view-btn {
   padding: 6px 12px; font-size: .78rem; font-weight: 600;
   background: var(--white); border: none; cursor: pointer;
-  color: var(--text-light); transition: all .15s;
+  color: var(--faint); transition: all .15s; font-family: var(--sans);
 }
-.view-btn.active { background: var(--teal-pale); color: var(--teal); }
-.view-btn + .view-btn { border-left: 1.5px solid #ddd8d2; }
+.view-btn.active { background: rgba(66,126,136,0.08); color: var(--teal); }
+.view-btn + .view-btn { border-left: 1.5px solid var(--border); }
 
-/* ========================================
-   TRAINING CARDS (LIST VIEW) — DUAL TRACK
-   ======================================== */
+/* Month Groups */
 .calendar-main { padding: 36px 0 80px; }
-
-/* Month group */
 .month-group { margin-bottom: 36px; }
 .month-label {
-  font-size: 1.15rem; font-weight: 700; color: var(--teal-dark);
+  font-family: var(--serif); font-size: 1.15rem; font-weight: 700; color: var(--teal);
   padding-bottom: 10px; margin-bottom: 16px;
-  border-bottom: 2px solid var(--teal-pale);
+  border-bottom: 2px solid rgba(66,126,136,0.1);
   display: flex; align-items: center; gap: 8px;
 }
 .month-count {
-  font-size: .72rem; font-weight: 600; background: var(--teal-pale);
-  color: var(--teal-dark); padding: 2px 10px; border-radius: 12px;
+  font-size: .72rem; font-weight: 600; font-family: var(--sans);
+  background: rgba(66,126,136,0.08); color: var(--teal);
+  padding: 2px 10px; border-radius: 12px;
 }
 
+/* Training Cards */
 .training-card {
   background: var(--white); border-radius: var(--radius-lg);
   padding: 28px; margin-bottom: 14px;
-  border: 1px solid #ece8e3; transition: all .2s;
+  border: 1px solid var(--border); transition: all 0.4s var(--ease);
+  position: relative; overflow: hidden;
 }
-.training-card:hover { box-shadow: var(--shadow-md); border-color: #d0ccc7; }
+.training-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--teal), var(--teal-light));
+  transform: scaleX(0); transform-origin: left; transition: transform 0.4s var(--ease);
+}
+.training-card:hover::before { transform: scaleX(1); }
+.training-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.06); border-color: transparent; }
 
-.tc-top {
-  display: grid; grid-template-columns: 90px 1fr; gap: 20px;
-  align-items: start; margin-bottom: 20px;
-}
-
-/* Date block */
-.tc-date {
-  text-align: center; padding: 12px; border-radius: var(--radius-md);
-  background: var(--warm-bg-alt);
-}
+.tc-top { display: grid; grid-template-columns: 90px 1fr; gap: 20px; align-items: start; margin-bottom: 20px; }
+.tc-date { text-align: center; padding: 12px; border-radius: var(--radius-md); background: var(--bg); }
 .tc-date .month { font-size: .7rem; text-transform: uppercase; letter-spacing: 1px; color: var(--teal); font-weight: 700; }
-.tc-date .day { font-size: 2rem; font-weight: 800; color: var(--text-primary); line-height: 1.1; }
-.tc-date .year { font-size: .7rem; color: var(--text-light); }
-
-/* Info */
-.tc-info h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 4px; }
-.tc-meta {
-  display: flex; flex-wrap: wrap; gap: 12px; font-size: .82rem;
-  color: var(--text-secondary); margin-bottom: 8px;
-}
+.tc-date .day { font-family: var(--serif); font-size: 2rem; font-weight: 700; color: var(--dark); line-height: 1.1; }
+.tc-date .year { font-size: .7rem; color: var(--faint); }
+.tc-info h3 { font-family: var(--serif); font-size: 1.15rem; font-weight: 700; margin-bottom: 4px; color: var(--dark); }
+.tc-meta { display: flex; flex-wrap: wrap; gap: 12px; font-size: .82rem; color: var(--muted); margin-bottom: 8px; }
 .tc-meta span { display: flex; align-items: center; gap: 4px; }
 .tc-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-.tag {
-  padding: 3px 12px; border-radius: 20px; font-size: .72rem;
-  font-weight: 600;
-}
-.tag-online { background: var(--teal-pale); color: var(--teal-dark); }
-.tag-inperson { background: #fef3e2; color: #b45309; }
-.tag-foundation { background: #eff6ff; color: #1e40af; }
-.tag-advanced { background: #faf5ff; color: #6b21a8; }
-.tag-intensive { background: #fff7ed; color: #9a3412; }
-.tag-limited { background: #fff5f5; color: var(--red); }
+.tag { padding: 3px 12px; border-radius: var(--radius-pill); font-size: .72rem; font-weight: 600; }
+.tag-online { background: rgba(66,126,136,0.08); color: var(--teal); }
+.tag-inperson { background: rgba(224,117,37,0.08); color: var(--orange); }
+.tag-foundation { background: rgba(30,64,175,0.06); color: #1e40af; }
+.tag-advanced { background: rgba(107,33,168,0.06); color: #6b21a8; }
+.tag-intensive { background: rgba(154,52,18,0.06); color: #9a3412; }
+.tag-limited { background: rgba(229,62,62,0.06); color: #e53e3e; }
+.tc-spots-badge { font-size: .78rem; font-weight: 600; margin-top: 4px; }
+.tc-spots-badge.ok { color: #38a169; }
+.tc-spots-badge.low { color: #e53e3e; }
 
-.tc-spots-badge {
-  font-size: .78rem; font-weight: 600; margin-top: 4px;
-}
-.tc-spots-badge.ok { color: var(--green); }
-.tc-spots-badge.low { color: var(--red); }
-
-/* --- TRACK OPTIONS (side by side) --- */
-.track-options {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
-  border-top: 1px solid #f0ece7; padding-top: 20px;
-}
-.track-options.three-col { grid-template-columns: 1fr 1fr 1fr; }
-
+/* Track Options */
+.track-options { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; border-top: 1px solid var(--border); padding-top: 20px; }
 .track-card {
-  border: 2px solid #e8e4df; border-radius: var(--radius-md);
-  padding: 20px; text-align: center; transition: all .2s;
+  border: 2px solid var(--border); border-radius: var(--radius-md);
+  padding: 20px; text-align: center; transition: all 0.3s var(--ease);
   position: relative; cursor: default;
 }
-.track-card:hover { border-color: var(--teal); box-shadow: var(--shadow-sm); }
-.track-card.popular {
-  border-color: var(--orange); background: linear-gradient(180deg, #fffaf5 0%, var(--white) 100%);
-}
+.track-card:hover { border-color: var(--teal); box-shadow: 0 4px 16px rgba(0,0,0,0.04); }
+.track-card.popular { border-color: var(--orange); background: linear-gradient(180deg, rgba(224,117,37,0.02) 0%, var(--white) 100%); }
 .track-card.popular::before {
-  content: 'Most Popular';
-  position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+  content: 'Most Popular'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
   background: var(--orange); color: #fff; font-size: .68rem; font-weight: 700;
-  padding: 2px 12px; border-radius: 10px; white-space: nowrap;
-  text-transform: uppercase; letter-spacing: .5px;
+  padding: 2px 12px; border-radius: var(--radius-pill); white-space: nowrap;
+  text-transform: uppercase; letter-spacing: .5px; font-family: var(--sans);
 }
-
-.track-name {
-  font-size: .92rem; font-weight: 700; margin-bottom: 2px;
-}
+.track-name { font-size: .92rem; font-weight: 700; margin-bottom: 2px; }
 .track-name.foundation { color: #1e40af; }
 .track-name.advanced { color: #6b21a8; }
 .track-name.inperson { color: #9a3412; }
-
-.track-desc {
-  font-size: .75rem; color: var(--text-light); margin-bottom: 12px; line-height: 1.4;
-}
-.track-price {
-  font-size: 1.4rem; font-weight: 800; color: var(--text-primary); margin-bottom: 2px;
-}
-.track-installment {
-  font-size: .76rem; color: var(--text-light); margin-bottom: 14px;
-}
-.track-features {
-  text-align: left; font-size: .78rem; color: var(--text-secondary);
-  margin-bottom: 16px; padding: 0; list-style: none;
-}
-.track-features li {
-  padding: 3px 0 3px 18px; position: relative;
-}
-.track-features li::before {
-  content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700;
-}
+.track-desc { font-size: .75rem; color: var(--faint); margin-bottom: 12px; line-height: 1.4; }
+.track-price { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; color: var(--dark); margin-bottom: 2px; }
+.track-installment { font-size: .76rem; color: var(--faint); margin-bottom: 14px; }
+.track-features { text-align: left; font-size: .78rem; color: var(--muted); margin-bottom: 16px; padding: 0; list-style: none; }
+.track-features li { padding: 3px 0 3px 18px; position: relative; }
+.track-features li::before { content: '\2713'; position: absolute; left: 0; color: #38a169; font-weight: 700; }
 
 .btn-enroll {
   display: inline-block; padding: 10px 22px; border-radius: var(--radius-sm);
-  font-weight: 700; font-size: .85rem; transition: all .2s; width: 100%;
-  text-align: center;
+  font-weight: 700; font-size: .85rem; transition: all 0.3s var(--ease); width: 100%;
+  text-align: center; text-decoration: none; font-family: var(--sans); border: none; cursor: pointer;
 }
 .btn-enroll.primary { background: var(--orange); color: #fff; }
-.btn-enroll.primary:hover { background: var(--orange-dark); }
+.btn-enroll.primary:hover { background: var(--orange-hover); transform: translateY(-1px); }
 .btn-enroll.outline { background: var(--white); color: var(--teal); border: 2px solid var(--teal); }
 .btn-enroll.outline:hover { background: var(--teal); color: #fff; }
 
-/* --- IN-PERSON PREMIUM BANNER (wide single-option layout) --- */
+/* In-Person Premium Banner */
 .inperson-premium-banner {
   display: flex; gap: 28px; align-items: center;
-  border-top: 1px solid #f0ece7; padding-top: 20px;
-  background: linear-gradient(135deg, #fffaf5 0%, #fff7ef 100%);
+  border-top: 1px solid var(--border); padding-top: 20px;
+  background: linear-gradient(135deg, rgba(224,117,37,0.02), rgba(224,117,37,0.04));
   border: 2px solid var(--orange); border-radius: var(--radius-md);
   padding: 24px 28px; position: relative;
 }
 .inperson-premium-banner::before {
-  content: 'Premium Experience';
-  position: absolute; top: -11px; left: 24px;
+  content: 'Premium Experience'; position: absolute; top: -11px; left: 24px;
   background: var(--orange); color: #fff; font-size: .68rem; font-weight: 700;
-  padding: 2px 14px; border-radius: 10px; white-space: nowrap;
-  text-transform: uppercase; letter-spacing: .5px;
+  padding: 2px 14px; border-radius: var(--radius-pill); white-space: nowrap;
+  text-transform: uppercase; letter-spacing: .5px; font-family: var(--sans);
 }
 .ipb-left { flex: 1; }
-.ipb-desc {
-  font-size: .85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 16px;
-}
-.ipb-features {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 6px 24px;
-}
+.ipb-desc { font-size: .85rem; color: var(--muted); line-height: 1.5; margin-bottom: 16px; }
+.ipb-features { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 24px; }
 .ipb-col { display: flex; flex-direction: column; gap: 5px; }
-.ipb-feat {
-  font-size: .8rem; color: var(--text-secondary); line-height: 1.4;
-}
-.ipb-feat::first-letter { color: var(--green); font-weight: 700; }
-.ipb-right {
-  flex-shrink: 0; text-align: center; min-width: 180px;
-  border-left: 1px solid #f0ece7; padding-left: 28px;
-}
-.ipb-price {
-  font-size: 2rem; font-weight: 800; color: var(--text-primary); margin-bottom: 2px;
-}
-.ipb-installment {
-  font-size: .8rem; color: var(--text-light); margin-bottom: 16px;
-}
+.ipb-feat { font-size: .8rem; color: var(--muted); line-height: 1.4; }
+.ipb-feat::first-letter { color: #38a169; font-weight: 700; }
+.ipb-right { flex-shrink: 0; text-align: center; min-width: 180px; border-left: 1px solid var(--border); padding-left: 28px; }
+.ipb-price { font-family: var(--serif); font-size: 2rem; font-weight: 700; color: var(--dark); margin-bottom: 2px; }
+.ipb-installment { font-size: .8rem; color: var(--faint); margin-bottom: 16px; }
 
-@media (max-width: 700px) {
-  .inperson-premium-banner {
-    flex-direction: column; gap: 18px; padding: 20px 18px;
-  }
-  .ipb-features { grid-template-columns: 1fr; }
-  .ipb-right {
-    border-left: none; border-top: 1px solid #f0ece7;
-    padding-left: 0; padding-top: 18px; min-width: auto; width: 100%;
-  }
-}
-
-/* ========================================
-   GRID VIEW
-   ======================================== */
+/* Grid View */
 .calendar-grid-view { display: none; }
 .calendar-grid-view.active { display: block; }
 .calendar-list-view.hidden { display: none; }
-
-.grid-months {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-}
-.grid-month-card {
-  background: var(--white); border-radius: var(--radius-lg);
-  border: 1px solid #ece8e3; overflow: hidden;
-}
-.grid-month-header {
-  background: var(--teal-dark); color: #fff; padding: 12px 18px;
-  font-weight: 700; font-size: .95rem; text-align: center;
-}
-.grid-day-row {
-  display: flex; align-items: center; gap: 12px;
-  padding: 14px 18px; border-bottom: 1px solid #f0ece7;
-  font-size: .85rem; transition: background .15s;
-}
+.grid-months { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.grid-month-card { background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--border); overflow: hidden; }
+.grid-month-header { background: var(--teal); color: #fff; padding: 12px 18px; font-family: var(--serif); font-weight: 700; font-size: .95rem; text-align: center; }
+.grid-day-row { display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--border); font-size: .85rem; transition: background .15s; }
 .grid-day-row:last-child { border-bottom: none; }
-.grid-day-row:hover { background: var(--teal-pale); }
-.grid-day-num {
-  width: 32px; height: 32px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: .82rem; flex-shrink: 0;
-}
+.grid-day-row:hover { background: rgba(66,126,136,0.04); }
+.grid-day-num { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .82rem; flex-shrink: 0; }
 .grid-day-num.event { background: var(--teal); color: #fff; }
 .grid-day-num.inperson { background: var(--orange); color: #fff; }
 .grid-day-info { flex: 1; }
-.grid-day-info strong { display: block; font-size: .82rem; }
-.grid-day-info span { font-size: .75rem; color: var(--text-light); }
-.grid-empty {
-  padding: 18px; text-align: center; color: var(--text-light);
-  font-size: .85rem;
-}
+.grid-day-info strong { display: block; font-size: .82rem; color: var(--dark); }
+.grid-day-info span { font-size: .75rem; color: var(--faint); }
+.grid-empty { padding: 18px; text-align: center; color: var(--faint); font-size: .85rem; }
 
-/* ========================================
-   NEED HELP SECTION
-   ======================================== */
-.help-section {
-  padding: 50px 0; background: var(--white); border-top: 1px solid #ece8e3;
-}
-.help-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-}
-.help-card {
-  text-align: center; padding: 28px; border-radius: var(--radius-lg);
-  background: var(--warm-bg); border: 1px solid #ece8e3;
-  transition: var(--transition);
-}
-.help-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
-.help-icon {
-  width: 52px; height: 52px; border-radius: 50%; margin: 0 auto 14px;
-  display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
-}
-.help-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
-.help-card p { font-size: .85rem; color: var(--text-secondary); margin-bottom: 14px; }
-.help-link {
-  font-size: .85rem; font-weight: 700; color: var(--teal);
-  display: inline-flex; align-items: center; gap: 4px;
-}
-.help-link:hover { color: var(--orange); }
-
-/* ========================================
-   COMPARISON STRIP
-   ======================================== */
-.compare-strip { padding: 50px 0; background: var(--warm-bg-alt); }
-.compare-title { text-align: center; font-size: 1.3rem; font-weight: 700; margin-bottom: 6px; }
-.compare-sub { text-align: center; font-size: .9rem; color: var(--text-secondary); margin-bottom: 32px; }
-
-.compare-table {
-  width: 100%; border-collapse: collapse;
-  background: var(--white); border-radius: var(--radius-lg); overflow: hidden;
-  box-shadow: var(--shadow-sm);
-}
-.compare-table thead th {
-  padding: 16px 20px; text-align: left; font-size: .82rem;
-  text-transform: uppercase; letter-spacing: .5px;
-  background: var(--teal-dark); color: #fff; font-weight: 700;
-}
-.compare-table thead th:first-child { border-radius: 0; }
-.compare-table tbody td {
-  padding: 14px 20px; border-bottom: 1px solid #f0ece7;
-  font-size: .88rem; vertical-align: top;
-}
+/* Comparison Table */
+.compare-strip { padding: var(--space-2xl) 0; background: var(--bg); }
+.compare-title { font-family: var(--serif); text-align: center; font-size: 1.3rem; font-weight: 700; margin-bottom: 6px; color: var(--dark); }
+.compare-sub { text-align: center; font-size: .9rem; color: var(--muted); margin-bottom: 32px; }
+.compare-table { width: 100%; border-collapse: collapse; background: var(--white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.compare-table thead th { padding: 16px 20px; text-align: left; font-size: .82rem; text-transform: uppercase; letter-spacing: .5px; background: var(--teal); color: #fff; font-weight: 700; }
+.compare-table tbody td { padding: 14px 20px; border-bottom: 1px solid var(--border); font-size: .88rem; vertical-align: top; }
 .compare-table tbody tr:last-child td { border-bottom: none; }
 .compare-table tbody tr:hover { background: rgba(66,126,136,.03); }
-.compare-table .feature-name { font-weight: 600; color: var(--text-primary); }
-.ck { color: var(--green); font-weight: 700; }
-.na { color: var(--text-light); }
+.compare-table .feature-name { font-weight: 600; color: var(--dark); }
+.ck { color: #38a169; font-weight: 700; }
+.na { color: var(--faint); }
 
-/* ========================================
-   FAQ
-   ======================================== */
-.faq-section { padding: 50px 0; background: var(--white); }
-.faq-title { text-align: center; font-size: 1.3rem; font-weight: 700; margin-bottom: 28px; }
+/* Help Section */
+.help-section { padding: var(--space-2xl) 0; background: var(--white); border-top: 1px solid var(--border); }
+.help-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.help-card { text-align: center; padding: 28px; border-radius: var(--radius-lg); background: var(--bg); border: 1px solid var(--border); transition: all 0.4s var(--ease); }
+.help-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.06); transform: translateY(-4px); }
+.help-icon { width: 52px; height: 52px; border-radius: 50%; margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+.help-card h3 { font-family: var(--serif); font-size: 1rem; font-weight: 700; margin-bottom: 6px; color: var(--dark); }
+.help-card p { font-size: .85rem; color: var(--muted); margin-bottom: 14px; line-height: 1.6; }
+.help-link { font-size: .85rem; font-weight: 700; color: var(--teal); display: inline-flex; align-items: center; gap: 4px; text-decoration: none; }
+.help-link:hover { color: var(--orange); }
+
+/* FAQ */
+.faq-section { padding: var(--space-2xl) 0; background: var(--white); }
+.faq-title { font-family: var(--serif); text-align: center; font-size: 1.3rem; font-weight: 700; margin-bottom: 28px; color: var(--dark); }
 .faq-list { max-width: 720px; margin: 0 auto; }
-.faq-item { border-bottom: 1px solid #ece8e3; }
+.faq-item { border-bottom: 1px solid var(--border); }
 .faq-q {
-  padding: 18px 0; font-weight: 700; font-size: .95rem;
+  padding: 18px 0; font-weight: 700; font-size: .95rem; color: var(--dark);
   cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+  background: none; border: none; width: 100%; text-align: left; font-family: var(--sans);
 }
 .faq-q:hover { color: var(--teal); }
 .faq-toggle { font-size: 1.2rem; color: var(--orange); transition: transform .3s; flex-shrink: 0; margin-left: 16px; }
-.faq-a {
-  max-height: 0; overflow: hidden; transition: max-height .4s ease;
-  font-size: .88rem; color: var(--text-secondary); line-height: 1.7;
-}
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .4s ease; font-size: .88rem; color: var(--muted); line-height: 1.7; }
 .faq-item.open .faq-a { max-height: 300px; padding-bottom: 18px; }
 .faq-item.open .faq-toggle { transform: rotate(45deg); }
 
-/* ========================================
-   FINAL CTA
-   ======================================== */
-.final-cta {
-  padding: 60px 0; text-align: center;
-  background: linear-gradient(135deg, var(--teal-dark), #2c5d66);
-  color: #fff;
+/* Testimonial Reviews */
+.review-card {
+  background: var(--bg); border-radius: var(--radius-lg); padding: 28px;
+  border: 1px solid var(--border); display: flex; flex-direction: column;
+  transition: all 0.4s var(--ease);
 }
-.final-cta h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; }
-.final-cta p { font-size: 1rem; opacity: .85; max-width: 580px; margin: 0 auto 24px; }
-.final-cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-.btn-final-primary {
-  padding: 14px 28px; background: var(--orange); color: #fff;
-  font-weight: 700; border-radius: var(--radius-sm); transition: all .2s;
-}
-.btn-final-primary:hover { background: var(--orange-dark); }
-.btn-final-secondary {
-  padding: 14px 28px; background: rgba(255,255,255,.1); color: #fff;
-  font-weight: 700; border-radius: var(--radius-sm); border: 2px solid rgba(255,255,255,.3);
-  transition: all .2s;
-}
-.btn-final-secondary:hover { background: rgba(255,255,255,.2); }
+.review-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.04); }
+.review-stars { color: var(--orange); font-size: 1rem; margin-bottom: 10px; }
+.review-text { font-size: .88rem; color: var(--muted); line-height: 1.7; flex: 1; font-style: italic; }
+.review-footer { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border); }
+.review-author { font-weight: 700; font-size: .85rem; color: var(--dark); }
+.review-meta { font-size: .78rem; color: var(--faint); margin-top: 2px; }
 
-/* ========================================
-   FOOTER
-   ======================================== */
-.page-footer {
-  background: #1a2332; color: rgba(255,255,255,.6); padding: 40px 0 20px;
-  font-size: .82rem;
-}
-.footer-inner {
-  display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: 16px;
-}
-.footer-links { display: flex; gap: 20px; }
-.footer-links a { color: rgba(255,255,255,.6); transition: color .2s; }
-.footer-links a:hover { color: #fff; }
-
-/* ========================================
-   RESPONSIVE
-   ======================================== */
+/* Responsive */
 @media (max-width: 900px) {
   .track-options { grid-template-columns: 1fr; }
-  .track-options.three-col { grid-template-columns: 1fr; }
   .help-grid { grid-template-columns: 1fr; }
   .grid-months { grid-template-columns: 1fr 1fr; }
-  #testimonialGrid { grid-template-columns: 1fr !important; }
   .compare-table { font-size: .82rem; }
   .compare-table thead th, .compare-table tbody td { padding: 10px 12px; }
+  .filter-inner { padding: 0 20px; }
+}
+@media (max-width: 700px) {
+  .inperson-premium-banner { flex-direction: column; gap: 18px; padding: 20px 18px; }
+  .ipb-features { grid-template-columns: 1fr; }
+  .ipb-right { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 18px; min-width: auto; width: 100%; }
 }
 @media (max-width: 600px) {
   .tc-top { grid-template-columns: 1fr; text-align: center; }
-  .tc-date { display: inline-block; }
   .tc-meta { justify-content: center; }
   .tc-tags { justify-content: center; }
-  .hero-stats { gap: 20px; }
-  .filter-inner { justify-content: center; }
   .grid-months { grid-template-columns: 1fr; }
-  .nav-links { gap: 12px; font-size: .82rem; }
 }
-
-.fade-in { opacity: 0; transform: translateY(14px); transition: all .5s ease; }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 <body>
 
-<!-- ======================= NAV ======================= -->
-<nav class="page-nav">
-  <div class="container">
-    <a href="TGRM_Homepage_V2.html" class="nav-logo">
-      <div class="logo-mark">GR</div>
-      Grief Recovery Method<sup style="font-size:.55rem;">&reg;</sup>
-    </a>
-    <div class="nav-links">
-      <a href="TGRM_Homepage_V2.html">Home</a>
-      <a href="TGRM_Directory.html">Find a Specialist</a>
-      <a href="TGRM_Certification.html">Certification</a>
-      <a href="TGRM_Blog.html">Blog</a>
-      <a href="TGRM_Checkout.html" class="btn-primary-sm">Reserve Your Seat</a>
-    </div>
-  </div>
-</nav>
-
-<div class="container">
-  <div class="breadcrumb">
-    <a href="TGRM_Homepage_V2.html">Home</a> &nbsp;&rsaquo;&nbsp;
-    <a href="TGRM_Certification.html">Certification</a> &nbsp;&rsaquo;&nbsp;
-    <strong>Training Calendar</strong>
-  </div>
+<!-- Utility Bar -->
+<div class="utility-bar">
+  <div><a href="tel:800-334-7606">800-334-7606</a> &nbsp;|&nbsp; <a href="#">Crisis Resources</a></div>
+  <div><a href="#">Login</a></div>
 </div>
 
-<!-- ======================= HERO ======================= -->
-<section class="cal-hero">
-  <div class="container">
-    <div class="eyebrow fade-in">Certification Training Schedule</div>
-    <h1 class="fade-in">Upcoming Training Dates</h1>
-    <p class="fade-in">Choose from live online Zoom sessions or in-person intensives. Every training is capped at 20 participants for personalized attention.</p>
-    <div class="hero-stats fade-in">
-      <div class="hero-stat"><div class="num">8</div><div class="label">Sessions in 2026</div></div>
-      <div class="hero-stat"><div class="num">2</div><div class="label">Formats (Online &amp; In-Person)</div></div>
-      <div class="hero-stat"><div class="num">20</div><div class="label">Max Per Cohort</div></div>
-      <div class="hero-stat"><div class="num">98%</div><div class="label">Completion Rate</div></div>
-    </div>
+<!-- Header -->
+<header id="header">
+  <div class="logo"><a href="TGRM_Homepage_Premium_POC.html" style="text-decoration:none;color:inherit;">The Grief Recovery <span>Method</span>&reg;</a></div>
+  <nav>
+    <div class="nav-item"><a href="TGRM_GetHelp_Hub.html">Get Help</a><div class="mega-dropdown mega-3col"><div><div class="mega-dropdown-title">Find Support</div><a href="TGRM_Directory.html" class="mega-link">Find a Specialist Near You<div class="mega-link-desc">3,000+ certified specialists worldwide</div></a><a href="TGRM_Quiz.html" class="mega-link">What Type of Griever Are You?<div class="mega-link-desc">Free 2-minute assessment</div></a><a href="https://programs.griefrecoverymethod.com/online-course" class="mega-link" target="_blank">Free Online Course<div class="mega-link-desc">Video lessons with Cole James — free</div></a><a href="TGRM_Free_Resources.html" class="mega-link">Free Grief Recovery Guides<div class="mega-link-desc">7 free ebooks — instant download</div></a><a href="TGRM_Handbook.html" class="mega-link">Get the Handbook<div class="mega-link-desc">1M+ copies sold</div></a></div><div><div class="mega-dropdown-title">Explore by Loss Type</div><a href="TGRM_Loss_Child.html" class="mega-loss-link">Death of a Child</a><a href="TGRM_Loss_Spouse.html" class="mega-loss-link">Death of a Spouse or Partner</a><a href="TGRM_Loss_Parent.html" class="mega-loss-link">Death of a Parent</a><a href="TGRM_Loss_Suicide.html" class="mega-loss-link">Losing Someone to Suicide</a><a href="TGRM_Loss_Death.html" class="mega-loss-link">Death of a Friend or Loved One</a><a href="TGRM_Loss_Divorce.html" class="mega-loss-link">Divorce &amp; Relationship Loss</a><a href="TGRM_Loss_Pet.html" class="mega-loss-link">Pet Loss</a><a href="TGRM_Loss_Job.html" class="mega-loss-link">Job &amp; Career Loss</a><a href="TGRM_Loss_Health.html" class="mega-loss-link">Health Crisis &amp; Chronic Illness</a><a href="TGRM_Loss_Estrangement.html" class="mega-loss-link">Estrangement &amp; Family Cutoff</a><a href="TGRM_Loss_Miscarriage.html" class="mega-loss-link">Miscarriage &amp; Pregnancy Loss</a></div><div><div class="mega-dropdown-title">Popular Topics</div><a href="TGRM_Blog_Post.html" class="mega-loss-link">Myths About Grief</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">What Not to Say to a Griever</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">Grief vs. Depression</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">Helping Children with Grief</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">Grief at Work</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">When Holidays Hurt</a></div></div></div>
+    <div class="nav-item"><a href="TGRM_GetCertified_Hub.html">Get Certified</a><div class="mega-dropdown mega-3col"><div><div class="mega-dropdown-title">Training Programs</div><a href="TGRM_GetCertified_Hub.html#pricing" class="mega-link">Foundational Certification<div class="mega-link-desc">$2,495 &middot; 4-day live training</div></a><a href="TGRM_GetCertified_Hub.html#pricing" class="mega-link">Advanced Certification<div class="mega-link-desc">$3,995 &middot; 50 hours total</div></a><a href="TGRM_GetCertified_Hub.html#pricing" class="mega-link">Premium In-Person<div class="mega-link-desc">$4,995 &middot; Small group intensive</div></a><a href="TGRM_Private_Training.html" class="mega-link">Private / B2B Training<div class="mega-link-desc">Custom training for organizations</div></a></div><div><div class="mega-dropdown-title">Is It Right for You?</div><a href="TGRM_Cert_Grievers.html" class="mega-loss-link">Grievers with a Passion to Help</a><a href="TGRM_Cert_Therapists.html" class="mega-loss-link">Therapists &amp; Counselors</a><a href="TGRM_Cert_Coaches.html" class="mega-loss-link">Life &amp; Wellness Coaches</a><a href="TGRM_Cert_Military.html" class="mega-loss-link">Military &amp; Veterans</a><a href="TGRM_Cert_Healthcare.html" class="mega-loss-link">Healthcare &amp; Hospice</a><a href="TGRM_Cert_Faith.html" class="mega-loss-link">Faith Leaders &amp; Communities</a></div><div><div class="mega-dropdown-title">Resources</div><a href="TGRM_GetCertified_Hub.html" class="mega-loss-link">Upcoming Training Dates</a><a href="TGRM_FAQ.html" class="mega-loss-link">Certification FAQ</a><a href="TGRM_GetCertified_Hub.html" class="mega-loss-link">Payment Plans Available</a><a href="TGRM_GetCertified_Hub.html" class="mega-loss-link">Have Questions? Let's Talk</a></div></div></div>
+    <a href="TGRM_Directory.html">Find a Specialist</a>
+    <div class="nav-item"><a href="TGRM_About.html">About</a><div class="mega-dropdown mega-wide"><div><div class="mega-dropdown-title">The Method</div><a href="TGRM_About.html" class="mega-link">How The Method Works<div class="mega-link-desc">Action-based grief recovery in 3 steps</div></a><a href="TGRM_About.html" class="mega-link">45+ Years of Research<div class="mega-link-desc">Evidence-based, peer-reviewed</div></a><a href="TGRM_Handbook.html" class="mega-link">The Grief Recovery Handbook<div class="mega-link-desc">1M+ copies, 14 languages</div></a></div><div><div class="mega-dropdown-title">Our Team</div><a href="TGRM_About.html" class="mega-loss-link">John W. James, Founder</a><a href="TGRM_About.html" class="mega-loss-link">Leadership Team</a><a href="TGRM_About.html" class="mega-loss-link">Our Trainers</a></div></div></div>
+    <div class="nav-item"><a href="TGRM_Resources.html">Resources</a><div class="mega-dropdown mega-3col"><div><div class="mega-dropdown-title">Content</div><a href="TGRM_Blog.html" class="mega-link">Blog<div class="mega-link-desc">Expert insights on grief recovery</div></a><a href="TGRM_Podcast.html" class="mega-link">Feel Free Again Podcast<div class="mega-link-desc">New episodes biweekly</div></a><a href="#" class="mega-loss-link">YouTube Channel</a><a href="TGRM_Free_Resources.html" class="mega-loss-link">Free Grief Recovery Guides</a></div><div><div class="mega-dropdown-title">Books</div><a href="TGRM_Handbook.html" class="mega-link">The Grief Recovery Handbook<div class="mega-link-desc">The definitive guide</div></a><a href="TGRM_Handbook.html" class="mega-loss-link">When Children Grieve</a><a href="TGRM_Handbook.html" class="mega-loss-link">The Pet Loss Handbook</a><a href="TGRM_Handbook.html" class="mega-loss-link">Moving On / Moving Beyond</a></div><div><div class="mega-dropdown-title">Popular Topics</div><a href="TGRM_Blog_Post.html" class="mega-loss-link">Myths About Grief</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">What Not to Say to a Griever</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">Grief vs. Depression</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">When Holidays Hurt</a></div></div></div>
+    <a href="TGRM_Quiz.html" class="nav-cta">Take the Free Quiz</a>
+  </nav>
+  <button class="mobile-menu-btn" aria-label="Menu" aria-expanded="false">&#9776;</button>
+</header>
+
+<!-- Hero -->
+<section class="hero hero-gradient-orange" style="--hero-bg: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&q=80'); padding: 80px 40px 60px;">
+  <div class="hero-inner">
+    <span class="hero-badge">Certification Training Schedule</span>
+    <h1>Upcoming Training Dates</h1>
+    <p>Choose from live online Zoom sessions or in-person intensives. Every training is capped at 20 participants for personalized attention.</p>
+  </div>
+  <div class="trust-bar reveal reveal-stagger" style="padding: 30px 0 0; gap: 40px;">
+    <div class="trust-item"><div class="trust-number" style="color:#fff;">8</div><div class="trust-label" style="color:rgba(255,255,255,0.7);">Sessions in 2026</div></div>
+    <div class="trust-item"><div class="trust-number" style="color:#fff;">2</div><div class="trust-label" style="color:rgba(255,255,255,0.7);">Formats</div></div>
+    <div class="trust-item"><div class="trust-number" style="color:#fff;">20</div><div class="trust-label" style="color:rgba(255,255,255,0.7);">Max Per Cohort</div></div>
+    <div class="trust-item"><div class="trust-number" style="color:#fff;">98%</div><div class="trust-label" style="color:rgba(255,255,255,0.7);">Completion Rate</div></div>
   </div>
 </section>
 
-<!-- ======================= FILTER BAR ======================= -->
+<!-- Filter Bar -->
 <div class="filter-bar">
-  <div class="container">
-    <div class="filter-inner">
-      <span class="filter-label">Filter:</span>
-      <button class="filter-btn active" onclick="filterCards('all', this)">All Dates</button>
-      <button class="filter-btn" onclick="filterCards('online', this)">Online (Zoom)</button>
-      <button class="filter-btn" onclick="filterCards('inperson', this)">In-Person</button>
-
-      <div class="filter-right">
-        <div class="view-toggle">
-          <button class="view-btn active" onclick="setView('list', this)">&#9776; List</button>
-          <button class="view-btn" onclick="setView('grid', this)">&#9638; Grid</button>
-        </div>
+  <div class="filter-inner">
+    <span class="filter-label">Filter:</span>
+    <button class="filter-btn active" onclick="filterCards('all', this)">All Dates</button>
+    <button class="filter-btn" onclick="filterCards('online', this)">Online (Zoom)</button>
+    <button class="filter-btn" onclick="filterCards('inperson', this)">In-Person</button>
+    <div class="filter-right">
+      <div class="view-toggle">
+        <button class="view-btn active" onclick="setView('list', this)">&#9776; List</button>
+        <button class="view-btn" onclick="setView('grid', this)">&#9638; Grid</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ======================= TRAINING CARDS ======================= -->
+<!-- Training Cards -->
 <section class="calendar-main">
-  <div class="container">
+  <div class="container-wide">
 
     <!-- LIST VIEW -->
     <div class="calendar-list-view" id="listView">
 
-      <!-- ===== APRIL 2026 ===== -->
-      <div class="month-group fade-in">
+      <!-- APRIL 2026 -->
+      <div class="month-group reveal">
         <div class="month-label">&#128197; April 2026 <span class="month-count">2 sessions</span></div>
 
-        <!-- Apr 14 — Online -->
         <div class="training-card" data-type="online">
           <div class="tc-top">
-            <div class="tc-date">
-              <div class="month">Apr</div><div class="day">14</div><div class="year">2026</div>
-            </div>
+            <div class="tc-date"><div class="month">Apr</div><div class="day">14</div><div class="year">2026</div></div>
             <div class="tc-info">
               <h3>Certification Training &mdash; April Cohort</h3>
-              <div class="tc-meta">
-                <span>&#128187; Live on Zoom</span>
-                <span>&#128336; Apr 14&ndash;17 &middot; Tues&ndash;Fri</span>
-                <span>&#127758; 9am&ndash;5pm CST</span>
-              </div>
-              <div class="tc-tags">
-                <span class="tag tag-online">Online</span>
-                <span class="tag tag-foundation">Foundational Available</span>
-                <span class="tag tag-advanced">Advanced Available</span>
-              </div>
+              <div class="tc-meta"><span>&#128187; Live on Zoom</span><span>&#128336; Apr 14&ndash;17 &middot; Tues&ndash;Fri</span><span>&#127758; 9am&ndash;5pm CST</span></div>
+              <div class="tc-tags"><span class="tag tag-online">Online</span><span class="tag tag-foundation">Foundational Available</span><span class="tag tag-advanced">Advanced Available</span></div>
               <div class="tc-spots-badge ok">&#9679; 8 spots remaining</div>
             </div>
           </div>
@@ -608,12 +1935,7 @@ a { text-decoration: none; color: inherit; }
               <div class="track-desc">Complete grief recovery training with 5 lesson plans &amp; directory listing</div>
               <div class="track-price">$2,495</div>
               <div class="track-installment">or 3 &times; $865/mo</div>
-              <ul class="track-features">
-                <li>32 hours live training</li>
-                <li>5 GRM program lesson plans</li>
-                <li>All 5 GRM books included</li>
-                <li>Directory listing &amp; microsite</li>
-              </ul>
+              <ul class="track-features"><li>32 hours live training</li><li>5 GRM program lesson plans</li><li>All 5 GRM books included</li><li>Directory listing &amp; microsite</li></ul>
               <a href="TGRM_Checkout.html" class="btn-enroll outline">Enroll &mdash; Foundational</a>
             </div>
             <div class="track-card popular">
@@ -621,142 +1943,57 @@ a { text-decoration: none; color: inherit; }
               <div class="track-desc">Everything in Foundational plus advanced programs, marketing videos &amp; more</div>
               <div class="track-price">$3,995</div>
               <div class="track-installment">or 3 &times; $1,365/mo</div>
-              <ul class="track-features">
-                <li>32 + 18 hours training (50 total)</li>
-                <li>10&ndash;11 program lesson plans</li>
-                <li>Children &amp; pet loss programs</li>
-                <li>150 marketing videos included</li>
-              </ul>
+              <ul class="track-features"><li>32 + 18 hours training (50 total)</li><li>10&ndash;11 program lesson plans</li><li>Children &amp; pet loss programs</li><li>150 marketing videos included</li></ul>
               <a href="TGRM_Checkout.html" class="btn-enroll primary">Enroll &mdash; Advanced</a>
             </div>
           </div>
         </div>
 
-        <!-- Apr 28 — Online -->
         <div class="training-card" data-type="online">
           <div class="tc-top">
-            <div class="tc-date">
-              <div class="month">Apr</div><div class="day">28</div><div class="year">2026</div>
-            </div>
+            <div class="tc-date"><div class="month">Apr</div><div class="day">28</div><div class="year">2026</div></div>
             <div class="tc-info">
               <h3>Certification Training &mdash; Late April Cohort</h3>
-              <div class="tc-meta">
-                <span>&#128187; Live on Zoom</span>
-                <span>&#128336; Apr 28&ndash;May 1 &middot; Tues&ndash;Fri</span>
-                <span>&#127758; 9am&ndash;5pm EST</span>
-              </div>
-              <div class="tc-tags">
-                <span class="tag tag-online">Online</span>
-                <span class="tag tag-foundation">Foundational Available</span>
-                <span class="tag tag-advanced">Advanced Available</span>
-              </div>
+              <div class="tc-meta"><span>&#128187; Live on Zoom</span><span>&#128336; Apr 28&ndash;May 1 &middot; Tues&ndash;Fri</span><span>&#127758; 9am&ndash;5pm EST</span></div>
+              <div class="tc-tags"><span class="tag tag-online">Online</span><span class="tag tag-foundation">Foundational Available</span><span class="tag tag-advanced">Advanced Available</span></div>
               <div class="tc-spots-badge ok">&#9679; 12 spots remaining</div>
             </div>
           </div>
           <div class="track-options">
-            <div class="track-card">
-              <div class="track-name foundation">Foundational Certification</div>
-              <div class="track-desc">Complete grief recovery training with 5 lesson plans &amp; directory listing</div>
-              <div class="track-price">$2,495</div>
-              <div class="track-installment">or 3 &times; $865/mo</div>
-              <ul class="track-features">
-                <li>32 hours live training</li>
-                <li>5 GRM program lesson plans</li>
-                <li>All 5 GRM books included</li>
-                <li>Directory listing &amp; microsite</li>
-              </ul>
-              <a href="TGRM_Checkout.html" class="btn-enroll outline">Enroll &mdash; Foundational</a>
-            </div>
-            <div class="track-card popular">
-              <div class="track-name advanced">Advanced Certification</div>
-              <div class="track-desc">Everything in Foundational plus advanced programs, marketing videos &amp; more</div>
-              <div class="track-price">$3,995</div>
-              <div class="track-installment">or 3 &times; $1,365/mo</div>
-              <ul class="track-features">
-                <li>32 + 18 hours training (50 total)</li>
-                <li>10&ndash;11 program lesson plans</li>
-                <li>Children &amp; pet loss programs</li>
-                <li>150 marketing videos included</li>
-              </ul>
-              <a href="TGRM_Checkout.html" class="btn-enroll primary">Enroll &mdash; Advanced</a>
-            </div>
+            <div class="track-card"><div class="track-name foundation">Foundational Certification</div><div class="track-desc">Complete grief recovery training with 5 lesson plans &amp; directory listing</div><div class="track-price">$2,495</div><div class="track-installment">or 3 &times; $865/mo</div><ul class="track-features"><li>32 hours live training</li><li>5 GRM program lesson plans</li><li>All 5 GRM books included</li><li>Directory listing &amp; microsite</li></ul><a href="TGRM_Checkout.html" class="btn-enroll outline">Enroll &mdash; Foundational</a></div>
+            <div class="track-card popular"><div class="track-name advanced">Advanced Certification</div><div class="track-desc">Everything in Foundational plus advanced programs, marketing videos &amp; more</div><div class="track-price">$3,995</div><div class="track-installment">or 3 &times; $1,365/mo</div><ul class="track-features"><li>32 + 18 hours training (50 total)</li><li>10&ndash;11 program lesson plans</li><li>Children &amp; pet loss programs</li><li>150 marketing videos included</li></ul><a href="TGRM_Checkout.html" class="btn-enroll primary">Enroll &mdash; Advanced</a></div>
           </div>
         </div>
       </div>
 
-      <!-- ===== MAY 2026 ===== -->
-      <div class="month-group fade-in">
+      <!-- MAY 2026 -->
+      <div class="month-group reveal">
         <div class="month-label">&#128197; May 2026 <span class="month-count">3 sessions</span></div>
 
-        <!-- May 5 — Online -->
         <div class="training-card" data-type="online">
           <div class="tc-top">
-            <div class="tc-date">
-              <div class="month">May</div><div class="day">5</div><div class="year">2026</div>
-            </div>
+            <div class="tc-date"><div class="month">May</div><div class="day">5</div><div class="year">2026</div></div>
             <div class="tc-info">
               <h3>Certification Training &mdash; Early May Cohort</h3>
-              <div class="tc-meta">
-                <span>&#128187; Live on Zoom</span>
-                <span>&#128336; May 5&ndash;8 &middot; Tues&ndash;Fri</span>
-                <span>&#127758; 9am&ndash;5pm PST</span>
-              </div>
-              <div class="tc-tags">
-                <span class="tag tag-online">Online</span>
-                <span class="tag tag-foundation">Foundational Available</span>
-                <span class="tag tag-advanced">Advanced Available</span>
-              </div>
+              <div class="tc-meta"><span>&#128187; Live on Zoom</span><span>&#128336; May 5&ndash;8 &middot; Tues&ndash;Fri</span><span>&#127758; 9am&ndash;5pm PST</span></div>
+              <div class="tc-tags"><span class="tag tag-online">Online</span><span class="tag tag-foundation">Foundational Available</span><span class="tag tag-advanced">Advanced Available</span></div>
               <div class="tc-spots-badge ok">&#9679; 14 spots remaining</div>
             </div>
           </div>
           <div class="track-options">
-            <div class="track-card">
-              <div class="track-name foundation">Foundational Certification</div>
-              <div class="track-desc">Complete grief recovery training with 5 lesson plans &amp; directory listing</div>
-              <div class="track-price">$2,495</div>
-              <div class="track-installment">or 3 &times; $865/mo</div>
-              <ul class="track-features">
-                <li>32 hours live training</li>
-                <li>5 GRM program lesson plans</li>
-                <li>All 5 GRM books included</li>
-                <li>Directory listing &amp; microsite</li>
-              </ul>
-              <a href="TGRM_Checkout.html" class="btn-enroll outline">Enroll &mdash; Foundational</a>
-            </div>
-            <div class="track-card popular">
-              <div class="track-name advanced">Advanced Certification</div>
-              <div class="track-desc">Everything in Foundational plus advanced programs, marketing videos &amp; more</div>
-              <div class="track-price">$3,995</div>
-              <div class="track-installment">or 3 &times; $1,365/mo</div>
-              <ul class="track-features">
-                <li>32 + 18 hours training (50 total)</li>
-                <li>10&ndash;11 program lesson plans</li>
-                <li>Children &amp; pet loss programs</li>
-                <li>150 marketing videos included</li>
-              </ul>
-              <a href="TGRM_Checkout.html" class="btn-enroll primary">Enroll &mdash; Advanced</a>
-            </div>
+            <div class="track-card"><div class="track-name foundation">Foundational Certification</div><div class="track-desc">Complete grief recovery training with 5 lesson plans &amp; directory listing</div><div class="track-price">$2,495</div><div class="track-installment">or 3 &times; $865/mo</div><ul class="track-features"><li>32 hours live training</li><li>5 GRM program lesson plans</li><li>All 5 GRM books included</li><li>Directory listing &amp; microsite</li></ul><a href="TGRM_Checkout.html" class="btn-enroll outline">Enroll &mdash; Foundational</a></div>
+            <div class="track-card popular"><div class="track-name advanced">Advanced Certification</div><div class="track-desc">Everything in Foundational plus advanced programs, marketing videos &amp; more</div><div class="track-price">$3,995</div><div class="track-installment">or 3 &times; $1,365/mo</div><ul class="track-features"><li>32 + 18 hours training (50 total)</li><li>10&ndash;11 program lesson plans</li><li>Children &amp; pet loss programs</li><li>150 marketing videos included</li></ul><a href="TGRM_Checkout.html" class="btn-enroll primary">Enroll &mdash; Advanced</a></div>
           </div>
         </div>
 
-        <!-- May 19 — IN-PERSON (Premium only) -->
+        <!-- May 19 In-Person -->
         <div class="training-card" data-type="inperson" style="border-left: 4px solid var(--orange);">
           <div class="tc-top">
-            <div class="tc-date" style="background:#fef3e2;">
-              <div class="month" style="color:#b45309;">May</div><div class="day">19</div><div class="year">2026</div>
-            </div>
+            <div class="tc-date" style="background:rgba(224,117,37,0.06);"><div class="month" style="color:var(--orange);">May</div><div class="day">19</div><div class="year">2026</div></div>
             <div class="tc-info">
               <h3>In-Person Certification Intensive &mdash; Westlake Village</h3>
-              <div class="tc-meta">
-                <span>&#127968; Westlake Village, CA</span>
-                <span>&#128336; May 19&ndash;22 &middot; Tues&ndash;Fri</span>
-                <span>&#128100; Taught by Cole James &amp; Sandi Derby</span>
-              </div>
-              <div class="tc-tags">
-                <span class="tag tag-inperson">In-Person</span>
-                <span class="tag tag-intensive">Premium In-Person Certification</span>
-                <span class="tag tag-limited">&#128293; 3 spots left</span>
-              </div>
+              <div class="tc-meta"><span>&#127968; Westlake Village, CA</span><span>&#128336; May 19&ndash;22 &middot; Tues&ndash;Fri</span><span>&#128100; Taught by Cole James &amp; Sandi Derby</span></div>
+              <div class="tc-tags"><span class="tag tag-inperson">In-Person</span><span class="tag tag-intensive">Premium In-Person Certification</span><span class="tag tag-limited">&#128293; 3 spots left</span></div>
               <div class="tc-spots-badge low">&#128293; Only 3 spots left!</div>
             </div>
           </div>
@@ -765,208 +2002,82 @@ a { text-decoration: none; color: inherit; }
               <div class="track-name inperson" style="margin-bottom:8px;">Premium In-Person Certification</div>
               <div class="ipb-desc">The complete certification experience &mdash; all Advanced curriculum plus hands-on in-person coaching, live roleplay, and direct mentorship from Cole &amp; Sandi</div>
               <div class="ipb-features">
-                <div class="ipb-col">
-                  <div class="ipb-feat">&#10003; 50 hours training (32 core + 18 advanced)</div>
-                  <div class="ipb-feat">&#10003; 10&ndash;11 program lesson plans</div>
-                  <div class="ipb-feat">&#10003; Children &amp; pet loss programs</div>
-                  <div class="ipb-feat">&#10003; 150 marketing videos included</div>
-                </div>
-                <div class="ipb-col">
-                  <div class="ipb-feat">&#10003; In-person coaching &amp; live roleplay</div>
-                  <div class="ipb-feat">&#10003; All 5 GRM books included</div>
-                  <div class="ipb-feat">&#10003; Advanced directory listing &amp; microsite</div>
-                  <div class="ipb-feat">&#10003; Taught by Cole James &amp; Sandi Derby</div>
-                </div>
+                <div class="ipb-col"><div class="ipb-feat">&#10003; 50 hours training (32 core + 18 advanced)</div><div class="ipb-feat">&#10003; 10&ndash;11 program lesson plans</div><div class="ipb-feat">&#10003; Children &amp; pet loss programs</div><div class="ipb-feat">&#10003; 150 marketing videos included</div></div>
+                <div class="ipb-col"><div class="ipb-feat">&#10003; In-person coaching &amp; live roleplay</div><div class="ipb-feat">&#10003; All 5 GRM books included</div><div class="ipb-feat">&#10003; Advanced directory listing &amp; microsite</div><div class="ipb-feat">&#10003; Taught by Cole James &amp; Sandi Derby</div></div>
               </div>
             </div>
             <div class="ipb-right">
               <div class="ipb-price">$4,995</div>
               <div class="ipb-installment">or 3 &times; $1,698/mo</div>
-              <a href="TGRM_Checkout.html" class="btn-enroll primary" style="width:100%; text-align:center;">Reserve Your Seat</a>
+              <a href="TGRM_Checkout.html" class="btn-enroll primary" style="width:100%;text-align:center;">Reserve Your Seat</a>
             </div>
           </div>
         </div>
 
-        <!-- May 26 — Online -->
         <div class="training-card" data-type="online">
           <div class="tc-top">
-            <div class="tc-date">
-              <div class="month">May</div><div class="day">26</div><div class="year">2026</div>
-            </div>
+            <div class="tc-date"><div class="month">May</div><div class="day">26</div><div class="year">2026</div></div>
             <div class="tc-info">
               <h3>Certification Training &mdash; Late May Cohort</h3>
-              <div class="tc-meta">
-                <span>&#128187; Live on Zoom</span>
-                <span>&#128336; May 26&ndash;29 &middot; Tues&ndash;Fri</span>
-                <span>&#127758; 9am&ndash;5pm CST</span>
-              </div>
-              <div class="tc-tags">
-                <span class="tag tag-online">Online</span>
-                <span class="tag tag-foundation">Foundational Available</span>
-                <span class="tag tag-advanced">Advanced Available</span>
-              </div>
+              <div class="tc-meta"><span>&#128187; Live on Zoom</span><span>&#128336; May 26&ndash;29 &middot; Tues&ndash;Fri</span><span>&#127758; 9am&ndash;5pm CST</span></div>
+              <div class="tc-tags"><span class="tag tag-online">Online</span><span class="tag tag-foundation">Foundational Available</span><span class="tag tag-advanced">Advanced Available</span></div>
               <div class="tc-spots-badge ok">&#9679; 18 spots remaining</div>
             </div>
           </div>
           <div class="track-options">
-            <div class="track-card">
-              <div class="track-name foundation">Foundational Certification</div>
-              <div class="track-desc">Complete grief recovery training with 5 lesson plans &amp; directory listing</div>
-              <div class="track-price">$2,495</div>
-              <div class="track-installment">or 3 &times; $865/mo</div>
-              <ul class="track-features">
-                <li>32 hours live training</li>
-                <li>5 GRM program lesson plans</li>
-                <li>All 5 GRM books included</li>
-                <li>Directory listing &amp; microsite</li>
-              </ul>
-              <a href="TGRM_Checkout.html" class="btn-enroll outline">Enroll &mdash; Foundational</a>
-            </div>
-            <div class="track-card popular">
-              <div class="track-name advanced">Advanced Certification</div>
-              <div class="track-desc">Everything in Foundational plus advanced programs, marketing videos &amp; more</div>
-              <div class="track-price">$3,995</div>
-              <div class="track-installment">or 3 &times; $1,365/mo</div>
-              <ul class="track-features">
-                <li>32 + 18 hours training (50 total)</li>
-                <li>10&ndash;11 program lesson plans</li>
-                <li>Children &amp; pet loss programs</li>
-                <li>150 marketing videos included</li>
-              </ul>
-              <a href="TGRM_Checkout.html" class="btn-enroll primary">Enroll &mdash; Advanced</a>
-            </div>
+            <div class="track-card"><div class="track-name foundation">Foundational Certification</div><div class="track-desc">Complete grief recovery training with 5 lesson plans &amp; directory listing</div><div class="track-price">$2,495</div><div class="track-installment">or 3 &times; $865/mo</div><ul class="track-features"><li>32 hours live training</li><li>5 GRM program lesson plans</li><li>All 5 GRM books included</li><li>Directory listing &amp; microsite</li></ul><a href="TGRM_Checkout.html" class="btn-enroll outline">Enroll &mdash; Foundational</a></div>
+            <div class="track-card popular"><div class="track-name advanced">Advanced Certification</div><div class="track-desc">Everything in Foundational plus advanced programs, marketing videos &amp; more</div><div class="track-price">$3,995</div><div class="track-installment">or 3 &times; $1,365/mo</div><ul class="track-features"><li>32 + 18 hours training (50 total)</li><li>10&ndash;11 program lesson plans</li><li>Children &amp; pet loss programs</li><li>150 marketing videos included</li></ul><a href="TGRM_Checkout.html" class="btn-enroll primary">Enroll &mdash; Advanced</a></div>
           </div>
         </div>
       </div>
 
-      <!-- ===== JUNE 2026 ===== -->
-      <div class="month-group fade-in">
+      <!-- JUNE 2026 -->
+      <div class="month-group reveal">
         <div class="month-label">&#128197; June 2026 <span class="month-count">1 session</span></div>
-
-        <!-- Jun 9 — Online -->
         <div class="training-card" data-type="online">
           <div class="tc-top">
-            <div class="tc-date">
-              <div class="month">Jun</div><div class="day">9</div><div class="year">2026</div>
-            </div>
+            <div class="tc-date"><div class="month">Jun</div><div class="day">9</div><div class="year">2026</div></div>
             <div class="tc-info">
               <h3>Certification Training &mdash; June Cohort</h3>
-              <div class="tc-meta">
-                <span>&#128187; Live on Zoom</span>
-                <span>&#128336; Jun 9&ndash;12 &middot; Tues&ndash;Fri</span>
-                <span>&#127758; 9am&ndash;5pm EST</span>
-              </div>
-              <div class="tc-tags">
-                <span class="tag tag-online">Online</span>
-                <span class="tag tag-foundation">Foundational Available</span>
-                <span class="tag tag-advanced">Advanced Available</span>
-              </div>
+              <div class="tc-meta"><span>&#128187; Live on Zoom</span><span>&#128336; Jun 9&ndash;12 &middot; Tues&ndash;Fri</span><span>&#127758; 9am&ndash;5pm EST</span></div>
+              <div class="tc-tags"><span class="tag tag-online">Online</span><span class="tag tag-foundation">Foundational Available</span><span class="tag tag-advanced">Advanced Available</span></div>
               <div class="tc-spots-badge ok">&#9679; 20 spots remaining</div>
             </div>
           </div>
           <div class="track-options">
-            <div class="track-card">
-              <div class="track-name foundation">Foundational Certification</div>
-              <div class="track-desc">Complete grief recovery training with 5 lesson plans &amp; directory listing</div>
-              <div class="track-price">$2,495</div>
-              <div class="track-installment">or 3 &times; $865/mo</div>
-              <ul class="track-features">
-                <li>32 hours live training</li>
-                <li>5 GRM program lesson plans</li>
-                <li>All 5 GRM books included</li>
-                <li>Directory listing &amp; microsite</li>
-              </ul>
-              <a href="TGRM_Checkout.html" class="btn-enroll outline">Enroll &mdash; Foundational</a>
-            </div>
-            <div class="track-card popular">
-              <div class="track-name advanced">Advanced Certification</div>
-              <div class="track-desc">Everything in Foundational plus advanced programs, marketing videos &amp; more</div>
-              <div class="track-price">$3,995</div>
-              <div class="track-installment">or 3 &times; $1,365/mo</div>
-              <ul class="track-features">
-                <li>32 + 18 hours training (50 total)</li>
-                <li>10&ndash;11 program lesson plans</li>
-                <li>Children &amp; pet loss programs</li>
-                <li>150 marketing videos included</li>
-              </ul>
-              <a href="TGRM_Checkout.html" class="btn-enroll primary">Enroll &mdash; Advanced</a>
-            </div>
+            <div class="track-card"><div class="track-name foundation">Foundational Certification</div><div class="track-desc">Complete grief recovery training with 5 lesson plans &amp; directory listing</div><div class="track-price">$2,495</div><div class="track-installment">or 3 &times; $865/mo</div><ul class="track-features"><li>32 hours live training</li><li>5 GRM program lesson plans</li><li>All 5 GRM books included</li><li>Directory listing &amp; microsite</li></ul><a href="TGRM_Checkout.html" class="btn-enroll outline">Enroll &mdash; Foundational</a></div>
+            <div class="track-card popular"><div class="track-name advanced">Advanced Certification</div><div class="track-desc">Everything in Foundational plus advanced programs, marketing videos &amp; more</div><div class="track-price">$3,995</div><div class="track-installment">or 3 &times; $1,365/mo</div><ul class="track-features"><li>32 + 18 hours training (50 total)</li><li>10&ndash;11 program lesson plans</li><li>Children &amp; pet loss programs</li><li>150 marketing videos included</li></ul><a href="TGRM_Checkout.html" class="btn-enroll primary">Enroll &mdash; Advanced</a></div>
           </div>
         </div>
       </div>
 
-      <!-- ===== JULY 2026 ===== -->
-      <div class="month-group fade-in">
+      <!-- JULY 2026 -->
+      <div class="month-group reveal">
         <div class="month-label">&#128197; July 2026 <span class="month-count">2 sessions</span></div>
-
-        <!-- Jul 7 — Online -->
         <div class="training-card" data-type="online">
           <div class="tc-top">
-            <div class="tc-date">
-              <div class="month">Jul</div><div class="day">7</div><div class="year">2026</div>
-            </div>
+            <div class="tc-date"><div class="month">Jul</div><div class="day">7</div><div class="year">2026</div></div>
             <div class="tc-info">
               <h3>Certification Training &mdash; July Cohort</h3>
-              <div class="tc-meta">
-                <span>&#128187; Live on Zoom</span>
-                <span>&#128336; Jul 7&ndash;10 &middot; Tues&ndash;Fri</span>
-                <span>&#127758; 9am&ndash;5pm PST</span>
-              </div>
-              <div class="tc-tags">
-                <span class="tag tag-online">Online</span>
-                <span class="tag tag-foundation">Foundational Available</span>
-                <span class="tag tag-advanced">Advanced Available</span>
-              </div>
+              <div class="tc-meta"><span>&#128187; Live on Zoom</span><span>&#128336; Jul 7&ndash;10 &middot; Tues&ndash;Fri</span><span>&#127758; 9am&ndash;5pm PST</span></div>
+              <div class="tc-tags"><span class="tag tag-online">Online</span><span class="tag tag-foundation">Foundational Available</span><span class="tag tag-advanced">Advanced Available</span></div>
               <div class="tc-spots-badge ok">&#9679; 20 spots remaining</div>
             </div>
           </div>
           <div class="track-options">
-            <div class="track-card">
-              <div class="track-name foundation">Foundational Certification</div>
-              <div class="track-desc">Complete grief recovery training with 5 lesson plans &amp; directory listing</div>
-              <div class="track-price">$2,495</div>
-              <div class="track-installment">or 3 &times; $865/mo</div>
-              <ul class="track-features">
-                <li>32 hours live training</li>
-                <li>5 GRM program lesson plans</li>
-                <li>All 5 GRM books included</li>
-                <li>Directory listing &amp; microsite</li>
-              </ul>
-              <a href="TGRM_Checkout.html" class="btn-enroll outline">Enroll &mdash; Foundational</a>
-            </div>
-            <div class="track-card popular">
-              <div class="track-name advanced">Advanced Certification</div>
-              <div class="track-desc">Everything in Foundational plus advanced programs, marketing videos &amp; more</div>
-              <div class="track-price">$3,995</div>
-              <div class="track-installment">or 3 &times; $1,365/mo</div>
-              <ul class="track-features">
-                <li>32 + 18 hours training (50 total)</li>
-                <li>10&ndash;11 program lesson plans</li>
-                <li>Children &amp; pet loss programs</li>
-                <li>150 marketing videos included</li>
-              </ul>
-              <a href="TGRM_Checkout.html" class="btn-enroll primary">Enroll &mdash; Advanced</a>
-            </div>
+            <div class="track-card"><div class="track-name foundation">Foundational Certification</div><div class="track-desc">Complete grief recovery training with 5 lesson plans &amp; directory listing</div><div class="track-price">$2,495</div><div class="track-installment">or 3 &times; $865/mo</div><ul class="track-features"><li>32 hours live training</li><li>5 GRM program lesson plans</li><li>All 5 GRM books included</li><li>Directory listing &amp; microsite</li></ul><a href="TGRM_Checkout.html" class="btn-enroll outline">Enroll &mdash; Foundational</a></div>
+            <div class="track-card popular"><div class="track-name advanced">Advanced Certification</div><div class="track-desc">Everything in Foundational plus advanced programs, marketing videos &amp; more</div><div class="track-price">$3,995</div><div class="track-installment">or 3 &times; $1,365/mo</div><ul class="track-features"><li>32 + 18 hours training (50 total)</li><li>10&ndash;11 program lesson plans</li><li>Children &amp; pet loss programs</li><li>150 marketing videos included</li></ul><a href="TGRM_Checkout.html" class="btn-enroll primary">Enroll &mdash; Advanced</a></div>
           </div>
         </div>
 
-        <!-- Jul 21 — IN-PERSON (Premium only) -->
+        <!-- Jul 21 In-Person -->
         <div class="training-card" data-type="inperson" style="border-left: 4px solid var(--orange);">
           <div class="tc-top">
-            <div class="tc-date" style="background:#fef3e2;">
-              <div class="month" style="color:#b45309;">Jul</div><div class="day">21</div><div class="year">2026</div>
-            </div>
+            <div class="tc-date" style="background:rgba(224,117,37,0.06);"><div class="month" style="color:var(--orange);">Jul</div><div class="day">21</div><div class="year">2026</div></div>
             <div class="tc-info">
               <h3>In-Person Certification Intensive &mdash; Nashville</h3>
-              <div class="tc-meta">
-                <span>&#127968; Nashville, TN</span>
-                <span>&#128336; Jul 21&ndash;24 &middot; Tues&ndash;Fri</span>
-                <span>&#128100; Taught by Cole James &amp; Sandi Derby</span>
-              </div>
-              <div class="tc-tags">
-                <span class="tag tag-inperson">In-Person</span>
-                <span class="tag tag-intensive">Premium In-Person Certification</span>
-              </div>
+              <div class="tc-meta"><span>&#127968; Nashville, TN</span><span>&#128336; Jul 21&ndash;24 &middot; Tues&ndash;Fri</span><span>&#128100; Taught by Cole James &amp; Sandi Derby</span></div>
+              <div class="tc-tags"><span class="tag tag-inperson">In-Person</span><span class="tag tag-intensive">Premium In-Person Certification</span></div>
               <div class="tc-spots-badge ok">&#9679; 16 spots remaining</div>
             </div>
           </div>
@@ -975,159 +2086,60 @@ a { text-decoration: none; color: inherit; }
               <div class="track-name inperson" style="margin-bottom:8px;">Premium In-Person Certification</div>
               <div class="ipb-desc">The complete certification experience &mdash; all Advanced curriculum plus hands-on in-person coaching, live roleplay, and direct mentorship from Cole &amp; Sandi</div>
               <div class="ipb-features">
-                <div class="ipb-col">
-                  <div class="ipb-feat">&#10003; 50 hours training (32 core + 18 advanced)</div>
-                  <div class="ipb-feat">&#10003; 10&ndash;11 program lesson plans</div>
-                  <div class="ipb-feat">&#10003; Children &amp; pet loss programs</div>
-                  <div class="ipb-feat">&#10003; 150 marketing videos included</div>
-                </div>
-                <div class="ipb-col">
-                  <div class="ipb-feat">&#10003; In-person coaching &amp; live roleplay</div>
-                  <div class="ipb-feat">&#10003; All 5 GRM books included</div>
-                  <div class="ipb-feat">&#10003; Advanced directory listing &amp; microsite</div>
-                  <div class="ipb-feat">&#10003; Taught by Cole James &amp; Sandi Derby</div>
-                </div>
+                <div class="ipb-col"><div class="ipb-feat">&#10003; 50 hours training (32 core + 18 advanced)</div><div class="ipb-feat">&#10003; 10&ndash;11 program lesson plans</div><div class="ipb-feat">&#10003; Children &amp; pet loss programs</div><div class="ipb-feat">&#10003; 150 marketing videos included</div></div>
+                <div class="ipb-col"><div class="ipb-feat">&#10003; In-person coaching &amp; live roleplay</div><div class="ipb-feat">&#10003; All 5 GRM books included</div><div class="ipb-feat">&#10003; Advanced directory listing &amp; microsite</div><div class="ipb-feat">&#10003; Taught by Cole James &amp; Sandi Derby</div></div>
               </div>
             </div>
             <div class="ipb-right">
               <div class="ipb-price">$4,995</div>
               <div class="ipb-installment">or 3 &times; $1,698/mo</div>
-              <a href="TGRM_Checkout.html" class="btn-enroll primary" style="width:100%; text-align:center;">Reserve Your Seat</a>
+              <a href="TGRM_Checkout.html" class="btn-enroll primary" style="width:100%;text-align:center;">Reserve Your Seat</a>
             </div>
           </div>
         </div>
       </div>
-
     </div>
 
     <!-- GRID VIEW -->
     <div class="calendar-grid-view" id="gridView">
       <div class="grid-months">
-        <div class="grid-month-card fade-in">
-          <div class="grid-month-header">April 2026</div>
-          <div class="grid-day-row"><div class="grid-day-num event">14</div><div class="grid-day-info"><strong>Certification Training</strong><span>Online &middot; Foundational or Advanced &middot; 8 spots</span></div></div>
-          <div class="grid-day-row"><div class="grid-day-num event">28</div><div class="grid-day-info"><strong>Certification Training</strong><span>Online &middot; Foundational or Advanced &middot; 12 spots</span></div></div>
-        </div>
-        <div class="grid-month-card fade-in">
-          <div class="grid-month-header">May 2026</div>
-          <div class="grid-day-row"><div class="grid-day-num event">5</div><div class="grid-day-info"><strong>Certification Training</strong><span>Online &middot; Foundational or Advanced &middot; 14 spots</span></div></div>
-          <div class="grid-day-row"><div class="grid-day-num inperson">19</div><div class="grid-day-info"><strong>In-Person Intensive</strong><span>Westlake Village &middot; Premium In-Person &middot; 3 spots!</span></div></div>
-          <div class="grid-day-row"><div class="grid-day-num event">26</div><div class="grid-day-info"><strong>Certification Training</strong><span>Online &middot; Foundational or Advanced &middot; 18 spots</span></div></div>
-        </div>
-        <div class="grid-month-card fade-in">
-          <div class="grid-month-header">June 2026</div>
-          <div class="grid-day-row"><div class="grid-day-num event">9</div><div class="grid-day-info"><strong>Certification Training</strong><span>Online &middot; Foundational or Advanced &middot; 20 spots</span></div></div>
-          <div class="grid-empty" style="color:var(--text-light);">More dates coming soon</div>
-        </div>
-        <div class="grid-month-card fade-in">
-          <div class="grid-month-header">July 2026</div>
-          <div class="grid-day-row"><div class="grid-day-num event">7</div><div class="grid-day-info"><strong>Certification Training</strong><span>Online &middot; Foundational or Advanced &middot; 20 spots</span></div></div>
-          <div class="grid-day-row"><div class="grid-day-num inperson">21</div><div class="grid-day-info"><strong>In-Person Intensive</strong><span>Nashville &middot; Premium In-Person &middot; 16 spots</span></div></div>
-        </div>
-        <div class="grid-month-card fade-in">
-          <div class="grid-month-header">August 2026</div>
-          <div class="grid-empty">Dates coming soon</div>
-        </div>
-        <div class="grid-month-card fade-in">
-          <div class="grid-month-header">September 2026</div>
-          <div class="grid-empty">Dates coming soon</div>
-        </div>
+        <div class="grid-month-card reveal"><div class="grid-month-header">April 2026</div><div class="grid-day-row"><div class="grid-day-num event">14</div><div class="grid-day-info"><strong>Certification Training</strong><span>Online &middot; Foundational or Advanced &middot; 8 spots</span></div></div><div class="grid-day-row"><div class="grid-day-num event">28</div><div class="grid-day-info"><strong>Certification Training</strong><span>Online &middot; Foundational or Advanced &middot; 12 spots</span></div></div></div>
+        <div class="grid-month-card reveal"><div class="grid-month-header">May 2026</div><div class="grid-day-row"><div class="grid-day-num event">5</div><div class="grid-day-info"><strong>Certification Training</strong><span>Online &middot; Foundational or Advanced &middot; 14 spots</span></div></div><div class="grid-day-row"><div class="grid-day-num inperson">19</div><div class="grid-day-info"><strong>In-Person Intensive</strong><span>Westlake Village &middot; Premium In-Person &middot; 3 spots!</span></div></div><div class="grid-day-row"><div class="grid-day-num event">26</div><div class="grid-day-info"><strong>Certification Training</strong><span>Online &middot; Foundational or Advanced &middot; 18 spots</span></div></div></div>
+        <div class="grid-month-card reveal"><div class="grid-month-header">June 2026</div><div class="grid-day-row"><div class="grid-day-num event">9</div><div class="grid-day-info"><strong>Certification Training</strong><span>Online &middot; Foundational or Advanced &middot; 20 spots</span></div></div><div class="grid-empty">More dates coming soon</div></div>
+        <div class="grid-month-card reveal"><div class="grid-month-header">July 2026</div><div class="grid-day-row"><div class="grid-day-num event">7</div><div class="grid-day-info"><strong>Certification Training</strong><span>Online &middot; Foundational or Advanced &middot; 20 spots</span></div></div><div class="grid-day-row"><div class="grid-day-num inperson">21</div><div class="grid-day-info"><strong>In-Person Intensive</strong><span>Nashville &middot; Premium In-Person &middot; 16 spots</span></div></div></div>
+        <div class="grid-month-card reveal"><div class="grid-month-header">August 2026</div><div class="grid-empty">Dates coming soon</div></div>
+        <div class="grid-month-card reveal"><div class="grid-month-header">September 2026</div><div class="grid-empty">Dates coming soon</div></div>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ======================= TESTIMONIALS ======================= -->
-<section style="padding:50px 0; background:var(--white); border-top:1px solid #ece8e3;">
-  <div class="container">
-    <div style="text-align:center; margin-bottom:32px;" class="fade-in">
-      <div style="font-size:.72rem; text-transform:uppercase; letter-spacing:2px; color:var(--orange); font-weight:700; margin-bottom:6px;">Real Reviews from Certified Specialists</div>
-      <h2 style="font-size:1.3rem; font-weight:700;">What People Say About the Training</h2>
-      <p style="font-size:.9rem; color:var(--text-secondary); max-width:560px; margin:6px auto 0;">These are real testimonials from people who completed the Grief Recovery Method certification training.</p>
+<!-- Testimonials -->
+<section class="section-padding reveal" style="background:var(--white);border-top:1px solid var(--border);">
+  <div class="container-wide">
+    <div style="text-align:center;"><div class="section-label">Real Reviews from Certified Specialists</div><h2 class="section-title">What People Say About the Training</h2><p class="section-sub">These are real testimonials from people who completed the Grief Recovery Method certification training.</p></div>
+    <div class="card-grid-3 reveal-stagger reveal" style="margin-top:16px;">
+      <div class="review-card"><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">&ldquo;The insight and wisdom offered in this training create so many ah-ha moments. So simple, yet so important when working with grief. This certification was so valuable to me and it was truly the best training I have attended in over 20 years as a social worker.&rdquo;</p><div class="review-footer"><div class="review-author">Licensed Social Worker</div><div class="review-meta">Trained by Cole James &middot; 2019</div></div></div>
+      <div class="review-card"><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">&ldquo;Prior to the training, I had been dealing with grief for over 30 years. I had tried therapy and working through it myself but nothing worked until I experienced the method first-hand in certification training. I left feeling lighter and more positive.&rdquo;</p><div class="review-footer"><div class="review-author">Certified Grief Recovery Specialist</div><div class="review-meta">2019</div></div></div>
+      <div class="review-card"><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">&ldquo;I signed up with a heart to help others, I was overwhelmed by how much this training helped me too.&rdquo;</p><div class="review-footer"><div class="review-author">Certified Grief Recovery Specialist</div><div class="review-meta">Trained by Sandi Derby &middot; 2026</div></div></div>
+      <div class="review-card"><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">&ldquo;The GRM training was first class all the way. The instructor, materials, class organization and resources are the best I&rsquo;ve experienced in my professional life. The Method was transformational both professionally and for me personally.&rdquo;</p><div class="review-footer"><div class="review-author">Healthcare Professional</div><div class="review-meta">2019</div></div></div>
+      <div class="review-card"><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">&ldquo;I was able to let go of the guilt I had been carrying for 30 years over my daughter&rsquo;s illness.&rdquo;</p><div class="review-footer"><div class="review-author">Certified Grief Recovery Specialist</div><div class="review-meta">Trained by Sandi Derby &middot; 2024</div></div></div>
+      <div class="review-card"><div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="review-text">&ldquo;I find it hard to explain a life-changing experience to anyone who has not had the opportunity to experience it themselves. I didn&rsquo;t expect to bond with all of the other attendees but I did. Thank you from a Heart with Ears.&rdquo;</p><div class="review-footer"><div class="review-author">Certified Grief Recovery Specialist</div><div class="review-meta">2019</div></div></div>
     </div>
-
-    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;" id="testimonialGrid">
-
-      <div class="fade-in" style="background:var(--warm-bg); border-radius:var(--radius-lg); padding:28px; border:1px solid #ece8e3; display:flex; flex-direction:column;">
-        <div style="color:var(--orange); font-size:1rem; margin-bottom:10px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p style="font-size:.88rem; color:var(--text-secondary); line-height:1.7; flex:1;">&ldquo;The insight and wisdom offered in this training create so many ah-ha moments. So simple, yet so important when working with grief. This certification was so valuable to me and it was truly the best training I have attended in over 20 years as a social worker.&rdquo;</p>
-        <div style="margin-top:14px; padding-top:14px; border-top:1px solid #e8e4df;">
-          <div style="font-weight:700; font-size:.85rem;">Licensed Social Worker</div>
-          <div style="font-size:.78rem; color:var(--text-light);">Trained by Cole James &middot; 2019</div>
-        </div>
-      </div>
-
-      <div class="fade-in" style="background:var(--warm-bg); border-radius:var(--radius-lg); padding:28px; border:1px solid #ece8e3; display:flex; flex-direction:column;">
-        <div style="color:var(--orange); font-size:1rem; margin-bottom:10px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p style="font-size:.88rem; color:var(--text-secondary); line-height:1.7; flex:1;">&ldquo;Prior to the training, I had been dealing with grief for over 30 years. I had tried therapy and working through it myself but nothing worked until I experienced the method first-hand in certification training. I left feeling lighter and more positive. I now have the tools to complete other relationships.&rdquo;</p>
-        <div style="margin-top:14px; padding-top:14px; border-top:1px solid #e8e4df;">
-          <div style="font-weight:700; font-size:.85rem;">Certified Grief Recovery Specialist</div>
-          <div style="font-size:.78rem; color:var(--text-light);">2019</div>
-        </div>
-      </div>
-
-      <div class="fade-in" style="background:var(--warm-bg); border-radius:var(--radius-lg); padding:28px; border:1px solid #ece8e3; display:flex; flex-direction:column;">
-        <div style="color:var(--orange); font-size:1rem; margin-bottom:10px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p style="font-size:.88rem; color:var(--text-secondary); line-height:1.7; flex:1;">&ldquo;I signed up with a heart to help others, I was overwhelmed by how much this training helped me too.&rdquo;</p>
-        <div style="margin-top:14px; padding-top:14px; border-top:1px solid #e8e4df;">
-          <div style="font-weight:700; font-size:.85rem;">Certified Grief Recovery Specialist</div>
-          <div style="font-size:.78rem; color:var(--text-light);">Trained by Sandi Derby &middot; 2026</div>
-        </div>
-      </div>
-
-      <div class="fade-in" style="background:var(--warm-bg); border-radius:var(--radius-lg); padding:28px; border:1px solid #ece8e3; display:flex; flex-direction:column;">
-        <div style="color:var(--orange); font-size:1rem; margin-bottom:10px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p style="font-size:.88rem; color:var(--text-secondary); line-height:1.7; flex:1;">&ldquo;The GRM training was first class all the way. The instructor, materials, class organization and resources are the best I&rsquo;ve experienced in my professional life. The Method was transformational both professionally and for me personally.&rdquo;</p>
-        <div style="margin-top:14px; padding-top:14px; border-top:1px solid #e8e4df;">
-          <div style="font-weight:700; font-size:.85rem;">Healthcare Professional</div>
-          <div style="font-size:.78rem; color:var(--text-light);">2019</div>
-        </div>
-      </div>
-
-      <div class="fade-in" style="background:var(--warm-bg); border-radius:var(--radius-lg); padding:28px; border:1px solid #ece8e3; display:flex; flex-direction:column;">
-        <div style="color:var(--orange); font-size:1rem; margin-bottom:10px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p style="font-size:.88rem; color:var(--text-secondary); line-height:1.7; flex:1;">&ldquo;I was able to let go of the guilt I had been carrying for 30 years over my daughter&rsquo;s illness.&rdquo;</p>
-        <div style="margin-top:14px; padding-top:14px; border-top:1px solid #e8e4df;">
-          <div style="font-weight:700; font-size:.85rem;">Certified Grief Recovery Specialist</div>
-          <div style="font-size:.78rem; color:var(--text-light);">Trained by Sandi Derby &middot; 2024</div>
-        </div>
-      </div>
-
-      <div class="fade-in" style="background:var(--warm-bg); border-radius:var(--radius-lg); padding:28px; border:1px solid #ece8e3; display:flex; flex-direction:column;">
-        <div style="color:var(--orange); font-size:1rem; margin-bottom:10px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p style="font-size:.88rem; color:var(--text-secondary); line-height:1.7; flex:1;">&ldquo;I find it hard to explain a life-changing experience to anyone who has not had the opportunity to experience it themselves. I didn&rsquo;t expect to bond with all of the other attendees but I did. Thank you from a Heart with Ears.&rdquo;</p>
-        <div style="margin-top:14px; padding-top:14px; border-top:1px solid #e8e4df;">
-          <div style="font-weight:700; font-size:.85rem;">Certified Grief Recovery Specialist</div>
-          <div style="font-size:.78rem; color:var(--text-light);">2019</div>
-        </div>
-      </div>
-
-    </div>
-
-    <div style="text-align:center; margin-top:28px;" class="fade-in">
-      <div style="display:inline-flex; align-items:center; gap:8px; background:var(--teal-pale); padding:8px 20px; border-radius:20px; font-size:.82rem; font-weight:600; color:var(--teal-dark);">
-        &#9733; 4.9 average rating from 500+ certified specialists
-      </div>
+    <div style="text-align:center;margin-top:28px;" class="reveal">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(66,126,136,0.06);padding:8px 20px;border-radius:var(--radius-pill);font-size:.82rem;font-weight:600;color:var(--teal);">&#9733; 4.9 average rating from 500+ certified specialists</div>
     </div>
   </div>
 </section>
 
-<!-- ======================= PROGRAM COMPARISON ======================= -->
-<section class="compare-strip">
-  <div class="container">
-    <h2 class="compare-title fade-in">Which Track Is Right for You?</h2>
-    <p class="compare-sub fade-in">Every training date offers both Foundational and Advanced tracks in the same cohort. In-person dates also offer the Premium Intensive experience.</p>
-
-    <table class="compare-table fade-in">
-      <thead>
-        <tr>
-          <th>Feature</th>
-          <th>Foundational ($2,495)</th>
-          <th>Advanced ($3,995)</th>
-          <th>Premium In-Person ($4,995)</th>
-        </tr>
-      </thead>
+<!-- Program Comparison -->
+<section class="compare-strip reveal">
+  <div class="container-wide">
+    <h2 class="compare-title">Which Track Is Right for You?</h2>
+    <p class="compare-sub">Every training date offers both Foundational and Advanced tracks in the same cohort. In-person dates also offer the Premium Intensive experience.</p>
+    <table class="compare-table">
+      <thead><tr><th>Feature</th><th>Foundational ($2,495)</th><th>Advanced ($3,995)</th><th>Premium In-Person ($4,995)</th></tr></thead>
       <tbody>
         <tr><td class="feature-name">Live training hours</td><td>32 hours</td><td>32 + 18 hours</td><td>32 + 18 hours</td></tr>
         <tr><td class="feature-name">Available at</td><td>All dates</td><td>All dates</td><td>In-person dates only</td></tr>
@@ -1139,146 +2151,85 @@ a { text-decoration: none; color: inherit; }
         <tr><td class="feature-name">In-person coaching &amp; roleplay</td><td><span class="na">&mdash;</span></td><td><span class="na">&mdash;</span></td><td><span class="ck">&#10003;</span></td></tr>
         <tr><td class="feature-name">Taught by Cole &amp; Sandi</td><td><span class="na">&mdash;</span></td><td><span class="na">&mdash;</span></td><td><span class="ck">&#10003;</span></td></tr>
         <tr><td class="feature-name">3-pay installment option</td><td><span class="ck">&#10003;</span> $865/mo</td><td><span class="ck">&#10003;</span> $1,365/mo</td><td><span class="ck">&#10003;</span> $1,698/mo</td></tr>
-        <tr>
-          <td></td>
-          <td><a href="TGRM_Checkout.html" class="btn-enroll outline" style="font-size:.8rem;padding:8px 16px;">Enroll &rarr;</a></td>
-          <td><a href="TGRM_Checkout.html" class="btn-enroll primary" style="font-size:.8rem;padding:8px 16px;">Enroll &rarr;</a></td>
-          <td><a href="TGRM_Checkout.html" class="btn-enroll outline" style="font-size:.8rem;padding:8px 16px;">Enroll &rarr;</a></td>
-        </tr>
+        <tr><td></td><td><a href="TGRM_Checkout.html" class="btn-enroll outline" style="font-size:.8rem;padding:8px 16px;">Enroll &rarr;</a></td><td><a href="TGRM_Checkout.html" class="btn-enroll primary" style="font-size:.8rem;padding:8px 16px;">Enroll &rarr;</a></td><td><a href="TGRM_Checkout.html" class="btn-enroll outline" style="font-size:.8rem;padding:8px 16px;">Enroll &rarr;</a></td></tr>
       </tbody>
     </table>
   </div>
 </section>
 
-<!-- ======================= NEED HELP ======================= -->
-<section class="help-section">
-  <div class="container">
-    <div class="help-grid">
-      <div class="help-card fade-in">
-        <div class="help-icon" style="background:var(--teal-pale);">&#128222;</div>
-        <h3>Talk to an Advisor</h3>
-        <p>Not sure which track is right for you? Schedule a free 15-minute call with our enrollment team.</p>
-        <a href="#" class="help-link">Schedule a Call &rarr;</a>
-      </div>
-      <div class="help-card fade-in">
-        <div class="help-icon" style="background:#fef3e2;">&#129309;</div>
-        <h3>Private Team Training</h3>
-        <p>Organizations can request on-site trainings for teams of 12&ndash;20 at your facility with custom scheduling.</p>
-        <a href="#" class="help-link">Request a Proposal &rarr;</a>
-      </div>
-      <div class="help-card fade-in">
-        <div class="help-icon" style="background:var(--green-light);">&#128176;</div>
-        <h3>Flexible Payment Plans</h3>
-        <p>0% interest, no credit check. Split any program into 3 monthly payments &mdash; automatically via Stripe.</p>
-        <a href="TGRM_Checkout.html" class="help-link">See Payment Options &rarr;</a>
-      </div>
+<!-- Need Help -->
+<section class="help-section reveal">
+  <div class="container-wide">
+    <div class="help-grid reveal-stagger">
+      <div class="help-card"><div class="help-icon" style="background:rgba(66,126,136,0.08);">&#128222;</div><h3>Have Questions? Let's Talk</h3><p>Not sure which track is right for you? Schedule a free 15-minute call with our enrollment team.</p><a href="#" class="help-link">Schedule a Call &rarr;</a></div>
+      <div class="help-card"><div class="help-icon" style="background:rgba(224,117,37,0.08);">&#129309;</div><h3>Private Team Training</h3><p>Organizations can request on-site trainings for teams of 12&ndash;20 at your facility with custom scheduling.</p><a href="TGRM_Private_Training.html" class="help-link">Request a Proposal &rarr;</a></div>
+      <div class="help-card"><div class="help-icon" style="background:#f0fff4;">&#128176;</div><h3>Flexible Payment Plans</h3><p>0% interest, no credit check. Split any program into 3 monthly payments &mdash; automatically via Stripe.</p><a href="TGRM_Checkout.html" class="help-link">See Payment Options &rarr;</a></div>
     </div>
   </div>
 </section>
 
-<!-- ======================= FAQ ======================= -->
-<section class="faq-section">
+<!-- FAQ -->
+<section class="faq-section reveal">
   <div class="container">
-    <h2 class="faq-title fade-in">Common Questions About Training</h2>
+    <h2 class="faq-title">Common Questions About Training</h2>
     <div class="faq-list">
-      <div class="faq-item fade-in" onclick="this.classList.toggle('open')">
-        <div class="faq-q">Can I choose Foundational or Advanced on the same training date? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">Yes &mdash; for all <strong>online training dates</strong>, you can enroll as either Foundational ($2,495) or Advanced ($3,995). Both tracks train together in the same cohort for the core curriculum, and Advanced participants receive additional training hours, lesson plans, and marketing resources. <strong>In-person dates</strong> are offered exclusively as the Premium In-Person Certification ($4,995), which includes everything in the Advanced track plus hands-on coaching, live roleplay, and direct mentorship.</div>
-      </div>
-      <div class="faq-item fade-in" onclick="this.classList.toggle('open')">
-        <div class="faq-q">What happens on training days? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">Each day runs from 9am to 5pm with breaks. You'll learn the GRM methodology through a mix of instruction, demonstration, guided practice, and Q&amp;A. Online sessions use Zoom with cameras on for an interactive, small-group experience.</div>
-      </div>
-      <div class="faq-item fade-in" onclick="this.classList.toggle('open')">
-        <div class="faq-q">Can I upgrade from Foundational to Advanced later? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">Absolutely. If you start with the Foundational certification, you can upgrade to Advanced at any time by paying the difference. Many specialists choose to start Foundational and add the Advanced training once they've built their practice.</div>
-      </div>
-      <div class="faq-item fade-in" onclick="this.classList.toggle('open')">
-        <div class="faq-q">What if I need to reschedule my training? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">We understand life happens. You can transfer to a different training date up to 14 days before your session at no additional cost. Within 14 days, a $200 transfer fee applies. Contact our team to arrange a transfer.</div>
-      </div>
-      <div class="faq-item fade-in" onclick="this.classList.toggle('open')">
-        <div class="faq-q">Do I need a degree or license to enroll? <span class="faq-toggle">+</span></div>
-        <div class="faq-a">No. The GRM certification is open to anyone with a passion for helping others&mdash;counselors, coaches, pastors, nurses, educators, HR professionals, and caring individuals from all backgrounds.</div>
-      </div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Can I choose Foundational or Advanced on the same training date? <span class="faq-toggle">+</span></div><div class="faq-a">Yes &mdash; for all <strong>online training dates</strong>, you can enroll as either Foundational ($2,495) or Advanced ($3,995). Both tracks train together in the same cohort for the core curriculum, and Advanced participants receive additional training hours, lesson plans, and marketing resources. <strong>In-person dates</strong> are offered exclusively as the Premium In-Person Certification ($4,995), which includes everything in the Advanced track plus hands-on coaching, live roleplay, and direct mentorship.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What happens on training days? <span class="faq-toggle">+</span></div><div class="faq-a">Each day runs from 9am to 5pm with breaks. You'll learn the GRM methodology through a mix of instruction, demonstration, guided practice, and Q&amp;A. Online sessions use Zoom with cameras on for an interactive, small-group experience.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Can I upgrade from Foundational to Advanced later? <span class="faq-toggle">+</span></div><div class="faq-a">Absolutely. If you start with the Foundational certification, you can upgrade to Advanced at any time by paying the difference. Many specialists choose to start Foundational and add the Advanced training once they've built their practice.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">What if I need to reschedule my training? <span class="faq-toggle">+</span></div><div class="faq-a">We understand life happens. You can transfer to a different training date up to 14 days before your session at no additional cost. Within 14 days, a $200 transfer fee applies. Contact our team to arrange a transfer.</div></div>
+      <div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-q">Do I need a degree or license to enroll? <span class="faq-toggle">+</span></div><div class="faq-a">No. The GRM certification is open to anyone with a passion for helping others&mdash;counselors, coaches, pastors, nurses, educators, HR professionals, and caring individuals from all backgrounds.</div></div>
     </div>
   </div>
 </section>
 
-<!-- ======================= FINAL CTA ======================= -->
-<section class="final-cta">
-  <div class="container fade-in">
-    <h2>Ready to Start Your Certification Journey?</h2>
-    <p>Every cohort is limited to 20 participants. The most popular dates fill weeks in advance. Reserve your spot today.</p>
-    <div class="final-cta-buttons">
-      <a href="TGRM_Checkout.html" class="btn-final-primary">Reserve Your Seat Now &rarr;</a>
-      <a href="TGRM_Certification.html" class="btn-final-secondary">Learn More About Certification</a>
-    </div>
+<!-- Final CTA -->
+<section class="final-cta reveal">
+  <h2>Ready to Start Your Certification Journey?</h2>
+  <p>Every cohort is limited to 20 participants. The most popular dates fill weeks in advance. Reserve your spot today.</p>
+  <div class="final-cta-buttons">
+    <a href="TGRM_Checkout.html" class="btn-primary btn-orange">Reserve Your Seat Now &rarr;</a>
+    <a href="TGRM_GetCertified_Hub.html" class="btn-primary btn-outline" style="border-color:rgba(255,255,255,0.3);color:#fff;">Learn More About Certification</a>
   </div>
 </section>
 
-<!-- ======================= FOOTER ======================= -->
-<footer class="page-footer">
-  <div class="container">
-    <div class="footer-inner">
-      <div class="footer-links">
-        <a href="TGRM_Homepage_V2.html">Home</a>
-        <a href="TGRM_Directory.html">Find a Specialist</a>
-        <a href="TGRM_Certification.html">Certification</a>
-        <a href="TGRM_Handbook.html">The Handbook</a>
-        <a href="TGRM_Blog.html">Blog</a>
-        <a href="TGRM_For_Therapists.html">For Therapists</a>
-        <a href="TGRM_Military_Certification.html">Military &amp; Veterans</a>
-      </div>
-      <div>&copy; 2026 The Grief Recovery Institute&reg;. All rights reserved.</div>
-    </div>
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div><div class="footer-brand">The Grief Recovery <span>Method</span>&reg;</div><p class="footer-desc">An evidence-based grief recovery program helping people move beyond loss since 1977.</p><div class="footer-stats">45+ years &bull; 1.5M+ helped &bull; 3,000+ specialists</div></div>
+    <div><div class="footer-col-title">For Grievers</div><a href="TGRM_GetHelp_Hub.html" class="footer-link">Get Help</a><a href="TGRM_Directory.html" class="footer-link">Find a Specialist</a><a href="TGRM_Quiz.html" class="footer-link">Grief Type Quiz</a><a href="TGRM_Handbook.html" class="footer-link">The Handbook</a></div>
+    <div><div class="footer-col-title">For Professionals</div><a href="TGRM_GetCertified_Hub.html" class="footer-link">Get Certified</a><a href="TGRM_Training_Calendar.html" class="footer-link">Training Dates</a><a href="TGRM_Private_Training.html" class="footer-link">Private Training</a><a href="TGRM_About.html" class="footer-link">About Us</a></div>
+    <div><div class="footer-col-title">Resources</div><a href="TGRM_Blog.html" class="footer-link">Blog</a><a href="TGRM_Podcast.html" class="footer-link">Podcast</a><a href="TGRM_Resources.html" class="footer-link">All Resources</a><a href="#" class="footer-link">Contact Us</a></div>
   </div>
+  <p class="footer-bottom">&copy; 2026 The Grief Recovery Method&reg;. All rights reserved.</p>
+  <p class="footer-crisis">If you or someone you know is in crisis, please call 988 (Suicide &amp; Crisis Lifeline) or text HOME to 741741.</p>
 </footer>
 
+<script src="tgrm-premium.js" defer></script>
 <script>
-// Filters — simplified since each card is one date (online or inperson)
 function filterCards(type, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-
   document.querySelectorAll('.training-card').forEach(card => {
     const t = card.dataset.type;
-    if (type === 'all') {
-      card.style.display = 'block';
-    } else {
-      card.style.display = t.includes(type) ? 'block' : 'none';
-    }
+    card.style.display = (type === 'all' || t.includes(type)) ? 'block' : 'none';
   });
-
-  // Show/hide month groups with no visible cards
   document.querySelectorAll('.month-group').forEach(group => {
     const hasVisible = Array.from(group.querySelectorAll('.training-card')).some(c => c.style.display !== 'none');
     group.style.display = hasVisible ? 'block' : 'none';
   });
 }
 
-// View toggle
 function setView(view, btn) {
   document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-
   if (view === 'list') {
     document.getElementById('listView').classList.remove('hidden');
     document.getElementById('gridView').classList.remove('active');
   } else {
     document.getElementById('listView').classList.add('hidden');
     document.getElementById('gridView').classList.add('active');
-    setTimeout(() => {
-      document.querySelectorAll('#gridView .fade-in').forEach(el => el.classList.add('visible'));
-    }, 50);
   }
 }
-
-// Fade-in observer
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>

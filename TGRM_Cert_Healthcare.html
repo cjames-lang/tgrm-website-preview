@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog — The Grief Recovery Method®</title>
+<title>Evidence-Based Grief Recovery for Healthcare Teams — Get Certified | The Grief Recovery Method®</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* TGRM Premium Design System (inlined) */
@@ -23,6 +23,15 @@ if (header) {
     header.classList.toggle('scrolled', window.scrollY > 10);
   }, { passive: true });
 }
+
+// Sticky CTA bar - show after scrolling past hero
+const stickyCta = document.getElementById('stickyCta');
+if (stickyCta) {
+  window.addEventListener('scroll', () => {
+    stickyCta.classList.toggle('visible', window.scrollY > 500);
+  }, { passive: true });
+}
+
 // Mobile menu toggle
 const menuBtn = document.querySelector('.mobile-menu-btn');
 const nav = document.querySelector('nav');
@@ -1605,194 +1614,520 @@ footer {
 
 </style>
 <style>
-  .search-bar { max-width: 520px; margin: 0 auto; display: flex; background: #fff; border-radius: var(--radius-md); overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
-  .search-bar input { flex: 1; border: none; padding: 14px 20px; font-size: 15px; font-family: var(--sans); color: var(--body); outline: none; }
-  .search-bar input::placeholder { color: #aaa; }
-  .search-bar button { background: var(--orange); color: #fff; border: none; padding: 14px 24px; font-size: 15px; font-weight: 600; font-family: var(--sans); cursor: pointer; transition: background 0.2s; }
-  .search-bar button:hover { background: var(--orange-hover); }
-  .featured-card { max-width: 1100px; margin: 0 auto; background: var(--white); border-radius: var(--radius-lg); overflow: hidden; display: flex; border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: all 0.3s var(--ease); }
-  .featured-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
-  .featured-image { width: 420px; min-height: 280px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; }
-  .featured-image-icon { font-size: 64px; opacity: 0.3; }
-  .featured-content { padding: 40px; display: flex; flex-direction: column; justify-content: center; flex: 1; }
-  .featured-badges { display: flex; gap: 8px; margin-bottom: 16px; }
-  .badge-featured { background: var(--orange); color: #fff; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .badge-category { background: #f0ebe4; color: #7a6f63; font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .featured-content h2 { font-family: var(--serif); font-size: 28px; font-weight: 700; color: var(--dark); line-height: 1.3; margin-bottom: 12px; }
-  .featured-content p { font-size: 15px; color: #777; line-height: 1.6; margin-bottom: 16px; }
-  .featured-meta { font-size: 13px; color: var(--faint); margin-bottom: 20px; }
-  .featured-meta strong { color: #555; }
-  .read-article { display: inline-block; color: var(--teal); font-weight: 600; font-size: 15px; text-decoration: none; transition: color 0.2s; }
-  .read-article:hover { color: var(--dark); }
-  .read-article::after { content: " \2192"; }
-  .filter-pills { display: flex; flex-wrap: wrap; gap: 10px; max-width: 1100px; margin: 0 auto; padding: 48px 40px 0; }
-  .filter-pill { background: var(--white); border: 1px solid var(--border); color: #555; font-size: 14px; font-weight: 500; padding: 8px 20px; border-radius: var(--radius-pill); cursor: pointer; transition: all 0.2s var(--ease); text-decoration: none; }
-  .filter-pill:hover { border-color: var(--teal); color: var(--teal); }
-  .filter-pill.active { background: var(--teal); color: #fff; border-color: var(--teal); }
-  .blog-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 40px; }
-  .blog-card { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border); transition: all 0.3s var(--ease); display: flex; flex-direction: column; position: relative; }
-  .blog-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--teal), var(--teal-light)); transform: scaleX(0); transform-origin: left; transition: transform 0.4s var(--ease); }
-  .blog-card:hover::before { transform: scaleX(1); }
-  .blog-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.06); border-color: transparent; }
-  .blog-card-header { height: 160px; display: flex; align-items: center; justify-content: center; position: relative; }
-  .blog-card-header-icon { font-size: 40px; opacity: 0.3; }
-  .blog-card-header .badge-category { position: absolute; top: 14px; left: 14px; }
-  .blog-card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
-  .blog-card-body h3 { font-family: var(--serif); font-size: 19px; font-weight: 700; color: var(--dark); line-height: 1.35; margin-bottom: 10px; }
-  .blog-card-body h3 a { color: inherit; text-decoration: none; }
-  .blog-card-body h3 a:hover { color: var(--teal); }
-  .blog-card-excerpt { font-size: 14px; color: #777; line-height: 1.6; margin-bottom: 16px; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-  .blog-card-footer { display: flex; justify-content: space-between; align-items: center; }
-  .blog-card-author { font-size: 13px; color: var(--faint); }
-  .blog-card-author strong { color: #555; }
-  .read-more { color: var(--teal); font-weight: 600; font-size: 13px; text-decoration: none; transition: color 0.2s; }
-  .read-more:hover { color: var(--dark); }
-  .pagination { display: flex; justify-content: center; align-items: center; gap: 6px; padding: 0 40px 60px; }
-  .page-btn { display: inline-flex; align-items: center; justify-content: center; min-width: 40px; height: 40px; padding: 0 12px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--white); color: #555; font-size: 14px; font-weight: 500; text-decoration: none; transition: all 0.2s var(--ease); cursor: pointer; font-family: var(--sans); }
-  .page-btn:hover { border-color: var(--teal); color: var(--teal); }
-  .page-btn.active { background: var(--teal); color: #fff; border-color: var(--teal); }
-  .page-btn.disabled { opacity: 0.4; cursor: default; pointer-events: none; }
-  .page-ellipsis { font-size: 14px; color: var(--faint); padding: 0 4px; }
-  .newsletter-cta { background: linear-gradient(155deg, rgba(58,117,128,0.92), rgba(91,163,175,0.88)); color: #fff; text-align: center; padding: 70px 40px; }
-  .newsletter-cta h2 { font-family: var(--serif); font-size: 34px; font-weight: 700; margin-bottom: 12px; color: #fff; }
-  .newsletter-cta p { font-size: 17px; opacity: 0.9; line-height: 1.6; max-width: 500px; margin: 0 auto 28px; }
-  .subscribe-form { max-width: 480px; margin: 0 auto; display: flex; background: #fff; border-radius: var(--radius-md); overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
-  .subscribe-form input { flex: 1; border: none; padding: 14px 20px; font-size: 15px; font-family: var(--sans); color: var(--body); outline: none; }
-  .subscribe-form input::placeholder { color: #aaa; }
-  .subscribe-form button { background: var(--orange); color: #fff; border: none; padding: 14px 28px; font-size: 15px; font-weight: 600; font-family: var(--sans); cursor: pointer; transition: background 0.2s; white-space: nowrap; }
-  .subscribe-form button:hover { background: var(--orange-hover); }
-  .newsletter-disclaimer { font-size: 12px; opacity: 0.7; margin-top: 12px; }
-  @media (max-width: 900px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } .featured-card { flex-direction: column; } .featured-image { width: 100%; min-height: 200px; } }
-  @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; padding: 40px 20px; } .filter-pills { padding: 40px 20px 0; } .featured-content h2 { font-size: 22px; } .subscribe-form { flex-direction: column; } .pagination { gap: 4px; } .page-btn { min-width: 36px; height: 36px; font-size: 13px; } }
+  .solution-list {
+    list-style: none;
+    margin-top: 32px;
+    max-width: 700px;
+  }
+  .solution-list li {
+    font-size: 16px;
+    color: #555;
+    padding: 14px 0;
+    padding-left: 36px;
+    position: relative;
+    line-height: 1.6;
+    border-bottom: 1px solid var(--border);
+  }
+  .solution-list li:last-child { border-bottom: none; }
+  .solution-list li::before {
+    content: "\2713";
+    color: var(--orange);
+    font-weight: 700;
+    font-size: 18px;
+    position: absolute;
+    left: 0;
+    top: 14px;
+  }
+  .settings-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 32px;
+    justify-content: center;
+  }
+  .setting-tag {
+    background: var(--white);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 22px;
+    border-radius: var(--radius-pill);
+    transition: all 0.3s var(--ease);
+  }
+  .setting-tag:hover {
+    border-color: var(--orange);
+    color: var(--orange);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(224,117,37,0.1);
+  }
+  .team-cta {
+    background: var(--dark);
+    color: #fff;
+    border-radius: var(--radius-lg);
+    padding: 50px 48px;
+    display: flex;
+    gap: 48px;
+    align-items: center;
+    max-width: 1060px;
+    margin: 0 auto;
+  }
+  .team-cta-content { flex: 1; }
+  .team-cta-content h2 {
+    font-family: var(--serif);
+    font-size: 30px;
+    margin-bottom: 12px;
+    color: #fff;
+  }
+  .team-cta-content p {
+    font-size: 16px;
+    color: #aaa;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .team-cta-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex-shrink: 0;
+  }
+  .team-stat {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: var(--radius-md);
+    padding: 16px 24px;
+    text-align: center;
+    min-width: 200px;
+    transition: all 0.3s var(--ease);
+  }
+  .team-stat:hover {
+    background: rgba(255,255,255,0.12);
+    transform: translateY(-2px);
+  }
+  .team-stat-number {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--orange);
+  }
+  .team-stat-label {
+    font-size: 13px;
+    color: #aaa;
+    margin-top: 4px;
+  }
+  .hero-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.8s forwards;
+  }
+  @media (max-width: 768px) {
+    .hero-buttons { flex-direction: column; align-items: center; }
+    .team-cta { flex-direction: column; padding: 32px 24px; }
+  }
+
+  /* Sticky CTA Bar */
+  .sticky-cta-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(26,26,26,0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 14px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    z-index: 999;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .sticky-cta-bar.visible {
+    transform: translateY(0);
+  }
+  .sticky-cta-bar p {
+    color: #ccc;
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0;
+  }
+  .sticky-cta-bar .btn-primary {
+    padding: 12px 28px;
+    font-size: 15px;
+    white-space: nowrap;
+  }
+  .sticky-cta-bar .cta-subtext {
+    font-size: 12px;
+    color: #999;
+    margin: 0;
+  }
+  @media (max-width: 768px) {
+    .sticky-cta-bar { padding: 12px 16px; flex-direction: column; gap: 8px; }
+    .sticky-cta-bar p { font-size: 13px; text-align: center; }
+    .sticky-cta-bar .btn-primary { width: 100%; }
+    .sticky-cta-bar .cta-subtext { display: none; }
+  }
+  /* Add bottom padding to body so footer isn't hidden behind sticky bar */
+  body { padding-bottom: 80px; }
+
 </style>
 </head>
 <body>
 
-<div class="utility-bar"><div><a href="tel:800-334-7606">800-334-7606</a> &nbsp;|&nbsp; <a href="#">Crisis Resources</a></div><div><a href="#">Login</a></div></div>
+<!-- Utility Bar -->
+<div class="utility-bar">
+  <div>
+    <a href="tel:800-334-7606">800-334-7606</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="#">Crisis Resources</a>
+  </div>
+  <div><a href="#">Login</a></div>
+</div>
 
+<!-- Header -->
 <header id="header">
-  <div class="logo"><a href="TGRM_Homepage_Premium_POC.html" style="text-decoration:none;color:inherit;">The Grief Recovery <span>Method</span>&reg;</a></div>
+  <div class="logo"><a href="TGRM_Homepage_Simplified_Routing.html" style="text-decoration:none;color:inherit;">The Grief Recovery <span>Method</span>&reg;</a></div>
   <nav>
-    <div class="nav-item"><a href="TGRM_GetHelp_Hub.html">Get Help</a><div class="mega-dropdown mega-3col"><div><div class="mega-dropdown-title">Find Support</div><a href="TGRM_Directory.html" class="mega-link">Find a Specialist Near You<div class="mega-link-desc">3,000+ certified specialists worldwide</div></a><a href="TGRM_Quiz.html" class="mega-link">What Type of Griever Are You?<div class="mega-link-desc">Free 2-minute assessment</div></a><a href="https://programs.griefrecoverymethod.com/online-course" class="mega-link" target="_blank">Free Online Course<div class="mega-link-desc">Video lessons with Cole James — free</div></a><a href="TGRM_Free_Resources.html" class="mega-link">Free Grief Recovery Guides<div class="mega-link-desc">7 free ebooks — instant download</div></a><a href="TGRM_Handbook.html" class="mega-link">Get the Handbook<div class="mega-link-desc">1M+ copies sold</div></a></div><div><div class="mega-dropdown-title">Explore by Loss Type</div><a href="TGRM_Loss_Child.html" class="mega-loss-link">Death of a Child</a><a href="TGRM_Loss_Spouse.html" class="mega-loss-link">Death of a Spouse or Partner</a><a href="TGRM_Loss_Parent.html" class="mega-loss-link">Death of a Parent</a><a href="TGRM_Loss_Suicide.html" class="mega-loss-link">Losing Someone to Suicide</a><a href="TGRM_Loss_Death.html" class="mega-loss-link">Death of a Friend or Loved One</a><a href="TGRM_Loss_Divorce.html" class="mega-loss-link">Divorce &amp; Relationship Loss</a><a href="TGRM_Loss_Pet.html" class="mega-loss-link">Pet Loss</a><a href="TGRM_Loss_Job.html" class="mega-loss-link">Job &amp; Career Loss</a><a href="TGRM_Loss_Health.html" class="mega-loss-link">Health Crisis &amp; Chronic Illness</a><a href="TGRM_Loss_Estrangement.html" class="mega-loss-link">Estrangement &amp; Family Cutoff</a><a href="TGRM_Loss_Miscarriage.html" class="mega-loss-link">Miscarriage &amp; Pregnancy Loss</a></div><div><div class="mega-dropdown-title">Popular Topics</div><a href="TGRM_Blog_Post.html" class="mega-loss-link">Myths About Grief</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">What Not to Say to a Griever</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">Grief vs. Depression</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">Helping Children with Grief</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">Grief at Work</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">When Holidays Hurt</a></div></div></div>
-    <div class="nav-item"><a href="TGRM_GetCertified_Hub.html">Get Certified</a><div class="mega-dropdown mega-3col"><div><div class="mega-dropdown-title">Training Programs</div><a href="TGRM_GetCertified_Hub.html#pricing" class="mega-link">Foundational Certification<div class="mega-link-desc">$2,495 &middot; 4-day live training</div></a><a href="TGRM_GetCertified_Hub.html#pricing" class="mega-link">Advanced Certification<div class="mega-link-desc">$3,995 &middot; 50 hours total</div></a><a href="TGRM_GetCertified_Hub.html#pricing" class="mega-link">Premium In-Person<div class="mega-link-desc">$4,995 &middot; Small group intensive</div></a><a href="TGRM_GetCertified_Hub.html" class="mega-link">Private / B2B Training<div class="mega-link-desc">Custom training for organizations</div></a></div><div><div class="mega-dropdown-title">Is It Right for You?</div><a href="TGRM_Cert_Grievers.html" class="mega-loss-link">Grievers with a Passion to Help</a><a href="TGRM_Cert_Therapists.html" class="mega-loss-link">Therapists &amp; Counselors</a><a href="TGRM_Cert_Coaches.html" class="mega-loss-link">Life &amp; Wellness Coaches</a><a href="TGRM_Cert_Military.html" class="mega-loss-link">Military &amp; Veterans</a><a href="TGRM_Cert_Healthcare.html" class="mega-loss-link">Healthcare &amp; Hospice</a><a href="TGRM_Cert_Faith.html" class="mega-loss-link">Faith Leaders &amp; Communities</a></div><div><div class="mega-dropdown-title">Resources</div><a href="TGRM_GetCertified_Hub.html" class="mega-loss-link">Upcoming Training Dates</a><a href="TGRM_FAQ.html" class="mega-loss-link">Certification FAQ</a><a href="TGRM_GetCertified_Hub.html" class="mega-loss-link">Payment Plans Available</a><a href="TGRM_GetCertified_Hub.html" class="mega-loss-link">Have Questions? Let's Talk</a></div></div></div>
+    <div class="nav-item">
+      <a href="TGRM_GetHelp_Hub.html">Get Help</a>
+      <div class="mega-dropdown mega-3col">
+        <div>
+          <div class="mega-dropdown-title">Find Support</div>
+          <a href="TGRM_Directory.html" class="mega-link">Find a Specialist Near You<div class="mega-link-desc">3,000+ certified specialists worldwide</div></a>
+          <a href="TGRM_Quiz.html" class="mega-link">What Type of Griever Are You?<div class="mega-link-desc">Free 2-minute assessment</div></a>
+          <a href="https://programs.griefrecoverymethod.com/online-course" class="mega-link" target="_blank">Free Online Course<div class="mega-link-desc">Video lessons with Cole James — free</div></a>
+          <a href="TGRM_Free_Resources.html" class="mega-link">Free Grief Recovery Guides<div class="mega-link-desc">7 free ebooks — instant download</div></a>
+          <a href="TGRM_Handbook.html" class="mega-link">Get the Handbook<div class="mega-link-desc">1M+ copies sold</div></a>
+        </div>
+        <div>
+          <div class="mega-dropdown-title">Explore by Loss Type</div>
+          <a href="TGRM_Loss_Child.html" class="mega-loss-link">Death of a Child</a>
+          <a href="TGRM_Loss_Spouse.html" class="mega-loss-link">Death of a Spouse or Partner</a>
+          <a href="TGRM_Loss_Parent.html" class="mega-loss-link">Death of a Parent</a>
+          <a href="TGRM_Loss_Suicide.html" class="mega-loss-link">Losing Someone to Suicide</a>
+          <a href="TGRM_Loss_Death.html" class="mega-loss-link">Death of a Friend or Loved One</a>
+          <a href="TGRM_Loss_Divorce.html" class="mega-loss-link">Divorce &amp; Relationship Loss</a>
+          <a href="TGRM_Loss_Pet.html" class="mega-loss-link">Pet Loss</a>
+          <a href="TGRM_Loss_Job.html" class="mega-loss-link">Job &amp; Career Loss</a>
+          <a href="TGRM_Loss_Health.html" class="mega-loss-link">Health Crisis &amp; Chronic Illness</a>
+          <a href="TGRM_Loss_Estrangement.html" class="mega-loss-link">Estrangement &amp; Family Cutoff</a>
+          <a href="TGRM_Loss_Miscarriage.html" class="mega-loss-link">Miscarriage &amp; Pregnancy Loss</a>
+        </div>
+        <div>
+          <div class="mega-dropdown-title">Popular Topics</div>
+          <a href="TGRM_Blog_Post.html" class="mega-loss-link">Myths About Grief</a>
+          <a href="TGRM_Blog_Post.html" class="mega-loss-link">What Not to Say to a Griever</a>
+          <a href="TGRM_Blog_Post.html" class="mega-loss-link">Grief vs. Depression</a>
+          <a href="TGRM_Blog_Post.html" class="mega-loss-link">Helping Children with Grief</a>
+          <a href="TGRM_Blog_Post.html" class="mega-loss-link">Grief at Work</a>
+          <a href="TGRM_Blog_Post.html" class="mega-loss-link">When Holidays Hurt</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="TGRM_GetCertified_Hub.html">Get Certified</a>
+      <div class="mega-dropdown mega-3col">
+        <div>
+          <div class="mega-dropdown-title">Training Programs</div>
+          <a href="TGRM_GetCertified_Hub.html#pricing" class="mega-link">Foundational Certification<div class="mega-link-desc">$2,495 &middot; 4-day live training</div></a>
+          <a href="TGRM_GetCertified_Hub.html#pricing" class="mega-link">Advanced Certification<div class="mega-link-desc">$3,995 &middot; 50 hours total</div></a>
+          <a href="TGRM_GetCertified_Hub.html#pricing" class="mega-link">Premium In-Person<div class="mega-link-desc">$4,995 &middot; Small group intensive</div></a>
+          <a href="TGRM_GetCertified_Hub.html" class="mega-link">Private / B2B Training<div class="mega-link-desc">Custom training for organizations</div></a>
+        </div>
+        <div>
+          <div class="mega-dropdown-title">Is It Right for You?</div>
+          <a href="TGRM_Cert_Grievers.html" class="mega-loss-link">Grievers with a Passion to Help</a>
+          <a href="TGRM_Cert_Therapists.html" class="mega-loss-link">Therapists &amp; Counselors</a>
+          <a href="TGRM_Cert_Coaches.html" class="mega-loss-link">Life &amp; Wellness Coaches</a>
+          <a href="TGRM_Cert_Military.html" class="mega-loss-link">Military &amp; Veterans</a>
+          <a href="TGRM_Cert_Healthcare.html" class="mega-loss-link">Healthcare &amp; Hospice</a>
+          <a href="TGRM_Cert_Faith.html" class="mega-loss-link">Faith Leaders &amp; Communities</a>
+        </div>
+        <div>
+          <div class="mega-dropdown-title">Resources</div>
+          <a href="TGRM_GetCertified_Hub.html" class="mega-loss-link">Upcoming Training Dates</a>
+          <a href="TGRM_FAQ.html" class="mega-loss-link">Certification FAQ</a>
+          <a href="TGRM_GetCertified_Hub.html" class="mega-loss-link">Payment Plans Available</a>
+          <a href="TGRM_GetCertified_Hub.html" class="mega-loss-link">Have Questions? Let's Talk</a>
+        </div>
+      </div>
+    </div>
     <a href="TGRM_Directory.html">Find a Specialist</a>
-    <div class="nav-item"><a href="TGRM_About.html">About</a><div class="mega-dropdown mega-wide"><div><div class="mega-dropdown-title">The Method</div><a href="TGRM_About.html" class="mega-link">How The Method Works<div class="mega-link-desc">Action-based grief recovery in 3 steps</div></a><a href="TGRM_About.html" class="mega-link">45+ Years of Research<div class="mega-link-desc">Evidence-based, peer-reviewed</div></a><a href="TGRM_Handbook.html" class="mega-link">The Grief Recovery Handbook<div class="mega-link-desc">1M+ copies, 14 languages</div></a></div><div><div class="mega-dropdown-title">Our Team</div><a href="TGRM_About.html" class="mega-loss-link">John W. James, Founder</a><a href="TGRM_About.html" class="mega-loss-link">Leadership Team</a><a href="TGRM_About.html" class="mega-loss-link">Our Trainers</a></div></div></div>
-    <div class="nav-item"><a href="TGRM_Resources.html">Resources</a><div class="mega-dropdown mega-3col"><div><div class="mega-dropdown-title">Content</div><a href="TGRM_Blog.html" class="mega-link">Blog<div class="mega-link-desc">Expert insights on grief recovery</div></a><a href="TGRM_Podcast.html" class="mega-link">Feel Free Again Podcast<div class="mega-link-desc">New episodes biweekly</div></a><a href="#" class="mega-loss-link">YouTube Channel</a><a href="TGRM_Free_Resources.html" class="mega-loss-link">Free Grief Recovery Guides</a></div><div><div class="mega-dropdown-title">Books</div><a href="TGRM_Handbook.html" class="mega-link">The Grief Recovery Handbook<div class="mega-link-desc">The definitive guide</div></a><a href="TGRM_Handbook.html" class="mega-loss-link">When Children Grieve</a><a href="TGRM_Handbook.html" class="mega-loss-link">The Pet Loss Handbook</a><a href="TGRM_Handbook.html" class="mega-loss-link">Moving On / Moving Beyond</a></div><div><div class="mega-dropdown-title">Popular Topics</div><a href="TGRM_Blog_Post.html" class="mega-loss-link">Myths About Grief</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">What Not to Say to a Griever</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">Grief vs. Depression</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">When Holidays Hurt</a></div></div></div>
+    <div class="nav-item">
+      <a href="TGRM_About.html">About</a>
+      <div class="mega-dropdown mega-wide">
+        <div>
+          <div class="mega-dropdown-title">The Method</div>
+          <a href="TGRM_About.html" class="mega-link">How The Method Works<div class="mega-link-desc">Action-based grief recovery in 3 steps</div></a>
+          <a href="TGRM_About.html" class="mega-link">45+ Years of Research<div class="mega-link-desc">Evidence-based, peer-reviewed</div></a>
+          <a href="TGRM_Handbook.html" class="mega-link">The Grief Recovery Handbook<div class="mega-link-desc">1M+ copies, 14 languages</div></a>
+        </div>
+        <div>
+          <div class="mega-dropdown-title">Our Team</div>
+          <a href="TGRM_About.html" class="mega-loss-link">John W. James, Founder</a>
+          <a href="TGRM_About.html" class="mega-loss-link">Leadership Team</a>
+          <a href="TGRM_About.html" class="mega-loss-link">Our Trainers</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="TGRM_Resources.html">Resources</a>
+      <div class="mega-dropdown mega-3col">
+        <div>
+          <div class="mega-dropdown-title">Content</div>
+          <a href="TGRM_Blog.html" class="mega-link">Blog<div class="mega-link-desc">Expert insights on grief recovery</div></a>
+          <a href="TGRM_Podcast.html" class="mega-link">Feel Free Again Podcast<div class="mega-link-desc">New episodes biweekly</div></a>
+          <a href="#" class="mega-loss-link">YouTube Channel</a>
+          <a href="TGRM_Free_Resources.html" class="mega-loss-link">Free Grief Recovery Guides</a>
+        </div>
+        <div>
+          <div class="mega-dropdown-title">Books</div>
+          <a href="TGRM_Handbook.html" class="mega-link">The Grief Recovery Handbook<div class="mega-link-desc">The definitive guide</div></a>
+          <a href="TGRM_Handbook.html" class="mega-loss-link">When Children Grieve</a>
+          <a href="TGRM_Handbook.html" class="mega-loss-link">The Pet Loss Handbook</a>
+          <a href="TGRM_Handbook.html" class="mega-loss-link">Moving On / Moving Beyond</a>
+        </div>
+        <div>
+          <div class="mega-dropdown-title">Popular Topics</div>
+          <a href="TGRM_Blog_Post.html" class="mega-loss-link">Myths About Grief</a>
+          <a href="TGRM_Blog_Post.html" class="mega-loss-link">What Not to Say to a Griever</a>
+          <a href="TGRM_Blog_Post.html" class="mega-loss-link">Grief vs. Depression</a>
+          <a href="TGRM_Blog_Post.html" class="mega-loss-link">When Holidays Hurt</a>
+        </div>
+      </div>
+    </div>
     <a href="TGRM_Quiz.html" class="nav-cta">Take the Free Quiz</a>
   </nav>
   <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
 </header>
 
 <!-- Hero -->
-<div class="hero hero-gradient-teal" style="--hero-bg: url('https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=1600&q=80')">
+<div class="hero hero-gradient-orange" style="--hero-bg: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1600&q=80');">
   <div class="hero-inner">
-    <h1>The Grief Recovery Blog</h1>
-    <p>Evidence-based insights, recovery stories, and practical guidance to help you move beyond loss.</p>
-    <div class="search-bar" style="opacity:0;animation:fadeUp 0.8s 0.8s forwards;">
-      <input type="text" placeholder="Search articles...">
-      <button>Search</button>
+    <span class="hero-badge">For Healthcare &amp; Hospice Professionals</span>
+    <h1>Evidence-Based Grief Recovery for Healthcare Teams</h1>
+    <p>Your patients and their families are grieving — and your team is too. This certification equips healthcare professionals with structured, evidence-based grief recovery tools that work alongside clinical care.</p>
+    <div class="hero-buttons">
+      <a href="TGRM_GetCertified_Hub.html#pricing" class="btn-primary btn-white">See Training Plans</a>
+      <a href="https://api.leadconnectorhq.com/widget/booking/iEw7YNrRR0unggGgMHgd" class="door-btn" target="_blank">Book Your Free 30-Minute Call</a>
     </div>
   </div>
 </div>
 
-<!-- Featured Post -->
-<div style="padding: 60px 40px 0;" class="reveal">
-  <div class="featured-card">
-    <div class="featured-image" style="background: linear-gradient(135deg, #E07525 0%, #c9641c 100%);">
-      <div class="featured-image-icon">&#9997;</div>
+<!-- Trust / Proof Bar -->
+<div class="trust-bar reveal reveal-stagger">
+  <div class="trust-item">
+    <div class="trust-number">4-Day</div>
+    <div class="trust-label">Live Training Program</div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-number">45+</div>
+    <div class="trust-label">Years of Research</div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-number">Team</div>
+    <div class="trust-label">Private Training Available</div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-number">1.5M+</div>
+    <div class="trust-label">People Helped</div>
+  </div>
+</div>
+
+<!-- Healthcare Settings -->
+<section class="section-padding reveal">
+  <div class="container-wide">
+    <div style="text-align:center;">
+      <div class="section-label">Where It Works</div>
+      <h2 class="section-title">Designed for Every Healthcare Setting</h2>
+      <p class="section-sub">From hospice to the ER, this certification equips your team wherever grief shows up in patient care.</p>
     </div>
-    <div class="featured-content">
-      <div class="featured-badges">
-        <span class="badge-featured">Featured</span>
-        <span class="badge-category">Grief &amp; Loss</span>
+    <div class="settings-tags">
+      <span class="setting-tag">Hospice &amp; Palliative Care</span>
+      <span class="setting-tag">Oncology</span>
+      <span class="setting-tag">ICU &amp; Critical Care</span>
+      <span class="setting-tag">Emergency Department</span>
+      <span class="setting-tag">Long-Term Care</span>
+      <span class="setting-tag">Hospital Social Work</span>
+      <span class="setting-tag">Chaplaincy</span>
+      <span class="setting-tag">Behavioral Health</span>
+    </div>
+  </div>
+</section>
+
+<!-- The Problem -->
+<section class="section-padding reveal" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container-wide">
+    <div class="section-label" style="text-align:left;">The Problem</div>
+    <h2 class="section-title" style="text-align:left;">Healthcare Has a Protocol for Everything — Except Grief</h2>
+    <p class="section-sub" style="text-align:left;margin:0 0 40px;">Your teams are trained for clinical care, but grief is the gap nobody addresses.</p>
+    <div class="card-grid-3 reveal-stagger">
+      <div class="card card--orange">
+        <div class="card-icon card-icon--orange">&#x1F625;</div>
+        <h3>Compassion Fatigue Is Real</h3>
+        <p>Healthcare workers carry accumulated grief from years of patient loss. Without tools to process their own grief, burnout and turnover become inevitable. Your staff needs support, not just resilience training.</p>
       </div>
-      <h2>Letting Go of Stuff After a Loss: Why It's So Hard and What Really Helps</h2>
-      <p>When someone we love dies, their belongings take on an almost sacred quality. Understanding why can be the first step toward healing.</p>
-      <div class="featured-meta">By <strong>Allison James Henry</strong> &middot; February 15, 2024</div>
-      <a href="TGRM_Blog_Post.html" class="read-article">Read Article</a>
+      <div class="card card--orange">
+        <div class="card-icon card-icon--orange">&#x1F4C4;</div>
+        <h3>Families Need More Than a Pamphlet</h3>
+        <p>You refer patients and families to "grief resources" — but most are just support groups without a proven method. What they actually need is a structured, action-based program that produces real completion.</p>
+      </div>
+      <div class="card card--orange">
+        <div class="card-icon card-icon--orange">&#x2753;</div>
+        <h3>No Protocol for Grief</h3>
+        <p>You have protocols for every medical condition — pain management, wound care, fall prevention. But nothing structured for the emotional side of loss. This certification fills that gap.</p>
+      </div>
     </div>
   </div>
+</section>
+
+<!-- The Solution -->
+<section class="section-padding reveal">
+  <div class="container-wide">
+    <div class="section-label" style="text-align:left;">The Solution</div>
+    <h2 class="section-title" style="text-align:left;">Grief Recovery as Part of Clinical Care</h2>
+    <p class="section-sub" style="text-align:left;margin:0 0 16px;">Equip your team with evidence-based tools that integrate into existing workflows and improve outcomes for patients, families, and staff.</p>
+    <ul class="solution-list">
+      <li><strong>Designed for healthcare teams</strong> — works alongside clinical workflows in hospice, oncology, ER, and long-term care</li>
+      <li><strong>Structured protocol</strong> — fits alongside clinical workflows with clear session-by-session structure</li>
+      <li><strong>Addresses patient AND staff grief</strong> — tools for helping families and for processing your own accumulated losses</li>
+      <li><strong>Private team training available</strong> — certify your entire department or team in a single cohort, on-site or via Zoom</li>
+      <li><strong>Works across all settings</strong> — hospice, oncology, ICU, ER, long-term care, and behavioral health</li>
+      <li><strong>Evidence-based</strong> — 45+ years of research behind the methodology, with 1.5M+ people helped</li>
+    </ul>
+  </div>
+</section>
+
+<!-- What You'll Learn -->
+<section class="section-padding reveal" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container-wide">
+    <div style="text-align:center;">
+      <div class="section-label">What You'll Learn</div>
+      <h2 class="section-title">Built for Healthcare Professionals</h2>
+    </div>
+    <div class="card-grid-3 reveal-stagger" style="margin-top:40px;">
+      <div class="card card--orange" style="text-align:center;">
+        <div class="card-icon card-icon--orange" style="margin:0 auto 20px;">&#x1F4CB;</div>
+        <h3>Structured Grief Protocol</h3>
+        <p>A session-by-session program that gives patients and families a clear path through grief — not just "time heals" advice.</p>
+      </div>
+      <div class="card card--orange" style="text-align:center;">
+        <div class="card-icon card-icon--orange" style="margin:0 auto 20px;">&#x1F49A;</div>
+        <h3>Staff Grief Recovery</h3>
+        <p>You go through the method yourself during training. Address your own accumulated grief and model recovery for your team.</p>
+      </div>
+      <div class="card card--orange" style="text-align:center;">
+        <div class="card-icon card-icon--orange" style="margin:0 auto 20px;">&#x1F465;</div>
+        <h3>Group Facilitation</h3>
+        <p>Lead grief recovery groups for patients, families, or staff — 8 structured sessions with proven curriculum and materials.</p>
+      </div>
+      <div class="card card--orange" style="text-align:center;">
+        <div class="card-icon card-icon--orange" style="margin:0 auto 20px;">&#x1F3E5;</div>
+        <h3>Clinical Integration</h3>
+        <p>Learn how to integrate grief recovery into existing care plans, discharge processes, and bereavement follow-up programs.</p>
+      </div>
+      <div class="card card--orange" style="text-align:center;">
+        <div class="card-icon card-icon--orange" style="margin:0 auto 20px;">&#x1F393;</div>
+        <h3>Fits Your Clinical Workflow</h3>
+        <p>Structured grief recovery protocol designed to integrate seamlessly with existing patient care processes — no disruption to your team's workflow.</p>
+      </div>
+      <div class="card card--orange" style="text-align:center;">
+        <div class="card-icon card-icon--orange" style="margin:0 auto 20px;">&#x1F91D;</div>
+        <h3>Ongoing Support</h3>
+        <p>One full year of unlimited support from TGRM plus access to 3,000+ certified specialists for peer collaboration.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team Training -->
+<section class="section-padding reveal">
+  <div class="team-cta">
+    <div class="team-cta-content">
+      <h2>Certify Your Entire Team</h2>
+      <p>Private certification training for healthcare organizations — online via Zoom or in-person at your facility. Custom proposals for departments, hospice teams, and hospital systems.</p>
+      <a href="https://api.leadconnectorhq.com/widget/booking/iEw7YNrRR0unggGgMHgd" class="btn-primary btn-white" style="color:var(--orange);" target="_blank">Request a Private Training Quote</a>
+    </div>
+    <div class="team-cta-stats">
+      <div class="team-stat">
+        <div class="team-stat-number">12-20</div>
+        <div class="team-stat-label">Participants per cohort</div>
+      </div>
+      <div class="team-stat">
+        <div class="team-stat-number">On-Site</div>
+        <div class="team-stat-label">Or via Zoom</div>
+      </div>
+      <div class="team-stat">
+        <div class="team-stat-number">Custom</div>
+        <div class="team-stat-label">Scheduling available</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonial -->
+<div class="testimonial-section reveal">
+  <div class="testimonial-avatar">S</div>
+  <div class="testimonial-quote">
+    "We certified our entire hospice team. The impact on our patients, their families, and our own staff wellbeing has been profound."
+  </div>
+  <div class="testimonial-author">
+    — <strong>Sarah M., RN</strong>, Hospice Director
+  </div>
 </div>
 
-<!-- Category Filter -->
-<div class="filter-pills reveal">
-  <a href="#" class="filter-pill active">All</a>
-  <a href="#" class="filter-pill">Grief &amp; Loss</a>
-  <a href="#" class="filter-pill">Recovery Stories</a>
-  <a href="#" class="filter-pill">For Professionals</a>
-  <a href="#" class="filter-pill">Relationships</a>
-  <a href="#" class="filter-pill">Self-Help</a>
-</div>
-
-<!-- Blog Grid -->
-<div class="blog-grid reveal-stagger reveal">
-  <div class="blog-card">
-    <div class="blog-card-header" style="background: linear-gradient(135deg, #E07525 0%, #f5a060 100%);"><span class="badge-category" style="background:rgba(255,255,255,0.9);">Grief &amp; Loss</span><div class="blog-card-header-icon">&#9997;</div></div>
-    <div class="blog-card-body"><h3><a href="TGRM_Blog_Post.html">Letting Go of Stuff After a Loss: Why It's So Hard and What Really Helps</a></h3><p class="blog-card-excerpt">When someone we love dies, their belongings take on an almost sacred quality. A worn sweater, a coffee mug, a stack of old letters...</p><div class="blog-card-footer"><span class="blog-card-author">By <strong>Allison James Henry</strong></span><a href="TGRM_Blog_Post.html" class="read-more">Read More</a></div></div>
-  </div>
-  <div class="blog-card">
-    <div class="blog-card-header" style="background: linear-gradient(135deg, #427E88 0%, #7895A3 100%);"><span class="badge-category" style="background:rgba(255,255,255,0.9);">Self-Help</span><div class="blog-card-header-icon">&#128161;</div></div>
-    <div class="blog-card-body"><h3><a href="TGRM_Blog_Post.html">8 Best Ways to Help Someone Who Is Grieving</a></h3><p class="blog-card-excerpt">When someone you care about is grieving, it can be hard to know what to say or do. Most people default to cliches that actually make things worse.</p><div class="blog-card-footer"><span class="blog-card-author">By <strong>James Chen</strong></span><a href="TGRM_Blog_Post.html" class="read-more">Read More</a></div></div>
-  </div>
-  <div class="blog-card">
-    <div class="blog-card-header" style="background: linear-gradient(135deg, #7895A3 0%, #a8bcc6 100%);"><span class="badge-category" style="background:rgba(255,255,255,0.9);">Relationships</span><div class="blog-card-header-icon">&#128148;</div></div>
-    <div class="blog-card-body"><h3><a href="TGRM_Blog_Post.html">Estrangement from Adult Children: Navigating the Grief of a Broken Bond</a></h3><p class="blog-card-excerpt">The grief of estrangement is unique because the person is still alive. There's no funeral, no sympathy cards, and often no one who truly understands.</p><div class="blog-card-footer"><span class="blog-card-author">By <strong>Dr. Patricia Brown</strong></span><a href="TGRM_Blog_Post.html" class="read-more">Read More</a></div></div>
-  </div>
-  <div class="blog-card">
-    <div class="blog-card-header" style="background: linear-gradient(135deg, #2d2d2d 0%, #555 100%);"><span class="badge-category" style="background:rgba(255,255,255,0.9);">Grief &amp; Loss</span><div class="blog-card-header-icon">&#128203;</div></div>
-    <div class="blog-card-body"><h3><a href="TGRM_Blog_Post.html">Over 40 Life Experiences That Can Cause Grief</a></h3><p class="blog-card-excerpt">Grief isn't just about death. From divorce and job loss to moving and retirement, there are over 40 life events that can trigger a grief response.</p><div class="blog-card-footer"><span class="blog-card-author">By <strong>Michael Roberts</strong></span><a href="TGRM_Blog_Post.html" class="read-more">Read More</a></div></div>
-  </div>
-  <div class="blog-card">
-    <div class="blog-card-header" style="background: linear-gradient(135deg, #E07525 0%, #c9641c 100%);"><span class="badge-category" style="background:rgba(255,255,255,0.9);">Recovery Stories</span><div class="blog-card-header-icon">&#10024;</div></div>
-    <div class="blog-card-body"><h3><a href="TGRM_Blog_Post.html">What If You're Still Grieving Years Later?</a></h3><p class="blog-card-excerpt">If it's been years and you still feel the weight of your loss, you're not broken. The truth is, time alone doesn't heal grief — action does.</p><div class="blog-card-footer"><span class="blog-card-author">By <strong>Elena Lopez</strong></span><a href="TGRM_Blog_Post.html" class="read-more">Read More</a></div></div>
-  </div>
-  <div class="blog-card">
-    <div class="blog-card-header" style="background: linear-gradient(135deg, #427E88 0%, #366a73 100%);"><span class="badge-category" style="background:rgba(255,255,255,0.9);">Grief &amp; Loss</span><div class="blog-card-header-icon">&#9203;</div></div>
-    <div class="blog-card-body"><h3><a href="TGRM_Blog_Post.html">Why 'Time Heals All Wounds' Is a Myth</a></h3><p class="blog-card-excerpt">It's one of the most commonly repeated phrases in grief. But decades of research and thousands of grievers tell a very different story.</p><div class="blog-card-footer"><span class="blog-card-author">By <strong>Karen Thompson</strong></span><a href="TGRM_Blog_Post.html" class="read-more">Read More</a></div></div>
-  </div>
-  <div class="blog-card">
-    <div class="blog-card-header" style="background: linear-gradient(135deg, #7895A3 0%, #5a7a88 100%);"><span class="badge-category" style="background:rgba(255,255,255,0.9);">For Professionals</span><div class="blog-card-header-icon">&#127891;</div></div>
-    <div class="blog-card-body"><h3><a href="TGRM_Blog_Post.html">How Grief Recovery Certification Changed My Practice</a></h3><p class="blog-card-excerpt">After 15 years as a licensed therapist, I thought I had the tools to help grieving clients. Then I discovered what I was missing.</p><div class="blog-card-footer"><span class="blog-card-author">By <strong>Dr. Gregory Wells</strong></span><a href="TGRM_Blog_Post.html" class="read-more">Read More</a></div></div>
-  </div>
-  <div class="blog-card">
-    <div class="blog-card-header" style="background: linear-gradient(135deg, #E07525 0%, #f5a060 100%);"><span class="badge-category" style="background:rgba(255,255,255,0.9);">Self-Help</span><div class="blog-card-header-icon">&#128118;</div></div>
-    <div class="blog-card-body"><h3><a href="TGRM_Blog_Post.html">Supporting a Child Through Grief</a></h3><p class="blog-card-excerpt">Children grieve differently than adults, but they grieve just as deeply. Here's how to create a safe space for honest conversation.</p><div class="blog-card-footer"><span class="blog-card-author">By <strong>Lisa Stone</strong></span><a href="TGRM_Blog_Post.html" class="read-more">Read More</a></div></div>
-  </div>
-  <div class="blog-card">
-    <div class="blog-card-header" style="background: linear-gradient(135deg, #2d2d2d 0%, #555 100%);"><span class="badge-category" style="background:rgba(255,255,255,0.9);">Grief &amp; Loss</span><div class="blog-card-header-icon">&#129504;</div></div>
-    <div class="blog-card-body"><h3><a href="TGRM_Blog_Post.html">The Difference Between Grief and Depression</a></h3><p class="blog-card-excerpt">Grief and depression can look remarkably similar on the surface. Understanding the difference is crucial for getting the right kind of help.</p><div class="blog-card-footer"><span class="blog-card-author">By <strong>Dr. Robert Jackson</strong></span><a href="TGRM_Blog_Post.html" class="read-more">Read More</a></div></div>
+<!-- Bottom CTA -->
+<div class="final-cta cta-image-overlay reveal" style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1600&q=80');">
+  <h2>Ready to <span class="accent">Get Started</span>?</h2>
+  <p>Give your team and your patients the grief recovery tools they deserve — backed by 45+ years of evidence.</p>
+  <div class="final-cta-buttons">
+    <a href="https://api.leadconnectorhq.com/widget/booking/iEw7YNrRR0unggGgMHgd" class="btn-primary btn-white" target="_blank">Book Your Free 30-Minute Call</a>
+    <a href="TGRM_GetCertified_Hub.html#pricing" class="btn-primary btn-outline" style="border-color:rgba(255,255,255,0.4);color:#fff;">Compare Training Plans</a>
   </div>
 </div>
 
-<!-- Pagination -->
-<div class="pagination reveal">
-  <a href="#" class="page-btn disabled">&larr; Prev</a>
-  <a href="#" class="page-btn active">1</a>
-  <a href="#" class="page-btn">2</a>
-  <a href="#" class="page-btn">3</a>
-  <span class="page-ellipsis">...</span>
-  <a href="#" class="page-btn">12</a>
-  <a href="#" class="page-btn">Next &rarr;</a>
-</div>
 
-<!-- Newsletter CTA -->
-<div class="newsletter-cta reveal">
-  <h2>Get Healing Insights Delivered</h2>
-  <p>Join thousands of readers who receive our best articles on grief, recovery, and moving forward.</p>
-  <div class="subscribe-form">
-    <input type="email" placeholder="Enter your email address">
-    <button>Subscribe</button>
-  </div>
-  <p class="newsletter-disclaimer">No spam. Unsubscribe anytime. We respect your privacy.</p>
+<!-- Sticky CTA Bar -->
+<div class="sticky-cta-bar" id="stickyCta">
+  <p>Ready to get certified?</p>
+  <a href="https://api.leadconnectorhq.com/widget/booking/iEw7YNrRR0unggGgMHgd" class="btn-primary btn-orange" target="_blank">Book Your Free 30-Minute Call</a>
+  <p class="cta-subtext">No pressure &bull; Real answers</p>
 </div>
 
 <!-- Footer -->
 <footer>
   <div class="footer-grid">
-    <div><div class="footer-brand">The Grief Recovery <span>Method</span>&reg;</div><p class="footer-desc">An evidence-based grief recovery program helping people move beyond loss since 1977.</p><div class="footer-stats">45+ years &bull; 1.5M+ helped &bull; 3,000+ specialists</div></div>
-    <div><div class="footer-col-title">For Grievers</div><a href="TGRM_GetHelp_Hub.html" class="footer-link">Get Help</a><a href="TGRM_Directory.html" class="footer-link">Find a Specialist</a><a href="TGRM_Quiz.html" class="footer-link">Grief Type Quiz</a><a href="TGRM_Handbook.html" class="footer-link">The Handbook</a></div>
-    <div><div class="footer-col-title">For Professionals</div><a href="TGRM_GetCertified_Hub.html" class="footer-link">Get Certified</a><a href="TGRM_GetCertified_Hub.html" class="footer-link">Training Dates</a><a href="TGRM_Private_Training.html" class="footer-link">Private Training</a><a href="TGRM_About.html" class="footer-link">About Us</a></div>
-    <div><div class="footer-col-title">Resources</div><a href="TGRM_Blog.html" class="footer-link">Blog</a><a href="TGRM_Podcast.html" class="footer-link">Podcast</a><a href="TGRM_Resources.html" class="footer-link">All Resources</a><a href="#" class="footer-link">Contact Us</a></div>
+    <div>
+      <div class="footer-brand">The Grief Recovery <span>Method</span>&reg;</div>
+      <p class="footer-desc">An evidence-based grief recovery program helping people move beyond loss since 1977.</p>
+      <div class="footer-stats">45+ years &bull; 1.5M+ helped &bull; 3,000+ specialists</div>
+    </div>
+    <div>
+      <div class="footer-col-title">For Grievers</div>
+      <a href="TGRM_GetHelp_Hub.html" class="footer-link">Get Help</a>
+      <a href="TGRM_Directory.html" class="footer-link">Find a Specialist</a>
+      <a href="TGRM_Quiz.html" class="footer-link">Grief Type Quiz</a>
+      <a href="TGRM_Handbook.html" class="footer-link">The Handbook</a>
+    </div>
+    <div>
+      <div class="footer-col-title">For Professionals</div>
+      <a href="TGRM_GetCertified_Hub.html" class="footer-link">Get Certified</a>
+      <a href="TGRM_GetCertified_Hub.html" class="footer-link">Training Dates</a>
+      <a href="TGRM_Private_Training.html" class="footer-link">Private Training</a>
+      <a href="TGRM_About.html" class="footer-link">About Us</a>
+    </div>
+    <div>
+      <div class="footer-col-title">Resources</div>
+      <a href="TGRM_Blog.html" class="footer-link">Blog</a>
+      <a href="TGRM_Podcast.html" class="footer-link">Podcast</a>
+      <a href="TGRM_Resources.html" class="footer-link">All Resources</a>
+      <a href="#" class="footer-link">Contact Us</a>
+    </div>
   </div>
   <p class="footer-bottom">&copy; 2026 The Grief Recovery Method&reg;. All rights reserved.</p>
   <p class="footer-crisis">If you or someone you know is in crisis, please call 988 (Suicide &amp; Crisis Lifeline) or text HOME to 741741.</p>

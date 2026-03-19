@@ -3,988 +3,1806 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The "5 Stages of Grief": Why They're Misleading and What Actually Helps — The Grief Recovery Method®</title>
-<meta name="description" content="Kübler-Ross herself said the 5 stages were never meant for grievers. After 45+ years of evidence-based grief recovery, here's what actually works to heal.">
-<link rel="canonical" href="https://www.griefrecoverymethod.com/blog/5-stages-of-grief-misleading">
-
-<!-- ===== STRUCTURED DATA: Article + FAQ + Breadcrumb ===== -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "The '5 Stages of Grief': Why They're Misleading and What Actually Helps",
-  "description": "Kübler-Ross herself said the 5 stages were never meant for grievers. Here's what 45+ years of evidence-based grief recovery has shown actually works.",
-  "author": {
-    "@type": "Person",
-    "name": "Allison James Henry",
-    "jobTitle": "Senior Content Director, Certified Grief Recovery Specialist"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "The Grief Recovery Institute",
-    "logo": { "@type": "ImageObject", "url": "https://www.griefrecoverymethod.com/logo.png" }
-  },
-  "datePublished": "2026-02-20",
-  "dateModified": "2026-03-01",
-  "image": "https://www.griefrecoverymethod.com/blog/images/stages-of-grief.jpg",
-  "wordCount": 2400,
-  "mainEntityOfPage": "https://www.griefrecoverymethod.com/blog/5-stages-of-grief-misleading"
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Are the 5 stages of grief real?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The 5 stages (denial, anger, bargaining, depression, acceptance) were originally described by Elisabeth Kübler-Ross in 1969 for people facing their own terminal illness — not for people grieving a loss. Research has not validated them as a universal model of grief."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What actually helps with grief?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Evidence-based approaches like the Grief Recovery Method focus on action-based steps to address unfinished emotional communication, rather than passively waiting for stages to pass. The method is validated by Kent State University research."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.griefrecoverymethod.com" },
-    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.griefrecoverymethod.com/blog" },
-    { "@type": "ListItem", "position": 3, "name": "Myths & Misconceptions", "item": "https://www.griefrecoverymethod.com/blog/myths" },
-    { "@type": "ListItem", "position": 4, "name": "The 5 Stages of Grief", "item": "https://www.griefrecoverymethod.com/blog/5-stages-of-grief-misleading" }
-  ]
-}
-</script>
-
+<title>Letting Go of Stuff After a Loss — The Grief Recovery Method®</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ========================================
-   RESET & BASE
-   ======================================== */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { font-family: 'Segoe UI', Arial, Helvetica, sans-serif; color: #2d3748; line-height: 1.7; background: #fff; overflow-x: hidden; }
-a { text-decoration: none; color: inherit; }
-button { cursor: pointer; border: none; font-family: inherit; }
-img { max-width: 100%; display: block; }
+/* TGRM Premium Design System (inlined) */
+/* ============================================================
+   TGRM Premium Design System
+   The Grief Recovery Method® — Shared CSS Foundation
+   ============================================================
+   Version:  1.0
+   Updated:  2026-03-19
+   Usage:    Link this file on every page alongside tgrm-premium.js
+             <link rel="stylesheet" href="tgrm-premium.css">
+             <script>
+// Header shadow on scroll
+const header = document.getElementById('header') || document.querySelector('header');
+if (header) {
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+}
+// Mobile menu toggle
+const menuBtn = document.querySelector('.mobile-menu-btn');
+const nav = document.querySelector('nav');
+if (menuBtn && nav) {
+  menuBtn.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('nav-open');
+    menuBtn.setAttribute('aria-expanded', isOpen);
+    menuBtn.innerHTML = isOpen ? '&#x2715;' : '&#9776;';
+  });
+}
+</script>
+   ============================================================ */
 
-/* ========================================
-   BRAND TOKENS
-   ======================================== */
+
+/* ============================================================
+   1. CSS CUSTOM PROPERTIES (Design Tokens)
+   ============================================================ */
 :root {
-  --orange: #e07525;
-  --orange-dark: #c4621a;
-  --orange-light: #f5a623;
-  --teal: #427e88;
-  --teal-dark: #356a73;
-  --teal-light: #7895a3;
-  --teal-pale: #e8f2f4;
-  --warm-bg: #faf8f5;
-  --warm-bg-alt: #f5f0eb;
-  --text-primary: #2d3748;
-  --text-secondary: #5a6577;
-  --text-light: #8896a8;
-  --white: #ffffff;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
-  --shadow-md: 0 4px 14px rgba(0,0,0,.1);
-  --shadow-lg: 0 10px 30px rgba(0,0,0,.12);
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-  --transition: .25s ease;
-}
-.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  /* --- Brand Colors --- */
+  --orange:       #e07525;
+  --orange-hover:  #c96820;
+  --teal:         #427E88;
+  --teal-hover:   #366a73;
+  --teal-light:   #7895a3;
 
-/* ========================================
-   UTILITY BAR
-   ======================================== */
-.utility-bar { background: var(--teal-dark); color: rgba(255,255,255,.9); font-size: .8rem; padding: 6px 0; }
-.utility-bar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
-.utility-bar a { color: rgba(255,255,255,.9); }
-.utility-bar a:hover { color: #fff; }
-.utility-left { display: flex; gap: 18px; align-items: center; }
-.utility-right { display: flex; gap: 16px; align-items: center; }
+  /* --- Neutrals --- */
+  --dark:         #1a1a1a;
+  --body:         #2d2d2d;
+  --muted:        #666;
+  --faint:        #999;
+  --bg:           #faf9f7;
+  --white:        #ffffff;
+  --border:       #e8e5e0;
 
-/* ========================================
-   HEADER
-   ======================================== */
-.header { background: #fff; border-bottom: 1px solid rgba(0,0,0,.06); position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow-sm); }
-.header .container { display: flex; align-items: center; justify-content: space-between; padding-top: 10px; padding-bottom: 10px; }
-.logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-.logo-icon { width: 44px; height: 44px; background: linear-gradient(135deg, var(--orange), var(--orange-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 1.1rem; }
-.logo-text { line-height: 1.15; }
-.logo-text .brand { font-weight: 700; font-size: 1.05rem; color: var(--teal-dark); }
-.logo-text .sub { font-size: .72rem; color: var(--text-secondary); }
-.inner-nav { display: flex; gap: 24px; align-items: center; }
-.inner-nav a { font-size: .92rem; color: var(--text-secondary); transition: color var(--transition); }
-.inner-nav a:hover { color: var(--teal); }
-.inner-nav a.active { color: var(--teal-dark); font-weight: 600; }
-.nav-cta-group { display: flex; gap: 10px; align-items: center; }
-.btn-outline-sm { padding: 8px 18px; border-radius: var(--radius-sm); font-size: .88rem; font-weight: 600; border: 1.5px solid var(--teal); color: var(--teal); transition: all var(--transition); }
-.btn-outline-sm:hover { background: var(--teal); color: #fff; }
-.btn-primary-sm { padding: 8px 18px; border-radius: var(--radius-sm); font-size: .88rem; font-weight: 600; background: var(--orange); color: #fff; transition: all var(--transition); }
-.btn-primary-sm:hover { background: var(--orange-dark); }
+  /* --- Typography --- */
+  --serif:        'DM Serif Display', serif;
+  --sans:         'Inter', sans-serif;
 
-/* ========================================
-   BREADCRUMB
-   ======================================== */
-.breadcrumb { background: var(--warm-bg); padding: 12px 0; font-size: .85rem; color: var(--text-light); }
-.breadcrumb a { color: var(--teal); }
-.breadcrumb a:hover { text-decoration: underline; }
+  /* --- Motion --- */
+  --ease:         cubic-bezier(0.4, 0, 0.2, 1);
 
-/* ========================================
-   ARTICLE LAYOUT
-   ======================================== */
-.article-layout {
-  display: grid; grid-template-columns: 1fr 340px; gap: 48px;
-  padding: 40px 0 60px; align-items: start;
+  /* --- Spacing (reference scale) --- */
+  --space-xs:     8px;
+  --space-sm:     16px;
+  --space-md:     24px;
+  --space-lg:     40px;
+  --space-xl:     56px;
+  --space-2xl:    80px;
+  --space-3xl:    100px;
+
+  /* --- Radius --- */
+  --radius-sm:    8px;
+  --radius-md:    10px;
+  --radius-lg:    16px;
+  --radius-xl:    20px;
+  --radius-pill:  40px;
 }
 
-/* ========================================
-   ARTICLE CONTENT
-   ======================================== */
-.article-main { max-width: 700px; }
 
-/* Hero image placeholder */
-.article-hero-img {
-  width: 100%; height: 340px; border-radius: var(--radius-lg); margin-bottom: 32px;
-  display: flex; align-items: center; justify-content: center; font-size: 5rem;
-  background: linear-gradient(135deg, var(--teal-pale) 0%, #d4e8ec 50%, var(--warm-bg-alt) 100%);
-  position: relative; overflow: hidden;
-}
-.article-hero-img .pillar-badge {
-  position: absolute; top: 16px; left: 16px; background: var(--orange); color: #fff;
-  font-size: .72rem; font-weight: 700; padding: 5px 14px; border-radius: 100px;
-  text-transform: uppercase; letter-spacing: .5px;
+/* ============================================================
+   2. GLOBAL RESET + BASE TYPOGRAPHY
+   ============================================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Category & Meta */
-.article-cat {
-  display: inline-block; font-size: .75rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 1.2px; color: var(--orange); margin-bottom: 10px;
-}
-.article-title {
-  font-size: 2.2rem; font-weight: 800; line-height: 1.25; margin-bottom: 16px; color: var(--text-primary);
-}
-.article-meta {
-  display: flex; align-items: center; gap: 16px; font-size: .88rem; color: var(--text-light);
-  margin-bottom: 10px; flex-wrap: wrap;
-}
-.article-meta .author-avatar {
-  width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center;
-  justify-content: center; font-size: .82rem; font-weight: 700; color: #fff; background: var(--teal);
-}
-.article-meta strong { color: var(--text-primary); font-weight: 600; }
-.article-meta .divider { color: #ddd; }
-.article-credentials { font-size: .78rem; color: var(--teal); margin-bottom: 24px; }
-
-/* Share bar */
-.share-bar {
-  display: flex; align-items: center; gap: 10px; padding: 14px 0; margin-bottom: 32px;
-  border-top: 1px solid #eef1f5; border-bottom: 1px solid #eef1f5;
-}
-.share-bar span { font-size: .82rem; font-weight: 600; color: var(--text-light); }
-.share-btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 34px; height: 34px; border-radius: 50%; font-size: .85rem;
-  transition: all var(--transition); background: var(--warm-bg); color: var(--text-secondary);
-}
-.share-btn:hover { background: var(--teal-pale); color: var(--teal-dark); }
-
-/* Table of Contents */
-.toc {
-  background: var(--warm-bg); border-radius: var(--radius-md); padding: 20px 24px;
-  margin-bottom: 36px; border-left: 4px solid var(--teal);
-}
-.toc-title { font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--teal-dark); margin-bottom: 10px; }
-.toc ol { padding-left: 18px; }
-.toc li { margin-bottom: 6px; font-size: .9rem; }
-.toc a { color: var(--teal); font-weight: 500; }
-.toc a:hover { text-decoration: underline; }
-
-/* Article Body */
-.article-body h2 {
-  font-size: 1.5rem; font-weight: 800; margin-top: 40px; margin-bottom: 16px;
-  color: var(--text-primary); padding-top: 8px;
-}
-.article-body h3 {
-  font-size: 1.15rem; font-weight: 700; margin-top: 28px; margin-bottom: 12px; color: var(--text-primary);
-}
-.article-body p {
-  font-size: 1.05rem; color: var(--text-secondary); line-height: 1.85; margin-bottom: 20px;
-}
-.article-body blockquote {
-  border-left: 4px solid var(--orange); padding: 16px 20px; margin: 28px 0;
-  background: var(--warm-bg); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  font-size: 1.05rem; font-style: italic; color: var(--teal-dark); line-height: 1.7;
-}
-.article-body blockquote cite {
-  display: block; margin-top: 8px; font-style: normal; font-size: .85rem; font-weight: 600; color: var(--text-light);
-}
-.article-body ul, .article-body ol {
-  padding-left: 24px; margin-bottom: 20px;
-}
-.article-body li {
-  font-size: 1.02rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 8px;
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
-/* Callout box */
-.callout-box {
-  background: var(--teal-pale); border-radius: var(--radius-md); padding: 24px 28px;
-  margin: 32px 0; border: 1px solid rgba(66,126,136,.15);
+body {
+  font-family: var(--sans);
+  font-weight: 300;
+  color: var(--body);
+  background: var(--bg);
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-.callout-box h4 { font-size: 1rem; font-weight: 700; color: var(--teal-dark); margin-bottom: 8px; }
-.callout-box p { font-size: .95rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 0; }
-.callout-box a { color: var(--teal); font-weight: 600; }
-.callout-box a:hover { text-decoration: underline; }
 
-/* Inline CTA */
-.inline-cta {
-  background: linear-gradient(135deg, var(--teal-dark), var(--teal)); color: #fff;
-  border-radius: var(--radius-md); padding: 28px 32px; margin: 36px 0; text-align: center;
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
-.inline-cta h4 { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; }
-.inline-cta p { font-size: .92rem; opacity: .9; margin-bottom: 16px; }
-.inline-cta .btn-white {
-  display: inline-block; padding: 12px 28px; background: #fff; color: var(--teal-dark);
-  border-radius: var(--radius-sm); font-weight: 700; font-size: .9rem; transition: all var(--transition);
-}
-.inline-cta .btn-white:hover { background: var(--warm-bg); }
 
-/* Internal links highlight */
-.article-body a { color: var(--teal); font-weight: 500; border-bottom: 1px solid rgba(66,126,136,.3); }
-.article-body a:hover { border-bottom-color: var(--teal); }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-/* FAQ within article */
-.article-faq { margin-top: 36px; }
-.article-faq h2 { margin-bottom: 20px; }
-.faq-item {
-  background: var(--warm-bg); border-radius: var(--radius-md); margin-bottom: 12px;
-  overflow: hidden; border: 1px solid rgba(0,0,0,.04);
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--serif);
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.25;
 }
-.faq-q {
-  padding: 18px 22px; display: flex; justify-content: space-between; align-items: center;
-  cursor: pointer; font-weight: 600; font-size: .98rem; transition: background var(--transition);
-}
-.faq-q:hover { background: var(--teal-pale); }
-.faq-q::after { content: '+'; font-size: 1.3rem; color: var(--teal); font-weight: 300; transition: transform var(--transition); }
-.faq-item.open .faq-q::after { content: '\2212'; }
-.faq-a {
-  max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .35s ease;
-  padding: 0 22px; font-size: .95rem; color: var(--text-secondary); line-height: 1.7;
-}
-.faq-item.open .faq-a { max-height: 400px; padding: 0 22px 18px; }
 
-/* Tags */
-.article-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; padding-top: 20px; border-top: 1px solid #eef1f5; }
-.article-tags span { font-size: .78rem; font-weight: 600; color: var(--text-light); margin-right: 6px; }
-.tag-pill {
-  display: inline-block; padding: 4px 14px; background: var(--warm-bg); border-radius: 100px;
-  font-size: .78rem; font-weight: 600; color: var(--text-secondary); transition: all var(--transition);
-}
-.tag-pill:hover { background: var(--teal-pale); color: var(--teal-dark); }
+.accent { color: var(--orange); }
 
-/* Author bio */
-.author-bio {
-  display: flex; gap: 20px; background: var(--warm-bg); border-radius: var(--radius-md);
-  padding: 28px; margin-top: 36px; border: 1px solid rgba(0,0,0,.04);
-}
-.author-bio-avatar {
-  width: 64px; height: 64px; border-radius: 50%; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem; font-weight: 700; color: #fff; background: var(--teal);
-}
-.author-bio-info h4 { font-size: 1rem; font-weight: 700; margin-bottom: 2px; }
-.author-bio-info .cred { font-size: .8rem; color: var(--teal); font-weight: 600; margin-bottom: 8px; }
-.author-bio-info p { font-size: .88rem; color: var(--text-secondary); line-height: 1.6; }
 
-/* Related posts */
-.related-posts { margin-top: 48px; padding-top: 36px; border-top: 2px solid #eef1f5; }
-.related-posts h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 20px; }
-.related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.related-card { background: #fff; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); transition: all var(--transition); }
-.related-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
-.related-thumb { height: 120px; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
-.related-body { padding: 16px; }
-.related-body .cat-tag { font-size: .68rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; color: var(--orange); margin-bottom: 4px; }
-.related-body h4 { font-size: .88rem; font-weight: 700; line-height: 1.35; margin-bottom: 4px; }
-.related-body .meta { font-size: .72rem; color: var(--text-light); }
-
-/* Comment section */
-.comments-section { margin-top: 48px; padding-top: 36px; border-top: 2px solid #eef1f5; }
-.comments-section h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 8px; }
-.comments-section > p { font-size: .92rem; color: var(--text-secondary); margin-bottom: 24px; }
-.comment-form textarea {
-  width: 100%; min-height: 100px; padding: 14px 18px; border: 1.5px solid #dde1e8;
-  border-radius: var(--radius-md); font-family: inherit; font-size: .95rem;
-  resize: vertical; outline: none; transition: border var(--transition); margin-bottom: 12px;
+/* ============================================================
+   3. UTILITY BAR (dark top bar)
+   ============================================================ */
+.utility-bar {
+  background: var(--dark);
+  color: #999;
+  font-size: 13px;
+  padding: 8px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.comment-form textarea:focus { border-color: var(--teal); }
-.comment-form .btn-submit {
-  padding: 12px 28px; background: var(--teal); color: #fff; border-radius: var(--radius-sm);
-  font-weight: 600; font-size: .9rem; transition: background var(--transition);
+
+.utility-bar a {
+  color: #999;
+  text-decoration: none;
+  transition: color 0.2s;
 }
-.comment-form .btn-submit:hover { background: var(--teal-dark); }
 
-/* ========================================
-   SIDEBAR
-   ======================================== */
-.sidebar { position: sticky; top: 80px; }
+.utility-bar a:hover {
+  color: #fff;
+}
 
-/* Sidebar card base */
-.sb-card {
-  background: #fff; border-radius: var(--radius-md); padding: 24px;
-  box-shadow: var(--shadow-sm); border: 1px solid rgba(0,0,0,.05);
+
+/* ============================================================
+   4. PREMIUM HEADER (sticky, frosted glass)
+   ============================================================ */
+header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: box-shadow 0.3s var(--ease);
+}
+
+/* Shadow state — toggled via JS on scroll */
+header.scrolled {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* --- Logo --- */
+.logo {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--body);
+}
+
+.logo span {
+  color: var(--teal);
+}
+
+/* --- Primary Nav --- */
+nav {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: #555;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.2s;
+  position: relative;
+}
+
+nav a:hover {
+  color: var(--body);
+}
+
+/* Underline hover effect on nav links */
+nav > a::after,
+.nav-item > a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--teal);
+  transition: width 0.3s var(--ease);
+}
+
+nav > a:hover::after,
+.nav-item:hover > a::after {
+  width: 100%;
+}
+
+/* --- Nav CTA Button --- */
+.nav-cta {
+  background: var(--teal);
+  color: #fff !important;
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: all 0.3s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-cta::after {
+  display: none !important;
+}
+
+.nav-cta:hover {
+  background: var(--teal-hover) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(66, 126, 136, 0.3);
+}
+
+/* --- Mobile Menu Button --- */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: var(--body);
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+
+/* ============================================================
+   4b. MEGA NAV DROPDOWNS
+   ============================================================ */
+.nav-item {
+  position: relative;
+}
+
+.nav-item > a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Dropdown caret */
+.nav-item > a::after {
+  content: "\25BE";
+  font-size: 10px;
+  opacity: 0.5;
+  position: static;
+  width: auto;
+  height: auto;
+  background: none;
+}
+
+.nav-item:hover > a::after {
+  width: auto;
+}
+
+/* --- Standard Dropdown --- */
+.mega-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  padding-top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  min-width: 280px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  z-index: 200;
+  animation: dropdownFadeIn 0.2s var(--ease);
+}
+
+@keyframes dropdownFadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(4px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Arrow/caret on dropdown */
+.mega-dropdown::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #fff;
+}
+
+.nav-item:hover .mega-dropdown {
+  display: block;
+}
+
+/* --- Dropdown Section Titles --- */
+.mega-dropdown-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #999;
+  font-weight: 600;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f0ede8;
+}
+
+.mega-dropdown-title:not(:first-child) {
+  margin-top: 16px;
+}
+
+/* --- Dropdown Links --- */
+.mega-link {
+  display: block;
+  padding: 7px 0;
+  font-size: 14px;
+  color: var(--body) !important;
+  font-weight: 500 !important;
+  text-decoration: none;
+  transition: color 0.2s;
+  line-height: 1.3;
+}
+
+.mega-link:hover {
+  color: var(--teal) !important;
+}
+
+.mega-link-desc {
+  font-size: 12px;
+  color: #999;
+  font-weight: 400 !important;
+  margin-top: 1px;
+}
+
+/* --- Smaller Loss-Type Links --- */
+.mega-loss-link {
+  display: block;
+  padding: 5px 0;
+  font-size: 13px;
+  color: #555 !important;
+  font-weight: 500 !important;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.mega-loss-link:hover {
+  color: var(--teal) !important;
+}
+
+/* --- Wide 2-Column Dropdown --- */
+.mega-wide {
+  min-width: 640px;
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+/* --- 3-Column Dropdown --- */
+.mega-3col {
+  min-width: 720px;
+  display: none;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+.nav-item:hover .mega-wide {
+  display: grid;
+}
+
+.nav-item:hover .mega-3col {
+  display: grid;
+}
+
+
+/* ============================================================
+   5. BUTTON SYSTEM
+   ============================================================ */
+
+/* --- Base Button --- */
+.btn-primary {
+  display: inline-block;
+  padding: 16px 36px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 16px;
+  font-family: var(--sans);
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- Teal Button --- */
+.btn-teal {
+  background: var(--teal);
+  color: #fff;
+}
+
+.btn-teal:hover {
+  background: var(--teal-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(66, 126, 136, 0.3);
+}
+
+/* --- Orange Button --- */
+.btn-orange {
+  background: var(--orange);
+  color: #fff;
+}
+
+.btn-orange:hover {
+  background: var(--orange-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(224, 117, 37, 0.3);
+}
+
+/* --- Outline Button --- */
+.btn-outline {
+  background: transparent;
+  color: var(--body);
+  border: 2px solid var(--border);
+}
+
+.btn-outline:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(66, 126, 136, 0.1);
+}
+
+/* --- White Button (for dark backgrounds) --- */
+.btn-white {
+  background: #fff;
+  color: var(--dark);
+}
+
+.btn-white:hover {
+  background: #f5f5f5;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+}
+
+/* --- Door-Style Button (glass on colored bg) --- */
+.door-btn {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  color: #fff;
+  padding: 13px 32px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s var(--ease);
+  backdrop-filter: blur(4px);
+}
+
+.door-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ============================================================
+   6. SECTION PRIMITIVES (labels, titles, subtitles, containers)
+   ============================================================ */
+.section-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--teal);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: 38px;
+  text-align: center;
+  color: var(--dark);
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+
+.section-sub {
+  font-size: 18px;
+  color: var(--muted);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 56px;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.container-narrow {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.container-wide {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.section-padding {
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+}
+
+
+/* ============================================================
+   7. CARD SYSTEM
+   ============================================================ */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  transition: all 0.4s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top border accent on hover */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--teal), var(--teal-light));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+  border-color: transparent;
+}
+
+/* Card with orange accent instead of teal */
+.card--orange::before {
+  background: linear-gradient(90deg, var(--orange), #e8934d);
+}
+
+/* Card icon container */
+.card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, rgba(66, 126, 136, 0.08), rgba(66, 126, 136, 0.03));
+  border: 1px solid rgba(66, 126, 136, 0.1);
+}
+
+.card-icon--orange {
+  background: linear-gradient(135deg, rgba(224, 117, 37, 0.08), rgba(224, 117, 37, 0.03));
+  border: 1px solid rgba(224, 117, 37, 0.1);
+}
+
+.card h3 {
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* Pillar cards — alias for backward compatibility with POC */
+.pillar-card     { /* extends .card — use class="card" on new pages */ }
+.pillar-icon     { /* extends .card-icon */ }
+
+/* Common grid layouts for cards */
+.card-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+
+/* ============================================================
+   8. HERO VARIANTS
+   ============================================================ */
+
+/* --- Base Hero --- */
+.hero {
+  text-align: center;
+  padding: 120px 40px 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero badge / eyebrow */
+.hero-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(66, 126, 136, 0.08), rgba(66, 126, 136, 0.04));
+  border: 1px solid rgba(66, 126, 136, 0.12);
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 28px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--dark);
   margin-bottom: 24px;
+  
 }
 
-/* --- Directory Ad --- */
-.sb-directory {
-  background: linear-gradient(135deg, var(--teal-dark), var(--teal)); color: #fff;
-  border: none; text-align: center; padding: 28px 24px;
+.hero h1 .accent {
+  color: var(--orange);
 }
-.sb-directory .sb-icon { font-size: 2.2rem; margin-bottom: 10px; }
-.sb-directory h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
-.sb-directory p { font-size: .85rem; opacity: .88; line-height: 1.5; margin-bottom: 16px; }
-.sb-directory .sb-btn {
-  display: inline-block; padding: 11px 24px; background: #fff; color: var(--teal-dark);
-  border-radius: var(--radius-sm); font-weight: 700; font-size: .88rem; transition: all var(--transition);
-}
-.sb-directory .sb-btn:hover { background: var(--warm-bg); }
-.sb-directory .sb-fine { font-size: .72rem; opacity: .6; margin-top: 10px; }
 
-/* --- Certification Dates --- */
-.sb-cert h4 {
-  font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
-  color: var(--orange); margin-bottom: 14px;
+.hero p {
+  font-size: 20px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 580px;
+  margin: 0 auto;
+  
 }
-.cert-date-item {
-  display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f0f2f5;
-  align-items: flex-start;
-}
-.cert-date-item:last-child { border-bottom: none; }
-.cert-date-cal {
-  width: 44px; height: 48px; background: var(--warm-bg); border-radius: var(--radius-sm);
-  display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0;
-  border: 1px solid rgba(0,0,0,.06);
-}
-.cert-date-cal .month { font-size: .62rem; font-weight: 700; text-transform: uppercase; color: var(--orange); letter-spacing: .5px; }
-.cert-date-cal .day { font-size: 1.1rem; font-weight: 800; color: var(--text-primary); line-height: 1; }
-.cert-date-info h5 { font-size: .85rem; font-weight: 700; margin-bottom: 2px; }
-.cert-date-info p { font-size: .75rem; color: var(--text-light); line-height: 1.4; }
-.cert-date-tag {
-  display: inline-block; font-size: .65rem; font-weight: 700; padding: 2px 8px;
-  border-radius: 100px; margin-top: 3px;
-}
-.tag-online { background: var(--teal-pale); color: var(--teal-dark); }
-.tag-inperson { background: rgba(224,117,37,.1); color: var(--orange-dark); }
-.tag-few { background: rgba(220,38,38,.08); color: #dc2626; }
-.sb-cert .sb-link {
-  display: block; text-align: center; padding: 10px; margin-top: 12px;
-  font-size: .85rem; font-weight: 600; color: var(--teal); transition: color var(--transition);
-}
-.sb-cert .sb-link:hover { color: var(--teal-dark); text-decoration: underline; }
 
-/* --- Quiz CTA --- */
-.sb-quiz {
-  background: linear-gradient(135deg, #2d3748, #1a202c); color: #fff;
-  border: none; text-align: center; padding: 28px 24px;
+/* --- VARIANT: Image Hero (homepage style) --- */
+.hero-image {
+  background: linear-gradient(to bottom, rgba(250, 249, 247, 0.92), rgba(250, 249, 247, 0.96)),
+              var(--hero-bg, none) center/cover no-repeat;
 }
-.sb-quiz .sb-icon { font-size: 2rem; margin-bottom: 10px; }
-.sb-quiz h4 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
-.sb-quiz p { font-size: .83rem; opacity: .8; line-height: 1.5; margin-bottom: 14px; }
-.sb-quiz .sb-btn {
-  display: inline-block; padding: 10px 22px; background: var(--orange); color: #fff;
-  border-radius: var(--radius-sm); font-weight: 700; font-size: .85rem; transition: all var(--transition);
-}
-.sb-quiz .sb-btn:hover { background: var(--orange-dark); }
 
-/* --- Newsletter --- */
-.sb-newsletter h4 { font-size: .98rem; font-weight: 700; margin-bottom: 6px; }
-.sb-newsletter p { font-size: .83rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 12px; }
-.sb-newsletter input {
-  width: 100%; padding: 10px 14px; border: 1.5px solid #dde1e8; border-radius: var(--radius-sm);
-  font-size: .88rem; margin-bottom: 8px; outline: none; transition: border var(--transition);
+/* Radial glow behind hero */
+.hero-image::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 500px;
+  background: radial-gradient(ellipse, rgba(66, 126, 136, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
-.sb-newsletter input:focus { border-color: var(--teal); }
-.sb-newsletter button {
-  width: 100%; padding: 10px; background: var(--teal); color: #fff; border-radius: var(--radius-sm);
-  font-weight: 600; font-size: .88rem; transition: background var(--transition);
-}
-.sb-newsletter button:hover { background: var(--teal-dark); }
-.sb-newsletter .fine { font-size: .72rem; color: var(--text-light); margin-top: 6px; }
 
-/* --- Book Ad --- */
-.sb-book { text-align: center; }
-.sb-book .book-img {
-  width: 120px; height: 160px; margin: 0 auto 14px; border-radius: 4px;
-  display: flex; align-items: center; justify-content: center; font-size: 3rem;
-  background: linear-gradient(135deg, var(--warm-bg-alt), var(--warm-bg));
-  box-shadow: 3px 3px 12px rgba(0,0,0,.12);
+/* --- VARIANT: Teal Gradient Hero (griever/loss pages) --- */
+.hero-gradient-teal {
+  background: linear-gradient(155deg, rgba(58, 117, 128, 0.92), rgba(91, 163, 175, 0.88)),
+              var(--hero-bg, none) center/cover no-repeat;
+  color: #fff;
 }
-.sb-book h4 { font-size: .92rem; font-weight: 700; margin-bottom: 4px; }
-.sb-book p { font-size: .8rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 12px; }
-.sb-book .sb-btn {
-  display: inline-block; padding: 9px 20px; background: var(--orange); color: #fff;
-  border-radius: var(--radius-sm); font-weight: 600; font-size: .82rem; transition: all var(--transition);
-}
-.sb-book .sb-btn:hover { background: var(--orange-dark); }
-.sb-book .bestseller { font-size: .72rem; color: var(--orange); font-weight: 700; margin-top: 8px; }
 
-/* --- Trending Posts --- */
-.sb-trending h4 {
-  font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
-  color: var(--text-light); margin-bottom: 14px;
+.hero-gradient-teal h1 {
+  color: #fff;
 }
-.trending-item { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f0f2f5; align-items: center; }
-.trending-item:last-child { border-bottom: none; }
-.trending-num {
-  font-size: 1.4rem; font-weight: 800; color: var(--teal-pale); flex-shrink: 0; width: 28px; text-align: center;
-}
-.trending-item h5 { font-size: .85rem; font-weight: 600; line-height: 1.35; }
-.trending-item h5:hover { color: var(--teal); }
-.trending-item .tmeta { font-size: .72rem; color: var(--text-light); margin-top: 2px; }
 
-/* ========================================
-   FOOTER
-   ======================================== */
-footer { background: var(--teal-dark); color: rgba(255,255,255,.85); padding: 60px 0 0; }
-.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
-.footer-brand p { font-size: .88rem; line-height: 1.6; margin-top: 10px; opacity: .7; }
-footer h5 { font-weight: 700; margin-bottom: 12px; color: #fff; font-size: .9rem; }
-.footer-links { list-style: none; }
-.footer-links li { margin-bottom: 8px; }
-.footer-links a { font-size: .85rem; opacity: .7; transition: opacity var(--transition); }
-.footer-links a:hover { opacity: 1; }
-.crisis-bar { background: rgba(0,0,0,.15); text-align: center; padding: 16px 20px; font-size: .82rem; line-height: 1.6; border-radius: var(--radius-sm); margin-bottom: 24px; }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding: 20px 0; display: flex; justify-content: space-between; font-size: .78rem; opacity: .6; flex-wrap: wrap; gap: 8px; }
-.footer-bottom a { color: rgba(255,255,255,.8); }
-
-/* ========================================
-   ANIMATIONS
-   ======================================== */
-.fade-in { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
-
-/* ========================================
-   RESPONSIVE
-   ======================================== */
-@media (max-width: 960px) {
-  .article-layout { grid-template-columns: 1fr; gap: 40px; }
-  .sidebar { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .inner-nav { display: none; }
-  .related-grid { grid-template-columns: 1fr 1fr; }
+.hero-gradient-teal h1 .accent {
+  color: rgba(255, 255, 255, 0.85);
 }
-@media (max-width: 600px) {
-  .article-title { font-size: 1.7rem; }
-  .article-hero-img { height: 220px; font-size: 3.5rem; }
-  .sidebar { grid-template-columns: 1fr; }
-  .related-grid { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr; }
-  .utility-bar { display: none; }
-  .author-bio { flex-direction: column; }
+
+.hero-gradient-teal p {
+  color: rgba(255, 255, 255, 0.85);
 }
+
+.hero-gradient-teal .hero-badge {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+/* --- VARIANT: Orange Gradient Hero (certification pages) --- */
+.hero-gradient-orange {
+  background: linear-gradient(155deg, rgba(208, 106, 30, 0.9), rgba(232, 148, 80, 0.88)),
+              var(--hero-bg, none) center/cover no-repeat;
+  color: #fff;
+}
+
+.hero-gradient-orange h1 {
+  color: #fff;
+}
+
+.hero-gradient-orange h1 .accent {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-gradient-orange p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-gradient-orange .hero-badge {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+/* --- VARIANT: Dark Hero (about/neutral pages) --- */
+.hero-dark {
+  background: linear-gradient(to right, rgba(26, 26, 26, 0.93), rgba(26, 26, 26, 0.88)),
+              var(--hero-bg, none) center/cover no-repeat;
+  color: #fff;
+}
+
+.hero-dark h1 {
+  color: #fff;
+}
+
+.hero-dark p {
+  color: #999;
+}
+
+.hero-dark .hero-badge {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* ============================================================
+   9. TWO DOORS (homepage routing)
+   ============================================================ */
+.two-doors {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 40px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.8s forwards;
+}
+
+.door {
+  border-radius: var(--radius-xl);
+  padding: 52px 40px;
+  text-align: center;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer effect on doors */
+.door::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  right: 0;
+  bottom: 0;
+  width: 200%;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.1) 45%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.1) 55%, transparent 60%);
+  transition: transform 0.8s var(--ease);
+  pointer-events: none;
+}
+
+.door:hover::before {
+  transform: translateX(60%);
+}
+
+.door:hover {
+  transform: translateY(-6px);
+}
+
+.door-griever {
+  background: linear-gradient(155deg, rgba(58, 117, 128, 0.92), rgba(91, 163, 175, 0.88)),
+              var(--door-bg, none) center/cover no-repeat;
+  color: #fff;
+}
+
+.door-griever:hover {
+  box-shadow: 0 20px 60px rgba(66, 126, 136, 0.25);
+}
+
+.door-professional {
+  background: linear-gradient(155deg, rgba(208, 106, 30, 0.9), rgba(232, 148, 80, 0.88)),
+              var(--door-bg, none) center/cover no-repeat;
+  color: #fff;
+}
+
+.door-professional:hover {
+  box-shadow: 0 20px 60px rgba(224, 117, 37, 0.25);
+}
+
+.door-icon {
+  font-size: 44px;
+  margin-bottom: 22px;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+.door h2 {
+  font-family: var(--serif);
+  font-size: 27px;
+  margin-bottom: 14px;
+  font-weight: 700;
+  color: inherit;
+}
+
+.door p {
+  font-size: 16px;
+  opacity: 0.9;
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+
+.door-links {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.door-links a {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.door-links a:hover {
+  color: #fff;
+  letter-spacing: 0.3px;
+}
+
+
+/* ============================================================
+   10. TRUST BAR (with teal underline accents)
+   ============================================================ */
+.trust-bar {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  padding: 70px 40px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.trust-item {
+  text-align: center;
+}
+
+.trust-number {
+  font-family: var(--serif);
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--dark);
+  position: relative;
+}
+
+/* Teal underline accent */
+.trust-number::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 3px;
+  background: var(--teal);
+  border-radius: 2px;
+  margin: 10px auto 0;
+  opacity: 0.4;
+}
+
+.trust-label {
+  font-size: 14px;
+  color: var(--faint);
+  margin-top: 8px;
+  letter-spacing: 0.3px;
+}
+
+
+/* ============================================================
+   11. PHOTO STRIP (4-column grid with hover captions)
+   ============================================================ */
+.photo-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.photo-strip-item {
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s var(--ease);
+}
+
+.photo-strip-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26, 26, 26, 0.4), transparent 60%);
+  transition: opacity 0.4s;
+}
+
+.photo-strip-item:hover {
+  transform: scale(1.02);
+}
+
+.photo-strip-item:hover::after {
+  opacity: 0.6;
+}
+
+.photo-strip-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.4s var(--ease);
+}
+
+.photo-strip-item:hover .photo-strip-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ============================================================
+   12. TESTIMONIAL SECTION
+   ============================================================ */
+.testimonial-section {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 90px 40px;
+  text-align: center;
+  position: relative;
+}
+
+/* Large decorative quotation mark */
+.testimonial-section::before {
+  content: "\201C";
+  font-family: var(--serif);
+  font-size: 160px;
+  color: var(--teal);
+  opacity: 0.06;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.testimonial-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: 0 auto 24px;
+  background: linear-gradient(135deg, var(--teal), var(--teal-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 24px;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(66, 126, 136, 0.2);
+}
+
+.testimonial-quote {
+  font-family: var(--serif);
+  font-size: 26px;
+  line-height: 1.6;
+  color: var(--dark);
+  font-style: italic;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.testimonial-author {
+  font-size: 15px;
+  color: var(--faint);
+}
+
+.testimonial-author strong {
+  color: #555;
+}
+
+
+/* ============================================================
+   13. SOCIAL PROOF / MEDIA LOGOS BAR
+   ============================================================ */
+.social-proof {
+  background: var(--white);
+  padding: 56px 40px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.featured-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #bbb;
+  margin-bottom: 28px;
+  font-weight: 600;
+}
+
+.media-logos {
+  display: flex;
+  justify-content: center;
+  gap: 56px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.media-logos span {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--body);
+  opacity: 0.2;
+  letter-spacing: 2px;
+  transition: opacity 0.3s;
+}
+
+.media-logos span:hover {
+  opacity: 0.5;
+}
+
+
+/* ============================================================
+   14. CTA SECTIONS
+   ============================================================ */
+
+/* --- Dark CTA with gradient orbs --- */
+.final-cta {
+  background: linear-gradient(to right, rgba(26, 26, 26, 0.93), rgba(26, 26, 26, 0.88)),
+              var(--cta-bg, none) center/cover no-repeat;
+  padding: 100px 40px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradient orb — top left */
+.final-cta::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(66, 126, 136, 0.12), transparent 70%);
+  pointer-events: none;
+}
+
+/* Gradient orb — bottom right */
+.final-cta::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(224, 117, 37, 0.1), transparent 70%);
+  pointer-events: none;
+}
+
+.final-cta > * {
+  position: relative;
+  z-index: 1;
+}
+
+.final-cta h2 {
+  font-family: var(--serif);
+  font-size: 40px;
+  margin-bottom: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.final-cta h2 .accent {
+  color: var(--orange);
+}
+
+.final-cta p {
+  font-size: 18px;
+  color: #999;
+  margin-bottom: 40px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.final-cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* --- Image Overlay CTA Variant --- */
+.cta-image-overlay {
+  background-size: cover;
+  background-position: center;
+}
+
+.cta-image-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(26, 26, 26, 0.88), rgba(26, 26, 26, 0.82));
+  z-index: 0;
+}
+
+
+/* ============================================================
+   15. PREMIUM FOOTER (4-column grid)
+   ============================================================ */
+footer {
+  padding: 56px 40px 40px;
+  border-top: 1px solid var(--border);
+}
+
+.footer-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  text-align: left;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+
+.footer-brand {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--body);
+  margin-bottom: 10px;
+}
+
+.footer-brand span {
+  color: var(--teal);
+}
+
+.footer-desc {
+  font-size: 14px;
+  color: var(--faint);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.footer-stats {
+  font-size: 13px;
+  color: #bbb;
+}
+
+.footer-col-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--faint);
+  margin-bottom: 14px;
+}
+
+.footer-link {
+  display: block;
+  font-size: 14px;
+  color: var(--muted);
+  padding: 5px 0;
+  text-decoration: none;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.footer-link:hover {
+  color: var(--body);
+  transform: translateX(2px);
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.footer-crisis {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #bbb;
+}
+
+
+/* ============================================================
+   16. ANIMATION SYSTEM
+   ============================================================ */
+
+/* --- Keyframes --- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Scroll Reveal (triggered by IntersectionObserver in JS) --- */
+.reveal { opacity: 1 !important; transform: none !important; }
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Stagger Children --- */
+.reveal-stagger > * { opacity: 1 !important; transform: none !important; }
+
+.reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: none; }
+.reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: none; }
+.reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.25s; opacity: 1; transform: none; }
+.reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.35s; opacity: 1; transform: none; }
+.reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.45s; opacity: 1; transform: none; }
+.reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.55s; opacity: 1; transform: none; }
+
+/* --- Prefers Reduced Motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal,
+  .reveal-stagger > * {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero-badge,
+  .hero h1,
+  .hero p,
+  .two-doors {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+
+/* ============================================================
+   17. RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* --- Tablet & Small Laptops (768px) --- */
+@media (max-width: 768px) {
+
+  /* Header */
+  header {
+    position: relative;
+    padding: 12px 16px;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    gap: 12px;
+    z-index: 99;
+  }
+
+  nav.nav-open {
+    display: flex;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .nav-cta {
+    text-align: center;
+  }
+
+  /* Mega Nav — stack on mobile */
+  .mega-dropdown,
+  .mega-wide {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    padding: 0 0 0 16px;
+    min-width: auto;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    animation: none;
+  }
+
+  .mega-3col {
+    grid-template-columns: 1fr;
+    min-width: auto;
+  }
+
+  .mega-wide {
+    grid-template-columns: 1fr;
+    min-width: auto;
+  }
+
+  .nav-item:hover .mega-dropdown,
+  .nav-item:hover .mega-wide {
+    display: block;
+  }
+
+  .mega-dropdown::before {
+    display: none;
+  }
+
+  .nav-item > a::after {
+    display: none;
+  }
+
+  .mega-dropdown-title {
+    font-size: 10px;
+    margin-top: 10px;
+  }
+
+  .mega-link {
+    padding: 6px 0;
+    font-size: 13px;
+  }
+
+  .mega-link-desc {
+    display: none;
+  }
+
+  /* Utility Bar */
+  .utility-bar {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 60px 20px 40px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero p {
+    font-size: 17px;
+  }
+
+  /* Two Doors */
+  .two-doors {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+    gap: 20px;
+  }
+
+  .door {
+    padding: 36px 28px;
+  }
+
+  .door h2 {
+    font-size: 24px;
+  }
+
+  /* Trust Bar */
+  .trust-bar {
+    flex-wrap: wrap;
+    gap: 28px;
+    padding: 50px 20px;
+  }
+
+  .trust-number {
+    font-size: 32px;
+  }
+
+  /* Cards */
+  .card-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .card-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Section Primitives */
+  .section-title {
+    font-size: 30px;
+  }
+
+  .container,
+  .container-narrow,
+  .container-wide {
+    padding: 0 20px;
+  }
+
+  .section-padding {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  /* Photo Strip */
+  .photo-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .photo-strip-item {
+    height: 200px;
+  }
+
+  /* Social Proof */
+  .social-proof {
+    padding: 40px 20px;
+  }
+
+  .media-logos {
+    gap: 24px;
+  }
+
+  /* Testimonial */
+  .testimonial-section {
+    padding: 60px 20px;
+  }
+
+  .testimonial-quote {
+    font-size: 21px;
+  }
+
+  /* CTA */
+  .final-cta {
+    padding: 60px 20px;
+  }
+
+  .final-cta h2 {
+    font-size: 30px;
+  }
+
+  .final-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  footer {
+    padding: 40px 20px 30px;
+  }
+}
+
+/* --- Mobile (480px) --- */
+@media (max-width: 480px) {
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-strip-item {
+    height: 180px;
+  }
+
+  .trust-bar {
+    gap: 20px;
+  }
+
+  .trust-number {
+    font-size: 28px;
+  }
+
+  .door {
+    padding: 32px 20px;
+  }
+
+  .door h2 {
+    font-size: 22px;
+  }
+
+  .btn-primary {
+    padding: 14px 28px;
+    font-size: 15px;
+    width: 100%;
+  }
+}
+
+</style>
+<style>
+  .breadcrumb { padding: 20px 40px; font-size: 14px; color: var(--faint); max-width: 1100px; margin: 0 auto; }
+  .breadcrumb a { color: #777; text-decoration: none; transition: color 0.2s; }
+  .breadcrumb a:hover { color: var(--teal); }
+  .breadcrumb span { color: #bbb; margin: 0 6px; }
+  .article-layout { max-width: 1100px; margin: 0 auto; padding: 0 40px 60px; display: grid; grid-template-columns: 1fr 340px; gap: 48px; align-items: start; }
+  .article-badge { display: inline-block; background: var(--orange); color: #fff; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 20px; }
+  .article-content h1 { font-family: var(--serif); font-size: 38px; font-weight: 700; line-height: 1.25; color: var(--dark); margin-bottom: 24px; }
+  .article-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 36px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+  .author-avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--teal); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; flex-shrink: 0; }
+  .meta-details { font-size: 14px; color: #777; line-height: 1.5; }
+  .meta-details strong { color: var(--dark); font-weight: 600; }
+  .meta-details .meta-dot { margin: 0 8px; color: #ccc; }
+  .article-body p { font-size: 16px; color: #444; line-height: 1.8; margin-bottom: 20px; }
+  .article-body h2 { font-family: var(--serif); font-size: 26px; font-weight: 700; color: var(--dark); margin-top: 40px; margin-bottom: 16px; }
+  .article-body ul { margin: 16px 0 24px 24px; }
+  .article-body ul li { font-size: 16px; color: #444; line-height: 1.8; margin-bottom: 8px; }
+  .pull-quote { border-left: 4px solid var(--teal); padding: 20px 24px; margin: 32px 0; background: var(--white); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+  .pull-quote p { font-family: var(--serif); font-size: 20px; font-style: italic; color: var(--dark); line-height: 1.6; margin-bottom: 0; }
+  .mid-article-cta { background: linear-gradient(135deg, var(--teal) 0%, #5a9ba6 100%); border-radius: var(--radius-lg); padding: 32px; margin: 36px 0; text-align: center; color: #fff; }
+  .mid-article-cta h3 { font-family: var(--serif); font-size: 22px; font-weight: 700; margin-bottom: 8px; color: #fff; }
+  .mid-article-cta p { font-size: 15px; color: rgba(255,255,255,0.9); margin-bottom: 16px; line-height: 1.5; }
+  .share-row { display: flex; align-items: center; gap: 12px; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border); }
+  .share-row span { font-size: 14px; font-weight: 600; color: #555; }
+  .share-btn { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--white); color: #555; font-size: 16px; text-decoration: none; transition: all 0.2s var(--ease); cursor: pointer; }
+  .share-btn:hover { border-color: var(--teal); color: var(--teal); }
+  .sidebar-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; margin-bottom: 24px; }
+  .sidebar-card-title { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--dark); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--border); }
+  .sidebar-specialist { background: linear-gradient(135deg, var(--teal) 0%, #5a9ba6 100%); border: none; color: #fff; text-align: center; }
+  .sidebar-specialist h3 { font-family: var(--serif); font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #fff; }
+  .sidebar-specialist p { font-size: 14px; opacity: 0.9; line-height: 1.6; margin-bottom: 16px; }
+  .sidebar-training { background: linear-gradient(135deg, var(--orange) 0%, #e8934d 100%); border: none; color: #fff; }
+  .sidebar-training h3 { font-family: var(--serif); font-size: 18px; font-weight: 700; margin-bottom: 16px; color: #fff; }
+  .training-item { display: flex; gap: 12px; align-items: center; padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.2); }
+  .training-item:first-of-type { border-top: none; }
+  .training-date-sm { background: rgba(255,255,255,0.2); border-radius: var(--radius-sm); padding: 8px 10px; text-align: center; flex-shrink: 0; min-width: 52px; }
+  .training-date-sm .t-month { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  .training-date-sm .t-day { font-size: 18px; font-weight: 700; line-height: 1.1; }
+  .training-detail { flex: 1; }
+  .training-detail-title { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+  .training-detail-meta { font-size: 12px; opacity: 0.85; }
+  .training-spots { font-size: 11px; font-weight: 600; opacity: 0.9; }
+  .sidebar-training .btn-view-all { display: block; text-align: center; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: #fff; padding: 10px 16px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 600; text-decoration: none; margin-top: 16px; transition: background 0.2s; }
+  .sidebar-training .btn-view-all:hover { background: rgba(255,255,255,0.3); }
+  .popular-list { list-style: none; }
+  .popular-list li { padding: 10px 0; border-bottom: 1px solid #f0ebe4; }
+  .popular-list li:last-child { border-bottom: none; }
+  .popular-list li a { font-size: 14px; color: var(--dark); text-decoration: none; font-weight: 500; line-height: 1.5; display: block; transition: color 0.2s; }
+  .popular-list li a:hover { color: var(--teal); }
+  .category-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .category-tag { background: #f0ebe4; color: #7a6f63; font-size: 13px; font-weight: 500; padding: 6px 14px; border-radius: var(--radius-pill); text-decoration: none; transition: all 0.2s; }
+  .category-tag:hover { background: var(--teal); color: #fff; }
+  .related-section { padding: 60px 40px; background: var(--white); border-top: 1px solid var(--border); }
+  .related-title { font-family: var(--serif); font-size: 28px; font-weight: 700; color: var(--dark); margin-bottom: 32px; text-align: center; }
+  .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1100px; margin: 0 auto; }
+  .related-card { background: var(--bg); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border); transition: all 0.3s var(--ease); }
+  .related-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
+  .related-card-header { height: 140px; display: flex; align-items: center; justify-content: center; }
+  .related-card-header-icon { font-size: 36px; opacity: 0.3; }
+  .related-card-body { padding: 24px; }
+  .related-card-category { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--orange); margin-bottom: 8px; }
+  .related-card-body h3 { font-family: var(--serif); font-size: 18px; font-weight: 700; line-height: 1.35; margin-bottom: 12px; }
+  .related-card-body h3 a { color: var(--dark); text-decoration: none; }
+  .related-card-body h3 a:hover { color: var(--teal); }
+  .related-card-author { font-size: 13px; color: var(--faint); }
+  .related-card-author strong { color: #555; }
+  .newsletter-cta { background: linear-gradient(155deg, rgba(58,117,128,0.92), rgba(91,163,175,0.88)); color: #fff; text-align: center; padding: 70px 40px; }
+  .newsletter-cta h2 { font-family: var(--serif); font-size: 34px; font-weight: 700; margin-bottom: 12px; color: #fff; }
+  .newsletter-cta p { font-size: 17px; opacity: 0.9; line-height: 1.6; max-width: 500px; margin: 0 auto 28px; }
+  .subscribe-form { max-width: 480px; margin: 0 auto; display: flex; background: #fff; border-radius: var(--radius-md); overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.12); }
+  .subscribe-form input { flex: 1; border: none; padding: 14px 20px; font-size: 15px; font-family: var(--sans); color: var(--body); outline: none; }
+  .subscribe-form input::placeholder { color: #aaa; }
+  .subscribe-form button { background: var(--orange); color: #fff; border: none; padding: 14px 28px; font-size: 15px; font-weight: 600; font-family: var(--sans); cursor: pointer; transition: background 0.2s; white-space: nowrap; }
+  .subscribe-form button:hover { background: var(--orange-hover); }
+  .newsletter-disclaimer { font-size: 12px; opacity: 0.7; margin-top: 12px; }
+  @media (max-width: 900px) { .article-layout { grid-template-columns: 1fr; padding: 0 20px 40px; } .sidebar { order: 2; } .related-grid { grid-template-columns: 1fr; } .article-content h1 { font-size: 30px; } }
+  @media (max-width: 600px) { .breadcrumb { padding: 16px 20px; } .article-content h1 { font-size: 26px; } .article-body h2 { font-size: 22px; } .subscribe-form { flex-direction: column; } .related-section { padding: 40px 20px; } }
 </style>
 </head>
 <body>
 
-<!-- ======================= UTILITY BAR ======================= -->
-<div class="utility-bar">
-  <div class="container">
-    <div class="utility-left">
-      <a href="tel:18009939999">&#9742; 1-800-993-9999</a>
-      <span>|</span>
-      <a href="#">English &#9662;</a>
-    </div>
-    <div class="utility-right">
-      <a href="#">Specialist Login</a>
-      <a href="#">Contact Us</a>
-    </div>
-  </div>
-</div>
+<div class="utility-bar"><div><a href="tel:800-334-7606">800-334-7606</a> &nbsp;|&nbsp; <a href="#">Crisis Resources</a></div><div><a href="#">Login</a></div></div>
 
-<!-- ======================= HEADER ======================= -->
-<header class="header">
-  <div class="container">
-    <a href="TGRM_Homepage_V2.html" class="logo">
-      <div class="logo-icon">GR</div>
-      <div class="logo-text">
-        <div class="brand">The Grief Recovery Method&reg;</div>
-        <div class="sub">Grief Recovery Institute&reg;</div>
-      </div>
-    </a>
-    <nav class="inner-nav">
-      <a href="TGRM_Homepage_V2.html">Home</a>
-      <a href="TGRM_Directory.html">Find a Specialist</a>
-      <a href="TGRM_Certification.html">Certification</a>
-      <a href="#">About</a>
-      <a href="TGRM_Blog.html" class="active">Blog</a>
-    </nav>
-    <div class="nav-cta-group">
-      <a href="TGRM_Directory.html" class="btn-outline-sm">Find a Specialist</a>
-      <a href="TGRM_Certification.html" class="btn-primary-sm">Get Certified</a>
-    </div>
-  </div>
+<header id="header">
+  <div class="logo"><a href="TGRM_Homepage_Premium_POC.html" style="text-decoration:none;color:inherit;">The Grief Recovery <span>Method</span>&reg;</a></div>
+  <nav>
+    <div class="nav-item"><a href="TGRM_GetHelp_Hub.html">Get Help</a><div class="mega-dropdown mega-3col"><div><div class="mega-dropdown-title">Find Support</div><a href="TGRM_Directory.html" class="mega-link">Find a Specialist Near You<div class="mega-link-desc">3,000+ certified specialists worldwide</div></a><a href="TGRM_Quiz.html" class="mega-link">What Type of Griever Are You?<div class="mega-link-desc">Free 2-minute assessment</div></a><a href="https://programs.griefrecoverymethod.com/online-course" class="mega-link" target="_blank">Free Online Course<div class="mega-link-desc">Video lessons with Cole James — free</div></a><a href="TGRM_Free_Resources.html" class="mega-link">Free Grief Recovery Guides<div class="mega-link-desc">7 free ebooks — instant download</div></a><a href="TGRM_Handbook.html" class="mega-link">Get the Handbook<div class="mega-link-desc">1M+ copies sold</div></a></div><div><div class="mega-dropdown-title">Explore by Loss Type</div><a href="TGRM_Loss_Child.html" class="mega-loss-link">Death of a Child</a><a href="TGRM_Loss_Spouse.html" class="mega-loss-link">Death of a Spouse or Partner</a><a href="TGRM_Loss_Parent.html" class="mega-loss-link">Death of a Parent</a><a href="TGRM_Loss_Suicide.html" class="mega-loss-link">Losing Someone to Suicide</a><a href="TGRM_Loss_Death.html" class="mega-loss-link">Death of a Friend or Loved One</a><a href="TGRM_Loss_Divorce.html" class="mega-loss-link">Divorce &amp; Relationship Loss</a><a href="TGRM_Loss_Pet.html" class="mega-loss-link">Pet Loss</a><a href="TGRM_Loss_Job.html" class="mega-loss-link">Job &amp; Career Loss</a><a href="TGRM_Loss_Health.html" class="mega-loss-link">Health Crisis &amp; Chronic Illness</a><a href="TGRM_Loss_Estrangement.html" class="mega-loss-link">Estrangement &amp; Family Cutoff</a><a href="TGRM_Loss_Miscarriage.html" class="mega-loss-link">Miscarriage &amp; Pregnancy Loss</a></div><div><div class="mega-dropdown-title">Popular Topics</div><a href="TGRM_Blog_Post.html" class="mega-loss-link">Myths About Grief</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">What Not to Say to a Griever</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">Grief vs. Depression</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">Helping Children with Grief</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">Grief at Work</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">When Holidays Hurt</a></div></div></div>
+    <div class="nav-item"><a href="TGRM_GetCertified_Hub.html">Get Certified</a><div class="mega-dropdown mega-3col"><div><div class="mega-dropdown-title">Training Programs</div><a href="TGRM_GetCertified_Hub.html#pricing" class="mega-link">Foundational Certification<div class="mega-link-desc">$2,495 &middot; 4-day live training</div></a><a href="TGRM_GetCertified_Hub.html#pricing" class="mega-link">Advanced Certification<div class="mega-link-desc">$3,995 &middot; 50 hours total</div></a><a href="TGRM_GetCertified_Hub.html#pricing" class="mega-link">Premium In-Person<div class="mega-link-desc">$4,995 &middot; Small group intensive</div></a><a href="TGRM_GetCertified_Hub.html" class="mega-link">Private / B2B Training<div class="mega-link-desc">Custom training for organizations</div></a></div><div><div class="mega-dropdown-title">Is It Right for You?</div><a href="TGRM_Cert_Grievers.html" class="mega-loss-link">Grievers with a Passion to Help</a><a href="TGRM_Cert_Therapists.html" class="mega-loss-link">Therapists &amp; Counselors</a><a href="TGRM_Cert_Coaches.html" class="mega-loss-link">Life &amp; Wellness Coaches</a><a href="TGRM_Cert_Military.html" class="mega-loss-link">Military &amp; Veterans</a><a href="TGRM_Cert_Healthcare.html" class="mega-loss-link">Healthcare &amp; Hospice</a><a href="TGRM_Cert_Faith.html" class="mega-loss-link">Faith Leaders &amp; Communities</a></div><div><div class="mega-dropdown-title">Resources</div><a href="TGRM_GetCertified_Hub.html" class="mega-loss-link">Upcoming Training Dates</a><a href="TGRM_FAQ.html" class="mega-loss-link">Certification FAQ</a><a href="TGRM_GetCertified_Hub.html" class="mega-loss-link">Payment Plans Available</a><a href="TGRM_GetCertified_Hub.html" class="mega-loss-link">Have Questions? Let's Talk</a></div></div></div>
+    <a href="TGRM_Directory.html">Find a Specialist</a>
+    <div class="nav-item"><a href="TGRM_About.html">About</a><div class="mega-dropdown mega-wide"><div><div class="mega-dropdown-title">The Method</div><a href="TGRM_About.html" class="mega-link">How The Method Works<div class="mega-link-desc">Action-based grief recovery in 3 steps</div></a><a href="TGRM_About.html" class="mega-link">45+ Years of Research<div class="mega-link-desc">Evidence-based, peer-reviewed</div></a><a href="TGRM_Handbook.html" class="mega-link">The Grief Recovery Handbook<div class="mega-link-desc">1M+ copies, 14 languages</div></a></div><div><div class="mega-dropdown-title">Our Team</div><a href="TGRM_About.html" class="mega-loss-link">John W. James, Founder</a><a href="TGRM_About.html" class="mega-loss-link">Leadership Team</a><a href="TGRM_About.html" class="mega-loss-link">Our Trainers</a></div></div></div>
+    <div class="nav-item"><a href="TGRM_Resources.html">Resources</a><div class="mega-dropdown mega-3col"><div><div class="mega-dropdown-title">Content</div><a href="TGRM_Blog.html" class="mega-link">Blog<div class="mega-link-desc">Expert insights on grief recovery</div></a><a href="TGRM_Podcast.html" class="mega-link">Feel Free Again Podcast<div class="mega-link-desc">New episodes biweekly</div></a><a href="#" class="mega-loss-link">YouTube Channel</a><a href="TGRM_Free_Resources.html" class="mega-loss-link">Free Grief Recovery Guides</a></div><div><div class="mega-dropdown-title">Books</div><a href="TGRM_Handbook.html" class="mega-link">The Grief Recovery Handbook<div class="mega-link-desc">The definitive guide</div></a><a href="TGRM_Handbook.html" class="mega-loss-link">When Children Grieve</a><a href="TGRM_Handbook.html" class="mega-loss-link">The Pet Loss Handbook</a><a href="TGRM_Handbook.html" class="mega-loss-link">Moving On / Moving Beyond</a></div><div><div class="mega-dropdown-title">Popular Topics</div><a href="TGRM_Blog_Post.html" class="mega-loss-link">Myths About Grief</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">What Not to Say to a Griever</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">Grief vs. Depression</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">When Holidays Hurt</a></div></div></div>
+    <a href="TGRM_Quiz.html" class="nav-cta">Take the Free Quiz</a>
+  </nav>
+  <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
 </header>
 
-<!-- ======================= BREADCRUMB ======================= -->
-<div class="breadcrumb">
-  <div class="container">
-    <a href="TGRM_Homepage_V2.html">Home</a> &nbsp;&rsaquo;&nbsp;
-    <a href="TGRM_Blog.html">Blog</a> &nbsp;&rsaquo;&nbsp;
-    <a href="#">Myths &amp; Misconceptions</a> &nbsp;&rsaquo;&nbsp;
-    <strong>The &ldquo;5 Stages of Grief&rdquo;</strong>
+<!-- Breadcrumb -->
+<div class="breadcrumb"><a href="TGRM_Homepage_Premium_POC.html">Home</a><span>&rsaquo;</span><a href="TGRM_Blog.html">Blog</a><span>&rsaquo;</span><a href="#">Grief &amp; Loss</a><span>&rsaquo;</span>Letting Go of Stuff After a Loss</div>
+
+<!-- Article Layout -->
+<div class="article-layout">
+  <div class="article-content reveal">
+    <span class="article-badge">Grief &amp; Loss</span>
+    <h1>Letting Go of Stuff After a Loss: Why It's So Hard and What Really Helps</h1>
+    <div class="article-meta">
+      <div class="author-avatar">AH</div>
+      <div class="meta-details"><strong>Allison James Henry</strong><span class="meta-dot">&middot;</span>February 15, 2024<span class="meta-dot">&middot;</span>6 min read</div>
+    </div>
+    <div class="article-body">
+      <p>When someone we love dies, their belongings take on an almost sacred quality. A worn sweater still carrying their scent. A coffee mug with a faded lipstick stain. A stack of old letters tied with ribbon. These objects become emotional anchors, tethering us to someone we desperately don't want to let go of.</p>
+      <p>But at some point, we're faced with the question: What do I do with all of this stuff? And behind that practical question lies a much deeper one: If I let go of their things, am I letting go of them?</p>
+      <p>The answer, as anyone who has walked through the Grief Recovery Method knows, is no. But getting to that understanding takes more than logic. It takes action.</p>
+      <h2>Why We Hold On</h2>
+      <p>Holding onto a loved one's belongings is one of the most natural responses to loss. These items represent tangible proof that someone existed, that they mattered, that the relationship was real. In a world where everything else about that person is now a memory, physical objects feel like the last remaining connection.</p>
+      <p>There are several common reasons people struggle to let go of possessions after a loss:</p>
+      <ul>
+        <li><strong>Guilt:</strong> "If I give away their things, I'm erasing them." This is one of the most powerful myths about grief, and it keeps people stuck for years.</li>
+        <li><strong>Fear:</strong> "What if I regret it later?" The fear of making an irreversible decision during an already overwhelming time can be paralyzing.</li>
+        <li><strong>Obligation:</strong> "Other people expect me to keep these things." Family pressure, cultural expectations, and social norms can make the process even harder.</li>
+        <li><strong>Comfort:</strong> "Being surrounded by their things makes me feel close to them." While this is understandable, it can also prevent emotional completion.</li>
+      </ul>
+      <div class="pull-quote"><p>"Grief is the normal and natural reaction to loss. It is the conflicting feelings caused by the end of or change in a familiar pattern of behavior."</p></div>
+      <p>None of these reasons are wrong. They're deeply human. But when holding onto objects becomes a way of avoiding the emotional work of grief, it can keep us trapped in pain rather than moving toward recovery.</p>
+      <h2>The Action Steps That Help</h2>
+      <p>The Grief Recovery Method teaches that recovery is not about forgetting or "moving on." It's about completing the unfinished emotional business between you and the person you've lost. When that work is done, the objects lose their emotional charge. They become what they always were: objects. Beautiful, meaningful objects, perhaps, but no longer the only thread connecting you to someone you love.</p>
+      <p>Here's what the process looks like in practice:</p>
+      <ul>
+        <li><strong>Acknowledge the emotional attachment.</strong> Before touching a single item, take time to recognize what these belongings represent to you. This isn't about being rational. It's about being honest.</li>
+        <li><strong>Separate the relationship from the stuff.</strong> The relationship lives in your heart, in your memories, in who you became because of that person. No garage sale or donation bin can take that away.</li>
+        <li><strong>Give yourself permission to keep some things.</strong> Recovery doesn't mean getting rid of everything. It means making choices from a place of emotional completion rather than emotional pain.</li>
+        <li><strong>Don't rush.</strong> There is no timeline for this. But there is a difference between "not ready yet" and "avoiding it because it hurts." A Grief Recovery Specialist can help you tell the difference.</li>
+      </ul>
+      <div class="mid-article-cta"><h3>Need Support?</h3><p>A Certified Grief Recovery Specialist can guide you through the action steps toward emotional completion.</p><a href="TGRM_Directory.html" class="btn-primary btn-white">Find a Specialist</a></div>
+      <h2>Finding Your Way Forward</h2>
+      <p>One of the most common things we hear from people who have completed the Grief Recovery Method is this: "I didn't lose them when I let go of their things. I found a new way to carry them with me."</p>
+      <p>That shift doesn't happen by accident. It happens through the specific, structured action steps that make up the Grief Recovery Method. It happens when you complete your relationship with the pain — not the person. When you say the things that were left unsaid. When you acknowledge what you wish had been different, better, or more.</p>
+      <p>If you're staring at a closet full of someone else's clothes, or a garage full of someone else's tools, or a drawer full of someone else's jewelry, know this: you don't have to figure this out alone. And you don't have to do it today.</p>
+      <p>But when you're ready, there is a path forward. And it doesn't require you to forget a single thing about the person you love.</p>
+      <div class="share-row"><span>Share:</span><a href="#" class="share-btn" title="Share on Facebook">f</a><a href="#" class="share-btn" title="Share on Twitter">X</a><a href="#" class="share-btn" title="Share on LinkedIn">in</a><a href="#" class="share-btn" title="Copy link">&#128279;</a></div>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-card sidebar-specialist reveal"><h3>Are You Dealing with a Loss?</h3><p>Find a Certified Grief Recovery Specialist near you — in-person or online. Over 3,000 specialists in 20+ countries.</p><a href="TGRM_Directory.html" class="btn-primary btn-white">Find a Specialist</a></div>
+    <div class="sidebar-card sidebar-training reveal">
+      <h3>Become a Certified Specialist</h3>
+      <div class="training-item"><div class="training-date-sm"><div class="t-month">Apr</div><div class="t-day">14</div></div><div class="training-detail"><div class="training-detail-title">Online Certification</div><div class="training-detail-meta">Apr 14–17 &bull; Zoom &bull; CST</div><div class="training-spots">8 spots remaining</div></div></div>
+      <div class="training-item"><div class="training-date-sm"><div class="t-month">May</div><div class="t-day">19</div></div><div class="training-detail"><div class="training-detail-title">Premium In-Person</div><div class="training-detail-meta">May 19–22 &bull; Westlake Village, CA</div><div class="training-spots">3 spots left</div></div></div>
+      <div class="training-item"><div class="training-date-sm"><div class="t-month">Jun</div><div class="t-day">9</div></div><div class="training-detail"><div class="training-detail-title">Online Certification</div><div class="training-detail-meta">Jun 9–12 &bull; Zoom &bull; EST</div><div class="training-spots">20 spots remaining</div></div></div>
+      <a href="TGRM_GetCertified_Hub.html" class="btn-view-all">View All Training Dates</a>
+    </div>
+    <div class="sidebar-card reveal">
+      <div class="sidebar-card-title">Popular Articles</div>
+      <ul class="popular-list">
+        <li><a href="TGRM_Blog_Post.html">8 Best Ways to Help Someone Who Is Grieving</a></li>
+        <li><a href="TGRM_Blog_Post.html">Why 'Time Heals All Wounds' Is a Myth</a></li>
+        <li><a href="TGRM_Blog_Post.html">Over 40 Life Experiences That Can Cause Grief</a></li>
+        <li><a href="TGRM_Blog_Post.html">The Difference Between Grief and Depression</a></li>
+        <li><a href="TGRM_Blog_Post.html">What If You're Still Grieving Years Later?</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-card reveal">
+      <div class="sidebar-card-title">Categories</div>
+      <div class="category-tags"><a href="#" class="category-tag">Grief &amp; Loss</a><a href="#" class="category-tag">Self-Help</a><a href="#" class="category-tag">Relationships</a><a href="#" class="category-tag">For Professionals</a><a href="#" class="category-tag">Recovery Stories</a></div>
+    </div>
+  </aside>
+</div>
+
+<!-- Related Articles -->
+<div class="related-section reveal">
+  <div class="related-title">You Might Also Like</div>
+  <div class="related-grid">
+    <div class="related-card"><div class="related-card-header" style="background:linear-gradient(135deg,#427E88,#7895A3);"><div class="related-card-header-icon">&#128161;</div></div><div class="related-card-body"><div class="related-card-category">Self-Help</div><h3><a href="TGRM_Blog_Post.html">8 Best Ways to Help Someone Who Is Grieving</a></h3><div class="related-card-author">By <strong>James Chen</strong></div></div></div>
+    <div class="related-card"><div class="related-card-header" style="background:linear-gradient(135deg,#E07525,#f5a060);"><div class="related-card-header-icon">&#10024;</div></div><div class="related-card-body"><div class="related-card-category">Recovery Stories</div><h3><a href="TGRM_Blog_Post.html">What If You're Still Grieving Years Later?</a></h3><div class="related-card-author">By <strong>Elena Lopez</strong></div></div></div>
+    <div class="related-card"><div class="related-card-header" style="background:linear-gradient(135deg,#2d2d2d,#555);"><div class="related-card-header-icon">&#129504;</div></div><div class="related-card-body"><div class="related-card-category">Grief &amp; Loss</div><h3><a href="TGRM_Blog_Post.html">The Difference Between Grief and Depression</a></h3><div class="related-card-author">By <strong>Dr. Robert Jackson</strong></div></div></div>
   </div>
 </div>
 
-<!-- ======================= ARTICLE + SIDEBAR LAYOUT ======================= -->
-<div class="container">
-  <div class="article-layout">
-
-    <!-- =================== LEFT: ARTICLE =================== -->
-    <article class="article-main">
-
-      <!-- Hero Image -->
-      <div class="article-hero-img fade-in">
-        <span class="pillar-badge">Pillar Guide</span>
-        &#10060;&#8205;&#128218;
-      </div>
-
-      <!-- Category -->
-      <div class="article-cat">Myths &amp; Misconceptions</div>
-
-      <!-- Title -->
-      <h1 class="article-title">The &ldquo;5 Stages of Grief&rdquo;: Why They&rsquo;re Misleading and What Actually Helps</h1>
-
-      <!-- Author & Meta -->
-      <div class="article-meta">
-        <div class="author-avatar">AH</div>
-        <div>
-          <strong>Allison James Henry</strong>
-          <span class="divider">&middot;</span> Feb 20, 2026
-          <span class="divider">&middot;</span> 15 min read
-          <span class="divider">&middot;</span> Updated Mar 1, 2026
-        </div>
-      </div>
-      <div class="article-credentials">Certified Grief Recovery Specialist &bull; Senior Content Director, Grief Recovery Institute</div>
-
-      <!-- Share Bar -->
-      <div class="share-bar">
-        <span>Share:</span>
-        <a href="#" class="share-btn" title="Facebook">f</a>
-        <a href="#" class="share-btn" title="Twitter/X">&#120143;</a>
-        <a href="#" class="share-btn" title="LinkedIn">in</a>
-        <a href="#" class="share-btn" title="Email">&#9993;</a>
-        <a href="#" class="share-btn" title="Copy link">&#128279;</a>
-      </div>
-
-      <!-- Table of Contents -->
-      <nav class="toc">
-        <div class="toc-title">In This Article</div>
-        <ol>
-          <li><a href="#origin">Where the &ldquo;5 Stages&rdquo; Actually Came From</a></li>
-          <li><a href="#problem">The Problem With Applying Stages to Grief</a></li>
-          <li><a href="#research">What the Research Actually Shows</a></li>
-          <li><a href="#works">What Actually Works: Action-Based Grief Recovery</a></li>
-          <li><a href="#method">How the Grief Recovery Method Is Different</a></li>
-          <li><a href="#faq">Frequently Asked Questions</a></li>
-          <li><a href="#next">Your Next Step</a></li>
-        </ol>
-      </nav>
-
-      <!-- Article Body -->
-      <div class="article-body">
-
-        <p>If you&rsquo;ve ever experienced a loss, someone probably told you about the &ldquo;five stages of grief&rdquo; &mdash; denial, anger, bargaining, depression, and acceptance. You may have even felt pressure to move through them in order, like grief has a checklist.</p>
-
-        <p>But here&rsquo;s what most people don&rsquo;t know: <strong>the person who created those stages never intended them for grievers.</strong> And after 45+ years of working with people in grief, we can tell you that trying to fit your experience into five neat stages can actually make things worse.</p>
-
-        <h2 id="origin">Where the &ldquo;5 Stages&rdquo; Actually Came From</h2>
-
-        <p>In 1969, psychiatrist Elisabeth K&uuml;bler-Ross published <em>On Death and Dying</em>, a groundbreaking book about the emotional experiences of <strong>terminally ill patients facing their own death.</strong> Her observations described how people process the news that they are dying &mdash; not how people grieve after someone else has died.</p>
-
-        <blockquote>
-          &ldquo;The stages have evolved since their introduction, and they have been very misunderstood over the past three decades. They were never meant to help tuck messy emotions into neat packages.&rdquo;
-          <cite>&mdash; Elisabeth K&uuml;bler-Ross &amp; David Kessler, <em>On Grief and Grieving</em> (2005)</cite>
-        </blockquote>
-
-        <p>Over time, the stages were adopted by pop culture, self-help books, and even clinical settings as a universal framework for grief &mdash; despite the fact that K&uuml;bler-Ross herself cautioned against this. The result? Millions of grievers have been told their grief should look a certain way, and when it doesn&rsquo;t, they feel broken.</p>
-
-        <h2 id="problem">The Problem With Applying Stages to Grief</h2>
-
-        <p>When you tell someone that grief follows five stages, three things often happen:</p>
-
-        <ul>
-          <li><strong>They wait.</strong> People believe that if they just &ldquo;get through&rdquo; the stages, healing will come automatically. They wait for acceptance to arrive like a train on a schedule. It doesn&rsquo;t.</li>
-          <li><strong>They judge themselves.</strong> &ldquo;I should be past anger by now.&rdquo; &ldquo;Why am I back in denial?&rdquo; The stage model creates a false sense that you&rsquo;re doing grief wrong if your experience doesn&rsquo;t match the framework.</li>
-          <li><strong>They miss what actually helps.</strong> While waiting for stages to pass, people don&rsquo;t take the <a href="#">action-based steps</a> that research shows lead to real recovery.</li>
-        </ul>
-
-        <div class="callout-box">
-          <h4>&#128161; The 40+ Types of Loss Most Frameworks Miss</h4>
-          <p>Grief isn&rsquo;t just about death. Divorce, job loss, health changes, estrangement, infertility, pet loss, financial loss, and moving are all grief-producing events &mdash; and the &ldquo;stages&rdquo; model was never designed to address any of them. <a href="TGRM_Directory.html">Find a specialist</a> trained to help with all types of loss.</p>
-        </div>
-
-        <h2 id="research">What the Research Actually Shows</h2>
-
-        <p>Multiple studies over the past two decades have found that grief doesn&rsquo;t follow a predictable, linear progression. A landmark 2007 study published in the <em>Journal of the American Medical Association</em> found that while some of K&uuml;bler-Ross&rsquo;s elements appear in grief, they don&rsquo;t occur in a fixed sequence &mdash; and acceptance is often present from the very beginning, not just at the end.</p>
-
-        <h3>What researchers have found instead:</h3>
-
-        <ul>
-          <li>Grief is <strong>highly individual</strong> &mdash; there is no single &ldquo;normal&rdquo; path</li>
-          <li>Emotions in grief <strong>oscillate and overlap</strong>, often within the same day</li>
-          <li>The most effective grief interventions are <strong>action-based</strong>, not passive</li>
-          <li>Unresolved grief doesn&rsquo;t go away with time alone &mdash; it requires <strong>specific emotional work</strong></li>
-          <li><strong>Evidence-based programs</strong>, like the <a href="TGRM_Certification.html">Grief Recovery Method</a> (validated by Kent State University), show significantly better outcomes than stage-based models</li>
-        </ul>
-
-        <h2 id="works">What Actually Works: Action-Based Grief Recovery</h2>
-
-        <p>If grief doesn&rsquo;t follow stages, what does help? After working with hundreds of thousands of grievers over 45+ years, we&rsquo;ve found that grief recovery requires <strong>action</strong>, not just understanding. Specifically, it requires addressing the <em>unfinished emotional communications</em> in the relationship affected by the loss.</p>
-
-        <p>That might sound abstract, so let&rsquo;s make it concrete. Think of any significant loss in your life. Now ask yourself: Is there something you wish you had said? Something you wish had been different? Something you wish you could apologize for, thank them for, or forgive? Those unfinished emotional communications are what keep grief stuck &mdash; and they&rsquo;re exactly what the Grief Recovery Method helps you complete.</p>
-
-        <!-- Inline CTA -->
-        <div class="inline-cta">
-          <h4>Not sure where your grief stands?</h4>
-          <p>Take our free 2-minute Grief Type Quiz to understand your grief pattern and get personalized next steps.</p>
-          <a href="TGRM_Homepage_V2.html#quiz" class="btn-white">Take the Grief Quiz &rarr;</a>
-        </div>
-
-        <h2 id="method">How the Grief Recovery Method Is Different</h2>
-
-        <p>The <a href="TGRM_Certification.html">Grief Recovery Method</a> is the only evidence-based grief recovery program in the world, validated by research at Kent State University. Instead of asking grievers to identify which &ldquo;stage&rdquo; they&rsquo;re in, the method provides a structured, action-based framework that helps people:</p>
-
-        <ol>
-          <li><strong>Identify</strong> the specific losses that are causing emotional pain (including the 40+ types most frameworks miss)</li>
-          <li><strong>Examine</strong> the relationship to the loss and the unfinished emotional communications within it</li>
-          <li><strong>Take action</strong> through a guided process to complete those communications</li>
-          <li><strong>Move forward</strong> with new tools and new hope &mdash; not by &ldquo;getting over&rdquo; the loss, but by recovering from the pain</li>
-        </ol>
-
-        <p>The process can be done individually with a <a href="TGRM_Directory.html">Certified Grief Recovery Specialist</a>, in small group settings, or through guided self-study. And it works for any type of loss, not just bereavement.</p>
-
-        <!-- FAQ Section -->
-        <div class="article-faq" id="faq">
-          <h2>Frequently Asked Questions</h2>
-
-          <div class="faq-item">
-            <div class="faq-q">Are the 5 stages of grief real?</div>
-            <div class="faq-a">The 5 stages (denial, anger, bargaining, depression, acceptance) were originally described by Elisabeth K&uuml;bler-Ross in 1969 for people facing their own terminal illness &mdash; not for people grieving a loss. While some of these emotions appear in grief, research has not validated them as a universal, sequential model. Grief is far more individual and complex than any stage model suggests.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">What actually helps with grief?</div>
-            <div class="faq-a">Evidence-based approaches like the Grief Recovery Method focus on action-based steps to address unfinished emotional communication, rather than passively waiting for stages to pass. The method is validated by Kent State University research and has helped over one million people recover from grief caused by death, divorce, and 40+ other types of loss.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">How long does grief last?</div>
-            <div class="faq-a">There is no universal timeline for grief. The idea that grief should take a specific amount of time (one year, two years, etc.) is a myth. What matters isn&rsquo;t the passage of time, but whether you&rsquo;ve done the emotional work needed to complete your relationship to the pain. Some people begin to feel significant relief within weeks of starting the Grief Recovery Method program.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">Do I need a therapist to recover from grief?</div>
-            <div class="faq-a">Not necessarily. While therapy can be very helpful, the Grief Recovery Method is an educational program (not psychotherapy) that can be facilitated by certified specialists from many backgrounds &mdash; including therapists, counselors, hospice workers, coaches, and people whose own grief experience led them to certification. You can <a href="TGRM_Directory.html" style="color:var(--teal);">find a specialist</a> near you or work online.</div>
-          </div>
-        </div>
-
-        <!-- Next Step -->
-        <h2 id="next">Your Next Step</h2>
-
-        <p>If the &ldquo;5 stages&rdquo; framework hasn&rsquo;t helped you &mdash; or if you&rsquo;ve been waiting for grief to just get better with time &mdash; know that you&rsquo;re not broken. You just haven&rsquo;t been given the right tools yet. The Grief Recovery Method offers a clear, action-based path forward.</p>
-
-        <p><strong>Three ways to start:</strong></p>
-
-        <ol>
-          <li><a href="TGRM_Homepage_V2.html#quiz">Take the free Grief Type Quiz</a> to understand your grief pattern</li>
-          <li><a href="TGRM_Directory.html">Find a Certified Grief Recovery Specialist</a> in your area or online</li>
-          <li>Read <em>The Grief Recovery Handbook</em> &mdash; the foundational guide used by millions</li>
-        </ol>
-
-      </div><!-- /article-body -->
-
-      <!-- Tags -->
-      <div class="article-tags">
-        <span>Topics:</span>
-        <a href="#" class="tag-pill">5 Stages of Grief</a>
-        <a href="#" class="tag-pill">Grief Myths</a>
-        <a href="#" class="tag-pill">Evidence-Based</a>
-        <a href="#" class="tag-pill">Grief Recovery</a>
-        <a href="#" class="tag-pill">K&uuml;bler-Ross</a>
-        <a href="#" class="tag-pill">How to Heal</a>
-      </div>
-
-      <!-- Author Bio -->
-      <div class="author-bio fade-in">
-        <div class="author-bio-avatar">AH</div>
-        <div class="author-bio-info">
-          <h4>Allison James Henry</h4>
-          <div class="cred">Certified Grief Recovery Specialist &bull; Senior Content Director</div>
-          <p>Allison leads the Grief Recovery Method&rsquo;s content and education initiatives. With extensive experience in grief recovery facilitation, she translates 45+ years of evidence-based method into accessible, compassionate guidance for grievers and professionals alike.</p>
-        </div>
-      </div>
-
-      <!-- Related Posts -->
-      <div class="related-posts fade-in">
-        <h3>Related Articles You Might Find Helpful</h3>
-        <div class="related-grid">
-          <a href="#" class="related-card">
-            <div class="related-thumb" style="background:var(--teal-pale);">&#128150;</div>
-            <div class="related-body">
-              <div class="cat-tag">Grief After Death</div>
-              <h4>How Long Does Grief Last? What the Research Shows</h4>
-              <div class="meta">11 min read</div>
-            </div>
-          </a>
-          <a href="#" class="related-card">
-            <div class="related-thumb" style="background:var(--warm-bg-alt);">&#128166;</div>
-            <div class="related-body">
-              <div class="cat-tag">Education</div>
-              <h4>Grief vs. Depression: What&rsquo;s the Difference</h4>
-              <div class="meta">10 min read</div>
-            </div>
-          </a>
-          <a href="#" class="related-card">
-            <div class="related-thumb" style="background:rgba(224,117,37,.08);">&#128587;</div>
-            <div class="related-body">
-              <div class="cat-tag">Myths</div>
-              <h4>6 Things People Say About Grief That Aren&rsquo;t True</h4>
-              <div class="meta">7 min read</div>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <!-- Comments -->
-      <div class="comments-section fade-in">
-        <h3>&#128172; Join the Conversation</h3>
-        <p>Have you experienced grief that didn&rsquo;t fit the &ldquo;5 stages&rdquo;? Share your experience below &mdash; your story might help someone else feel less alone.</p>
-        <div class="comment-form">
-          <textarea placeholder="Share your thoughts or experience&hellip;" aria-label="Leave a comment"></textarea>
-          <button class="btn-submit">Post Comment</button>
-        </div>
-      </div>
-
-    </article>
-
-    <!-- =================== RIGHT: SIDEBAR =================== -->
-    <aside class="sidebar">
-
-      <!-- 1. Find a Specialist (Directory Ad) -->
-      <div class="sb-card sb-directory fade-in">
-        <div class="sb-icon">&#128269;</div>
-        <h4>Find a Grief Recovery Specialist</h4>
-        <p>Connect with a certified specialist near you &mdash; online or in-person. Trained to help with 40+ types of loss.</p>
-        <a href="TGRM_Directory.html" class="sb-btn">Search the Directory &rarr;</a>
-        <div class="sb-fine">3,000+ specialists worldwide &bull; Free to search</div>
-      </div>
-
-      <!-- 2. Upcoming Certification Dates -->
-      <div class="sb-card sb-cert fade-in">
-        <h4>&#128197; Upcoming Certification Trainings</h4>
-
-        <div class="cert-date-item">
-          <div class="cert-date-cal">
-            <span class="month">Apr</span>
-            <span class="day">14</span>
-          </div>
-          <div class="cert-date-info">
-            <h5>Foundational Certification</h5>
-            <p>Apr 14&ndash;17 &bull; Live on Zoom &bull; 9am&ndash;5pm ET</p>
-            <span class="cert-date-tag tag-online">Online</span>
-          </div>
-        </div>
-
-        <div class="cert-date-item">
-          <div class="cert-date-cal">
-            <span class="month">May</span>
-            <span class="day">5</span>
-          </div>
-          <div class="cert-date-info">
-            <h5>Foundational Certification</h5>
-            <p>May 5&ndash;8 &bull; Live on Zoom &bull; 9am&ndash;5pm PT</p>
-            <span class="cert-date-tag tag-online">Online</span>
-          </div>
-        </div>
-
-        <div class="cert-date-item">
-          <div class="cert-date-cal">
-            <span class="month">May</span>
-            <span class="day">19</span>
-          </div>
-          <div class="cert-date-info">
-            <h5>Advanced In-Person Intensive</h5>
-            <p>May 19&ndash;22 &bull; Westlake Village, CA</p>
-            <span class="cert-date-tag tag-inperson">In-Person</span>
-            <span class="cert-date-tag tag-few" style="margin-left:4px;">3 spots left</span>
-          </div>
-        </div>
-
-        <div class="cert-date-item">
-          <div class="cert-date-cal">
-            <span class="month">Jun</span>
-            <span class="day">9</span>
-          </div>
-          <div class="cert-date-info">
-            <h5>Foundational Certification</h5>
-            <p>Jun 9&ndash;12 &bull; Live on Zoom &bull; 9am&ndash;5pm ET</p>
-            <span class="cert-date-tag tag-online">Online</span>
-          </div>
-        </div>
-
-        <a href="TGRM_Training_Calendar.html" class="sb-link">View All Dates &amp; Pricing &rarr;</a>
-      </div>
-
-      <!-- 3. Grief Type Quiz -->
-      <div class="sb-card sb-quiz fade-in">
-        <div class="sb-icon">&#128300;</div>
-        <h4>What&rsquo;s Your Grief Type?</h4>
-        <p>Take our free 2-minute quiz to understand your grief pattern and get personalized next steps.</p>
-        <a href="TGRM_Homepage_V2.html#quiz" class="sb-btn">Take the Quiz &rarr;</a>
-      </div>
-
-      <!-- 4. Newsletter Signup -->
-      <div class="sb-card sb-newsletter fade-in">
-        <h4>&#128232; Weekly Recovery Insights</h4>
-        <p>Evidence-based articles &amp; recovery tools in your inbox every Tuesday.</p>
-        <input type="email" placeholder="Your email address" aria-label="Email for newsletter">
-        <button>Subscribe Free</button>
-        <div class="fine">Join 12,000+ subscribers. Unsubscribe anytime.</div>
-      </div>
-
-      <!-- 5. Book Promotion -->
-      <div class="sb-card sb-book fade-in">
-        <div class="book-img">&#128214;</div>
-        <h4>The Grief Recovery Handbook</h4>
-        <p>The foundational guide used by over a million people &mdash; now in its 20th anniversary edition.</p>
-        <a href="TGRM_Handbook.html" class="sb-btn">Get the Book &rarr;</a>
-        <div class="bestseller">&#9733; #1 Bestseller in Grief &amp; Bereavement</div>
-      </div>
-
-      <!-- 6. Trending Posts -->
-      <div class="sb-card sb-trending fade-in">
-        <h4>&#128293; Trending This Week</h4>
-        <a href="#" class="trending-item">
-          <span class="trending-num">1</span>
-          <div>
-            <h5>Grief After Divorce: Why It Hurts Like Death</h5>
-            <div class="tmeta">12 min &bull; 4.2K reads</div>
-          </div>
-        </a>
-        <a href="#" class="trending-item">
-          <span class="trending-num">2</span>
-          <div>
-            <h5>What Not to Say to Someone Who Is Grieving</h5>
-            <div class="tmeta">8 min &bull; 3.8K reads</div>
-          </div>
-        </a>
-        <a href="#" class="trending-item">
-          <span class="trending-num">3</span>
-          <div>
-            <h5>How to Help a Grieving Child: Age-by-Age Guide</h5>
-            <div class="tmeta">14 min &bull; 2.9K reads</div>
-          </div>
-        </a>
-        <a href="#" class="trending-item">
-          <span class="trending-num">4</span>
-          <div>
-            <h5>Anticipatory Grief: When Loss Begins Before Death</h5>
-            <div class="tmeta">9 min &bull; 2.1K reads</div>
-          </div>
-        </a>
-        <a href="#" class="trending-item">
-          <span class="trending-num">5</span>
-          <div>
-            <h5>Grief Journal Prompts That Actually Help</h5>
-            <div class="tmeta">8 min &bull; 1.7K reads</div>
-          </div>
-        </a>
-      </div>
-
-    </aside>
-  </div>
+<!-- Newsletter CTA -->
+<div class="newsletter-cta reveal">
+  <h2>Get Healing Insights Delivered</h2>
+  <p>Join thousands of readers who receive our best articles on grief, recovery, and moving forward.</p>
+  <div class="subscribe-form"><input type="email" placeholder="Enter your email address"><button>Subscribe</button></div>
+  <p class="newsletter-disclaimer">No spam. Unsubscribe anytime. We respect your privacy.</p>
 </div>
 
-<!-- ======================= FOOTER ======================= -->
+<!-- Footer -->
 <footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div style="font-weight:700; font-size:1.05rem; color:#fff;">The Grief Recovery Method&reg;</div>
-        <p>The only evidence-based grief recovery program in the world. Helping people move from pain to peace since 1984.</p>
-      </div>
-      <div>
-        <h5>For Grievers</h5>
-        <ul class="footer-links">
-          <li><a href="TGRM_Directory.html">Find a Specialist</a></li>
-          <li><a href="TGRM_Homepage_V2.html#quiz">Grief Type Quiz</a></li>
-          <li><a href="#">$49 Online Course</a></li>
-          <li><a href="TGRM_Handbook.html">The Handbook</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>For Professionals</h5>
-        <ul class="footer-links">
-          <li><a href="TGRM_Certification.html">Certification Programs</a></li>
-          <li><a href="TGRM_For_Therapists.html">For Therapists</a></li>
-          <li><a href="TGRM_Training_Calendar.html">Training Calendar</a></li>
-          <li><a href="TGRM_Coaches_Certification.html">For Coaches</a></li>
-          <li><a href="TGRM_Military_Certification.html">Military &amp; Veterans</a></li>
-          <li><a href="#">Specialist Login</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Company</h5>
-        <ul class="footer-links">
-          <li><a href="#">About The Method</a></li>
-          <li><a href="#">The Research</a></li>
-          <li><a href="TGRM_Blog.html">Blog</a></li>
-          <li><a href="#">Contact Us</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="crisis-bar">
-      <strong>If you or someone you know is in crisis:</strong><br>
-      988 Suicide &amp; Crisis Lifeline: Call or text <strong>988</strong> &middot;
-      Veterans Crisis Line: <strong>1-800-273-8255</strong> (Press 1) &middot;
-      Crisis Text Line: Text <strong>HOME</strong> to <strong>741741</strong>
-    </div>
-    <div class="footer-bottom">
-      <div>&copy; 2026 The Grief Recovery Institute&reg;. All rights reserved. | <a href="#">Privacy</a> &middot; <a href="#">Terms</a></div>
-      <div>The Grief Recovery Method&reg; &middot; Certified Grief Recovery Specialist&reg;</div>
-    </div>
+  <div class="footer-grid">
+    <div><div class="footer-brand">The Grief Recovery <span>Method</span>&reg;</div><p class="footer-desc">An evidence-based grief recovery program helping people move beyond loss since 1977.</p><div class="footer-stats">45+ years &bull; 1.5M+ helped &bull; 3,000+ specialists</div></div>
+    <div><div class="footer-col-title">For Grievers</div><a href="TGRM_GetHelp_Hub.html" class="footer-link">Get Help</a><a href="TGRM_Directory.html" class="footer-link">Find a Specialist</a><a href="TGRM_Quiz.html" class="footer-link">Grief Type Quiz</a><a href="TGRM_Handbook.html" class="footer-link">The Handbook</a></div>
+    <div><div class="footer-col-title">For Professionals</div><a href="TGRM_GetCertified_Hub.html" class="footer-link">Get Certified</a><a href="TGRM_GetCertified_Hub.html" class="footer-link">Training Dates</a><a href="TGRM_Private_Training.html" class="footer-link">Private Training</a><a href="TGRM_About.html" class="footer-link">About Us</a></div>
+    <div><div class="footer-col-title">Resources</div><a href="TGRM_Blog.html" class="footer-link">Blog</a><a href="TGRM_Podcast.html" class="footer-link">Podcast</a><a href="TGRM_Resources.html" class="footer-link">All Resources</a><a href="#" class="footer-link">Contact Us</a></div>
   </div>
+  <p class="footer-bottom">&copy; 2026 The Grief Recovery Method&reg;. All rights reserved.</p>
+  <p class="footer-crisis">If you or someone you know is in crisis, please call 988 (Suicide &amp; Crisis Lifeline) or text HOME to 741741.</p>
 </footer>
 
-<script>
-// FAQ Accordion
-document.querySelectorAll('.faq-item').forEach(item => {
-  item.querySelector('.faq-q').addEventListener('click', () => {
-    const wasOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-    if (!wasOpen) item.classList.add('open');
-  });
-});
-
-// Fade-in on scroll
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) { entry.target.classList.add('visible'); }
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
-
+<script src="tgrm-premium.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Grief Recovery Method® — Premium Homepage POC</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #e07525;
+    --orange-hover: #c96820;
+    --teal: #427E88;
+    --teal-hover: #366a73;
+    --teal-light: #7895a3;
+    --dark: #1a1a1a;
+    --body: #2d2d2d;
+    --muted: #666;
+    --faint: #999;
+    --bg: #faf9f7;
+    --white: #ffffff;
+    --border: #e8e5e0;
+    --serif: 'DM Serif Display', serif;
+    --sans: 'Inter', sans-serif;
+    --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    font-weight: 300;
+    color: var(--body);
+    background: var(--bg);
+    overflow-x: hidden;
+  }
+
+  /* ========== UTILITY BAR ========== */
+  .utility-bar {
+    background: var(--dark);
+    color: #999;
+    font-size: 13px;
+    padding: 8px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .utility-bar a { color: #999; text-decoration: none; transition: color 0.2s; }
+  .utility-bar a:hover { color: #fff; }
+
+  /* ========== HEADER ========== */
+  header {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: box-shadow 0.3s var(--ease);
+  }
+  header.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.06); }
+
+  .logo {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--body);
+  }
+  .logo span { color: var(--teal); }
+
+  nav { display: flex; gap: 28px; align-items: center; }
+  nav a {
+    text-decoration: none;
+    color: #555;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s;
+    position: relative;
+  }
+  nav a:hover { color: var(--body); }
+
+  /* Underline hover effect on nav links */
+  nav > a::after, .nav-item > a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--teal);
+    transition: width 0.3s var(--ease);
+  }
+  nav > a:hover::after, .nav-item:hover > a::after { width: 100%; }
+
+  .nav-cta {
+    background: var(--teal);
+    color: #fff !important;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s var(--ease);
+    position: relative;
+    overflow: hidden;
+  }
+  .nav-cta::after { display: none !important; }
+  .nav-cta:hover {
+    background: var(--teal-hover) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(66,126,136,0.3);
+  }
+
+  .mobile-menu-btn { display: none; background: none; border: none; font-size: 28px; color: var(--body); cursor: pointer; padding: 4px 8px; }
+
+  /* ========== HERO ========== */
+  .hero {
+    text-align: center;
+    padding: 120px 40px 100px;
+    position: relative;
+    background: linear-gradient(to bottom, rgba(250,249,247,0.92), rgba(250,249,247,0.96)),
+                url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1600&q=80') center/cover no-repeat;
+    overflow: hidden;
+  }
+
+  .hero-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Subtle radial glow behind hero */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 500px;
+    background: radial-gradient(ellipse, rgba(66,126,136,0.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero > * { position: relative; z-index: 1; }
+
+  .hero-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(66,126,136,0.08), rgba(66,126,136,0.04));
+    border: 1px solid rgba(66,126,136,0.12);
+    color: var(--teal);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 40px;
+    margin-bottom: 28px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--dark);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
+  .hero h1 .accent { color: var(--orange); }
+
+  .hero p {
+    font-size: 20px;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 580px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.6s forwards;
+  }
+
+  /* ========== TWO DOORS ========== */
+  .two-doors {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.8s forwards;
+  }
+
+  .door {
+    border-radius: 20px;
+    padding: 52px 40px;
+    text-align: center;
+    transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Shimmer effect on doors */
+  .door::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; right: 0; bottom: 0;
+    width: 200%;
+    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.1) 45%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 55%, transparent 60%);
+    transition: transform 0.8s var(--ease);
+    pointer-events: none;
+  }
+  .door:hover::before { transform: translateX(60%); }
+
+  .door:hover { transform: translateY(-6px); }
+
+  .door-griever {
+    background: linear-gradient(155deg, rgba(58,117,128,0.92), rgba(91,163,175,0.88)),
+                url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800&q=80') center/cover no-repeat;
+    color: #fff;
+  }
+  .door-griever:hover { box-shadow: 0 20px 60px rgba(66,126,136,0.25); }
+
+  .door-professional {
+    background: linear-gradient(155deg, rgba(208,106,30,0.9), rgba(232,148,80,0.88)),
+                url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80') center/cover no-repeat;
+    color: #fff;
+  }
+  .door-professional:hover { box-shadow: 0 20px 60px rgba(224,117,37,0.25); }
+
+  .door-icon {
+    font-size: 44px;
+    margin-bottom: 22px;
+    display: block;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+  }
+
+  .door h2 {
+    font-family: var(--serif);
+    font-size: 27px;
+    margin-bottom: 14px;
+    font-weight: 700;
+  }
+
+  .door p {
+    font-size: 16px;
+    opacity: 0.9;
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+
+  .door-btn {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 2px solid rgba(255,255,255,0.8);
+    color: #fff;
+    padding: 13px 32px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.3s var(--ease);
+    backdrop-filter: blur(4px);
+  }
+  .door-btn:hover {
+    background: rgba(255,255,255,0.3);
+    border-color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  }
+
+  .door-links {
+    margin-top: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .door-links a {
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .door-links a:hover { color: #fff; letter-spacing: 0.3px; }
+
+  /* ========== TRUST BAR — Animated Counters ========== */
+  .trust-bar {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    padding: 70px 40px;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+
+  .trust-item { text-align: center; }
+
+  .trust-number {
+    font-family: var(--serif);
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--dark);
+    position: relative;
+  }
+
+  /* Subtle underline accent */
+  .trust-number::after {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 3px;
+    background: var(--teal);
+    border-radius: 2px;
+    margin: 10px auto 0;
+    opacity: 0.4;
+  }
+
+  .trust-label {
+    font-size: 14px;
+    color: var(--faint);
+    margin-top: 8px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ========== WHAT SETS US APART — Bespoke Section ========== */
+  .method-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px 40px;
+  }
+
+  .method-section .section-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--teal);
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .method-section h2 {
+    font-family: var(--serif);
+    font-size: 38px;
+    text-align: center;
+    color: var(--dark);
+    margin-bottom: 16px;
+    line-height: 1.25;
+  }
+
+  .method-section .section-sub {
+    font-size: 18px;
+    color: var(--muted);
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 56px;
+    line-height: 1.6;
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .pillar-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px 28px;
+    transition: all 0.4s var(--ease);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Top border accent on hover */
+  .pillar-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--teal), var(--teal-light));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s var(--ease);
+  }
+  .pillar-card:hover::before { transform: scaleX(1); }
+  .pillar-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+    border-color: transparent;
+  }
+
+  .pillar-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, rgba(66,126,136,0.08), rgba(66,126,136,0.03));
+    border: 1px solid rgba(66,126,136,0.1);
+  }
+
+  .pillar-card h3 {
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--dark);
+    margin-bottom: 10px;
+  }
+
+  .pillar-card p {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ========== HUMAN PHOTO STRIP ========== */
+  .photo-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .photo-strip-item {
+    height: 280px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s var(--ease);
+  }
+  .photo-strip-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(26,26,26,0.4), transparent 60%);
+    transition: opacity 0.4s;
+  }
+  .photo-strip-item:hover { transform: scale(1.02); }
+  .photo-strip-item:hover::after { opacity: 0.6; }
+  .photo-strip-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.4s var(--ease);
+  }
+  .photo-strip-item:hover .photo-strip-caption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ========== SOCIAL PROOF ========== */
+  .social-proof {
+    background: var(--white);
+    padding: 56px 40px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .featured-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #bbb;
+    margin-bottom: 28px;
+    font-weight: 600;
+  }
+
+  .media-logos {
+    display: flex;
+    justify-content: center;
+    gap: 56px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .media-logos span {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--body);
+    opacity: 0.2;
+    letter-spacing: 2px;
+    transition: opacity 0.3s;
+  }
+  .media-logos span:hover { opacity: 0.5; }
+
+  /* ========== TESTIMONIAL ========== */
+  .testimonial-section {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 90px 40px;
+    text-align: center;
+    position: relative;
+  }
+
+  .testimonial-section::before {
+    content: "\201C";
+    font-family: var(--serif);
+    font-size: 160px;
+    color: var(--teal);
+    opacity: 0.06;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .testimonial-quote {
+    font-family: var(--serif);
+    font-size: 26px;
+    line-height: 1.6;
+    color: var(--dark);
+    font-style: italic;
+    margin-bottom: 28px;
+    position: relative;
+  }
+
+  .testimonial-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    margin: 0 auto 24px;
+    background: linear-gradient(135deg, var(--teal), var(--teal-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 24px;
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(66,126,136,0.2);
+  }
+
+  .testimonial-author {
+    font-size: 15px;
+    color: var(--faint);
+  }
+  .testimonial-author strong { color: #555; }
+
+  /* ========== FINAL CTA ========== */
+  .final-cta {
+    background: linear-gradient(to right, rgba(26,26,26,0.93), rgba(26,26,26,0.88)),
+                url('https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=1600&q=80') center/cover no-repeat;
+    padding: 100px 40px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle gradient orbs */
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    top: -100px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(66,126,136,0.12), transparent 70%);
+    pointer-events: none;
+  }
+  .final-cta::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; right: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(224,117,37,0.1), transparent 70%);
+    pointer-events: none;
+  }
+
+  .final-cta > * { position: relative; z-index: 1; }
+
+  .final-cta h2 {
+    font-family: var(--serif);
+    font-size: 40px;
+    margin-bottom: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .final-cta h2 .accent { color: var(--orange); }
+
+  .final-cta p {
+    font-size: 18px;
+    color: #999;
+    margin-bottom: 40px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  .final-cta-buttons { display: flex; justify-content: center; gap: 16px; }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 16px 36px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.3s var(--ease);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-teal { background: var(--teal); color: #fff; }
+  .btn-teal:hover { background: var(--teal-hover); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(66,126,136,0.3); }
+
+  .btn-orange { background: var(--orange); color: #fff; }
+  .btn-orange:hover { background: var(--orange-hover); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(224,117,37,0.3); }
+
+  /* ========== FOOTER ========== */
+  footer {
+    padding: 56px 40px 40px;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    text-align: left;
+    padding-bottom: 36px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 28px;
+  }
+
+  .footer-brand {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--body);
+    margin-bottom: 10px;
+  }
+  .footer-brand span { color: var(--teal); }
+
+  .footer-desc {
+    font-size: 14px;
+    color: var(--faint);
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+
+  .footer-stats {
+    font-size: 13px;
+    color: #bbb;
+  }
+
+  .footer-col-title {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--faint);
+    margin-bottom: 14px;
+  }
+
+  .footer-link {
+    display: block;
+    font-size: 14px;
+    color: var(--muted);
+    padding: 5px 0;
+    text-decoration: none;
+    transition: color 0.2s, transform 0.2s;
+  }
+  .footer-link:hover { color: var(--body); transform: translateX(2px); }
+
+  .footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    color: #aaa;
+  }
+
+  .footer-crisis {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #bbb;
+  }
+
+  /* ========== ANIMATIONS ========== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger children */
+  .reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+  }
+  .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: none; }
+  .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: none; }
+  .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.25s; opacity: 1; transform: none; }
+  .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.35s; opacity: 1; transform: none; }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 768px) {
+    .hero { padding: 60px 20px 40px; }
+    .hero h1 { font-size: 34px; }
+    .hero p { font-size: 17px; }
+    .two-doors { grid-template-columns: 1fr; padding: 0 20px; gap: 20px; }
+    .trust-bar { flex-wrap: wrap; gap: 28px; padding: 50px 20px; }
+    .trust-number { font-size: 32px; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    .method-section { padding: 60px 20px; }
+    .method-section h2 { font-size: 30px; }
+    .photo-strip { grid-template-columns: 1fr 1fr; }
+    .photo-strip-item { height: 200px; }
+    .social-proof { padding: 40px 20px; }
+    .media-logos { gap: 24px; }
+    .testimonial-section { padding: 60px 20px; }
+    .testimonial-quote { font-size: 21px; }
+    .final-cta { padding: 60px 20px; }
+    .final-cta h2 { font-size: 30px; }
+    .final-cta-buttons { flex-direction: column; align-items: center; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    nav { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: #fff; padding: 16px 20px; border-bottom: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,0.08); gap: 12px; z-index: 99; }
+    nav.nav-open { display: flex; }
+    .mobile-menu-btn { display: block; }
+    header { position: relative; }
+    .utility-bar { padding: 8px 16px; font-size: 12px; }
+    header { padding: 12px 16px; }
+    footer { padding: 40px 20px 30px; }
+  }
+  @media (max-width: 480px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 30px; }
+    .photo-strip { grid-template-columns: 1fr; }
+    .photo-strip-item { height: 180px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Utility Bar -->
+<div class="utility-bar">
+  <div>
+    <a href="tel:800-334-7606">800-334-7606</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="#">Crisis Resources</a>
+  </div>
+  <div>
+    <a href="#">Login</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header id="header">
+  <div class="logo">The Grief Recovery <span>Method</span>®</div>
+  <nav>
+    <div class="nav-item"><a href="#">Get Help</a></div>
+    <div class="nav-item"><a href="#">Get Certified</a></div>
+    <a href="#">Find a Specialist</a>
+    <div class="nav-item"><a href="#">About</a></div>
+    <div class="nav-item"><a href="#">Resources</a></div>
+    <a href="#" class="nav-cta">Take the Free Quiz</a>
+  </nav>
+  <button class="mobile-menu-btn" onclick="document.querySelector('nav').classList.toggle('nav-open')">&#9776;</button>
+</header>
+
+<!-- Hero — Engineered First Impression (Halo Effect) -->
+<div class="hero">
+  <div class="hero-inner">
+    <span class="hero-badge">Trusted for 45+ Years &bull; 1.5M+ Lives Changed</span>
+    <h1>Complete Your Relationship<br>With the <span class="accent">Pain</span> of Loss.</h1>
+    <p>The evidence-based program that gives grievers real tools — and gives professionals the certification to guide them.</p>
+  </div>
+</div>
+
+<!-- Two Doors — Clear Visual Hierarchy, Confidence over Questions -->
+<div class="two-doors">
+  <div class="door door-griever" onclick="window.location='TGRM_GetHelp_Hub.html'">
+    <span class="door-icon">&#x1F49A;</span>
+    <h2>I'm Experiencing a Loss</h2>
+    <p>Find real support — from a free online course to working one-on-one with a certified specialist near you.</p>
+    <a href="TGRM_GetHelp_Hub.html" class="door-btn">Get Help Now</a>
+    <div class="door-links">
+      <a href="#">Take the Grief Type Quiz</a>
+      <a href="#">Find a Specialist Near You</a>
+      <a href="#">Join a Recovery Group</a>
+    </div>
+  </div>
+  <div class="door door-professional" onclick="window.location='TGRM_GetCertified_Hub.html'">
+    <span class="door-icon">&#x1F393;</span>
+    <h2>I Want to Help Others Heal</h2>
+    <p>Become a Certified Grief Recovery Specialist® and add the most trusted grief recovery program to your practice.</p>
+    <a href="TGRM_GetCertified_Hub.html" class="door-btn">Explore Certification</a>
+    <div class="door-links">
+      <a href="#">Compare Training Plans</a>
+      <a href="#">View Upcoming Trainings</a>
+      <a href="#">Request Private Training</a>
+    </div>
+  </div>
+</div>
+
+<!-- Trust Bar — Social Proof Credibility Signals -->
+<div class="trust-bar reveal reveal-stagger">
+  <div class="trust-item">
+    <div class="trust-number">1.5M+</div>
+    <div class="trust-label">People Helped</div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-number">45+</div>
+    <div class="trust-label">Years of Research</div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-number">3,000+</div>
+    <div class="trust-label">Certified Specialists</div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-number">4.80</div>
+    <div class="trust-label">Average Rating</div>
+  </div>
+</div>
+
+<!-- What Sets Us Apart — Bespoke Cards with Micro Interactions -->
+<div class="method-section">
+  <div class="section-label reveal">What Sets Us Apart</div>
+  <h2 class="reveal">Not Talk Therapy. Not Time. <em>Action.</em></h2>
+  <p class="section-sub reveal">The Grief Recovery Method is a structured, evidence-based program that gives people the tools to move beyond loss — not just talk about it.</p>
+  <div class="pillars-grid reveal-stagger reveal">
+    <div class="pillar-card">
+      <div class="pillar-icon">&#9881;</div>
+      <h3>Action-Based</h3>
+      <p>A proven step-by-step process — not open-ended support groups or vague advice. Concrete tools that create real, measurable change.</p>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-icon">&#128218;</div>
+      <h3>Evidence-Based</h3>
+      <p>Built on 45+ years of research and refined through 1.5 million participant experiences. Published, peer-reviewed, and continuously validated.</p>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-icon">&#127758;</div>
+      <h3>Universal</h3>
+      <p>Works across every type of loss — death, divorce, health, career, estrangement, pet loss. One method. Every griever. Any loss.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Photo Strip — Real People, Real Trust -->
+<div class="photo-strip reveal">
+  <div class="photo-strip-item" style="background-image:url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80')">
+    <div class="photo-strip-caption">Certified Specialists worldwide</div>
+  </div>
+  <div class="photo-strip-item" style="background-image:url('https://images.unsplash.com/photo-1531983412531-1f49a365ffed?w=600&q=80')">
+    <div class="photo-strip-caption">In-person certification training</div>
+  </div>
+  <div class="photo-strip-item" style="background-image:url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=600&q=80')">
+    <div class="photo-strip-caption">Small group recovery programs</div>
+  </div>
+  <div class="photo-strip-item" style="background-image:url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600&q=80')">
+    <div class="photo-strip-caption">Community and connection</div>
+  </div>
+</div>
+
+<!-- Social Proof — Media Credibility -->
+<div class="social-proof reveal">
+  <div class="featured-label">As Featured In</div>
+  <div class="media-logos">
+    <span>TIME</span>
+    <span>CNN</span>
+    <span>USA TODAY</span>
+    <span>PSYCHOLOGY TODAY</span>
+    <span>NPR</span>
+    <span>FOX NEWS</span>
+  </div>
+</div>
+
+<!-- Testimonial — Peak-End Rule (Emotional Peak) -->
+<div class="testimonial-section reveal">
+  <div class="testimonial-avatar">K</div>
+  <div class="testimonial-quote">
+    "This program saved my life. With the sudden passing of both parents in a 6 month period the grief hit me really hard. After the completion of the program I have my life back. The emotional pain is gone. I am free."
+  </div>
+  <div class="testimonial-author">
+    — <strong>GRM Participant</strong>, Kansas City
+  </div>
+</div>
+
+<!-- Final CTA — Confident Statement, Clear Hierarchy -->
+<div class="final-cta reveal">
+  <h2>Your Next Step Toward <span class="accent">Freedom</span>.</h2>
+  <p>No matter where you are in your grief journey — or your career — there's a clear path forward here.</p>
+  <div class="final-cta-buttons">
+    <a href="TGRM_GetHelp_Hub.html" class="btn-primary btn-teal">I Need Help With Grief</a>
+    <a href="TGRM_GetCertified_Hub.html" class="btn-primary btn-orange">I Want to Get Certified</a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">The Grief Recovery <span>Method</span>®</div>
+      <p class="footer-desc">An evidence-based grief recovery program helping people move beyond loss since 1977.</p>
+      <div class="footer-stats">45+ years &bull; 1.5M+ helped &bull; 3,000+ specialists</div>
+    </div>
+    <div>
+      <div class="footer-col-title">For Grievers</div>
+      <a href="#" class="footer-link">Get Help</a>
+      <a href="#" class="footer-link">Find a Specialist</a>
+      <a href="#" class="footer-link">Grief Type Quiz</a>
+      <a href="#" class="footer-link">The Handbook</a>
+    </div>
+    <div>
+      <div class="footer-col-title">For Professionals</div>
+      <a href="#" class="footer-link">Get Certified</a>
+      <a href="#" class="footer-link">Training Dates</a>
+      <a href="#" class="footer-link">Private Training</a>
+      <a href="#" class="footer-link">About Us</a>
+    </div>
+    <div>
+      <div class="footer-col-title">Resources</div>
+      <a href="#" class="footer-link">Blog</a>
+      <a href="#" class="footer-link">Podcast</a>
+      <a href="#" class="footer-link">All Resources</a>
+      <a href="#" class="footer-link">Contact Us</a>
+    </div>
+  </div>
+  <p class="footer-bottom">© 2026 The Grief Recovery Method®. All rights reserved.</p>
+  <p class="footer-crisis">If you or someone you know is in crisis, please call 988 (Suicide & Crisis Lifeline) or text HOME to 741741.</p>
+</footer>
+
+<!-- JS: Scroll Reveal + Header Shadow -->
+<script>
+// Scroll reveal
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Header shadow on scroll
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 10);
+}, { passive: true });
+</script>
+
+</body>
+</html>

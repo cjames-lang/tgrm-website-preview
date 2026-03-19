@@ -3,741 +3,1820 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sarah Mitchell, LCSW — Certified Grief Recovery Specialist® | The Grief Recovery Method</title>
-<meta name="description" content="Sarah Mitchell is a Certified Grief Recovery Specialist® in Portland, OR. Advanced Certified with 8+ years of experience helping people move through loss.">
+<title>Sarah Mitchell, LCSW — Certified Grief Recovery Specialist | The Grief Recovery Method®</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ========================================
-   CSS RESET & BASE
-   ======================================== */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { font-family: 'Segoe UI', Arial, Helvetica, sans-serif; color: #2d3748; line-height: 1.6; background: #faf8f5; overflow-x: hidden; }
-a { text-decoration: none; color: inherit; }
-button { cursor: pointer; border: none; font-family: inherit; }
+/* TGRM Premium Design System (inlined) */
+/* ============================================================
+   TGRM Premium Design System
+   The Grief Recovery Method® — Shared CSS Foundation
+   ============================================================
+   Version:  1.0
+   Updated:  2026-03-19
+   Usage:    Link this file on every page alongside tgrm-premium.js
+             <link rel="stylesheet" href="tgrm-premium.css">
+             <script>
+// Header shadow on scroll
+const header = document.getElementById('header') || document.querySelector('header');
+if (header) {
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+}
+// Mobile menu toggle
+const menuBtn = document.querySelector('.mobile-menu-btn');
+const nav = document.querySelector('nav');
+if (menuBtn && nav) {
+  menuBtn.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('nav-open');
+    menuBtn.setAttribute('aria-expanded', isOpen);
+    menuBtn.innerHTML = isOpen ? '&#x2715;' : '&#9776;';
+  });
+}
+</script>
+   ============================================================ */
 
-/* ========================================
-   BRAND TOKENS
-   ======================================== */
+
+/* ============================================================
+   1. CSS CUSTOM PROPERTIES (Design Tokens)
+   ============================================================ */
 :root {
-  --orange: #e07525;
-  --orange-dark: #c4621a;
-  --orange-light: #f5a623;
-  --teal: #427e88;
-  --teal-dark: #356a73;
-  --teal-light: #7895a3;
-  --teal-pale: #e8f2f4;
-  --warm-bg: #faf8f5;
-  --warm-bg-alt: #f5f0eb;
-  --green: #16a34a;
-  --text-primary: #2d3748;
-  --text-secondary: #5a6577;
-  --text-light: #8896a8;
-  --white: #ffffff;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
-  --shadow-md: 0 4px 14px rgba(0,0,0,.1);
-  --shadow-lg: 0 10px 30px rgba(0,0,0,.12);
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --transition: .25s ease;
+  /* --- Brand Colors --- */
+  --orange:       #e07525;
+  --orange-hover:  #c96820;
+  --teal:         #427E88;
+  --teal-hover:   #366a73;
+  --teal-light:   #7895a3;
+
+  /* --- Neutrals --- */
+  --dark:         #1a1a1a;
+  --body:         #2d2d2d;
+  --muted:        #666;
+  --faint:        #999;
+  --bg:           #faf9f7;
+  --white:        #ffffff;
+  --border:       #e8e5e0;
+
+  /* --- Typography --- */
+  --serif:        'DM Serif Display', serif;
+  --sans:         'Inter', sans-serif;
+
+  /* --- Motion --- */
+  --ease:         cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* --- Spacing (reference scale) --- */
+  --space-xs:     8px;
+  --space-sm:     16px;
+  --space-md:     24px;
+  --space-lg:     40px;
+  --space-xl:     56px;
+  --space-2xl:    80px;
+  --space-3xl:    100px;
+
+  /* --- Radius --- */
+  --radius-sm:    8px;
+  --radius-md:    10px;
+  --radius-lg:    16px;
+  --radius-xl:    20px;
+  --radius-pill:  40px;
 }
 
-.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
-/* ========================================
-   NAV
-   ======================================== */
-.page-nav {
-  background: var(--white); border-bottom: 1px solid #ece8e3;
-  padding: 14px 0; position: sticky; top: 0; z-index: 100;
-  box-shadow: var(--shadow-sm);
-}
-.page-nav .container { display: flex; align-items: center; justify-content: space-between; }
-.nav-logo { font-weight: 800; font-size: 1.1rem; color: var(--teal-dark); }
-.nav-links { display: flex; gap: 22px; font-size: .88rem; font-weight: 500; color: var(--text-secondary); align-items: center; }
-.nav-links a:hover { color: var(--orange); }
-.nav-cta { background: var(--orange); color: #fff; padding: 8px 18px; border-radius: var(--radius-sm); font-weight: 700; font-size: .82rem; }
-.nav-cta:hover { background: var(--orange-dark); }
-
-/* ========================================
-   BREADCRUMB
-   ======================================== */
-.breadcrumb {
-  padding: 14px 0; font-size: .82rem; color: var(--text-light);
-}
-.breadcrumb a { color: var(--teal); }
-.breadcrumb a:hover { text-decoration: underline; }
-.breadcrumb span { margin: 0 6px; }
-
-/* ========================================
-   PROFILE HERO
-   ======================================== */
-.profile-hero {
-  padding-bottom: 40px;
-}
-.profile-hero-inner {
-  display: grid; grid-template-columns: 300px 1fr; gap: 40px; align-items: start;
-}
-.profile-photo-col { text-align: center; }
-.profile-photo-wrap {
-  width: 260px; height: 260px; border-radius: 50%; overflow: hidden;
-  margin: 0 auto 18px; border: 4px solid var(--teal-pale);
-  box-shadow: var(--shadow-md);
-  background: linear-gradient(135deg, var(--teal-pale), #d9e8eb);
-  display: flex; align-items: center; justify-content: center;
-}
-.profile-photo-wrap .photo-placeholder {
-  font-size: 5rem; color: var(--teal); opacity: .5;
+/* ============================================================
+   2. GLOBAL RESET + BASE TYPOGRAPHY
+   ============================================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.cert-badge {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 6px 16px; border-radius: 20px; font-size: .78rem; font-weight: 700;
-  margin-bottom: 10px;
-}
-.cert-badge.advanced { background: linear-gradient(135deg, #f3e8ff, #ede4fa); color: #6b21a8; border: 1px solid #d8b4fe; }
-.cert-badge.foundational { background: linear-gradient(135deg, #e0f2fe, #dbeafe); color: #1e40af; border: 1px solid #93c5fd; }
-.cert-badge.premium { background: linear-gradient(135deg, #fef3e2, #fff1d6); color: #9a3412; border: 1px solid #fed7aa; }
-
-.verified-badge {
-  display: inline-flex; align-items: center; gap: 5px;
-  font-size: .76rem; color: var(--green); font-weight: 600;
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
-.profile-info h1 {
-  font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin-bottom: 4px;
-  line-height: 1.2;
-}
-.profile-credentials {
-  font-size: .88rem; color: var(--text-light); margin-bottom: 12px;
-}
-.profile-location-row {
-  display: flex; flex-wrap: wrap; gap: 18px; font-size: .88rem; color: var(--text-secondary);
-  margin-bottom: 16px;
-}
-.profile-location-row span { display: flex; align-items: center; gap: 5px; }
-
-.profile-rating {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: #fffbf5; border: 1px solid #f0ece7; border-radius: var(--radius-sm);
-  padding: 8px 14px; margin-bottom: 18px;
-}
-.profile-rating .stars { color: var(--orange); font-size: 1rem; letter-spacing: 1px; }
-.profile-rating .rating-text { font-size: .82rem; color: var(--text-secondary); font-weight: 600; }
-
-.profile-tags {
-  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;
-}
-.profile-tag {
-  display: inline-block; padding: 4px 12px; border-radius: 16px;
-  font-size: .76rem; font-weight: 600;
-  background: var(--teal-pale); color: var(--teal-dark);
-}
-.profile-tag.orange { background: #fef3e2; color: #9a3412; }
-
-.profile-ctas {
-  display: flex; gap: 12px; flex-wrap: wrap;
-}
-.btn-contact {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 12px 28px; border-radius: var(--radius-sm); font-weight: 700; font-size: .9rem;
-  transition: all .2s;
-}
-.btn-contact.primary { background: var(--orange); color: #fff; }
-.btn-contact.primary:hover { background: var(--orange-dark); transform: translateY(-1px); box-shadow: var(--shadow-md); }
-.btn-contact.secondary { background: var(--white); color: var(--teal-dark); border: 2px solid var(--teal); }
-.btn-contact.secondary:hover { background: var(--teal); color: #fff; }
-
-/* ========================================
-   MAIN CONTENT GRID
-   ======================================== */
-.profile-body {
-  display: grid; grid-template-columns: 1fr 340px; gap: 36px;
-  padding-bottom: 50px;
+body {
+  font-family: var(--sans);
+  font-weight: 300;
+  color: var(--body);
+  background: var(--bg);
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- ABOUT SECTION --- */
-.section-card {
-  background: var(--white); border-radius: var(--radius-lg);
-  border: 1px solid #ece8e3; padding: 28px; margin-bottom: 24px;
-  box-shadow: var(--shadow-sm);
-}
-.section-card h2 {
-  font-size: 1.15rem; font-weight: 700; color: var(--text-primary);
-  margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
-}
-.section-card h2 .icon { font-size: 1.1rem; }
-
-.bio-text {
-  font-size: .92rem; color: var(--text-secondary); line-height: 1.75;
-}
-.bio-text p { margin-bottom: 14px; }
-.bio-read-more {
-  color: var(--teal); font-weight: 600; font-size: .88rem; cursor: pointer;
-  display: inline-flex; align-items: center; gap: 4px;
-}
-.bio-read-more:hover { text-decoration: underline; }
-.bio-expanded { display: none; }
-.bio-expanded.show { display: block; }
-
-/* --- PROGRAMS OFFERED --- */
-.programs-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
-}
-.program-card {
-  border: 1px solid #ece8e3; border-radius: var(--radius-md);
-  padding: 18px; text-align: center; transition: all .2s;
-  background: var(--white);
-}
-.program-card:hover { border-color: var(--teal); box-shadow: var(--shadow-sm); }
-.program-icon { font-size: 1.8rem; margin-bottom: 8px; }
-.program-card h3 { font-size: .92rem; font-weight: 700; margin-bottom: 4px; color: var(--text-primary); }
-.program-card p { font-size: .78rem; color: var(--text-light); line-height: 1.5; }
-.program-format {
-  display: inline-block; margin-top: 8px; font-size: .72rem; font-weight: 600;
-  padding: 3px 10px; border-radius: 10px;
-  background: var(--teal-pale); color: var(--teal-dark);
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
-/* --- SPECIALTIES --- */
-.specialties-list {
-  display: flex; flex-wrap: wrap; gap: 8px;
-}
-.specialty-chip {
-  padding: 6px 14px; border-radius: 20px; font-size: .8rem; font-weight: 500;
-  background: var(--warm-bg-alt); color: var(--text-secondary);
-  border: 1px solid #ece8e3;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-/* --- TESTIMONIALS --- */
-.testimonial-list { display: flex; flex-direction: column; gap: 16px; }
-.testi-card {
-  background: var(--warm-bg); border-radius: var(--radius-md);
-  padding: 18px; border-left: 3px solid var(--orange);
-}
-.testi-stars { color: var(--orange); font-size: .82rem; margin-bottom: 6px; letter-spacing: 1px; }
-.testi-quote {
-  font-size: .88rem; color: var(--text-secondary); line-height: 1.6;
-  font-style: italic; margin-bottom: 8px;
-}
-.testi-attr {
-  font-size: .78rem; color: var(--text-light); font-weight: 600;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--serif);
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.25;
 }
 
-/* --- SIDEBAR --- */
-.sidebar-card {
-  background: var(--white); border-radius: var(--radius-lg);
-  border: 1px solid #ece8e3; padding: 24px; margin-bottom: 20px;
-  box-shadow: var(--shadow-sm);
-}
-.sidebar-card h3 {
-  font-size: .95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 14px;
-}
-.sidebar-card h3 .icon { margin-right: 6px; }
+.accent { color: var(--orange); }
 
-.contact-form label {
-  display: block; font-size: .8rem; font-weight: 600; color: var(--text-secondary);
-  margin-bottom: 4px;
-}
-.contact-form input, .contact-form textarea {
-  width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: var(--radius-sm);
-  font-size: .88rem; font-family: inherit; margin-bottom: 12px;
-  transition: border-color .2s;
-}
-.contact-form input:focus, .contact-form textarea:focus {
-  outline: none; border-color: var(--teal);
-}
-.contact-form textarea { min-height: 100px; resize: vertical; }
-.btn-send {
-  width: 100%; padding: 12px; background: var(--orange); color: #fff;
-  border-radius: var(--radius-sm); font-weight: 700; font-size: .9rem;
-  transition: all .2s; border: none; cursor: pointer;
-}
-.btn-send:hover { background: var(--orange-dark); }
-.form-privacy { font-size: .72rem; color: var(--text-light); margin-top: 8px; text-align: center; }
 
-/* --- Quick Info Sidebar --- */
-.quick-info-row {
-  display: flex; align-items: flex-start; gap: 10px;
-  padding: 10px 0; border-bottom: 1px solid #f0ece7;
-  font-size: .86rem;
-}
-.quick-info-row:last-child { border-bottom: none; }
-.quick-info-row .qi-icon { font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
-.quick-info-row .qi-label { font-size: .72rem; color: var(--text-light); font-weight: 600; text-transform: uppercase; letter-spacing: .5px; }
-.quick-info-row .qi-value { color: var(--text-primary); font-weight: 500; }
-.quick-info-row a { color: var(--teal); }
-.quick-info-row a:hover { text-decoration: underline; }
-
-/* --- Map --- */
-.map-placeholder {
-  width: 100%; height: 200px; border-radius: var(--radius-md);
-  background: linear-gradient(135deg, var(--teal-pale), #d1e5e9);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--teal); font-size: .82rem; font-weight: 600;
-  border: 1px solid #cde0e3;
+/* ============================================================
+   3. UTILITY BAR (dark top bar)
+   ============================================================ */
+.utility-bar {
+  background: var(--dark);
+  color: #999;
+  font-size: 13px;
+  padding: 8px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* --- Evidence Badge --- */
-.evidence-badge {
-  text-align: center; padding: 20px;
-  background: linear-gradient(135deg, #f9fafb, var(--white));
-  border-radius: var(--radius-lg); border: 1px solid #ece8e3;
+.utility-bar a {
+  color: #999;
+  text-decoration: none;
+  transition: color 0.2s;
 }
-.evidence-seal {
-  width: 100px; height: 100px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--teal-dark), var(--teal));
-  color: #fff; display: flex; align-items: center; justify-content: center;
-  flex-direction: column; margin: 0 auto 10px; font-size: .65rem;
-  font-weight: 700; text-transform: uppercase; letter-spacing: .5px;
-  line-height: 1.3; text-align: center; padding: 10px;
-  box-shadow: 0 4px 12px rgba(66,126,136,.3);
-}
-.evidence-seal .seal-icon { font-size: 1.4rem; margin-bottom: 2px; }
-.evidence-badge p { font-size: .76rem; color: var(--text-light); line-height: 1.5; }
 
-/* ========================================
-   SIMILAR SPECIALISTS
-   ======================================== */
-.similar-section {
-  padding: 50px 0; background: var(--warm-bg-alt); border-top: 1px solid #ece8e3;
-}
-.similar-section h2 {
-  font-size: 1.2rem; font-weight: 700; text-align: center; margin-bottom: 24px;
-}
-.similar-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-}
-.similar-card {
-  background: var(--white); border-radius: var(--radius-lg);
-  border: 1px solid #ece8e3; padding: 24px; text-align: center;
-  transition: all .2s;
-}
-.similar-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
-.similar-avatar {
-  width: 70px; height: 70px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--teal-pale), #d1e5e9);
-  margin: 0 auto 12px; display: flex; align-items: center; justify-content: center;
-  font-size: 1.5rem; color: var(--teal);
-}
-.similar-card h3 { font-size: .92rem; font-weight: 700; margin-bottom: 2px; }
-.similar-card .sim-loc { font-size: .78rem; color: var(--text-light); margin-bottom: 6px; }
-.similar-card .sim-stars { color: var(--orange); font-size: .78rem; }
-.similar-card .sim-link {
-  display: inline-block; margin-top: 10px; font-size: .82rem;
-  color: var(--teal); font-weight: 600;
-}
-.similar-card .sim-link:hover { text-decoration: underline; }
-
-/* ========================================
-   CTA BANNER
-   ======================================== */
-.profile-cta-banner {
-  padding: 50px 0; text-align: center;
-  background: linear-gradient(135deg, var(--teal-dark), #2c5d66);
+.utility-bar a:hover {
   color: #fff;
 }
-.profile-cta-banner h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; }
-.profile-cta-banner p { font-size: .95rem; opacity: .9; margin-bottom: 20px; }
-.profile-cta-banner .btn-cta-white {
-  display: inline-block; padding: 14px 32px; border-radius: var(--radius-sm);
-  background: #fff; color: var(--teal-dark); font-weight: 700; font-size: .95rem;
-  transition: all .2s;
-}
-.profile-cta-banner .btn-cta-white:hover { background: #f0f0f0; transform: translateY(-1px); box-shadow: var(--shadow-md); }
 
-/* ========================================
-   FOOTER
-   ======================================== */
-.page-footer {
-  background: var(--text-primary); color: rgba(255,255,255,.7); padding: 30px 0;
-  font-size: .82rem;
-}
-.footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-.footer-links { display: flex; gap: 20px; }
-.footer-links a:hover { color: var(--orange); }
 
-/* ========================================
-   RESPONSIVE
-   ======================================== */
+/* ============================================================
+   4. PREMIUM HEADER (sticky, frosted glass)
+   ============================================================ */
+header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: box-shadow 0.3s var(--ease);
+}
+
+/* Shadow state — toggled via JS on scroll */
+header.scrolled {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* --- Logo --- */
+.logo {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--body);
+}
+
+.logo span {
+  color: var(--teal);
+}
+
+/* --- Primary Nav --- */
+nav {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: #555;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.2s;
+  position: relative;
+}
+
+nav a:hover {
+  color: var(--body);
+}
+
+/* Underline hover effect on nav links */
+nav > a::after,
+.nav-item > a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--teal);
+  transition: width 0.3s var(--ease);
+}
+
+nav > a:hover::after,
+.nav-item:hover > a::after {
+  width: 100%;
+}
+
+/* --- Nav CTA Button --- */
+.nav-cta {
+  background: var(--teal);
+  color: #fff !important;
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  transition: all 0.3s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-cta::after {
+  display: none !important;
+}
+
+.nav-cta:hover {
+  background: var(--teal-hover) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(66, 126, 136, 0.3);
+}
+
+/* --- Mobile Menu Button --- */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: var(--body);
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+
+/* ============================================================
+   4b. MEGA NAV DROPDOWNS
+   ============================================================ */
+.nav-item {
+  position: relative;
+}
+
+.nav-item > a {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Dropdown caret */
+.nav-item > a::after {
+  content: "\25BE";
+  font-size: 10px;
+  opacity: 0.5;
+  position: static;
+  width: auto;
+  height: auto;
+  background: none;
+}
+
+.nav-item:hover > a::after {
+  width: auto;
+}
+
+/* --- Standard Dropdown --- */
+.mega-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  padding-top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  min-width: 280px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  z-index: 200;
+  animation: dropdownFadeIn 0.2s var(--ease);
+}
+
+@keyframes dropdownFadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(4px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Arrow/caret on dropdown */
+.mega-dropdown::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #fff;
+}
+
+.nav-item:hover .mega-dropdown {
+  display: block;
+}
+
+/* --- Dropdown Section Titles --- */
+.mega-dropdown-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #999;
+  font-weight: 600;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f0ede8;
+}
+
+.mega-dropdown-title:not(:first-child) {
+  margin-top: 16px;
+}
+
+/* --- Dropdown Links --- */
+.mega-link {
+  display: block;
+  padding: 7px 0;
+  font-size: 14px;
+  color: var(--body) !important;
+  font-weight: 500 !important;
+  text-decoration: none;
+  transition: color 0.2s;
+  line-height: 1.3;
+}
+
+.mega-link:hover {
+  color: var(--teal) !important;
+}
+
+.mega-link-desc {
+  font-size: 12px;
+  color: #999;
+  font-weight: 400 !important;
+  margin-top: 1px;
+}
+
+/* --- Smaller Loss-Type Links --- */
+.mega-loss-link {
+  display: block;
+  padding: 5px 0;
+  font-size: 13px;
+  color: #555 !important;
+  font-weight: 500 !important;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.mega-loss-link:hover {
+  color: var(--teal) !important;
+}
+
+/* --- Wide 2-Column Dropdown --- */
+.mega-wide {
+  min-width: 640px;
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+/* --- 3-Column Dropdown --- */
+.mega-3col {
+  min-width: 720px;
+  display: none;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+.nav-item:hover .mega-wide {
+  display: grid;
+}
+
+.nav-item:hover .mega-3col {
+  display: grid;
+}
+
+
+/* ============================================================
+   5. BUTTON SYSTEM
+   ============================================================ */
+
+/* --- Base Button --- */
+.btn-primary {
+  display: inline-block;
+  padding: 16px 36px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 16px;
+  font-family: var(--sans);
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- Teal Button --- */
+.btn-teal {
+  background: var(--teal);
+  color: #fff;
+}
+
+.btn-teal:hover {
+  background: var(--teal-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(66, 126, 136, 0.3);
+}
+
+/* --- Orange Button --- */
+.btn-orange {
+  background: var(--orange);
+  color: #fff;
+}
+
+.btn-orange:hover {
+  background: var(--orange-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(224, 117, 37, 0.3);
+}
+
+/* --- Outline Button --- */
+.btn-outline {
+  background: transparent;
+  color: var(--body);
+  border: 2px solid var(--border);
+}
+
+.btn-outline:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(66, 126, 136, 0.1);
+}
+
+/* --- White Button (for dark backgrounds) --- */
+.btn-white {
+  background: #fff;
+  color: var(--dark);
+}
+
+.btn-white:hover {
+  background: #f5f5f5;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+}
+
+/* --- Door-Style Button (glass on colored bg) --- */
+.door-btn {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  color: #fff;
+  padding: 13px 32px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s var(--ease);
+  backdrop-filter: blur(4px);
+}
+
+.door-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ============================================================
+   6. SECTION PRIMITIVES (labels, titles, subtitles, containers)
+   ============================================================ */
+.section-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--teal);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: 38px;
+  text-align: center;
+  color: var(--dark);
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+
+.section-sub {
+  font-size: 18px;
+  color: var(--muted);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 56px;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.container-narrow {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.container-wide {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.section-padding {
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+}
+
+
+/* ============================================================
+   7. CARD SYSTEM
+   ============================================================ */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  transition: all 0.4s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top border accent on hover */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--teal), var(--teal-light));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+  border-color: transparent;
+}
+
+/* Card with orange accent instead of teal */
+.card--orange::before {
+  background: linear-gradient(90deg, var(--orange), #e8934d);
+}
+
+/* Card icon container */
+.card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, rgba(66, 126, 136, 0.08), rgba(66, 126, 136, 0.03));
+  border: 1px solid rgba(66, 126, 136, 0.1);
+}
+
+.card-icon--orange {
+  background: linear-gradient(135deg, rgba(224, 117, 37, 0.08), rgba(224, 117, 37, 0.03));
+  border: 1px solid rgba(224, 117, 37, 0.1);
+}
+
+.card h3 {
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* Pillar cards — alias for backward compatibility with POC */
+.pillar-card     { /* extends .card — use class="card" on new pages */ }
+.pillar-icon     { /* extends .card-icon */ }
+
+/* Common grid layouts for cards */
+.card-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+
+/* ============================================================
+   8. HERO VARIANTS
+   ============================================================ */
+
+/* --- Base Hero --- */
+.hero {
+  text-align: center;
+  padding: 120px 40px 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero badge / eyebrow */
+.hero-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(66, 126, 136, 0.08), rgba(66, 126, 136, 0.04));
+  border: 1px solid rgba(66, 126, 136, 0.12);
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 28px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--dark);
+  margin-bottom: 24px;
+  
+}
+
+.hero h1 .accent {
+  color: var(--orange);
+}
+
+.hero p {
+  font-size: 20px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 580px;
+  margin: 0 auto;
+  
+}
+
+/* --- VARIANT: Image Hero (homepage style) --- */
+.hero-image {
+  background: linear-gradient(to bottom, rgba(250, 249, 247, 0.92), rgba(250, 249, 247, 0.96)),
+              var(--hero-bg, none) center/cover no-repeat;
+}
+
+/* Radial glow behind hero */
+.hero-image::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 500px;
+  background: radial-gradient(ellipse, rgba(66, 126, 136, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --- VARIANT: Teal Gradient Hero (griever/loss pages) --- */
+.hero-gradient-teal {
+  background: linear-gradient(155deg, rgba(58, 117, 128, 0.92), rgba(91, 163, 175, 0.88)),
+              var(--hero-bg, none) center/cover no-repeat;
+  color: #fff;
+}
+
+.hero-gradient-teal h1 {
+  color: #fff;
+}
+
+.hero-gradient-teal h1 .accent {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-gradient-teal p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-gradient-teal .hero-badge {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+/* --- VARIANT: Orange Gradient Hero (certification pages) --- */
+.hero-gradient-orange {
+  background: linear-gradient(155deg, rgba(208, 106, 30, 0.9), rgba(232, 148, 80, 0.88)),
+              var(--hero-bg, none) center/cover no-repeat;
+  color: #fff;
+}
+
+.hero-gradient-orange h1 {
+  color: #fff;
+}
+
+.hero-gradient-orange h1 .accent {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-gradient-orange p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-gradient-orange .hero-badge {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+/* --- VARIANT: Dark Hero (about/neutral pages) --- */
+.hero-dark {
+  background: linear-gradient(to right, rgba(26, 26, 26, 0.93), rgba(26, 26, 26, 0.88)),
+              var(--hero-bg, none) center/cover no-repeat;
+  color: #fff;
+}
+
+.hero-dark h1 {
+  color: #fff;
+}
+
+.hero-dark p {
+  color: #999;
+}
+
+.hero-dark .hero-badge {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* ============================================================
+   9. TWO DOORS (homepage routing)
+   ============================================================ */
+.two-doors {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 40px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.8s forwards;
+}
+
+.door {
+  border-radius: var(--radius-xl);
+  padding: 52px 40px;
+  text-align: center;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer effect on doors */
+.door::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  right: 0;
+  bottom: 0;
+  width: 200%;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.1) 45%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.1) 55%, transparent 60%);
+  transition: transform 0.8s var(--ease);
+  pointer-events: none;
+}
+
+.door:hover::before {
+  transform: translateX(60%);
+}
+
+.door:hover {
+  transform: translateY(-6px);
+}
+
+.door-griever {
+  background: linear-gradient(155deg, rgba(58, 117, 128, 0.92), rgba(91, 163, 175, 0.88)),
+              var(--door-bg, none) center/cover no-repeat;
+  color: #fff;
+}
+
+.door-griever:hover {
+  box-shadow: 0 20px 60px rgba(66, 126, 136, 0.25);
+}
+
+.door-professional {
+  background: linear-gradient(155deg, rgba(208, 106, 30, 0.9), rgba(232, 148, 80, 0.88)),
+              var(--door-bg, none) center/cover no-repeat;
+  color: #fff;
+}
+
+.door-professional:hover {
+  box-shadow: 0 20px 60px rgba(224, 117, 37, 0.25);
+}
+
+.door-icon {
+  font-size: 44px;
+  margin-bottom: 22px;
+  display: block;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+.door h2 {
+  font-family: var(--serif);
+  font-size: 27px;
+  margin-bottom: 14px;
+  font-weight: 700;
+  color: inherit;
+}
+
+.door p {
+  font-size: 16px;
+  opacity: 0.9;
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+
+.door-links {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.door-links a {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.door-links a:hover {
+  color: #fff;
+  letter-spacing: 0.3px;
+}
+
+
+/* ============================================================
+   10. TRUST BAR (with teal underline accents)
+   ============================================================ */
+.trust-bar {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  padding: 70px 40px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.trust-item {
+  text-align: center;
+}
+
+.trust-number {
+  font-family: var(--serif);
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--dark);
+  position: relative;
+}
+
+/* Teal underline accent */
+.trust-number::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 3px;
+  background: var(--teal);
+  border-radius: 2px;
+  margin: 10px auto 0;
+  opacity: 0.4;
+}
+
+.trust-label {
+  font-size: 14px;
+  color: var(--faint);
+  margin-top: 8px;
+  letter-spacing: 0.3px;
+}
+
+
+/* ============================================================
+   11. PHOTO STRIP (4-column grid with hover captions)
+   ============================================================ */
+.photo-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.photo-strip-item {
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s var(--ease);
+}
+
+.photo-strip-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26, 26, 26, 0.4), transparent 60%);
+  transition: opacity 0.4s;
+}
+
+.photo-strip-item:hover {
+  transform: scale(1.02);
+}
+
+.photo-strip-item:hover::after {
+  opacity: 0.6;
+}
+
+.photo-strip-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.4s var(--ease);
+}
+
+.photo-strip-item:hover .photo-strip-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ============================================================
+   12. TESTIMONIAL SECTION
+   ============================================================ */
+.testimonial-section {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 90px 40px;
+  text-align: center;
+  position: relative;
+}
+
+/* Large decorative quotation mark */
+.testimonial-section::before {
+  content: "\201C";
+  font-family: var(--serif);
+  font-size: 160px;
+  color: var(--teal);
+  opacity: 0.06;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.testimonial-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: 0 auto 24px;
+  background: linear-gradient(135deg, var(--teal), var(--teal-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 24px;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(66, 126, 136, 0.2);
+}
+
+.testimonial-quote {
+  font-family: var(--serif);
+  font-size: 26px;
+  line-height: 1.6;
+  color: var(--dark);
+  font-style: italic;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.testimonial-author {
+  font-size: 15px;
+  color: var(--faint);
+}
+
+.testimonial-author strong {
+  color: #555;
+}
+
+
+/* ============================================================
+   13. SOCIAL PROOF / MEDIA LOGOS BAR
+   ============================================================ */
+.social-proof {
+  background: var(--white);
+  padding: 56px 40px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.featured-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #bbb;
+  margin-bottom: 28px;
+  font-weight: 600;
+}
+
+.media-logos {
+  display: flex;
+  justify-content: center;
+  gap: 56px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.media-logos span {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--body);
+  opacity: 0.2;
+  letter-spacing: 2px;
+  transition: opacity 0.3s;
+}
+
+.media-logos span:hover {
+  opacity: 0.5;
+}
+
+
+/* ============================================================
+   14. CTA SECTIONS
+   ============================================================ */
+
+/* --- Dark CTA with gradient orbs --- */
+.final-cta {
+  background: linear-gradient(to right, rgba(26, 26, 26, 0.93), rgba(26, 26, 26, 0.88)),
+              var(--cta-bg, none) center/cover no-repeat;
+  padding: 100px 40px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradient orb — top left */
+.final-cta::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(66, 126, 136, 0.12), transparent 70%);
+  pointer-events: none;
+}
+
+/* Gradient orb — bottom right */
+.final-cta::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(224, 117, 37, 0.1), transparent 70%);
+  pointer-events: none;
+}
+
+.final-cta > * {
+  position: relative;
+  z-index: 1;
+}
+
+.final-cta h2 {
+  font-family: var(--serif);
+  font-size: 40px;
+  margin-bottom: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.final-cta h2 .accent {
+  color: var(--orange);
+}
+
+.final-cta p {
+  font-size: 18px;
+  color: #999;
+  margin-bottom: 40px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.final-cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* --- Image Overlay CTA Variant --- */
+.cta-image-overlay {
+  background-size: cover;
+  background-position: center;
+}
+
+.cta-image-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(26, 26, 26, 0.88), rgba(26, 26, 26, 0.82));
+  z-index: 0;
+}
+
+
+/* ============================================================
+   15. PREMIUM FOOTER (4-column grid)
+   ============================================================ */
+footer {
+  padding: 56px 40px 40px;
+  border-top: 1px solid var(--border);
+}
+
+.footer-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  text-align: left;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+
+.footer-brand {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--body);
+  margin-bottom: 10px;
+}
+
+.footer-brand span {
+  color: var(--teal);
+}
+
+.footer-desc {
+  font-size: 14px;
+  color: var(--faint);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.footer-stats {
+  font-size: 13px;
+  color: #bbb;
+}
+
+.footer-col-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--faint);
+  margin-bottom: 14px;
+}
+
+.footer-link {
+  display: block;
+  font-size: 14px;
+  color: var(--muted);
+  padding: 5px 0;
+  text-decoration: none;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.footer-link:hover {
+  color: var(--body);
+  transform: translateX(2px);
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.footer-crisis {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #bbb;
+}
+
+
+/* ============================================================
+   16. ANIMATION SYSTEM
+   ============================================================ */
+
+/* --- Keyframes --- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Scroll Reveal (triggered by IntersectionObserver in JS) --- */
+.reveal { opacity: 1 !important; transform: none !important; }
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Stagger Children --- */
+.reveal-stagger > * { opacity: 1 !important; transform: none !important; }
+
+.reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: none; }
+.reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: none; }
+.reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.25s; opacity: 1; transform: none; }
+.reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.35s; opacity: 1; transform: none; }
+.reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.45s; opacity: 1; transform: none; }
+.reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.55s; opacity: 1; transform: none; }
+
+/* --- Prefers Reduced Motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal,
+  .reveal-stagger > * {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero-badge,
+  .hero h1,
+  .hero p,
+  .two-doors {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+
+/* ============================================================
+   17. RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* --- Tablet & Small Laptops (768px) --- */
+@media (max-width: 768px) {
+
+  /* Header */
+  header {
+    position: relative;
+    padding: 12px 16px;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    gap: 12px;
+    z-index: 99;
+  }
+
+  nav.nav-open {
+    display: flex;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .nav-cta {
+    text-align: center;
+  }
+
+  /* Mega Nav — stack on mobile */
+  .mega-dropdown,
+  .mega-wide {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    padding: 0 0 0 16px;
+    min-width: auto;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    animation: none;
+  }
+
+  .mega-3col {
+    grid-template-columns: 1fr;
+    min-width: auto;
+  }
+
+  .mega-wide {
+    grid-template-columns: 1fr;
+    min-width: auto;
+  }
+
+  .nav-item:hover .mega-dropdown,
+  .nav-item:hover .mega-wide {
+    display: block;
+  }
+
+  .mega-dropdown::before {
+    display: none;
+  }
+
+  .nav-item > a::after {
+    display: none;
+  }
+
+  .mega-dropdown-title {
+    font-size: 10px;
+    margin-top: 10px;
+  }
+
+  .mega-link {
+    padding: 6px 0;
+    font-size: 13px;
+  }
+
+  .mega-link-desc {
+    display: none;
+  }
+
+  /* Utility Bar */
+  .utility-bar {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  /* Hero */
+  .hero {
+    padding: 60px 20px 40px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .hero p {
+    font-size: 17px;
+  }
+
+  /* Two Doors */
+  .two-doors {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+    gap: 20px;
+  }
+
+  .door {
+    padding: 36px 28px;
+  }
+
+  .door h2 {
+    font-size: 24px;
+  }
+
+  /* Trust Bar */
+  .trust-bar {
+    flex-wrap: wrap;
+    gap: 28px;
+    padding: 50px 20px;
+  }
+
+  .trust-number {
+    font-size: 32px;
+  }
+
+  /* Cards */
+  .card-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .card-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Section Primitives */
+  .section-title {
+    font-size: 30px;
+  }
+
+  .container,
+  .container-narrow,
+  .container-wide {
+    padding: 0 20px;
+  }
+
+  .section-padding {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  /* Photo Strip */
+  .photo-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .photo-strip-item {
+    height: 200px;
+  }
+
+  /* Social Proof */
+  .social-proof {
+    padding: 40px 20px;
+  }
+
+  .media-logos {
+    gap: 24px;
+  }
+
+  /* Testimonial */
+  .testimonial-section {
+    padding: 60px 20px;
+  }
+
+  .testimonial-quote {
+    font-size: 21px;
+  }
+
+  /* CTA */
+  .final-cta {
+    padding: 60px 20px;
+  }
+
+  .final-cta h2 {
+    font-size: 30px;
+  }
+
+  .final-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  footer {
+    padding: 40px 20px 30px;
+  }
+}
+
+/* --- Mobile (480px) --- */
+@media (max-width: 480px) {
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-strip-item {
+    height: 180px;
+  }
+
+  .trust-bar {
+    gap: 20px;
+  }
+
+  .trust-number {
+    font-size: 28px;
+  }
+
+  .door {
+    padding: 32px 20px;
+  }
+
+  .door h2 {
+    font-size: 22px;
+  }
+
+  .btn-primary {
+    padding: 14px 28px;
+    font-size: 15px;
+    width: 100%;
+  }
+}
+
+</style>
+<style>
+/* ============ Specialist Profile Page Styles ============ */
+.breadcrumb { padding: 16px 40px; font-size: 14px; color: var(--faint); background: var(--white); border-bottom: 1px solid var(--border); }
+.breadcrumb a { color: var(--teal); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb span { margin: 0 8px; color: #ccc; }
+.profile-hero { background: linear-gradient(155deg, rgba(58,117,128,0.92), rgba(91,163,175,0.88)); padding: 60px 40px; color: #fff; }
+.profile-hero-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 48px; align-items: flex-start; }
+.profile-hero-left { display: flex; flex-direction: column; align-items: center; gap: 14px; flex-shrink: 0; }
+.avatar { width: 140px; height: 140px; border-radius: 50%; background: linear-gradient(135deg, var(--teal-hover), var(--teal-light)); border: 4px solid rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 48px; font-weight: 700; color: #fff; letter-spacing: 2px; }
+.badge-adv { background: var(--orange); color: #fff; font-size: 11px; font-weight: 700; padding: 5px 14px; border-radius: var(--radius-pill); text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+.badge-verified { background: rgba(255,255,255,0.15); color: #fff; font-size: 11px; font-weight: 600; padding: 5px 14px; border-radius: var(--radius-pill); white-space: nowrap; }
+.profile-hero-right { flex: 1; }
+.profile-hero-right h1 { font-family: var(--serif); font-size: 38px; font-weight: 700; margin-bottom: 8px; color: #fff; }
+.profile-credentials { font-size: 16px; opacity: 0.9; line-height: 1.5; margin-bottom: 10px; }
+.profile-location { font-size: 14px; opacity: 0.8; margin-bottom: 14px; }
+.profile-rating { display: flex; align-items: center; gap: 8px; margin-bottom: 18px; }
+.stars { color: #f5c542; font-size: 18px; letter-spacing: 2px; }
+.rating-text { font-size: 14px; opacity: 0.9; }
+.specialty-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.specialty-tag { background: rgba(255,255,255,0.15); color: #fff; font-size: 13px; font-weight: 500; padding: 6px 14px; border-radius: var(--radius-pill); }
+.hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-orange-profile { display: inline-block; background: var(--orange); color: #fff; padding: 13px 30px; border-radius: var(--radius-sm); font-weight: 600; font-size: 15px; text-decoration: none; transition: all 0.3s var(--ease); border: none; cursor: pointer; }
+.btn-orange-profile:hover { background: var(--orange-hover); transform: translateY(-2px); }
+.btn-outline-white { display: inline-block; border: 2px solid rgba(255,255,255,0.5); color: #fff; padding: 11px 28px; border-radius: var(--radius-sm); font-weight: 600; font-size: 15px; text-decoration: none; transition: all 0.2s; }
+.btn-outline-white:hover { background: rgba(255,255,255,0.15); border-color: #fff; }
+.main-content { max-width: 1100px; margin: 0 auto; padding: 40px 40px 60px; display: grid; grid-template-columns: 1fr 360px; gap: 40px; }
+.content-section { margin-bottom: 40px; }
+.content-section-title { font-family: var(--serif); font-size: 24px; font-weight: 700; color: var(--dark); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--border); }
+.about-text p { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 12px; }
+.programs-offered-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.program-offered-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px 20px; transition: all 0.4s var(--ease); position: relative; overflow: hidden; }
+.program-offered-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--teal),var(--teal-light)); transform:scaleX(0); transform-origin:left; transition:transform 0.4s var(--ease); }
+.program-offered-card:hover::before { transform: scaleX(1); }
+.program-offered-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.07); }
+.program-offered-card .program-icon { width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, var(--teal), var(--teal-light)); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; margin-bottom: 12px; }
+.program-offered-card h4 { font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+.program-offered-card .program-meta { font-size: 13px; color: var(--faint); margin-bottom: 4px; }
+.program-offered-card .program-format { font-size: 12px; color: var(--teal); font-weight: 600; }
+.upcoming-group-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px; display: flex; gap: 16px; align-items: center; margin-bottom: 12px; transition: all 0.3s var(--ease); }
+.upcoming-group-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.07); }
+.upcoming-date { background: var(--teal); color: #fff; border-radius: var(--radius-md); padding: 12px 14px; text-align: center; flex-shrink: 0; min-width: 64px; }
+.upcoming-month { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+.upcoming-day { font-size: 22px; font-weight: 700; line-height: 1.1; }
+.upcoming-info { flex: 1; }
+.upcoming-title { font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 4px; }
+.upcoming-meta { font-size: 13px; color: var(--faint); line-height: 1.4; }
+.upcoming-meta strong { color: var(--muted); }
+.upcoming-tags { display: flex; gap: 6px; margin-top: 6px; }
+.upcoming-tag { font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 8px; }
+.upcoming-tag-format { background: #e3f2fd; color: #1565c0; }
+.upcoming-tag-online { background: #e8f5e9; color: #2e7d32; }
+.upcoming-tag-inperson { background: #fff3e0; color: var(--orange); }
+.upcoming-tag-spots { background: #fce4ec; color: #c62828; }
+.btn-sm-register { display: inline-block; background: var(--teal); color: #fff; padding: 8px 16px; border-radius: var(--radius-sm); font-size: 13px; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+.btn-sm-register:hover { background: var(--teal-hover); }
+.specialty-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.specialty-chip { background: rgba(66,126,136,0.06); color: var(--teal); font-size: 14px; font-weight: 500; padding: 8px 16px; border-radius: var(--radius-pill); }
+.review-card-sp { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 16px; }
+.review-stars-sp { color: #f5c542; font-size: 14px; letter-spacing: 1px; margin-bottom: 10px; }
+.review-quote-sp { font-size: 15px; color: var(--muted); line-height: 1.6; margin-bottom: 12px; font-style: italic; }
+.review-author-sp { font-size: 13px; color: var(--faint); }
+.review-author-sp strong { color: var(--muted); font-weight: 600; }
+.sidebar { position: sticky; top: 90px; }
+.sidebar-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 24px; margin-bottom: 20px; }
+.sidebar-card h3 { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--dark); margin-bottom: 18px; }
+.contact-form { display: flex; flex-direction: column; gap: 12px; }
+.contact-form input, .contact-form textarea { font-family: var(--sans); font-size: 14px; padding: 12px 14px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--bg); transition: border-color 0.2s; width: 100%; }
+.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--teal); background: var(--white); }
+.contact-form textarea { resize: vertical; min-height: 90px; }
+.contact-form .btn-orange-profile { width: 100%; text-align: center; }
+.quick-info-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+.quick-info-row:last-child { border-bottom: none; }
+.quick-info-label { color: var(--faint); font-weight: 500; }
+.quick-info-value { color: var(--dark); font-weight: 500; text-align: right; max-width: 55%; }
+.accepting-badge { background: #e6f5e9; color: #2d8a4e; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 10px; }
+.similar-section { padding: 60px 40px; background: var(--white); border-top: 1px solid var(--border); }
+.similar-section-inner { max-width: 1100px; margin: 0 auto; }
+.similar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.similar-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 24px; text-decoration: none; color: inherit; transition: all 0.4s var(--ease); display: block; position: relative; overflow: hidden; }
+.similar-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--teal),var(--teal-light)); transform:scaleX(0); transform-origin:left; transition:transform 0.4s var(--ease); }
+.similar-card:hover::before { transform: scaleX(1); }
+.similar-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
+.similar-card-top { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+.similar-avatar { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, var(--teal), var(--teal-light)); display: flex; align-items: center; justify-content: center; color: #fff; font-family: var(--serif); font-size: 18px; font-weight: 700; flex-shrink: 0; }
+.similar-card-name { font-family: var(--serif); font-size: 16px; font-weight: 700; color: var(--dark); }
+.similar-card-location { font-size: 13px; color: var(--faint); margin-top: 2px; }
+.similar-card-meta { font-size: 13px; color: var(--faint); display: flex; justify-content: space-between; align-items: center; }
+.similar-card-stars { color: #f5c542; font-size: 13px; }
+.similar-card-distance { font-size: 12px; color: var(--teal); font-weight: 600; }
 @media (max-width: 900px) {
-  .profile-hero-inner { grid-template-columns: 1fr; text-align: center; }
-  .profile-photo-col { margin-bottom: 10px; }
-  .profile-location-row { justify-content: center; }
-  .profile-tags { justify-content: center; }
-  .profile-ctas { justify-content: center; }
-  .profile-body { grid-template-columns: 1fr; }
-  .similar-grid { grid-template-columns: 1fr 1fr; }
-  .programs-grid { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 600px) {
-  .profile-hero-inner { gap: 20px; }
-  .profile-photo-wrap { width: 200px; height: 200px; }
-  .profile-info h1 { font-size: 1.4rem; }
+  .main-content { grid-template-columns: 1fr; padding: 30px 20px 40px; }
+  .sidebar { position: static; }
+  .profile-hero-inner { flex-direction: column; align-items: center; text-align: center; gap: 28px; }
+  .specialty-tags { justify-content: center; }
+  .hero-ctas { justify-content: center; }
+  .programs-offered-grid { grid-template-columns: 1fr; }
   .similar-grid { grid-template-columns: 1fr; }
-  .programs-grid { grid-template-columns: 1fr; }
-  .nav-links { gap: 12px; font-size: .82rem; }
+  .profile-hero-right h1 { font-size: 30px; }
+  .profile-rating { justify-content: center; }
+  .breadcrumb { padding: 12px 20px; }
+  .profile-hero { padding: 40px 20px; }
 }
-
-.fade-in { opacity: 0; transform: translateY(14px); transition: all .5s ease; }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 <body>
 
-<!-- ======================= NAV ======================= -->
-<nav class="page-nav">
-  <div class="container">
-    <a href="TGRM_Homepage_V2.html" class="nav-logo">The Grief Recovery Method&reg;</a>
-    <div class="nav-links">
-      <a href="TGRM_Homepage_V2.html">Home</a>
-      <a href="TGRM_Handbook.html">The Handbook</a>
-      <a href="TGRM_Directory.html">Find a Specialist</a>
-      <a href="TGRM_Certification.html">Get Certified</a>
-      <a href="TGRM_Blog.html">Blog</a>
-      <a href="TGRM_Certification.html" class="nav-cta">Free Online Course</a>
-    </div>
-  </div>
-</nav>
+<div class="utility-bar">
+  <div><a href="tel:800-334-7606">800-334-7606</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="#">Crisis Resources</a></div>
+  <div><a href="#">Login</a></div>
+</div>
 
-<!-- ======================= BREADCRUMB ======================= -->
-<div class="container">
-  <div class="breadcrumb fade-in">
-    <a href="TGRM_Homepage_V2.html">Home</a>
-    <span>&rsaquo;</span>
+<header id="header">
+  <div class="logo"><a href="TGRM_Homepage_Premium_POC.html" style="text-decoration:none;color:inherit;">The Grief Recovery <span>Method</span>&reg;</a></div>
+  <nav>
+    <div class="nav-item"><a href="TGRM_GetHelp_Hub.html">Get Help</a><div class="mega-dropdown mega-3col"><div><div class="mega-dropdown-title">Find Support</div><a href="TGRM_Directory.html" class="mega-link">Find a Specialist Near You<div class="mega-link-desc">3,000+ certified specialists worldwide</div></a><a href="TGRM_Quiz.html" class="mega-link">What Type of Griever Are You?<div class="mega-link-desc">Free 2-minute assessment</div></a><a href="https://programs.griefrecoverymethod.com/online-course" class="mega-link" target="_blank">Free Online Course<div class="mega-link-desc">Video lessons with Cole James — free</div></a><a href="TGRM_Free_Resources.html" class="mega-link">Free Grief Recovery Guides<div class="mega-link-desc">7 free ebooks — instant download</div></a><a href="TGRM_Handbook.html" class="mega-link">Get the Handbook<div class="mega-link-desc">1M+ copies sold</div></a></div><div><div class="mega-dropdown-title">Explore by Loss Type</div><a href="TGRM_Loss_Child.html" class="mega-loss-link">Death of a Child</a><a href="TGRM_Loss_Spouse.html" class="mega-loss-link">Death of a Spouse or Partner</a><a href="TGRM_Loss_Parent.html" class="mega-loss-link">Death of a Parent</a><a href="TGRM_Loss_Suicide.html" class="mega-loss-link">Losing Someone to Suicide</a><a href="TGRM_Loss_Death.html" class="mega-loss-link">Death of a Friend or Loved One</a><a href="TGRM_Loss_Divorce.html" class="mega-loss-link">Divorce &amp; Relationship Loss</a><a href="TGRM_Loss_Pet.html" class="mega-loss-link">Pet Loss</a><a href="TGRM_Loss_Job.html" class="mega-loss-link">Job &amp; Career Loss</a><a href="TGRM_Loss_Health.html" class="mega-loss-link">Health Crisis &amp; Chronic Illness</a><a href="TGRM_Loss_Estrangement.html" class="mega-loss-link">Estrangement &amp; Family Cutoff</a><a href="TGRM_Loss_Miscarriage.html" class="mega-loss-link">Miscarriage &amp; Pregnancy Loss</a></div><div><div class="mega-dropdown-title">Popular Topics</div><a href="TGRM_Blog_Post.html" class="mega-loss-link">Myths About Grief</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">What Not to Say to a Griever</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">Grief vs. Depression</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">Helping Children with Grief</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">Grief at Work</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">When Holidays Hurt</a></div></div></div>
+    <div class="nav-item"><a href="TGRM_GetCertified_Hub.html">Get Certified</a><div class="mega-dropdown mega-3col"><div><div class="mega-dropdown-title">Training Programs</div><a href="TGRM_GetCertified_Hub.html#pricing" class="mega-link">Foundational Certification<div class="mega-link-desc">$2,495 &middot; 4-day live training</div></a><a href="TGRM_GetCertified_Hub.html#pricing" class="mega-link">Advanced Certification<div class="mega-link-desc">$3,995 &middot; 50 hours total</div></a><a href="TGRM_GetCertified_Hub.html#pricing" class="mega-link">Premium In-Person<div class="mega-link-desc">$4,995 &middot; Small group intensive</div></a><a href="TGRM_Private_Training.html" class="mega-link">Private / B2B Training<div class="mega-link-desc">Custom training for organizations</div></a></div><div><div class="mega-dropdown-title">Is It Right for You?</div><a href="TGRM_Cert_Grievers.html" class="mega-loss-link">Grievers with a Passion to Help</a><a href="TGRM_Cert_Therapists.html" class="mega-loss-link">Therapists &amp; Counselors</a><a href="TGRM_Cert_Coaches.html" class="mega-loss-link">Life &amp; Wellness Coaches</a><a href="TGRM_Cert_Military.html" class="mega-loss-link">Military &amp; Veterans</a><a href="TGRM_Cert_Healthcare.html" class="mega-loss-link">Healthcare &amp; Hospice</a><a href="TGRM_Cert_Faith.html" class="mega-loss-link">Faith Leaders &amp; Communities</a></div><div><div class="mega-dropdown-title">Resources</div><a href="TGRM_GetCertified_Hub.html" class="mega-loss-link">Upcoming Training Dates</a><a href="TGRM_FAQ.html" class="mega-loss-link">Certification FAQ</a><a href="TGRM_GetCertified_Hub.html" class="mega-loss-link">Payment Plans Available</a><a href="TGRM_GetCertified_Hub.html" class="mega-loss-link">Have Questions? Let's Talk</a></div></div></div>
     <a href="TGRM_Directory.html">Find a Specialist</a>
-    <span>&rsaquo;</span>
-    <a href="TGRM_Directory.html">Portland, OR</a>
-    <span>&rsaquo;</span>
-    Sarah Mitchell, LCSW
-  </div>
-</div>
+    <div class="nav-item"><a href="TGRM_About.html">About</a><div class="mega-dropdown mega-wide"><div><div class="mega-dropdown-title">The Method</div><a href="TGRM_About.html" class="mega-link">How The Method Works<div class="mega-link-desc">Action-based grief recovery in 3 steps</div></a><a href="TGRM_About.html" class="mega-link">45+ Years of Research<div class="mega-link-desc">Evidence-based, peer-reviewed</div></a><a href="TGRM_Handbook.html" class="mega-link">The Grief Recovery Handbook<div class="mega-link-desc">1M+ copies, 14 languages</div></a></div><div><div class="mega-dropdown-title">Our Team</div><a href="TGRM_About.html" class="mega-loss-link">John W. James, Founder</a><a href="TGRM_About.html" class="mega-loss-link">Leadership Team</a><a href="TGRM_About.html" class="mega-loss-link">Our Trainers</a></div></div></div>
+    <div class="nav-item"><a href="TGRM_Resources.html">Resources</a><div class="mega-dropdown mega-3col"><div><div class="mega-dropdown-title">Content</div><a href="TGRM_Blog.html" class="mega-link">Blog<div class="mega-link-desc">Expert insights on grief recovery</div></a><a href="TGRM_Podcast.html" class="mega-link">Feel Free Again Podcast<div class="mega-link-desc">New episodes biweekly</div></a><a href="#" class="mega-loss-link">YouTube Channel</a><a href="TGRM_Free_Resources.html" class="mega-loss-link">Free Grief Recovery Guides</a></div><div><div class="mega-dropdown-title">Books</div><a href="TGRM_Handbook.html" class="mega-link">The Grief Recovery Handbook<div class="mega-link-desc">The definitive guide</div></a><a href="TGRM_Handbook.html" class="mega-loss-link">When Children Grieve</a><a href="TGRM_Handbook.html" class="mega-loss-link">The Pet Loss Handbook</a><a href="TGRM_Handbook.html" class="mega-loss-link">Moving On / Moving Beyond</a></div><div><div class="mega-dropdown-title">Popular Topics</div><a href="TGRM_Blog_Post.html" class="mega-loss-link">Myths About Grief</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">What Not to Say to a Griever</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">Grief vs. Depression</a><a href="TGRM_Blog_Post.html" class="mega-loss-link">When Holidays Hurt</a></div></div></div>
+    <a href="TGRM_Quiz.html" class="nav-cta">Take the Free Quiz</a>
+  </nav>
+  <button class="mobile-menu-btn" aria-label="Menu" aria-expanded="false">&#9776;</button>
+</header>
 
-<!-- ======================= PROFILE HERO ======================= -->
-<section class="profile-hero">
-  <div class="container">
-    <div class="profile-hero-inner">
+<!-- Breadcrumb -->
+<div class="breadcrumb"><a href="TGRM_Homepage_Premium_POC.html">Home</a><span>&rsaquo;</span><a href="TGRM_Directory.html">Find a Specialist</a><span>&rsaquo;</span><a href="#">Portland, OR</a><span>&rsaquo;</span>Sarah Mitchell, LCSW</div>
 
-      <!-- LEFT: PHOTO -->
-      <div class="profile-photo-col fade-in">
-        <div class="profile-photo-wrap">
-          <div class="photo-placeholder">&#128100;</div>
-        </div>
-        <div style="margin-bottom:6px;">
-          <span class="cert-badge advanced">&#9733; Advanced Certified Specialist</span>
-        </div>
-        <div class="verified-badge">&#10003; Verified &amp; Active Since 2018</div>
-      </div>
-
-      <!-- RIGHT: INFO -->
-      <div class="profile-info fade-in">
-        <h1>Sarah Mitchell, LCSW</h1>
-        <div class="profile-credentials">Licensed Clinical Social Worker &bull; Certified Grief Recovery Specialist&reg;</div>
-
-        <div class="profile-location-row">
-          <span>&#128205; Portland, OR</span>
-          <span>&#128187; Also available online</span>
-          <span>&#127760; English, Spanish</span>
-        </div>
-
-        <div class="profile-rating">
-          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-          <span class="rating-text">4.9 average &bull; 47 verified reviews</span>
-        </div>
-
-        <div class="profile-tags">
-          <span class="profile-tag">Grief &amp; Loss</span>
-          <span class="profile-tag">Pet Loss</span>
-          <span class="profile-tag">Divorce Recovery</span>
-          <span class="profile-tag">Death of a Loved One</span>
-          <span class="profile-tag orange">Children &amp; Teens</span>
-          <span class="profile-tag">Career &amp; Health Loss</span>
-        </div>
-
-        <div class="profile-ctas">
-          <a href="#contact-form" class="btn-contact primary">&#9993; Contact Sarah</a>
-          <a href="tel:+15035551234" class="btn-contact secondary">&#128222; (503) 555-1234</a>
-        </div>
-      </div>
+<!-- Profile Hero -->
+<div class="profile-hero">
+  <div class="profile-hero-inner">
+    <div class="profile-hero-left">
+      <div class="avatar">SM</div>
+      <span class="badge-adv">Advanced Certified Specialist</span>
+      <span class="badge-verified">&#10003; Verified &amp; Active Since 2018</span>
     </div>
-  </div>
-</section>
-
-<!-- ======================= MAIN CONTENT ======================= -->
-<div class="container">
-  <div class="profile-body">
-
-    <!-- ====== LEFT COLUMN ====== -->
-    <div class="profile-main">
-
-      <!-- ABOUT -->
-      <div class="section-card fade-in">
-        <h2><span class="icon">&#128220;</span> About Sarah</h2>
-        <div class="bio-text">
-          <p>I became a Certified Grief Recovery Specialist because I saw a gap in my clinical work that traditional therapy alone wasn't filling. After 15 years as a licensed clinical social worker, I kept encountering clients who had done the cognitive work, understood their patterns intellectually, but still carried an emotional heaviness that wouldn't lift. That heaviness was unresolved grief.</p>
-          <p>The Grief Recovery Method gave me &mdash; and now gives my clients &mdash; a structured, evidence-based path to complete the unfinished emotional business that loss leaves behind. Whether it's the death of a loved one, a divorce, a career change, the loss of a pet, or the end of a friendship, grief touches every part of life.</p>
-          <div class="bio-expanded" id="bioExpanded">
-            <p>I specialize in working with adults and teens navigating all types of loss. I've facilitated over 200 Grief Recovery programs, both one-on-one and in group settings, and I also maintain a private therapy practice for those who benefit from ongoing clinical support alongside the GRM process.</p>
-            <p>My approach is warm, direct, and judgment-free. I believe everyone deserves a space to be heard &mdash; truly heard &mdash; without being analyzed, fixed, or told how they should feel. The GRM process provides exactly that: an action-based program that helps you move from where you are to where you want to be.</p>
-            <p>When I'm not working, you'll find me hiking the trails around the Columbia River Gorge with my two dogs, volunteering at our local food bank, or curled up with a good book and far too much coffee.</p>
-          </div>
-          <span class="bio-read-more" onclick="document.getElementById('bioExpanded').classList.toggle('show'); this.textContent = this.textContent.includes('Read More') ? 'Show Less \u25B2' : 'Read More \u25BC';">Read More &#9660;</span>
-        </div>
-      </div>
-
-      <!-- PROGRAMS OFFERED -->
-      <div class="section-card fade-in">
-        <h2><span class="icon">&#128218;</span> Programs Offered</h2>
-        <div class="programs-grid">
-          <div class="program-card">
-            <div class="program-icon">&#128101;</div>
-            <h3>Grief Recovery Support Group</h3>
-            <p>8-week evidence-based group program. Work through loss alongside others who understand.</p>
-            <span class="program-format">In-Person &amp; Online</span>
-          </div>
-          <div class="program-card">
-            <div class="program-icon">&#129309;</div>
-            <h3>One-on-One Grief Support</h3>
-            <p>7-session private program using the same proven GRM materials, tailored to your pace.</p>
-            <span class="program-format">In-Person &amp; Online</span>
-          </div>
-          <div class="program-card">
-            <div class="program-icon">&#128058;</div>
-            <h3>Pet Loss Support Group</h3>
-            <p>A safe, judgment-free space for those grieving the loss of a beloved animal companion.</p>
-            <span class="program-format">Online</span>
-          </div>
-          <div class="program-card">
-            <div class="program-icon">&#127806;</div>
-            <h3>Children &amp; Teen Program</h3>
-            <p>Age-appropriate grief support helping young people process loss in a healthy way.</p>
-            <span class="program-format">In-Person</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- SPECIALTIES -->
-      <div class="section-card fade-in">
-        <h2><span class="icon">&#127919;</span> Areas of Specialty</h2>
-        <div class="specialties-list">
-          <span class="specialty-chip">Death of a Spouse/Partner</span>
-          <span class="specialty-chip">Death of a Parent</span>
-          <span class="specialty-chip">Death of a Child</span>
-          <span class="specialty-chip">Pet Loss &amp; Animal Grief</span>
-          <span class="specialty-chip">Divorce &amp; Relationship Loss</span>
-          <span class="specialty-chip">Career &amp; Identity Loss</span>
-          <span class="specialty-chip">Health &amp; Mobility Loss</span>
-          <span class="specialty-chip">Childhood Grief</span>
-          <span class="specialty-chip">Estrangement &amp; Living Loss</span>
-          <span class="specialty-chip">Moving &amp; Relocation</span>
-        </div>
-      </div>
-
-      <!-- TESTIMONIALS -->
-      <div class="section-card fade-in">
-        <h2><span class="icon">&#11088;</span> Client Reviews <span style="font-size:.78rem; font-weight:400; color:var(--text-light); margin-left:8px;">47 verified reviews</span></h2>
-        <div class="testimonial-list">
-
-          <div class="testi-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="testi-quote">&ldquo;Devon showed professionalism, kindness and a good understanding of the process. She shared her story within the method which made me feel less alone and then supported me through each assignment to make sure that I was heard and was not stuck. I appreciated her care and compassion.&rdquo;</div>
-            <div class="testi-attr">&mdash; Devon V., Marina, CA</div>
-          </div>
-
-          <div class="testi-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="testi-quote">&ldquo;The program as well as the facilitator were both such an incredible tool to help me work through my grief. I cannot recommend this program enough. In such a heavy culture of diminishing grief, I am thankful that this exists.&rdquo;</div>
-            <div class="testi-attr">&mdash; George V., Reno, NV</div>
-          </div>
-
-          <div class="testi-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="testi-quote">&ldquo;I experienced a certain amount of freedom as a result of the reading, learning, and processing of the materials from the class. I would like to take the class again in the spring.&rdquo;</div>
-            <div class="testi-attr">&mdash; Randy R., Stow, OH</div>
-          </div>
-
-          <div class="testi-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="testi-quote">&ldquo;I personally feel so much of a change in my thinking pattern. So much self-love, and most importantly the program helped me understand myself and evaluate every situation rather than procrastinate my feelings towards it.&rdquo;</div>
-            <div class="testi-attr">&mdash; Sabrina G.</div>
-          </div>
-
-          <div class="testi-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="testi-quote">&ldquo;She explained the homework well and made herself available at any time if I needed help. I am very grateful for her guidance.&rdquo;</div>
-            <div class="testi-attr">&mdash; Michelle P., St. Clair, MO</div>
-          </div>
-
-        </div>
-        <div style="text-align:center; margin-top:18px;">
-          <span style="font-size:.82rem; color:var(--teal); font-weight:600; cursor:pointer;">View All 47 Reviews &darr;</span>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- ====== RIGHT SIDEBAR ====== -->
-    <div class="profile-sidebar">
-
-      <!-- CONTACT FORM -->
-      <div class="sidebar-card fade-in" id="contact-form">
-        <h3>&#9993; Send Sarah a Message</h3>
-        <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent! Sarah will be in touch within 24 hours.');">
-          <label for="cf-name">Your Name *</label>
-          <input type="text" id="cf-name" placeholder="Your full name" required>
-
-          <label for="cf-email">Your Email *</label>
-          <input type="email" id="cf-email" placeholder="you@example.com" required>
-
-          <label for="cf-phone">Phone (optional)</label>
-          <input type="tel" id="cf-phone" placeholder="(555) 555-5555">
-
-          <label for="cf-msg">Message *</label>
-          <textarea id="cf-msg" placeholder="Tell Sarah a little about what you're going through and how she can help..." required></textarea>
-
-          <button type="submit" class="btn-send">Send Message</button>
-          <div class="form-privacy">Your info is kept private. See our <a href="#" style="color:var(--teal);">Privacy Policy</a>.</div>
-        </form>
-      </div>
-
-      <!-- QUICK INFO -->
-      <div class="sidebar-card fade-in">
-        <h3>&#128203; Quick Info</h3>
-        <div class="quick-info-row">
-          <span class="qi-icon">&#128205;</span>
-          <div>
-            <div class="qi-label">Location</div>
-            <div class="qi-value">Portland, OR 97201</div>
-          </div>
-        </div>
-        <div class="quick-info-row">
-          <span class="qi-icon">&#128222;</span>
-          <div>
-            <div class="qi-label">Phone</div>
-            <div class="qi-value"><a href="tel:+15035551234">(503) 555-1234</a></div>
-          </div>
-        </div>
-        <div class="quick-info-row">
-          <span class="qi-icon">&#127760;</span>
-          <div>
-            <div class="qi-label">Languages</div>
-            <div class="qi-value">English, Spanish</div>
-          </div>
-        </div>
-        <div class="quick-info-row">
-          <span class="qi-icon">&#128187;</span>
-          <div>
-            <div class="qi-label">Sessions Available</div>
-            <div class="qi-value">In-Person &amp; Online (Zoom)</div>
-          </div>
-        </div>
-        <div class="quick-info-row">
-          <span class="qi-icon">&#128338;</span>
-          <div>
-            <div class="qi-label">Availability</div>
-            <div class="qi-value">Accepting new clients</div>
-          </div>
-        </div>
-        <div class="quick-info-row">
-          <span class="qi-icon">&#128176;</span>
-          <div>
-            <div class="qi-label">Typical Investment</div>
-            <div class="qi-value">Contact for pricing</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- MAP -->
-      <div class="sidebar-card fade-in">
-        <h3>&#128506; Location</h3>
-        <div class="map-placeholder">
-          &#128205; Portland, OR &mdash; Map loads here
-        </div>
-        <div style="text-align:center; margin-top:10px;">
-          <a href="#" style="font-size:.82rem; color:var(--teal); font-weight:600;">Get Directions &rarr;</a>
-        </div>
-      </div>
-
-      <!-- EVIDENCE BADGE -->
-      <div class="evidence-badge fade-in">
-        <div class="evidence-seal">
-          <span class="seal-icon">&#10004;</span>
-          Evidence<br>Based<br>Program
-        </div>
-        <p style="margin-top:8px; font-weight:600; color:var(--text-primary); font-size:.85rem;">The Grief Recovery Method&reg;</p>
-        <p>Established, evidence-based program backed by peer-reviewed research and used by thousands worldwide.</p>
-      </div>
-
+    <div class="profile-hero-right">
+      <h1>Sarah Mitchell, LCSW</h1>
+      <div class="profile-credentials">Licensed Clinical Social Worker / Certified Grief Recovery Specialist&reg;</div>
+      <div class="profile-location">&#x1F4CD; Portland, OR &nbsp;|&nbsp; Also available online &nbsp;|&nbsp; English &amp; Spanish</div>
+      <div class="profile-rating"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rating-text"><strong>4.9</strong> (47 reviews)</span></div>
+      <div class="specialty-tags"><span class="specialty-tag">Grief &amp; Loss</span><span class="specialty-tag">Pet Loss</span><span class="specialty-tag">Divorce Recovery</span><span class="specialty-tag">Death of a Loved One</span><span class="specialty-tag">Children &amp; Teens</span><span class="specialty-tag">Career &amp; Health Loss</span></div>
+      <div class="hero-ctas"><a href="#contact-form" class="btn-orange-profile">Contact Sarah</a><a href="tel:503-555-0142" class="btn-outline-white">&#9742; (503) 555-0142</a></div>
     </div>
   </div>
 </div>
 
-<!-- ======================= SIMILAR SPECIALISTS ======================= -->
-<section class="similar-section">
-  <div class="container">
-    <h2 class="fade-in">Other Specialists Near Portland, OR</h2>
+<!-- Main Content -->
+<div class="main-content">
+  <div class="left-column">
+    <div class="content-section reveal"><h2 class="content-section-title">About Sarah</h2><div class="about-text"><p>With over 15 years of experience as a Licensed Clinical Social Worker, Sarah Mitchell noticed a recurring gap in her clinical training: while she had been taught to help people manage symptoms of grief, she hadn't been given the tools to help them complete it.</p><p>After discovering the Grief Recovery Method, Sarah became certified in 2018 and has since facilitated more than 200 programs for individuals, families, and groups. Her approach is warm, direct, and action-oriented &mdash; she believes grief doesn't need to be a life sentence, and that the right tools can help anyone move from pain to a place of peace.</p><p>Sarah specializes in working with adults and children who are navigating loss from death, divorce, pet loss, career transitions, and health crises. She offers both in-person sessions in Portland and virtual programs for clients nationwide.</p></div></div>
+
+    <div class="content-section reveal"><h2 class="content-section-title">Programs Offered</h2><div class="programs-offered-grid">
+      <div class="program-offered-card"><div class="program-icon">&#9825;</div><h4>Grief Recovery Support Group</h4><div class="program-meta">8-week program</div><div class="program-format">In-Person &amp; Online</div></div>
+      <div class="program-offered-card"><div class="program-icon">&#9734;</div><h4>One-on-One Grief Support</h4><div class="program-meta">7-session program</div><div class="program-format">In-Person &amp; Online</div></div>
+      <div class="program-offered-card"><div class="program-icon">&#128062;</div><h4>Pet Loss Support Group</h4><div class="program-meta">6-week program</div><div class="program-format">Online</div></div>
+      <div class="program-offered-card"><div class="program-icon">&#127775;</div><h4>Children &amp; Teen Program</h4><div class="program-meta">8-week program</div><div class="program-format">In-Person</div></div>
+    </div></div>
+
+    <div class="content-section reveal"><h2 class="content-section-title">Upcoming Groups &amp; Programs</h2>
+      <div class="upcoming-group-card"><div class="upcoming-date"><div class="upcoming-month">Apr</div><div class="upcoming-day">7</div></div><div class="upcoming-info"><div class="upcoming-title">Grief Recovery Support Group</div><div class="upcoming-meta">8 weeks &bull; Mondays 6:30&ndash;8:00 PM PT<br><strong>$75/session</strong> &bull; Starts Apr 7, 2026</div><div class="upcoming-tags"><span class="upcoming-tag upcoming-tag-format">Support Group</span><span class="upcoming-tag upcoming-tag-online">Online (Zoom)</span><span class="upcoming-tag upcoming-tag-spots">3 spots left</span></div></div><div><a href="#" class="btn-sm-register">Register</a></div></div>
+      <div class="upcoming-group-card"><div class="upcoming-date"><div class="upcoming-month">Apr</div><div class="upcoming-day">15</div></div><div class="upcoming-info"><div class="upcoming-title">Grief Recovery Support Group</div><div class="upcoming-meta">8 weeks &bull; Tuesdays 10:00&ndash;11:30 AM PT<br><strong>$75/session</strong> &bull; Starts Apr 15, 2026</div><div class="upcoming-tags"><span class="upcoming-tag upcoming-tag-format">Support Group</span><span class="upcoming-tag upcoming-tag-inperson">In-Person (Portland, OR)</span></div></div><div><a href="#" class="btn-sm-register">Register</a></div></div>
+      <div class="upcoming-group-card"><div class="upcoming-date"><div class="upcoming-month">May</div><div class="upcoming-day">5</div></div><div class="upcoming-info"><div class="upcoming-title">Pet Loss Support Group</div><div class="upcoming-meta">6 weeks &bull; Wednesdays 7:00&ndash;8:30 PM PT<br><strong>$65/session</strong> &bull; Starts May 5, 2026</div><div class="upcoming-tags"><span class="upcoming-tag upcoming-tag-format">Pet Loss Group</span><span class="upcoming-tag upcoming-tag-online">Online (Zoom)</span></div></div><div><a href="#" class="btn-sm-register">Register</a></div></div>
+      <div class="upcoming-group-card"><div class="upcoming-date" style="background:var(--orange);"><div class="upcoming-month">May</div><div class="upcoming-day">12</div></div><div class="upcoming-info"><div class="upcoming-title">One-on-One Grief Recovery Program</div><div class="upcoming-meta">7 sessions &bull; Flexible scheduling<br><strong>$150/session</strong> &bull; Next opening May 12, 2026</div><div class="upcoming-tags"><span class="upcoming-tag upcoming-tag-format">One-on-One</span><span class="upcoming-tag upcoming-tag-online">Online or In-Person</span></div></div><div><a href="#" class="btn-sm-register">Book</a></div></div>
+    </div>
+
+    <div class="content-section reveal"><h2 class="content-section-title">Areas of Specialty</h2><div class="specialty-chips"><span class="specialty-chip">Death of Spouse/Partner</span><span class="specialty-chip">Death of Parent</span><span class="specialty-chip">Death of Child</span><span class="specialty-chip">Pet Loss</span><span class="specialty-chip">Divorce &amp; Relationship Loss</span><span class="specialty-chip">Career &amp; Identity Loss</span><span class="specialty-chip">Health &amp; Mobility Loss</span><span class="specialty-chip">Childhood Grief</span><span class="specialty-chip">Estrangement</span><span class="specialty-chip">Moving &amp; Relocation</span></div></div>
+
+    <div class="content-section reveal"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;"><h2 class="content-section-title" style="border:none;margin:0;padding:0;">Client Reviews</h2><span style="font-size:15px;color:var(--faint);">47 Verified Reviews</span></div>
+      <div class="review-card-sp"><div class="review-stars-sp">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="review-quote-sp">"Sarah created a space where I could be completely honest about my grief for the first time. After losing my husband, I thought the pain would never let up. The Grief Recovery Method gave me tools I didn't know existed, and Sarah's guidance made all the difference."</div><div class="review-author-sp"><strong>Margaret K.</strong> &mdash; Portland, OR</div></div>
+      <div class="review-card-sp"><div class="review-stars-sp">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="review-quote-sp">"I came to Sarah after putting my dog down. I felt silly grieving so hard, but she made me feel validated from the first session. The pet loss group was exactly what I needed &mdash; structured, compassionate, and genuinely healing."</div><div class="review-author-sp"><strong>David R.</strong> &mdash; Beaverton, OR</div></div>
+      <div class="review-card-sp"><div class="review-stars-sp">&#9733;&#9733;&#9733;&#9733;&#9734;</div><div class="review-quote-sp">"My teenage daughter and I both went through Sarah's programs &mdash; her in the children's group and me one-on-one. It transformed our relationship and how we talk about the loss of her father. I can't recommend Sarah enough."</div><div class="review-author-sp"><strong>Jennifer L.</strong> &mdash; Lake Oswego, OR</div></div>
+    </div>
+  </div>
+
+  <!-- Right Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-card" id="contact-form"><h3>Contact Sarah</h3><form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent! Sarah will respond within 1-2 business days.');"><input type="text" placeholder="Your Name" required><input type="email" placeholder="Email Address" required><input type="tel" placeholder="Phone Number (optional)"><textarea placeholder="Hi Sarah, I'm interested in learning more about your grief recovery programs..."></textarea><button type="submit" class="btn-orange-profile">Send Message</button></form></div>
+    <div class="sidebar-card"><h3>Quick Info</h3><div class="quick-info-row"><span class="quick-info-label">Location</span><span class="quick-info-value">Portland, OR</span></div><div class="quick-info-row"><span class="quick-info-label">Phone</span><span class="quick-info-value"><a href="tel:503-555-0142" style="color:var(--teal);text-decoration:none;">(503) 555-0142</a></span></div><div class="quick-info-row"><span class="quick-info-label">Languages</span><span class="quick-info-value">English, Spanish</span></div><div class="quick-info-row"><span class="quick-info-label">Session Format</span><span class="quick-info-value">In-Person &amp; Online</span></div><div class="quick-info-row"><span class="quick-info-label">Availability</span><span class="quick-info-value"><span class="accepting-badge">Accepting New Clients</span></span></div><div class="quick-info-row"><span class="quick-info-label">Investment</span><span class="quick-info-value">Contact for Pricing</span></div></div>
+  </div>
+</div>
+
+<!-- Similar Specialists -->
+<div class="similar-section reveal">
+  <div class="similar-section-inner">
+    <h2 class="section-title" style="text-align:left;">Similar Specialists Nearby</h2>
     <div class="similar-grid">
-      <div class="similar-card fade-in">
-        <div class="similar-avatar">&#128100;</div>
-        <h3>James Whitfield, MA</h3>
-        <div class="sim-loc">Lake Oswego, OR &bull; 8 mi</div>
-        <div class="sim-stars">&#9733;&#9733;&#9733;&#9733;&#9733; <span style="color:var(--text-light); font-size:.72rem;">5.0 (23 reviews)</span></div>
-        <a href="#" class="sim-link">View Profile &rarr;</a>
-      </div>
-      <div class="similar-card fade-in">
-        <div class="similar-avatar">&#128100;</div>
-        <h3>Linda Park, LPC</h3>
-        <div class="sim-loc">Beaverton, OR &bull; 11 mi</div>
-        <div class="sim-stars">&#9733;&#9733;&#9733;&#9733;&#9733; <span style="color:var(--text-light); font-size:.72rem;">4.9 (18 reviews)</span></div>
-        <a href="#" class="sim-link">View Profile &rarr;</a>
-      </div>
-      <div class="similar-card fade-in">
-        <div class="similar-avatar">&#128100;</div>
-        <h3>Rachel Torres, LMFT</h3>
-        <div class="sim-loc">Vancouver, WA &bull; 14 mi</div>
-        <div class="sim-stars">&#9733;&#9733;&#9733;&#9733;&#9733; <span style="color:var(--text-light); font-size:.72rem;">5.0 (31 reviews)</span></div>
-        <a href="#" class="sim-link">View Profile &rarr;</a>
-      </div>
-    </div>
-    <div style="text-align:center; margin-top:24px;">
-      <a href="TGRM_Directory.html" style="font-size:.9rem; color:var(--teal); font-weight:700;">Search All Specialists in Oregon &rarr;</a>
+      <a href="#" class="similar-card"><div class="similar-card-top"><div class="similar-avatar">JW</div><div><div class="similar-card-name">James Whitfield, LPC</div><div class="similar-card-location">Lake Oswego, OR</div></div></div><div class="similar-card-meta"><span class="similar-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733; 4.8 (32 reviews)</span><span class="similar-card-distance">8 mi away</span></div></a>
+      <a href="#" class="similar-card"><div class="similar-card-top"><div class="similar-avatar">LP</div><div><div class="similar-card-name">Linda Park, LMFT</div><div class="similar-card-location">Beaverton, OR</div></div></div><div class="similar-card-meta"><span class="similar-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733; 4.7 (28 reviews)</span><span class="similar-card-distance">11 mi away</span></div></a>
+      <a href="#" class="similar-card"><div class="similar-card-top"><div class="similar-avatar">RT</div><div><div class="similar-card-name">Rachel Torres, LCSW</div><div class="similar-card-location">Vancouver, WA</div></div></div><div class="similar-card-meta"><span class="similar-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733; 4.9 (41 reviews)</span><span class="similar-card-distance">14 mi away</span></div></a>
     </div>
   </div>
+</div>
+
+<!-- CTA Banner -->
+<section class="final-cta reveal" style="background:linear-gradient(155deg, rgba(58,117,128,0.92), rgba(91,163,175,0.88));">
+  <h2>Not Sure If the Grief Recovery Method Is Right for You?</h2>
+  <p>Take our free 2-minute grief quiz to learn more about your grief and discover personalized next steps.</p>
+  <div class="final-cta-buttons"><a href="TGRM_Quiz.html" class="btn-primary btn-white">Take the Free Grief Quiz</a></div>
 </section>
 
-<!-- ======================= CTA BANNER ======================= -->
-<section class="profile-cta-banner">
-  <div class="container fade-in">
-    <h2>Not sure if the Grief Recovery Method&reg; is right for you?</h2>
-    <p>Take our free 2-minute quiz to find out if you may be carrying unresolved grief &mdash; and what to do about it.</p>
-    <a href="TGRM_Grief_Type_Quiz.html" class="btn-cta-white">Take the Free Grief Quiz &rarr;</a>
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div><div class="footer-brand">The Grief Recovery <span>Method</span>&reg;</div><p class="footer-desc">An evidence-based grief recovery program helping people move beyond loss since 1977.</p><div class="footer-stats">45+ years &bull; 1.5M+ helped &bull; 3,000+ specialists</div></div>
+    <div><div class="footer-col-title">For Grievers</div><a href="TGRM_GetHelp_Hub.html" class="footer-link">Get Help</a><a href="TGRM_Directory.html" class="footer-link">Find a Specialist</a><a href="TGRM_Quiz.html" class="footer-link">Grief Type Quiz</a><a href="TGRM_Handbook.html" class="footer-link">The Handbook</a></div>
+    <div><div class="footer-col-title">For Professionals</div><a href="TGRM_GetCertified_Hub.html" class="footer-link">Get Certified</a><a href="TGRM_Training_Calendar.html" class="footer-link">Training Dates</a><a href="TGRM_Private_Training.html" class="footer-link">Private Training</a><a href="TGRM_About.html" class="footer-link">About Us</a></div>
+    <div><div class="footer-col-title">Resources</div><a href="TGRM_Blog.html" class="footer-link">Blog</a><a href="TGRM_Podcast.html" class="footer-link">Podcast</a><a href="TGRM_Resources.html" class="footer-link">All Resources</a><a href="#" class="footer-link">Contact Us</a></div>
   </div>
-</section>
-
-<!-- ======================= FOOTER ======================= -->
-<footer class="page-footer">
-  <div class="container">
-    <div class="footer-inner">
-      <div class="footer-links">
-        <a href="TGRM_Homepage_V2.html">Home</a>
-        <a href="TGRM_Directory.html">Find a Specialist</a>
-        <a href="TGRM_Certification.html">Certification</a>
-        <a href="TGRM_Handbook.html">The Handbook</a>
-        <a href="TGRM_Blog.html">Blog</a>
-        <a href="TGRM_For_Therapists.html">For Therapists</a>
-      </div>
-      <div>&copy; 2026 The Grief Recovery Institute&reg;. All rights reserved.</div>
-    </div>
-  </div>
+  <p class="footer-bottom">&copy; 2026 The Grief Recovery Method&reg;. All rights reserved.</p>
+  <p class="footer-crisis">If you or someone you know is in crisis, please call 988 (Suicide &amp; Crisis Lifeline) or text HOME to 741741.</p>
 </footer>
 
-<script>
-// Fade-in on scroll
-const faders = document.querySelectorAll('.fade-in');
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
-}, { threshold: 0.1 });
-faders.forEach(f => obs.observe(f));
-</script>
+<script src="tgrm-premium.js" defer></script>
 </body>
 </html>
